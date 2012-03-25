@@ -74,6 +74,8 @@
 \usepackage[marginal]{footmisc}
 %- end(footnote-configuration)
 
+% insert nomenclature definition here
+\input{mycsrfNclMetaDefineEnInc}
 
 \begin{document}
 
@@ -90,11 +92,13 @@
 \maketitle
 %%-- end(titlepage)
 
-Secondary resources of the mycsrf project are managed in 4 BiBTeX-Files:
+Secondary resources of the mycsrf project are managed in 5 BiBTeX-Files:
 
 \begin{itemize}
   \item {\bfseries ../bibfiles/mycsrfResourcesEn.bib} :- contains evaluated and
   verified data with English annotations
+  \item {\bfseries ../bibfiles/mycsrfResourcesEn.bib} :- contains verified but
+  still not evaluated data.
   \item {\bfseries ../bibfiles/mycsrfNextActions.bib} :- contains
   probably important data/works which should be evaluated (in the next future)
   \item {\bfseries ../bibfiles/mycsrfSomedayMaybe.bib} :-
@@ -103,6 +107,10 @@ Secondary resources of the mycsrf project are managed in 4 BiBTeX-Files:
 \end{itemize}
 
 \small
-\bibliography{../bibfiles/mycsrfResourcesEn,../bibfiles/mycsrfNextActions,../bibfiles/mycsrfSomedayMaybe,../bibfiles/mycsrfXtras}
+% insert nomenclature data here
+\input{mycsrfNclMetaLocInsEnInc}
+
+% insert bibliographical data here
+\bibliography{../bibfiles/mycsrfResourcesDe,../bibfiles/mycsrfCopiedButNotRead,../bibfiles/mycsrfNextActions,../bibfiles/mycsrfSomedayMaybe,../bibfiles/mycsrfXtras}
 
 \end{document}

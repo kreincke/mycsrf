@@ -1,4 +1,8 @@
 (c) Karsten Reincke, Frankfurt a.M. 2012 ff.
-
+2012-03-25/REL-1.1:
+* integrated tex4ht for generating html versions of the
+  litetature lists
+* modularised the nomenclature files and added them
+  also into the literature review files
 2012-02-21/REL-1.0:
 * initial publishing the myCsrf-package as github project

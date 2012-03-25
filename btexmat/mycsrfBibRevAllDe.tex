@@ -74,6 +74,9 @@
 \usepackage[marginal]{footmisc}
 %- end(footnote-configuration)
 
+% insert nomenclature definition here
+\input{mycsrfNclMetaDefineDeInc}
+
 \begin{document}
 
 %% use all entries of the bliography
@@ -90,21 +93,30 @@
 \maketitle
 %%-- end(titlepage)
 
-Secondary resources of the mycsrf project are managed in 4 BiBTeX-Files:
+Sekundärliteatur in einem mycsrf-Projekt wird in  5 BiBTeX-Files gemanaged:
 
 \begin{itemize}
-  \item {\bfseries ../bibfiles/mycsrfResourcesDe.bib} :- contains evaluated and
-  verified data with german annotations
-  \item {\bfseries ../bibfiles/mycsrfNextActions.bib} :- contains
-  probably important data/works which should be evaluated (in the next future)
-  \item {\bfseries ../bibfiles/mycsrfSomedayMaybe.bib} :-
-  contains probably unimportant or dispensable literature which seem to be beside the point
-  \item {\bfseries ../bibfiles/mycsrfXtras.bib} :- contains ignorable hints
+  \item {\bfseries ../bibfiles/mycsrfResourcesDe.bib} :- enthält die
+  bereits ausgewertete Literatur; die Literaturangaben sind mithin
+  verifiziert.
+  \item {\bfseries ../bibfiles/mycsrfCopiedButNotRead.bib} :- enthält
+  die bereits verifzierten Literaturangaben von Sekundärliteratur,
+  die allerdings noch gelesen / ausgewertet werden muss.
+  \item {\bfseries ../bibfiles/mycsrfNextActions.bib} :- enthält
+  währscheinlich wichtige Werke, die (in der nächsten Zukunft)
+  geholt, verifziert und ausgewertet werden sollten; die bibliographischen
+  Daten sind mithin noch nicht vertrauenswürdig.
+  \item {\bfseries ../bibfiles/mycsrfSomedayMaybe.bib} :- enthält
+  wahrscheinlich unwichtige und vernachlässigbare Literatur; die
+  ibliographischen Daten sind mithin nicht vertrauenswürdig.
+  \item {\bfseries ../bibfiles/mycsrfXtras.bib} :- enthält einfache,
+  ignorierbare Hinweise
 \end{itemize}
 
 \small
-\bibliography{../bibfiles/mycsrfResourcesDe,../bibfiles/mycsrfNextActions,../bibfiles/mycsrfSomedayMaybe,../bibfiles/mycsrfXtras}
-
-
+% insert nomenclature data here
+\input{mycsrfNclMetaLocInsDeInc}
+% insert bibliographical data here
+\bibliography{../bibfiles/mycsrfResourcesDe,../bibfiles/mycsrfCopiedButNotRead,../bibfiles/mycsrfNextActions,../bibfiles/mycsrfSomedayMaybe,../bibfiles/mycsrfXtras}
 
 \end{document}

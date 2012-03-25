@@ -73,18 +73,7 @@
 \usepackage[marginal]{footmisc}
 %- end(footnote-configuration)
 
-\usepackage[intoc]{nomencl}
-\let\abbr\nomenclature
-% Deutsche Überschrift
-%\renewcommand{\nomname}{Periodicals, Shortcuts, and Overlapping Abbreviations}
-\renewcommand{\nomname}{Periodika, ihre Kurzformen und generelle Abkürzungen}
-
-\setlength{\nomlabelwidth}{.20\hsize}
-\renewcommand{\nomlabel}[1]{#1 \dotfill}
-% reduce the line distance
-\setlength{\nomitemsep}{-\parsep}
-\makenomenclature
-
+\input{btexmat/mycsrfNclMetaDefineDeInc}
 
 \begin{document}
 
@@ -169,11 +158,14 @@ In diesem Kapitel erläutern wir \ldots
 \end{itemize}
 
 \small
+
+% insert the nomenclature here
 \input{btexmat/mycsrfNclAbbreviationsDeInc}
 \input{btexmat/mycsrfNclAbbreviationsInc}
 \input{btexmat/mycsrfNclJournalsInc}
 \printnomenclature
 
+% insert the bibliographical data here
 \bibliography{bibfiles/mycsrfResourcesDe}
 
 \end{document}

@@ -74,6 +74,8 @@
 \usepackage[marginal]{footmisc}
 %- end(footnote-configuration)
 
+% insert nomenclature definition here
+\input{mycsrfNclMetaDefineDeInc}
 
 \begin{document}
 
@@ -81,19 +83,20 @@
 \nocite{*}
 
 %%-- start(titlepage)
-
-\titlehead{Deutsche Konfiguration}
-\subject{Final BiBTeX-File}
-\title{Review}
-\subtitle{../oscResourcesDe.bib}
+%\titlehead{English Configuration}
+\subject{mind your Classical scholar research framework}
+\title{Verifizierte und evaluierte Literatur(angaben) aus der
+Datei 'mycsrfResourcesDe.bib'}
 \author{Karsten Reincke\input{mycsrfLicenseFootnoteInc}}
-%\thanks{den Autoren von KOMA-Script und denen von Jurabib}
+
 \maketitle
 %%-- end(titlepage)
-
-Inhalt des BiBTeX-Files {\bfseries ../bibfiles/mycsrfResourcesDe}
+Release [\input{../release}]
 
 \small
+% insert nomenclature data here
+\input{mycsrfNclMetaLocInsDeInc}
+% insert bibliographical data here
 \bibliography{../bibfiles/mycsrfResourcesDe}
 
 \end{document}

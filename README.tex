@@ -68,21 +68,10 @@
 \usepackage[marginal]{footmisc}
 %- end(footnote-configuration)
 
-\usepackage[intoc]{nomencl}
-\let\abbr\nomenclature
-
-\renewcommand{\nomname}{Periodicals, Shortcuts, and Overlapping Abbreviations}
-%\renewcommand{\nomname}{Periodika, ihre Kurzformen und generelle Abkürzungen}
-
-
-% insert point between abbrewviation and explanation
-\setlength{\nomlabelwidth}{.20\hsize}
-\renewcommand{\nomlabel}[1]{#1 \dotfill}
-% reduce the line distance
-\setlength{\nomitemsep}{-\parsep}
-\makenomenclature
-
 %\input{btexmat/mycsrfEnNoCfgEnInc.tex}
+
+% insert nomenclature definition here
+\input{btexmat/mycsrfNclMetaDefineEnInc}
 
 \begin{document}
 
@@ -158,6 +147,9 @@ jab\-ref\footnote{After having done this import you can directly call jabref
 without any parameters.}. Use LaTeX as you are used to do. Together, Eclipse and
 Texlipse provide a very good environment to edit and manage your the scientific
 papers.
+
+If you want to generate html-Versions of your literature lists, you must
+additionally install \textit{tex4ht}.
 
 \subsection{What must I know to use myCsrf successfully?}
 You must already be familiar with using LaTeX and BibTeX and you must know how
@@ -261,6 +253,14 @@ commands:
 For reviewing the results use your tools like \textit{xdvi}, \textit{gs},
 \textit{acroread} or anything else as you are used to do.
 
+\subsection{Can I generate a html version of my literature files?}
+Yes, you can - if you have installed tex4ht. In this case change into
+directory btexmat and simply call \texttt{mycsrfBibRevAllDe.html}, 
+\texttt{mycsrfBibRevAllEn.html}, \texttt{mycsrfBibRevNextAction.html},
+\texttt{mycsrfBibRevCopiedButNotRead.html},
+\texttt{mycsrfBibRevResourcesDe.html}, or
+\texttt{mycsrfBibRevResourcesEn.html}.
+
 \subsection{What's the purpose of all these Makefiles?}
 Each directory contains a \textit{Makefile} by which you can start the
 compilation of your LaTeX files. For details see section \textit{How do I
@@ -286,10 +286,11 @@ bibliography.}
   bib-files (German style / annotations)
   \item \texttt{mycsrfBibRevAllEn.tex} :- presents a list all items of all
   bib-files (English style / annotations)
-  \item \texttt{mycsrfBibRevNextActionDe.tex} :- presents a list all items of
-  the next actions bib-file (German style / annotations)
-  \item \texttt{mycsrfBibRevNextActionEn.tex} :- presents a list all items of
-  the next actions bib-file (English style / annotations)
+  \item \texttt{mycsrfBibRevNextAction.tex} :- presents a list all items 
+  which data still must be verified (English style / annotations)
+  \item \texttt{mycsrfBibRevCopiedButNotRead.tex} :- presents a list all items 
+  which bibliographic data are alrey verified but which content still
+  must be evaluated (German style / annotations)
   \item \texttt{mycsrfBibRevResourcesDe.tex} :- presents a list all items of
   the Your final literature list (German style / annotations)
   \item \texttt{mycsrfBibRevResourcesEn.tex} :- presents a list all items of
@@ -361,9 +362,11 @@ personally I work on GNU/Linux. Please tell me if you are successful}.
 Naturally, I'm developing on and for GNU/Linux - personally nothing else!
 
 \subsubsection{\ldots on MacOS?}
-I don't know. It's senseless to donate me with an iMac etc. My wife had done it
-already. And at once I installed GNU/Linux (naturally by configuring it as an
-optical instance of MacOS.)
+Yes, you can. We verified this way while working on the 'Open Source
+License Compendium'\footnote{But it's senseless to donate me with an iMac etc.
+My wife had done it already. And at once I installed GNU/Linux (naturally 
+by configuring it as an
+optical instance of MacOS.}.
 
 \subsection{What's the license of mycsrf, what am I allowed to do?}
 The \textit{myCsrf} is licensed under the Creative Commons Attribution
@@ -436,11 +439,13 @@ this means:
   author\footcite[cf.][789]{KantKdV1974} is quoted again.
 \end{itemize}
 \small
+
 %\theendnotes
+% insert nomenclature data here
 \input{btexmat/mycsrfNclAbbreviationsEnInc}
 \input{btexmat/mycsrfNclAbbreviationsInc}
 \input{btexmat/mycsrfNclJournalsInc}
 \printnomenclature
-
+% insert bibliographical data here
 \bibliography{bibfiles/mycsrfResourcesEn}
 \end{document}

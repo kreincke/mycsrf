@@ -74,6 +74,8 @@
 \usepackage[marginal]{footmisc}
 %- end(footnote-configuration)
 
+% insert nomenclature definition here
+\input{mycsrfNclMetaDefineDeInc}
 
 \begin{document}
 
@@ -81,19 +83,20 @@
 \nocite{*}
 
 %%-- start(titlepage)
-
-\titlehead{Deutsche Konfiguration}
-\subject{Next Action BiBTeX-File}
-\title{Review}
-\subtitle{../btexmat/mycsrfNextActions.bib}
+%\titlehead{English Configuration}
+\subject{mind your Classical scholar research framework}
+\title{Verified but still unread literature (data) in the file
+'mycsrfCopiedButNotRead.bib'}
 \author{Karsten Reincke\input{mycsrfLicenseFootnoteInc}}
-%\thanks{den Autoren von KOMA-Script und denen von Jurabib}
+
 \maketitle
 %%-- end(titlepage)
-
-Inhalt des BiBTeX-Files {\bfseries ../btexmat/mycsrfNextActions.bib}
+Release [\input{../release}]
 
 \small
-\bibliography{../bibfiles/mycsrfNextActions}
+% insert nomenclature data here
+\input{mycsrfNclMetaLocInsDeInc}
+% insert bibliographical data here
+\bibliography{../bibfiles/mycsrfCopiedButNotRead}
 
 \end{document}
