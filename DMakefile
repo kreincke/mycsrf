@@ -1,6 +1,6 @@
 # (c) Karsten Reincke, Frankfurt am Main, 2011
 
-REL=1.0
+REL=1.1
 PKGNAME="mycsrf"
 TDIR="/tmp"
 PDIR="$(TDIR)/$(PKGNAME)"
