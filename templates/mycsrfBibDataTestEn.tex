@@ -26,8 +26,11 @@
 
 %%% (2) language specific configurations %%%
 \usepackage[]{a4,ngerman}
-\usepackage[english,ngerman]{babel}
-\selectlanguage{ngerman}
+\usepackage[ngerman,english]{babel}
+\selectlanguage{english}
+
+%set langauge specific quotes
+\usepackage{csquotes}
 
 % jurabib configuration
 \usepackage[see]{jurabib}
@@ -81,10 +84,10 @@
 \nocite{*}
 
 %%-- start(titlepage)
-\titlehead{Bibliographietest}
-\subject{Zum Testen \itshape{neuer bibliographischer Angaben}}
-\title{Kommentierte Bibliographie}
-\subtitle{samt textweisem Anmerkungsapparat in Fußnoten}
+\titlehead{Testing the Bibliography}
+\subject{For evaluating \itshape{new bibliographic data}}
+\title{Bibliography with Annotations}
+\subtitle{Includes the main cases of quotings and footnotes}
 \author{Karsten Reincke\input{../btexmat/mycsrfLicenseFootnoteInc}}
 %\thanks{den Autoren von KOMA-Script und denen von Jurabib}
 \maketitle
@@ -92,43 +95,39 @@
 
 \begin{abstract}
 \noindent \itshape
-Der Umgang mit Quellennachweisen muss sorgsam überprüft werden. Dazu dient
-dieser Testtext: Ein neue bibliographischer Eintrag in die bibliographische
-Datenbank wird fallweise ausgetestet: der initiale Eintrag, das direkte
-Wiederholungszitat - zuerst seitengleich, dann seitendifferent, die
-Autorwiederholung und die Kurztitelwiederaufnahme. Bei Sammlungen sollte auch
-die Sammlungswiederholung ausgetestet werden. Und schließlich erscheint die
-ganze kommentierte Bibliographie.
+Using new sources must be tested very thoroughly. The prupose of this document
+is to do that: a new entry of the bliographic database (bibfile) is tested case
+by case: (a) the initial entry, (b) the same reference, directly quoted again,
+(b.1) firstly referring to the same page, than (b.2) to a different page, (c)
+the same reference, quoted after having quoted another sources\ldots
 \end{abstract}
 \footnotesize
 %\tableofcontents
 \normalsize
 
-\section{Initialzitat \& Repitition per $\backslash$footcite aus \emph{jurabib}}
+\section{Initial Quote \& Repitition by Using $\backslash$footcite from
+\emph{jurabib}}
 
-Hier erscheint das \glqq Initialzitat mit vollständiger bibliographischer
-Angabe\grqq\footcite[vgl. dazu:][123ff]{Covey2006a}, gefolgt von dem
-\glqq seitengleichen Wiederholungszitat\grqq\footcite[vgl.
-dazu:][123ff]{Covey2006a}, und das wiederum gefolgt vom \glqq seitendifferenten
-Wiederholungszitat\grqq\footcite[vgl. dazu:][125f]{Covey2006a}.
+This is the German quoted \foreignquote{german}{Initialzitat mit
+vollständiger bibliographischer Angabe}\footcite[cf.][123pp]{Covey2006a}, followed by
+the English written \foreignquote{english}{repetition quote on the same
+page}\footcite[cf.][123ff]{Covey2006a}, which itself is followed by a
+repition quote on a different page of the same
+work\footcite[cf.][125p]{Covey2006a}.
 
-Nach Möglichkeit sollte hier ein anderes Werk desselben Autors zitiert
-werden\footcite[vgl. dazu:][321]{Covey2006a}.
+Now, quote another work of the same author\footcite[cf.][321]{Covey2006a}.
 
-Hier wird ein ganz anderes Werk zitiert\footcite[vgl.
-dazu:][42]{KantKdU1974}, um im Anschluss das \glqq
-Kurztitel-Wiederholungszitat'\grqq\footcite[vgl. dazu:][123]{Covey2006a}
-abzu testen.
+Then quote any work of another author\footcite[cf.][42]{KantKdU1974}, before you
+repeat the test work again for checking whether its' short form is quoted
+\enquote{correctly}\footcite[cf.][123]{Covey2006a}.
 
-\section{Testzitat $\backslash$cite in $\backslash$footnote}
+\section{Testing quotes by using $\backslash$cite in $\backslash$footnote}
 
-Hier folgt - jeweils als Referenz über die Anweisung $\backslash$cite in
-$\backslash$footnote - zunächst das ``seitendifferente
-Wiederholungszitat''\footnote{\cite[vgl. dazu:][125]{Covey2006a}},gefolgt
-von einem Fremdzitat\footnote{\cite[vgl. dazu:][42]{KantKdU1974}} und das
-wiederum gefolgt vom `Kurztitel-Wiederholungszitat''\footnote{\cite[vgl.
-dazu:][125]{Covey2006a}}.
-
+\begin{itemize}
+  \item same quote \footnote{\cite[cf.][125]{Covey2006a}}
+  \item different quote \footnote{\cite[cf.][42]{KantKdU1974}}
+  \item short title repitition\footnote{\cite[cf.][125]{Covey2006a}}
+\end{itemize}
 
 \small
 \bibliography{../bibfiles/mycsrfResourcesEn}

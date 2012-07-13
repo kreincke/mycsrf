@@ -29,6 +29,9 @@
 \usepackage[english,ngerman]{babel}
 \selectlanguage{ngerman}
 
+%set langauge specific quotes
+\usepackage{csquotes}
+
 % jurabib configuration
 \usepackage[see]{jurabib}
 \bibliographystyle{jurabib}
@@ -106,18 +109,18 @@ ganze kommentierte Bibliographie.
 
 \section{Initialzitat \& Repitition per $\backslash$footcite aus \emph{jurabib}}
 
-Hier erscheint das \glqq Initialzitat mit vollständiger bibliographischer
-Angabe\grqq\footcite[vgl. dazu:][123ff]{Covey2006a}, gefolgt von dem
-\glqq seitengleichen Wiederholungszitat\grqq\footcite[vgl.
-dazu:][123ff]{Covey2006a}, und das wiederum gefolgt vom \glqq seitendifferenten
-Wiederholungszitat\grqq\footcite[vgl. dazu:][125f]{Covey2006a}.
+Hier erscheint das \enquote{ Initialzitat mit vollständiger bibliographischer
+Angabe}\footcite[vgl. dazu:][123ff]{Covey2006a}, gefolgt von dem
+\enquote{ seitengleichen Wiederholungszitat}\footcite[vgl.
+dazu:][123ff]{Covey2006a}, und das wiederum gefolgt vom \enquote{ seitendifferenten
+Wiederholungszitat}\footcite[vgl. dazu:][125f]{Covey2006a}.
 
 Nach Möglichkeit sollte hier ein anderes Werk desselben Autors zitiert
 werden\footcite[vgl. dazu:][321]{Covey2006a}.
 
 Hier wird ein ganz anderes Werk zitiert\footcite[vgl.
-dazu:][42]{KantKdU1974}, um im Anschluss das \glqq
-Kurztitel-Wiederholungszitat'\grqq\footcite[vgl. dazu:][123]{Covey2006a}
+dazu:][42]{KantKdU1974}, um im Anschluss das \enquote{
+Kurztitel-Wiederholungszitat'}\footcite[vgl. dazu:][123]{Covey2006a}
 abzu testen.
 
 \section{Testzitat $\backslash$cite in $\backslash$footnote}

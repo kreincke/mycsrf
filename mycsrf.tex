@@ -28,6 +28,9 @@
 \usepackage[english,ngerman]{babel}
 \selectlanguage{ngerman}
 
+%set langauge specific quotes
+\usepackage{csquotes}
+
 % jurabib configuration
 \usepackage[see]{jurabib}
 \bibliographystyle{jurabib}
@@ -95,7 +98,10 @@
 
 \normalsize
 \chapter{Einleitung}
-
+Zitattests csquotes: 
+\begin{itemize}
+\item \enquote{en\enquote{quo}\footcite[vgl.][15]{AllHen2008a} te}\footcite[vgl.][15]{AllHen2008a}
+\end{itemize}
 \chapter{X}
 \begin{quote}\itshape
 In diesem Kapitel erläutern wir \ldots

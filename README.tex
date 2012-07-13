@@ -23,6 +23,9 @@
 \usepackage[ngerman, english]{babel}
 \selectlanguage{english}
 
+%set langauge specific quotes (follows languag and babel package)
+\usepackage{csquotes}
+
 % jurabib configuration
 \usepackage[see]{jurabib}
 \bibliographystyle{jurabib}
@@ -303,7 +306,11 @@ bibliography.}
   \item change $\backslash$usepackage[english,ngerman]\{babel\} into
   $\backslash$usepackage[ngerman, english]\{babel\}
   \item change $\backslash$selectlanguage\{ngerman\} into 
-  $\backslash$selectlanguage\{english\} 
+  $\backslash$selectlanguage\{english\}
+  \item This modification is automatically managed by the csquotes-package
+  itself. Its' use is already been inserted into the headers of the tex
+  files by the line $\backslash$usepackage\{csquotes\}. For modifying the
+  default values of its' parameters see the csquotes-handout.
   \item change $\backslash$input\{btexmat/mycsrfJbibCfgDeInc\} into
   $\backslash$input\{btexmat/my\-keds\-Jbib\-CfgEnInc\}
   \item activate the English resources bib-file instead of the German by
@@ -369,11 +376,11 @@ by configuring it as an
 optical instance of MacOS.}.
 
 \subsection{What's the license of mycsrf, what am I allowed to do?}
-The \textit{myCsrf} is licensed under the Creative Commons Attribution
-3.0 Germany License (http://creativecommons.org/licenses/by/3.0/de/): Feel free \glqq{}to share (to
-copy, distribute and transmit)\grqq{} or \glqq{}to remix (to adapt)\grqq{} it,
-if you respect how \glqq{}you must attribute the work in the manner specified by
-the author(s) [\ldots]\grqq{}):
+The \textit{myCsrf} is licensed under the Creative Commons Attribution 3.0
+Germany License (http://creativecommons.org/licenses/by/3.0/de/): Feel free
+\enquote{to share (to copy, distribute and transmit)} or \enquote{to remix (to
+adapt)} it, if you respect how \enquote{you must attribute the work in the
+manner specified by the author(s) [\ldots]}):
 
 In an internet based reuse please link the reused parts to mycsrf.fodina.de and
 mention the original author Karsten Reincke in a suitable manner. In a
@@ -381,7 +388,7 @@ paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
 original author, Karsten Reincke, into your preface. For normal quotations
 please use the scientific standard to cite.
 
-This means explicitely that you are allowed to take the
+This means explicitly that you are allowed to take the
 \textit{myCsrf}, rename it and generate your own book / article on
 the base and with the help of this framework. There's no need to publish the
 result under the same license! The only condition is that you mention the use of
