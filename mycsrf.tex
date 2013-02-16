@@ -73,8 +73,53 @@
 %- start(footnote-configuration)
 %  flush the cite numbers out of the vertical line and let
 %  the footnote text directly start in the left vertical line
-\usepackage[marginal]{footmisc}
+% \usepackage[marginal]{footmisc}
+
+% formatting the footnote with koma script tools
+% \deffootnote[1em]{1.5em}{1em}{\textsuperscript{\thefootnotemark}}
+\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
 %- end(footnote-configuration)
+
+% package for generating graphics
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{matrix}
+
+% package for macking tables with broken lines
+\usepackage{multirow}
+
+\usepackage{amsmath,amsfonts}
+\usepackage{amssymb}
+\usepackage{wasysym}
+% for generatin trees
+\usepackage{pstricks, pst-node, pst-tree}
+\usepackage{chngcntr}
+
+%for using label as nameref
+\usepackage{nameref}
+
+%footnotes 
+\counterwithout{footnote}{chapter}
+
+\usepackage[intoc]{nomencl}
+\let\abbr\nomenclature
+% Modify Section Title of nomenclature
+\renewcommand{\nomname}{Periodicals, Shortcuts, and Overlapping Abbreviations}
+%\renewcommand{\nomname}{Periodika, ihre Kurzformen und generelle Abkürzungen}
+
+% insert point between abbrewviation and explanation
+\setlength{\nomlabelwidth}{.24\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+% reduce the line distance
+\setlength{\nomitemsep}{-\parsep}
+\makenomenclature
+
+% depth of contents
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
 
 \input{btexmat/mycsrfNclMetaDefineDeInc}
 
