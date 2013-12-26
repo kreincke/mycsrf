@@ -36,6 +36,7 @@ all:
 	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
 	@ echo "### converting $< to $@"
 	@ ps2pdf $<
+	@ mv $@ `basename $@ .pdf`-`cat mycsrf.rel`.pdf
 
 
 clearAuxFiles:
