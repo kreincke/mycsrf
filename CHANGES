@@ -1,4 +1,7 @@
 (c) Karsten Reincke, Frankfurt a.M. 2012 ff.
+2013-12-26: 
+* seperated myCsrf release number from template release number
+* improved titel page mycsrf template file
 2013-02-16: footnote formatting with koma \deffootnote
 2012-07-10: starting work on release 1.2 (csquote integration)
 2012-03-25/REL-1.1:
