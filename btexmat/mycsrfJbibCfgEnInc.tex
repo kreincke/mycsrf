@@ -22,22 +22,22 @@
 % an 'and before last author explicetly written conjunction
 
 % for authors in citations
-\renewcommand*{\jbbtasep}{ a. } % bta = between two authors sep
-\renewcommand*{\jbbfsasep}{, } % bfsa = between first and second author sep
-\renewcommand*{\jbbstasep}{, a. }% bsta = between second and third author sep
+\renewcommand*{\jbbtasep}{\ a.\ } % bta = between two authors sep
+\renewcommand*{\jbbfsasep}{,\ } % bfsa = between first and second author sep
+\renewcommand*{\jbbstasep}{,\ a.\ }% bsta = between second and third author sep
 % for editors in citations
-\renewcommand*{\jbbtesep}{ a. } % bta = between two authors sep
-\renewcommand*{\jbbfsesep}{, } % bfsa = between first and second author sep
-\renewcommand*{\jbbstesep}{, a. }% bsta = between second and third author sep
+\renewcommand*{\jbbtesep}{\ a.\ } % bta = between two authors sep
+\renewcommand*{\jbbfsesep}{,\ } % bfsa = between first and second author sep
+\renewcommand*{\jbbstesep}{,\ a.\ }% bsta = between second and third author sep
 
 % for authors in literature list
-\renewcommand*{\bibbtasep}{ a. } % bta = between two authors sep
-\renewcommand*{\bibbfsasep}{, } % bfsa = between first and second author sep
-\renewcommand*{\bibbstasep}{, a. }% bsta = between second and third author sep
+\renewcommand*{\bibbtasep}{\ a.\ } % bta = between two authors sep
+\renewcommand*{\bibbfsasep}{,\ } % bfsa = between first and second author sep
+\renewcommand*{\bibbstasep}{,\ a.\ }% bsta = between second and third author sep
 % for editors  in literature list
-\renewcommand*{\bibbtesep}{ a. } % bte = between two editors sep
-\renewcommand*{\bibbfsesep}{, } % bfse = between first and second editor sep
-\renewcommand*{\bibbstesep}{, a. }% bste = between second and third editor sep
+\renewcommand*{\bibbtesep}{\ a.\ } % bte = between two editors sep
+\renewcommand*{\bibbfsesep}{,\ } % bfse = between first and second editor sep
+\renewcommand*{\bibbstesep}{,\ a.\ }% bste = between second and third editor sep
 
 % use: name, forname, forname lastname u. forname lastname
 \jurabibsetup{authorformat=firstnotreversed}
@@ -58,23 +58,23 @@
 \jurabibsetup{ibidem=strict}
 % replace ugly a.a.O. by translation of ders., a.a.O.
 \AddTo\bibsgerman{
-  \renewcommand*{\ibidemname}{Id., l.c.}
-  \renewcommand*{\ibidemmidname}{id., l.c.}
+  \renewcommand*{\ibidemname}{Id.,\ l.c.}
+  \renewcommand*{\ibidemmidname}{id.,\ l.c.}
 }
-\renewcommand*{\samepageibidemname}{Id., ibid.}
-\renewcommand*{\samepageibidemmidname}{id., ibid.}
+\renewcommand*{\samepageibidemname}{Id.,\ ibid.}
+\renewcommand*{\samepageibidemmidname}{id.,\ ibid.}
 
 %%% (5) specific configuration of bibdata in bibliography
 % ever an in: before journal and collection/book-tiltes 
-\renewcommand*{\bibbtsep}{in: }
-\renewcommand*{\bibjtsep}{in: }
+\renewcommand*{\bibbtsep}{in:\ }
+\renewcommand*{\bibjtsep}{in:\ }
 % ever a colon after author names 
-\renewcommand*{\bibansep}{: }
+\renewcommand*{\bibansep}{:\ }
 % ever a semi colon after the title
 % \AddTo\bibsgerman{\renewcommand*{\urldatecomment}{Referenzdownload: }}
-\renewcommand*{\bibatsep}{; }
+\renewcommand*{\bibatsep}{;\ }
 % ever a comma before date/year
-\renewcommand*{\bibbdsep}{, }
+\renewcommand*{\bibbdsep}{,\ }
 
 % let jurabib insert the S. and p. information
 % no S. necessary in bib-files and in cites/footcites

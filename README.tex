@@ -23,8 +23,13 @@
 \usepackage[ngerman, english]{babel}
 \selectlanguage{english}
 
-%set langauge specific quotes (follows languag and babel package)
-\usepackage{csquotes}
+% package for improving the grey value and the line feed handling
+\usepackage{microtype}
+
+%language specific quoting signs
+%default for language english is american style of quotes
+%\usepackage[english=british]{csquotes}
+\usepackage[english=american]{csquotes}
 
 % jurabib configuration
 \usepackage[see]{jurabib}
@@ -65,16 +70,57 @@
 \usepackage{shadow}
 \usepackage{fancybox}
 
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{trees}
+\usetikzlibrary{matrix}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{chngcntr}
+
+
 %- start(footnote-configuration)
-%  flush the cite numbers out of the vertical line and let
-%  the footnote text directly start in the left vertical line
-\usepackage[marginal]{footmisc}
+
+% formatting the footnote with koma script tools
+
+\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
+
+% if document class: count footnotes from start to end
+%\counterwithout{footnote}{chapter}
+
 %- end(footnote-configuration)
+
 
 %\input{btexmat/mycsrfEnNoCfgEnInc.tex}
 
-% insert nomenclature definition here
-\input{btexmat/mycsrfNclMetaDefineEnInc}
+\usepackage[intoc]{nomencl}
+\let\abbr\nomenclature
+% Modify Section Title of nomenclature
+\renewcommand{\nomname}{Periodicals, Shortcuts, and Abbreviations}
+%\renewcommand{\nomname}{Periodika, ihre Kurzformen und generelle Abkürzungen}
+
+% insert point between abbrewviation and explanation
+\setlength{\nomlabelwidth}{.24\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+% reduce the line distance
+\setlength{\nomitemsep}{-\parsep}
+\makenomenclature
+
+\input{btexmat/mycsrfNclMetaDefineDeInc}
+
+% depth of contents
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
 
 \begin{document}
 

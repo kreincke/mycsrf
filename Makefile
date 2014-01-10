@@ -1,22 +1,39 @@
-# (c) Karsten Reincke, Frankfurt am Main, 2011
-# compile one/all tex-files 
-AUX_EXTS=url bbl blg aux dvi toc log lof nlo ilg nls
-RES_EXTS=ps pdf bak
+# (c) Karsten Reincke, Frankfurt am Main, Germany, 2011,2012,2013,2014
+# compile a tex-files 
+
+#LATEX=latex
+LATEX=pdflatex
+
+AUX_EXTS=url bbl blg aux dvi toc log lof nlo nls ilg ils ent out
+RES_EXTS=ps pdf 
 SUB_DIRS=bibfiles btexmat extracts snippets templates
-#STICKDIR=~/Stick/mykeds.csr/
-#WORKSDIR=~/gits/mykeds.csr/
+T=CH
+
 
 all:
-	echo "compiling single files only: make YOURFILE.{dvi|ps|pdf}"
+	make README.pdf
+	@ mv README-`cat mycsrf.rel`.pdf README.pdf
+	
+.SUFFIXES: .tex .dvi .ps .pdf .rtf
 
-#sync2stick:
-#	mkdir -p ${STICKDIR}
-#	rsync -v -a --delete --exclude="\.*" ${WORKSDIR} ${STICKDIR}
+.tex.pdf:
+	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
+	@ echo "### converting $< to $@"
+	@ $(LATEX) $< 
+	@ bibtex `basename $< .tex`
+	@ makeindex `basename $< .tex`.nlo -s btexmat/nomencl.ist -o `basename $< .tex`.nls
+	@ $(LATEX) $< 
+	@ $(LATEX) $< 
+	@ $(LATEX) $< 
+ifneq ($(LATEX),pdflatex)
+	@ echo "### converting DVI to PostScript"
+	@ dvips $<
+	@ echo "### converting PostScript to PDF"
+	@ ps2pdf $<
+endif
+	@ mv $@ `basename $@ .pdf`-`cat mycsrf.rel`.pdf
+	@ make dclear
 
-#sync2disc:
-#	rsync -v -a --delete --exclude="\.*" ${STICKDIR} ${WORKSDIR}
-
-.SUFFIXES: .tex .dvi .ps .pdf
 .tex.dvi:
 	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
 	@ echo "### converting $< to $@"
@@ -32,19 +49,14 @@ all:
 	@ echo "### converting $< to $@"
 	@ dvips $<
 
-.ps.pdf:
-	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
-	@ echo "### converting $< to $@"
-	@ ps2pdf $<
-	@ mv $@ `basename $@ .pdf`-`cat mycsrf.rel`.pdf
-
-
 clearAuxFiles:
 	$(foreach EXT, ${AUX_EXTS}, if [ ! "x`ls *.${EXT} 2>/dev/null`" = "x" ]; then rm *.${EXT}; fi;)
+
 clearResFiles:
 	$(foreach EXT, ${RES_EXTS}, if [ ! "x`ls *.${EXT} 2>/dev/null`" = "x" ]; then rm *.${EXT}; fi;)
 
 clear:	clearAuxFiles
+
 clean: 	clear clearResFiles
 
 dclear: clear

@@ -28,7 +28,10 @@
 \usepackage[english,ngerman]{babel}
 \selectlanguage{ngerman}
 
-%set langauge specific quotes
+% package for improving the grey value and the line feed handling
+\usepackage{microtype}
+
+%language specific quoting signs
 \usepackage{csquotes}
 
 % jurabib configuration
@@ -70,45 +73,42 @@
 \usepackage{shadow}
 \usepackage{fancybox}
 
-%- start(footnote-configuration)
-%  flush the cite numbers out of the vertical line and let
-%  the footnote text directly start in the left vertical line
-% \usepackage[marginal]{footmisc}
-
-% formatting the footnote with koma script tools
-% \deffootnote[1em]{1.5em}{1em}{\textsuperscript{\thefootnotemark}}
-\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
-%- end(footnote-configuration)
-
-% package for generating graphics
 \usepackage{tikz}
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes,snakes}
 \usetikzlibrary{positioning}
 \usetikzlibrary{decorations.text}
+\usetikzlibrary{trees}
 \usetikzlibrary{matrix}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{chngcntr}
+
+
+%- start(footnote-configuration)
+
+\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
+
+% if document class: count footnotes from start to end
+\counterwithout{footnote}{chapter}
+%- end(footnote-configuration)
 
 % package for macking tables with broken lines
 \usepackage{multirow}
 
-\usepackage{amsmath,amsfonts}
-\usepackage{amssymb}
-\usepackage{wasysym}
-% for generatin trees
-\usepackage{pstricks, pst-node, pst-tree}
 \usepackage{chngcntr}
 
 %for using label as nameref
 \usepackage{nameref}
 
-%footnotes 
-\counterwithout{footnote}{chapter}
-
 \usepackage[intoc]{nomencl}
 \let\abbr\nomenclature
 % Modify Section Title of nomenclature
-\renewcommand{\nomname}{Periodicals, Shortcuts, and Overlapping Abbreviations}
-%\renewcommand{\nomname}{Periodika, ihre Kurzformen und generelle Abkürzungen}
+%\renewcommand{\nomname}{Periodicals, Shortcuts, and Overlapping Abbreviations}
+\renewcommand{\nomname}{Periodika, ihre Kurzformen und generelle Abkürzungen}
 
 % insert point between abbrewviation and explanation
 \setlength{\nomlabelwidth}{.24\hsize}
@@ -122,6 +122,14 @@
 \setcounter{tocdepth}{5}
 
 \input{btexmat/mycsrfNclMetaDefineDeInc}
+
+% depth of contents
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
 
 \begin{document}
 
@@ -156,7 +164,7 @@ te}\footcite[vgl.][15]{AllHen2008a}
   \item Und nun ein ganzsätziges englischsprachiges Zitat:
   \begin{quote}
     \foreignquote{english}{This shall be an English written paragraph containing
-    a set of sentences whioch together build the quote.}
+    a set of sentences which together build the quote.}
   \end{quote}
   
 \end{itemize}
