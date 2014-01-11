@@ -1,7 +1,9 @@
 (c) Karsten Reincke, Frankfurt a.M. 2012 ff.
 2014-01-10:
+Based on the ideas of Ronald Dauster
 * added direct pdfLatex run into the Makefile
 * added hyperref package
+for enabling to link to footnotes, references and external pages
 2013-12-26: 
 * seperated myCsrf release number from template release number
 * improved titel page mycsrf template file
