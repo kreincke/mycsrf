@@ -99,24 +99,10 @@
 % package for macking tables with broken lines
 \usepackage{multirow}
 
-\usepackage{chngcntr}
-
 %for using label as nameref
 \usepackage{nameref}
 
-\usepackage[intoc]{nomencl}
-\let\abbr\nomenclature
-% Modify Section Title of nomenclature
-%\renewcommand{\nomname}{Periodicals, Shortcuts, and Overlapping Abbreviations}
-\renewcommand{\nomname}{Periodika, ihre Kurzformen und generelle Abkürzungen}
-
-% insert point between abbrewviation and explanation
-\setlength{\nomlabelwidth}{.24\hsize}
-\renewcommand{\nomlabel}[1]{#1 \dotfill}
-% reduce the line distance
-\setlength{\nomitemsep}{-\parsep}
-\makenomenclature
-
+%integrate nomenclature
 \input{btexmat/mycsrfNclMetaDefineDeInc}
 
 % depth of contents
