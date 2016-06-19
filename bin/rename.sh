@@ -1,26 +1,26 @@
 #!/bin/bash
 
-SOURCE_PATTERN=hs
+SOURCEPAT=mycsrf
 
-TARGET_PATTERN=hs;
+TARGETPAT=myscrf
 
 if [ "$#" = 2 ]; then
-  SOURCE_PATTERN=$1;
-  TARGET_PATTERN=$2; 
+  SOURCEPAT=$1;
+  TARGETPAT=$2; 
 fi;
 
-echo "replacing $SOURCE_PATTERN by $TARGET_PATTERN:";
+echo "replacing $SOURCEPAT by $TARGETPAT:";
 
-echo "(1) renaming files containing $SOURCE_PATTERN:";
-find . -name "hs*" -not -iwholename ".git" | while read f; do
-  nf=`echo $f | sed "s/hs/hs/"`;
+echo "(1) renaming files containing $SOURCEPAT:";
+find . -name "*$SOURCEPAT*" -not -iwholename ".git" | while read f; do
+  nf=`echo $f | sed "s/$SOURCEPAT/$TARGETPAT/"`;
   echo "$f -> $nf"; 
   mv $f $nf; 
 done 
 
-echo "(2) replacing $SOURCE_PATTERN in the files:";
-find . -type f -not -iwholename ".git" | while read f; do
-  cat $f | sed "s/hs/hs/g" > x.x; 
+echo "(2) replacing $SOURCEPAT in the files:";
+find . -name "*.tex" -type f -not -iwholename ".git" | while read f; do
+  cat $f | sed "s/$SOURCEPAT/$TARGETPAT/g" > x.x; 
   mv x.x $f; 
-  echo $f;
+  echo "modified $f";
 done
