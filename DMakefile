@@ -11,5 +11,5 @@ dist:
 	cp -rd * $(PDIR)
 	rm $(PDIR)/DMakefile
 	( cd $(TDIR); tar -czvf $(PKGNAME).tar.gz $(PKGNAME); zip -r $(PKGNAME).zip $(PKGNAME);)
-	mv $(TDIR)/$(PKGNAME).tar.gz ./$(PKGNAME)-`cat DRelease`.tar.gz
-	mv $(TDIR)/$(PKGNAME).zip ./$(PKGNAME)-`cat DRelease`.zip
+	mv $(TDIR)/$(PKGNAME).tar.gz ./$(PKGNAME)-`cat DRelease.tex`.tar.gz
+	mv $(TDIR)/$(PKGNAME).zip ./$(PKGNAME)-`cat DRelease.tex`.zip
