@@ -406,7 +406,8 @@ But nevertheless be careful:
 \subsubsection{\ldots on Windows?}
 Yes, extract the myCsrf-zipfile and use \textit{MiKTeX} and
 \textit{Texmaker} for doing your job. Probably you won't be able to use the
-makefiles, but also probably you should not need them\footnote{As I mentioned
+makefiles or shell scripts, but probably you should not need 
+themi necessarily\footnote{As I mentioned
 personally I work on GNU/Linux. Please tell me if you are successful}.
 
 \subsubsection{\ldots on GNU/Linux?}
@@ -444,6 +445,20 @@ Goto \texttt{http://mycsrf.fodina.de/en/distribution/}. The download page
 is announced. Download the tar.gz-file or the zip-file. Extract these compressed
 file into any directory you like to do. That's all. For any other help, feel
 free to contact k.reincke@fodina.de.
+
+\subsection{How can I modify all the filenames containing the string 'mycsrf'}
+
+First of all, you can do it manually. But keep in mind: if you
+modify a filename on your disc, you also must modify the tokens 
+in the latex files by which the file is referred.
+
+For those who are working on a GNU/Linux system I added a
+bash shell script (bin/rename.sh) which replaces mycsrf
+(a source-pattern) by the content of a target-pattern namely
+in the names of the files and in the content of the files.
+
+For using that script go to the top directory and call
+\texttt{./bin/rename.sh mycsrf yourOwnProjectName}
 
 \subsection{Where can I get more help?}
 
