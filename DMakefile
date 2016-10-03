@@ -1,6 +1,6 @@
 # (c) Karsten Reincke, Frankfurt am Main, 2011
 
-REL=1.1
+REL=`cat DRelease.tex`
 PKGNAME="mycsrf"
 TDIR="/tmp"
 PDIR="$(TDIR)/$(PKGNAME)"
