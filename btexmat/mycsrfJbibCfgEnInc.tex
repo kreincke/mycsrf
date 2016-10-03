@@ -68,6 +68,8 @@
 % ever an in: before journal and collection/book-tiltes 
 \renewcommand*{\bibbtsep}{in:\ }
 \renewcommand*{\bibjtsep}{in:\ }
+
+
 % ever a colon after author names 
 \renewcommand*{\bibansep}{:\ }
 % ever a semi colon after the title
@@ -110,3 +112,10 @@
 \ifthenelse{\equal{#1}{}}{)}{, [Vol./No.]~#1)}%
 }%
 
+\usepackage{xpatch}
+\AfterFile{enjbbib.ldf}{%
+  \xapptocmd{\bibsenglish}{%
+     \def\inname{\ifjboxford in:\else\ifjbchicago in:\else in:\fi\fi}%
+    \def\incollinname{\ifjboxford in:\else\ifjbchicago in:\else in:\fi\fi}%
+  }{}{}%
+}

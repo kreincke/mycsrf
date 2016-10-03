@@ -66,9 +66,11 @@
 \renewcommand*{\samepageibidemmidname}{ds.,\ ebda.}
 
 %%% (5) specific configuration of bibdata in bibliography
-% ever an in: before journal and collection/book-tiltes 
-\renewcommand*{\bibbtsep}{in:\ }
+% ever an in: before journal and collection/book-titles 
+
 \renewcommand*{\bibjtsep}{in:\ }
+\renewcommand*{\bibbtsep}{in:\ }
+
 % ever a colon after author names 
 \renewcommand*{\bibansep}{:\ }
 % ever a semi colon after the title 
@@ -105,3 +107,11 @@
 \ifthenelse{\equal{#1}{}}{)}{, [Bd./Nr.]~#1)}%
 }%
 
+%Umformatierung Referenzverweises
+\usepackage{xpatch}
+\AfterFile{dejbbib.ldf}{%
+  \xapptocmd{\bibsgerman}{%
+     \def\inname{\ifjboxford in:\else\ifjbchicago in:\else in:\fi\fi}%
+    \def\incollinname{\ifjboxford in:\else\ifjbchicago in:\else in:\fi\fi}%
+  }{}{}%
+}
