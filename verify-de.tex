@@ -1,0 +1,196 @@
+% fodina Humanities LaTeX-/JuraBib-Reference-Learn-Document
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2010, 2011, ff.
+%
+\documentclass[
+  DIV=calc,
+  BCOR=5mm,
+  11pt,
+  smallheadings,
+  oneside,
+  abstract=true,
+  toc=bib]{scrartcl}
+
+%%% (1) general configurations %%%
+\usepackage[utf8]{inputenc}
+
+%%% (2) language specific configurations %%%
+\usepackage[]{a4,ngerman}
+\usepackage[english,ngerman]{babel}
+\selectlanguage{ngerman}
+
+%language specific quoting signs
+\usepackage{csquotes}
+
+% jurabib configuration
+\usepackage[see]{jurabib}
+\bibliographystyle{jurabib}
+\input{btexmat/mycsrfJbibCfgDeInc}
+
+% language specific hyphenation
+\input{btexmat/mycsrfHyphenationDeInc}
+
+%%% (3) layout page configuration %%%
+
+% select the visible parts of a page
+% S.31: { plain|empty|headings|myheadings }
+%\pagestyle{myheadings}
+\pagestyle{headings}
+
+% select the wished style of page-numbering
+% S.32: { arabic,roman,Roman,alph,Alph }
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% no indent for paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.2ex plus 0.2ex minus 0.2ex}
+
+% package for improving the grey value and the line feed handling
+\usepackage{microtype}
+
+% some additional symbols
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+
+%- start(footnote-configuration)
+
+% formatting the footnote with koma script tools
+
+\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
+
+%integrate nomenclature
+\input{btexmat/mycsrfNclMetaDefineDeInc}
+
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
+
+\begin{document}
+
+%% use all entries of the bibliographymycsrf.tex
+\nocite{*}
+
+%%-- start(titlepage)
+\titlehead{mycsrf.verify-\input{mycsrf.rel}: Deutsch}
+\subject{(Geistes-) Wissenschaftliche Texte mit modifiziertem \textit{jurabib}}
+\title{Übersicht der Anwendungsfälle}
+\subtitle{Anmerkungsapparat in Fußnoten}
+\author{Karsten Reincke\input{btexmat/mycsrfLicenseFootnoteInc}}
+%\thanks{den Autoren von KOMA-Script und denen von Jurabib}
+
+%\thanks{den Autoren von KOMA-Script und denen von Jurabib}
+\maketitle
+%%-- end(titlepage)
+
+
+\begin{description}
+
+  \item[01 \checkmark] Ersterwähnung
+    Buch\footcite[vgl.][12]{KantKdU1974} (komplett) 
+  \item[02 \checkmark] direkte Wiedererwähnung
+    Buch, selbe S.\footcite[vgl.][12]{KantKdU1974} (ders., ebda.)
+  \item[03 \checkmark] direkte Wiedererwähnung
+    Buch, andere S.\footcite[vgl.][13]{KantKdU1974} (ders., a.a.O, S.)
+  \item[04 \checkmark] Ersterwähnung
+    Zschr.-Artikel\footcite[vgl.][12]{McCarthy1980a} (komplett)
+  \item[05 \checkmark] direkte Wiedererwähnung
+    Zschr.-Artikel,
+      selbe S.\footcite[vgl.][12]{McCarthy1980a} (ders., ebda.)
+  \item[06 \checkmark] direkte Wiedererwähnung
+    Zschr.-Artikel, 
+      andere S.\footcite[vgl.][13]{McCarthy1980a} (ders., a.a.O, S.)
+  
+  \item[07 $\lightning$] Ersterwähnung 
+    Slg-Artikel,
+      neue Sammlung\footcite[vgl.][12]{Hays1985a} (beide komplett)
+  \item[08 \checkmark] direkte Wiedererwähnung
+    Slg-Artikel,
+      selbe S.\footcite[vgl.][12]{Hays1985a} (ders., ebda.)
+      
+ \item[09 \checkmark] direkte Wiedererwähnung
+    Slg-Artikel,
+      selbe S.,
+       auf neuer S.\footcite[vgl.][12]{Hays1985a} (Kurform)
+  \item[10 \checkmark] direkte Wiedererwähnung
+    Slg-Artikel,
+      andere S.\footcite[vgl.][13]{Hays1985a} (ders., a.a.O, S.)
+     
+  
+  \item[11 \checkmark] Ersterwähnung
+    Slg-Artikel,
+      bekannte Sammlung\footcite[vgl.][12]{DaBu1985a} (komplett + kurz)
+  \item[12 \checkmark] direkte Wiedererwähnung
+    Slg-Artikel, selbe S.\footcite[vgl.][12]{DaBu1985a} (ders., ebda.)
+
+  \item[13 \checkmark] direkte Wiedererwähnung
+    Slg-Artikel, 
+      andere S.\footcite[vgl.][13]{DaBu1985a} (ders., a.a.O, S.)
+
+  \item[14 \checkmark] Ersterwähnung
+     Buch mit 3-x Autoren\footcite[vgl.][12]{SegEvaTay2009a} (alle)
+  \item[15 \checkmark] Ersterwähnung
+     Buch mit 4+x Autoren\footcite[vgl.][12]{HitKroRudSur2008a} (1 + et.al.)
+
+  \item[16 \checkmark] Ersterwähnung
+     Sammlung mit 3-x Herausgebern\footcite[vgl.][12]{ProcKR2012a} (alle)
+  \item[17 \checkmark] Ersterwähnung
+     Sammlung mit 4+x
+      Herausgebern\footcite[vgl.][12]{MehDreDesMan2011a} (1 + et.al.)
+
+  
+  \item[18 \checkmark] indirekte Wiedererwähnung
+    Buch\footcite[vgl.][12]{KantKdU1974}  (Kurzform)
+  \item[19 \checkmark] indirekte Wiedererwähnung
+    Zschr.-Artikel\footcite[vgl.][12]{McCarthy1980a} (Kurzform)
+  \item[20 \checkmark] indirekte Wiedererwähnung
+    Slg-Artikel\footcite[vgl.][12]{Hays1985a} (Kurzform)
+  \item[21 \checkmark] Ersterwähnung 
+    reines Mannbuch\footcite[vgl.][12]{Kopka2000a} (komplett)
+  \item[22 $\lightning$] direkte Wiedererwähnung
+    reines Mannbuch\footcite[vgl.][13]{Kopka2000a} (\textbf{ders}., a.a.O., S.)
+   \newpage
+   \item[23 \checkmark] Ersterwähnung 
+    reines Fraubuch\footcite[vgl.][12]{Kraemer1988a} (komplett)
+  \item[24 $\lightning$] direkte Wiedererwähnung
+    reines Fraubuch\footcite[vgl.][13]{Kraemer1988a} (\textbf{dies.}, a.a.O., S.)
+  \item[25 \checkmark] Ersterwähnung 
+    reines Männerbuch\footcite[vgl.][12]{MitGoo2005a} (komplett)
+  \item[26 $\lightning$] direkte Wiedererwähnung
+    reines Männerbuch\footcite[vgl.][13]{MitGoo2005a} (\textbf{dies.}, a.a.O., S.)
+  \item[27 \checkmark] Ersterwähnung 
+    reines Frauenbuch\footcite[vgl.][12]{CapMoo2016a} (komplett)
+  \item[28 $\lightning$] direkte Wiedererwähnung
+    reines Frauenbuch\footcite[vgl.][13]{CapMoo2016a}  (\textbf{dies.}, a.a.O., S.)
+
+  \item[29 \checkmark] Ersterwähnung
+    MISC\footcite[vgl.][12]{Daly2007a} (komplett)
+  \item[30 \checkmark] direkte Wiedererwähnung
+    MISC, selbe S.\footcite[vgl.][12]{Daly2007a} (ders., ebda.)
+  \item[31 \checkmark] direkte Wiedererwähnung
+    MISC, andere S.\footcite[vgl.][13]{Daly2007a} (ders., a.a.O, S.)
+  \item[32 \checkmark] Ersterwähnung
+    Electronic\footcite[vgl.][12]{Wolter2010a} (komplett)
+  \item[33 \checkmark] direkte Wiedererwähnung
+    Electronic, selbe S.\footcite[vgl.][12]{Wolter2010a} (dies., ebda.)
+  \item[34 \checkmark] direkte Wiedererwähnung
+    Electronic, andere S.\footcite[vgl.][13]{Wolter2010a} (dies., a.a.O., S.)
+  
+  \item[35 \checkmark] indirekte Wiedererwähnung
+    MISC\footcite[vgl.][12]{Daly2007a} (Kurzform)
+  \item[36 \checkmark] indirekte Wiedererwähnung
+    Electronic\footcite[vgl.][12]{Wolter2010a} (Kurzform)
+    
+  
+\end{description}
+
+% insert the nomenclature here
+\input{btexmat/mycsrfNclAbbreviationsDeInc}
+\input{btexmat/mycsrfNclAbbreviationsInc}
+\input{btexmat/mycsrfNclJournalsInc}
+\printnomenclature
+
+\bibliography{bibfiles/mycsrfResourcesDe}
+
+\end{document}

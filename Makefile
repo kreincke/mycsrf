@@ -13,8 +13,27 @@ T=CH
 all:
 	make README.pdf
 	@ mv README-`cat mycsrf.rel`.pdf README.pdf
+
 	
-.SUFFIXES: .tex .dvi .ps .pdf .rtf
+.SUFFIXES: .tex .dvi .ps .pdf .rtf .xxx
+
+.tex.xxx:
+	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
+	@ echo "### converting $< to $@"
+	@ $(LATEX) $< 
+	@ bibtex `basename $< .tex`
+	@ $(LATEX) $< 
+	@ $(LATEX) $< 
+	@ $(LATEX) $< 
+ifneq ($(LATEX),pdflatex)
+	@ echo "### converting DVI to PostScript"
+	@ dvips $<
+	@ echo "### converting PostScript to PDF"
+	@ ps2pdf $<
+endif
+	@ cp $@ `basename $@ .pdf`.xxx
+	@ make dclear
+	
 
 .tex.pdf:
 	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
