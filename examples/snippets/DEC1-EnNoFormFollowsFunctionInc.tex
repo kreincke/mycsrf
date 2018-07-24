@@ -1,0 +1,211 @@
+% fodina humanities 'for being included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2010, 2011, ff.
+%
+% This LaTeX-File is licensed under the Creative Commons Attribution-ShareAlike
+% 3.0 Germany License (http://creativecommons.org/licenses/by-sa/3.0/de/): Feel
+% free 'to share (to copy, distribute and transmit)' or 'to remix (to adapt)'
+% it, if you '... distribute the resulting work under the same or similar
+% license to this one' and if you respect how 'you must attribute the work in
+% the manner specified by the author ...':
+%
+% In an internet based reuse please link the reused parts to www.fodina.de and
+% mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to www.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite.
+%
+% [ Derived from 'mykeds Classical Scholar Research Framework' 
+%   mykeds-CSR-framework (c) K. Reincke CC BY 3.0  http://www.mykeds.net/ ]
+%
+\section{Form Follows Function: Wie soll es aussehen?}
+
+Seit Ewigkeiten schwärme ich von der altphilologischen Nachweis- und
+Zitiermethode, vom mächtigen Anmerkungsapparat in Fußnoten - auch wenn ich
+meinen Hang dazu nicht immer ausleben darf und mich stattdessen auf Endnoten
+anstelle von Fußnoten beschränken muss.
+
+Für beide Arten hatte ich mir längst schon deren bruchlose Nachbildung im
+Satzsystem \emph{LaTeX} gewünscht - wohl wissend, dass dieses eben nicht aus der
+europäischen Geisteswissenschaft heraus entstanden ist, sondern aus der
+computerisierten Mathematik und der anglo-amerikanischen Schreibtradition, wie
+sie sich im \textit{Handbook for Writers of Research
+Papers}\footcite[vgl.][]{ModLanAss2009a} niederschlug. Meine Leidenschaft für
+die europäische Alternative ging so weit, dass ich immer wieder einmal -
+selbstverständlich stets mehr oder minder erfolglos - eigenhändig Stil- und
+Bibliotheksdateien editiert habe: Das arme
+\emph{natib}\footcite[vgl.][]{Daly2000a} musste ebenso dran glauben, wie das
+geschundene \emph{custom-bib}\footcite[vgl.][]{Daly2007a}. Dabei waren meine
+Wünsche doch so einfach:
+
+Ich wollte Zitate weder über inline-Referenzen belegt sehen, noch sie selbst so
+belegen müssen, weder über esoterische Nummernblöcke[42], noch durch kryptische
+BibTEX-Keys[Daly2000a], die sich - wie doch oft genug mit eigenen Augen erfahren
+- immer nur als Stolpersteine im Lesefluss erwiesen. Ich liebe den Subtext im
+Anmerkungsapparat, mit dem mich Autoren über die konzentrierte Argumentation
+ihrer Haupttexte hinaus lustvoll auf Nebenwegen durch die mäandernde
+Forschungsgeschichte führen. Diesem schwärmenden Hin und Her bin ich verfallen.
+
+Das möchte ich genießen - eigentlich möglichst ohne großes Blättern. Und
+natürlich möchte ich es anderen anbieten können, eigentlich auch ohne die Qual
+des permanenten Seitengefrickels. Fußnoten wären dafür das Mittel der Wahl auch
+wenn das Seitenbild dadurch - zugegebenermaßen - recht angeberisch wirken kann:
+``Gott, was der alles weiß, will der etwa, dass ich das alles
+lese?''\endnote{Will 'der' natürlich nicht, im Gegenteil: wenn Sie ihm glauben,
+brauchen Sie seine Belege nicht zu lesen. Aber wenn Sie zweifeln, wenn Sie ihn
+überprüfen wollen, dann legt er Ihnen alles offen. Oder wenn Sie zu dem einen
+oder anderen nebenseitigen Punkt doch gern mehr Informationen hätten, dann
+finden Sie dort die Details.}. Die vom Anschein her bescheidenere Variante wäre
+dann die mit Endnoten anstelle von Fußnoten - auch wenn der Leser dafür den
+Preis des Hin-und-Her-Blätterns zahlen muss.
+
+Aber egal, ob in Form von Fuß- oder Endnoten\endnote{Um die Unterschiede direkt
+erkennbar zu machen, habe ich diesen Text in zwei Versionen erzeugt, einmal
+konfiguriert für einen Fußnotenapparat (fodinaClassicalScholar\ldots{}pdf),
+einmal für einen Endnotenapparat (fodinaHumanities\ldots{}pdf). Diese
+Unterschiede zu kennen, ist auch insofern wichtig, als man seinen Text
+nachträgliche leider nur dann rein konfigurativ umstellen kann, wenn eine
+Kleinigkeit vorab beachtet: nur $\backslash$footcite\{\ldots\} aus jurabib
+verwenden, insbesondere keine (mehrfachen) $\backslash$cite\{\ldots\} innerhalb
+von $\backslash$footnote\{\ldots\}, das verträgt bei einer Ersetzung von
+\textit{footnote} durch \textit{endnote} $\backslash$endnote\{\ldots\} nicht.},
+es ist der Anmerkungsapparat und seine expliziten bibliographischen Angaben, die
+mir den Forschungskontext aufspannen. Schärfer noch: Ich möchte, dass die Quelle
+beim ersten Nachweis bibliographisch vollständig aufgeschlüsselt
+wird\footcite[vgl.][195ff - dieses Werk bewahre ich aus zwei Gründen auf: Zum
+einen bietet es auf den genannten Seiten eine griffige Zusammenfassung der
+Regeln. Zum anderen zeigt der Rest der Seiten, wie man es auf keinen Fall machen
+darf, wenn man spannende Wissenschaftslektüre schreiben möchte: Pädagogisierte
+Texte sind nicht per se schon kunden- oder leserorientiert.]{RueStaFra1980a}.
+Ich möchte neben allen Angaben zu allen Autoren und allen Titelfeinheiten auch
+die Auflage erfahren können, auf Übersetzungen und Reihen hingewiesen werden und
+editorische Sonderfälle erkennen können\footcite[wie z.B. bei][]{Covey2006a}.
+Und ja, ich stehe der Moderne mitnichten ablehnend gegenüber: mittlerweile
+erleichtert die Angabe der ISBN das Wiederfinden des richtigen Buches erheblich.
+Also wünsche ich mir auch deren Nennung\endnote{Als Web-Mensch kann ich mich
+natürlich einem weiteren Zugeständnis von \textit{jurabib} an die Moderne nicht
+verschließen: Wir müssen heute auch Netz-Dokumente über URLs zitieren, wohl
+wissend, dass diese unter der Hand geändert werden können. Mit den neuen
+BibTeX-Feldern 'url' und 'urldate' bietet \textit{jurabib} die Möglichkeit, auf
+solche Dokumente Bezug zu nehmen, und zwar nicht nur unter der Angabe der URL
+(Unified Resource Locator), sondern auch unter Angabe des Abrufdatums\ldots was
+letztlich nicht mehr besagt, als dass der jeweilige Autor um die Volatilität
+seiner Quellen weiß. Ich selbst gehe sogar noch weiter: ich vermerke im
+BibTeX-Feld 'note', ob ich ein Werk effektiv in der Hand gehabt habe
+(\textit{Print}), ob ich es im bibliothekseigenen Netz als PDF etc. eingesehen
+habe (\textit{BibWeb/PDF}) oder ob ich es dem ganz 'unbeständigen' Internet
+entnommen habe (\textit{FreeWeb/PDF} oder \textit{FreeWeb/HTML} oder
+sonstiges)}. Erst wenn im Laufe der Argumentation erneut auf dieselbe Quelle
+zurückgegriffen wird\footcite[vgl. dazu][194]{RueStaFra1980a} reicht mir ein
+verkürzter Beleg\footcite[wie z.B. jetzt wieder bei][]{Covey2006a}, der mich
+zwanglos auf die mnemotechnisch richtige Bahn bringt, ohne mir eine
+verklausulierte Geheimsprache aufzunötigen: denn \emph{kurz} meint schließlich
+nicht \emph{esoterisch}\endnote{Man sieht hier, dass es funktioniert: Den
+\emph{R\"uckriem/Stary/Franck} habe ich gerade bibliographisch ebenso
+ausführlich ausgewiesen, wie den \emph{Covey}. Anschließend habe ich erneut auf
+beide Quellen verwiesen, nun aber über die Kurzform \emph{Autor: Titel, Jahr}.
+Dies alles ermöglicht das Heilmittel \emph{Jurabib}( \ldots). An einer Stelle
+blieb jedoch ein Desiderat, das ich auf spezielle Weise umgehen mußte: In den
+Kurzverweisen wünsche ich mir neben Autor und Kurztitel immer auch das Jahr.
+Dies erleichtert mir die Rezeption der Forschungs\emph{geschichte}. Jurabib
+bietet dieses Schmankerl (noch) nicht an und liefert stattdessen nur den
+\emph{(short)author} und den \emph{(short)title}. Allerdings kostet es  ja nicht
+viel, an den eh manuell zu erstellenden Kurztitel im Bibtex-Feld einfach auch
+noch das Erscheinungsjahr anzuhängen. Schon hat man/ich, was man/ich will.
+
+In dieser spezielle Endnote werden jedoch auch - verglichen mit dem reinen
+Jurabib-Fußnotentext - die Grenzen von $\backslash$endnote deutlich: Anders als
+bei $\backslash$endnote kann innerhalb des Befehls $\backslash$footnote
+problemlos der Befehl $\backslash$cite verwendet. Das bedeutet, dass innerhalb
+eines $\backslash$footnote-Textes Verweise möglich sind, innerhalb eines
+$\backslash$endnote-Textes aber nicht. Um dieses Manko aufzulösen, müssen also
+verweisenden Endnoten durch die Jurabib spezifischen Formen $\backslash$footcite
+ersetzt werden, wobei der kommentierende Vor- und Nachtext in den Vor- und
+Nachparametern \glqq versteckt\grqq wird. Und leider bedeutet das auch, dass in
+einer Arbeit mit Endnoten nicht mehrere Verweise erscheinen können. Auch aus
+diesem Grund ist der Endnotentext für mich nur zweite Wahl.}.
+
+Allerdings: Wenn der Autor und ich uns im Haupttext auf eine verfeinerte Analyse
+fremder Gedankengängen einlassen\footcite[vgl. etwa][32]{Allen2001a} und wenn
+wir dabei mehrfach\footcite[vgl.][139]{Allen2001a} verschiedene
+Passagen\footcite[vgl.][139]{Allen2001a} desselben Werkes referieren bzw.
+rezipieren müssen, ja dann reichen die kleinen Hinweise, dass es sich wieder um
+dieselbe Passage oder wieder um dasselbe Werk - wenn auch mit anderer Passage -
+oder wieder um denselben Autor handelt: Nehmen wir an, wir zitierten zunächst
+aus der Kritik der Urteilskraft\footcite[vgl.][9]{KantKdU1974} und
+anschließend aus der Einleitung der Kritik der reinen
+Vernunft\footcite[vgl.][45]{KantKdV1974}, um sofort danach erst auf den 1.
+Absatz aus dem Kapitel \emph{Transzendentale Ästhetik} verweisen zu
+müssen\footcite[vgl.][69]{KantKdV1974}, bevor auf den 3 Absatz derselben Seite
+eingehen können\footcite[vgl.][69]{KantKdV1974}, dann müsste unser
+Anmerkungsapparat zunächst die beiden kompletten Belege auflisten, gefolgt von
+einem \emph{ders., a.a.O. + neue Seite} wiederum gefolgt von einem \emph{ders.
+ebda.} erzeugen. Gingen wir nun zurück auf die \emph{Kritik der
+Urteilskraft}\footcite[vgl.][9]{KantKdU1974}, dürfte unser Apparat sicher nicht
+mehr mit dem Kürzel \emph{ders., a.a.O} arbeiten, sondern könnte allenfalls das
+Kürzel \emph{ders.: Titel} anbieten oder sollte wenigstens - wie hier dann auch
+geschehen - über den erneut genannten Autor + Kurztitel + Jahr einen neuen
+expliziten Aufsatzpunkt verwenden\endnote{Wenn Sie der Demonstration gefolgt
+sind, werden Sie sofort gesehen haben, dass in den wiederaufnehmenden
+Anmerkungen eben nicht 'ders.' steht, sondern 'ds.' - was selbstverständlich
+(vorerst noch) keine korrekte Abkürzung ist. Der Grund für diese 'Ersetzung' ist
+einfach: Manchmal haben Werke mehrere Autoren. Dann dürfte im Text nicht
+{\itshape ders.} erscheinen, sondern der Plural {\itshape dies.} Und oft genug
+sind Bücher ja auch von Frauen geschrieben. In unseren heutigen Zeiten darf das
+weibliche Geschlecht aber nicht mehr unter dem grammatischen 'bloß' mitgedacht
+werden; Autorinnen können und werden zurecht auf einem {\itshape dies.}
+bestehen, wenn schon ein {\itshape ders.} benutzt wird. Aus diesem Dilemma
+könnte uns nur ein LaTeX befreien, dass aus der vorhergehenden Fußnote und dem
+Original den Plural oder das Geschlecht der Autoren ableitet. Kurz:
+Flektionsbewusstsein wäre nötig. LaTeX bietet das m.W. nicht. Also habe ich zu
+einer anderen Lösung gegriffen, ich habe mir eine kollektive Abkürzung für die
+einzelnen Abkürzungen definiert: {\itshape ds.} stehe für {\itshape ders.} und
+{\itshape dies.}, so, wie {\itshape dies.} selbst schon für {\itshape dieselbe}
+und {\itshape dieselben} steht.
+
+Jurabib bietet von sich aus eine andere Lösung aus dem Dilemma: erst lässt die
+Referenz auf den/die Autor(in/en) schlicht weg und verwendet anstelle von
+{\itshape ders., a.a.O. + neue Seite} resp. {\itshape ders., ebda} schlicht
+{a.a.O. + neue Seite} resp. {\itshape a.a.O.}. Das kann man machen. Ich
+persönlich bevorzuge das durchgehaltene Muster 'Autor' : 'Buch', es erleichtert
+mir das Lesen.
+
+Und ein Weiteres dürfte in diesem Set von Anmerkungen deutlich geworden sein:
+Jede der vorhergehenden Endnoten 'veranschaulicht' das, was der Haupttext
+behauptet. Und zum Schluss wird das nochmal diskutiert. Die Verlagerung in
+Endnoten untergräbt aber genau diese gewünschte Veranschaulichung. Die Frage
+ist also, ob das bessere Image 'Kein Angeber' diesen Verlust an Präzision
+aufwiegt.}
+
+Auch die innere Struktur der bibliographischen Angaben wollte ich auf diesen Stil
+ausgerichtet sehen. So wünschte ich mir bei kollektiv erarbeiteten Werken, dass
+zwar der erste Autor mit dem Nachnamen zuerst genannt wird, dass alle folgenden
+Autoren jedoch "`in natürlicher Weise"' erwähnt werden, also zuerst mit den
+Vornamen und dann mit den Nachnamen\footnote{ wie \cite[hier bei:][]{Woods1991a}
+oder \cite[hier bei:][]{RusNor2004a} oder ...
+
+Dies ist leider eine in der Endnotenversion nicht ersetzbare Fußnote: Innerhalb
+von $\backslash$footnote gibt es 2 Verweise, die mit cite generiert werden. Und
+das geht mit $\backslash$endnote leider nicht } Außerdem wollte ich den jeweils
+letzten Autor durch eine Konjunktion eingebunden sehen\footcite[... hier
+bei:][]{SegEvaTay2009a}
+
+Doch nicht nur Bücher, sondern auch Artikel\footcite[vgl. z.B.][]{Hays1985a}
+sollten diesem Muster folgen, sei es solche aus Sammlungen\footcite[s.
+etwa][]{Brachman1985a} oder solche aus Zeitschriften\footcite[s.
+etwa][]{McCarthy1980a}: Immer wollte ich deren Form bruchlos als Erst- oder
+Wiederholungszitat erkennen können, beim Sammlungsartikel\footcite[vgl.
+erneut][]{Hays1985a} genauso, wie beim Zeitschriftenartikel\footcite[s.
+nochmals][]{McCarthy1980a}. Und ich wollte dieses Muster auch dann so haben,
+wenn es ökonomischer wäre, die bibliographischen Daten einer enthaltenden
+Sammlung nicht als gesonderten Eintrag im Bibtex-File aufzunehmen, sondern sie -
+sozusagen inline - in denen des enthaltenen Artikels einzubauen: Auch dann
+sollte erst die Langversion erscheinen\footcite[vgl.][23]{RotCum2011a} und beim
+erneuten Zitat die Kurzversion, sei nach der
+'ds.ebda'-Mimik\footcite[vgl.][23]{RotCum2011a} oder - nach einem dazwischen
+geschobenen anderen Zitat\footcite[vgl.][9]{KantKdU1974} wieder mit der
+Kurztitelform\footcite[vgl.][23]{RotCum2011a}. Nur in der Bibliographie sollte
+die Sammlung eben nicht als eigener Eintrag erscheinen, sondern mit dem Artikel
+so verwoben sein, wie er auch im Text erschiene.
+
+%\bibliography{../bibfiles/fodinaHumanitiesExEn}

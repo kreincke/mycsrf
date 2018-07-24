@@ -1,0 +1,18 @@
+# (c) Karsten Reincke, Frankfurt am Main, 2011
+
+REL=3.0
+PKGNAME="fodina-csr-howto"
+TDIR="/tmp"
+PDIR="$(TDIR)/$(PKGNAME)"
+
+all:
+	echo "dist /* generates the fodina-DienstAmLeser-`cat release.tex` packages*/"
+
+dist:
+	if [ -e $(PDIR) ]; then rm -rf $(PDIR); fi
+	mkdir $(PDIR)
+	cp -rd * $(PDIR)
+	rm $(PDIR)/DMakefile
+	( cd $(TDIR); tar -czvf $(PKGNAME).tar.gz $(PKGNAME); zip -r $(PKGNAME).zip $(PKGNAME);)
+	mv $(TDIR)/$(PKGNAME).tar.gz ./$(PKGNAME)-`cat release.tex`.tar.gz
+	mv $(TDIR)/$(PKGNAME).zip ./$(PKGNAME)-`cat release.tex`.zip

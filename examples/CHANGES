@@ -1,0 +1,14 @@
+(c) Karsten Reincke, Frankfurt a.M. 2010, 2011, ff.
+
+2011-08-19/REL-2.1:
+* updated btexmat/myScholarJabrefPrefs.xml
+  (proceedings with booktitle AND title)
+* updated bibfiles/fodinaHumanitiesExDe.bib according to
+  new btexmat/myScholarJabrefPrefs.xml
+* repaired typos
+2011-08-18/REL-2.0:
+* Package renamed as fodina-DaLDaS - following the improved title
+  'Dienst am Leser, Dienst am Scholaren'
+* rewritten all documents on the base of mykeds-CSR-framework
+2010-10-01/REL-1.0:
+* Initial version as one simple LaTeX file.

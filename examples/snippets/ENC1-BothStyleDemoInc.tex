@@ -1,0 +1,75 @@
+% fodina humanities 'for being included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2010, 2011, ff.
+%
+% This LaTeX-File is licensed under the Creative Commons Attribution-ShareAlike
+% 3.0 Germany License (http://creativecommons.org/licenses/by-sa/3.0/de/): Feel
+% free 'to share (to copy, distribute and transmit)' or 'to remix (to adapt)'
+% it, if you '... distribute the resulting work under the same or similar
+% license to this one' and if you respect how 'you must attribute the work in
+% the manner specified by the author ...':
+%
+% In an internet based reuse please link the reused parts to www.fodina.de and
+% mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to www.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite.
+%
+% [ Derived from 'mykeds Classical Scholar Research Framework' 
+%   mykeds-CSR-framework (c) K. Reincke CC BY 3.0  http://www.mykeds.net/ ]
+%
+
+\section{The Annotated Text}
+
+A scientific paper\footnote{This English text is an extract of the longer
+German version. The English text 'only' demonstrates the
+classical sholar style (of humanities), The German text also explains why
+this style is (a somewhat) better than the style recommended by the \textit{MLA
+Handbook for Writers of Research Papers}. Both, the English and the German Version of \textit{Service For Readers and Scholars} are
+generated on the base of the \textit{mykeds-CSR-framework}. It's an Open
+(Source) Document and can freely be downloaded under
+http://www.mykeds.net/en/docus/mykeds-csr.html} written in \textit{Classical Scholar Research} style not only wants to argue for a new position or insight
+but to offer it's reader the possibility to adopt the research history by the
+way. The history of humanities is the history of the secondary literature. Hence
+the footnotes in the \textit{Classical Scholar Research} style present all
+information about a work if it's quoted for the first time. If it is quoted
+again, it's referred by the short title of the bib-file\footnote{I prefer the
+pattern 'Author-Name: Short-Title, Year'. But I didn't find any solution to
+convince jurabib to do this automatically. Therefore in each field 'shorttile'
+of my bib-files I append at the real short title a comma followed by the year. If
+anyone knows a better solution I would be glad to get a message from him.}. If
+it is cited multiply - directly in a row of notes on the same page, then and
+only then the shortcuts \textit{id.} and \textit{ibid.} or \textit{l.c.} should
+be used. Let me demonstrate what this means:
+
+\begin{itemize}
+  \item A \textit{book}\footcite[cf.][123]{AllHen2008a} is quoted for the first time.
+  \item A \textit{proceedings}\footcite[cf.][234]{Brachman1985a} is quoted for the first time.
+  \item An \textit{inproceedings}\footcite[cf.][345]{Hays1985a}is quoted for the first time.
+  \item An \textit{article of a journal}\footcite[cf.][456]{McCarthy1980a} is quoted for
+  the first time.
+  \item A \textit{book}\footcite[cf.][123]{AllHen2008a} is quoted for the second time.
+  \item A \textit{proceedings}\footcite[cf.][234]{Brachman1985a} is quoted for the second
+  time.
+  \item An \textit{inproceedings}\footcite[cf.][345]{Hays1985a}is quoted for the
+  second time.
+  \item An \textit{article of a journal}\footcite[cf.][456]{McCarthy1980a} is quoted for the second time.
+  \item A sophisticated book\footcite[cf.][567]{KantKdV1974} is quoted for the first time.
+  \item Now - directly following - another page of this sophisticated
+  book\footcite[cf.][678]{KantKdV1974} is quoted. 
+  \item Now - again directly following - the same page of this sophisticated
+  book\footcite[cf.][678]{KantKdV1974} is quoted again.
+  \item Now another complex book of the same
+  author\footcite[cf.][789]{KantKdU1974} is quoted for the first time.
+  \item And now the first sophisticated book of the same
+  author\footcite[cf.][789]{KantKdV1974} is quoted again.
+  \item Sometimes it's better to note the bibliographic data of a book
+  (collection, proceedings) [which covers / contains articles / parts of
+  different authors] not as an autonomous bitex data set but as an inline part of
+  the covered article. In this case the quoted article\footcite[cf.][23]{RotCum2011a} will be mentioned as integrated set of data at both places,
+  on the page quoting the article and in the bibliography.
+\end{itemize}
+
+
+
+

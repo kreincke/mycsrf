@@ -1,0 +1,169 @@
+%fodina humanitied 'for being included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2010, 2011, ff.
+%
+% This LaTeX-File is licensed under the Creative Commons Attribution-ShareAlike
+% 3.0 Germany License (http://creativecommons.org/licenses/by-sa/3.0/de/): Feel
+% free 'to share (to copy, distribute and transmit)' or 'to remix (to adapt)'
+% it, if you '... distribute the resulting work under the same or similar
+% license to this one' and if you respect how 'you must attribute the work in
+% the manner specified by the author ...':
+%
+% In an internet based reuse please link the reused parts to www.fodina.de and
+% mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to www.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite.
+%
+% [ Derived from 'mykeds Classical Scholar Research Framework' 
+%   mykeds-CSR-framework (c) K. Reincke CC BY 3.0  http://www.mykeds.net/ ]
+%
+
+
+%% use all entries of the bibliography
+%\nocite{*}
+\section{Function Supports Form: Wie geht das mit LaTeX?}
+
+Mein Hauptwunsch aber war und ist, dass der altphilologisch
+geisteswissenschaftliche Schreib- und Argumentierstil LaTeX-like ermöglicht
+wird: ein simpler Befehl für den Zitatbeleg, und der Rest sollte sich von allein
+ergeben: gerne über Zuladung von Paketen gesteuert, über Konfigurationen
+verfeinert und mittels BibTeX\footcite[vgl.][]{BibtexOrgDe} erst ermöglicht.
+Aber bitte ohne das wiederholte lästige Tippen all dieser fitzligen
+Kleinigkeiten eines bibliographischen Nachweises.
+
+Glücklicherweise gibt es mittlerweile die kooperierenden Retter
+\emph{Jurabib}\footcite[vgl.][]{Berger2004a} und
+\emph{KOMA-Script}\footcite[vgl.][]{Kohm2008a}: Der erste bewahrt die
+altphilologische Zitierweise (selbst wenn er - wie sein Name unterstreicht - zu
+anderem Zwecke geschaffen worden ist); der zweite sorgt für einen europäisch
+klassischen Seitenspiegel. Ich hätte meine Selbstversuche viel früher einstellen
+und erneut auf die Suche nach fertigen Paketen gehen sollen. Dann wäre mir diese
+Lösung gewiss schon eher über den Weg gelaufen. Doch wie las ich neulich doch so
+schön: \emph{Es ist nie zu spät für alles}\footnote{Das ist der Titel eines
+Buches von Kajsa Ingemarsson, das ich nicht gelesen habe und darum auch nicht
+zitieren darf}.
+
+Und was heißt das nun konkret? Nun, das Ergebnis zeigt dieser spezielle
+"`Blindtext"' an sich und aus sich selbst heraus. Die verwendete Technik möge
+direkt dem LaTeX-Quelltext entnommen werden. Hier einige zentralen Punkte, wie
+sie im LaTeX-File erscheinen:
+
+Zuerst wird die KOMA-Dokumentenklasse als Basis festgesetzt, das Ganze auf
+Deutsch mit utf8 Input ausgerichtet und der Absatz ohne Einrückungen aber mit
+Abstand formatiert. Danach wird das Jurabib-Paket aktiviert und die ausgelagerte
+Jurabib-Konfigurationsdatei hinzugeladen. Danach beginnt das eigentliche
+Dokument, an dessen Ende auf die entsprechende Bibliographie referiert wird.
+\small
+\begin{verbatim}
+\documentclass[DIV=calc,BCOR=5mm,11pt,smallheadings,oneside,
+                                 abstract=true,toc=bib]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[]{a4,ngerman}
+\usepackage[english,ngerman]{babel}
+\selectlanguage{ngerman}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.5ex plus 0.5ex minus 0.5ex}
+% !JURABIB!
+\usepackage[see]{jurabib}
+\bibliographystyle{jurabib}
+% !Hinzuladen der ausgelagerten Konfiguration
+\input{btexmat/fodinaHumanitiesJbibCfgDeInc}
+% [...]
+\begin{document}
+% [...]
+\bibliography{bibfiles/fodinaHumanitiesExDe}
+\end{document}
+\end{document}
+\end{verbatim}
+
+\normalsize
+Und in der Jurabib-Konfigurationsdatei \emph{fodinaHumanitiesJbibCfgDeInc}
+werden dann die Details festgelegt:
+\small
+\begin{verbatim}
+% the first time cite with all data, later with shorttitle
+\jurabibsetup{citefull=first}
+
+%%% (1) author / editor list configuration
+% for authors in citations
+\renewcommand*{\jbbtasep}{ u. } % bta = between two authors
+\renewcommand*{\jbbfsasep}{, } % bfsa = between first and second author
+\renewcommand*{\jbbstasep}{ u. }% bsta = between second and third author
+% for editors in citations
+\renewcommand*{\jbbtesep}{ u. } % bta = between two authors
+\renewcommand*{\jbbfsesep}{, } % bfsa = between first and second author
+\renewcommand*{\jbbstesep}{ u. }% bsta = between second and third author
+
+% for authors in literature list
+\renewcommand*{\bibbtasep}{ u. } % bta = between two authors
+\renewcommand*{\bibbfsasep}{, } % bfsa = between first and second author
+\renewcommand*{\bibbstasep}{ u. }% bsta = between second and third author
+% for editors  in literature list
+\renewcommand*{\bibbtesep}{ u. } % bte = between two editors
+\renewcommand*{\bibbfsesep}{, } % bfse = between first and second editor
+\renewcommand*{\bibbstesep}{ u. }% bste = between second and third editor
+
+% use: name, forname, forname lastname u. forname lastname
+\jurabibsetup{authorformat=firstnotreversed}
+\jurabibsetup{authorformat=italic}
+
+%%% (2) title configuration
+% in every case print the title, let it be seperated from the 
+% author by a colon and use the slanted font
+\jurabibsetup{titleformat={all,colonsep}}
+%\renewcommand*{\jbtitlefont}{\textit}
+
+%%% (3) seperators in bib data
+% separate bibliographical hints and page hints by a comma
+\jurabibsetup{commabeforerest}
+
+%%% (4) specific configuration of bibdata in quotes / footnote
+% use a.a.O if possible
+\jurabibsetup{ibidem=strict}
+
+% replace the ugly a.a.O. by ders., a.a.O. resp. ders., ebda.
+% but if there are more than one author or girl writers?
+\AddTo\bibsgerman{
+  \renewcommand*{\ibidemname}{Ds., a.a.O.}
+  \renewcommand*{\ibidemmidname}{ds., a.a.O.}
+}
+\renewcommand*{\samepageibidemname}{Ds., ebda.}
+\renewcommand*{\samepageibidemmidname}{ds., ebda.}
+
+%%% (5) specific configuration of bibdata in bibliography
+% ever an in: before journal and collection/book-tiltes 
+\renewcommand*{\bibbtsep}{in: }
+%\renewcommand*{\bibjtsep}{in: }
+
+% ever a colon after author names 
+\renewcommand*{\bibansep}{: }
+% ever a semi colon after the title 
+\renewcommand*{\bibatsep}{; }
+% ever a comma before date/year
+\renewcommand*{\bibbdsep}{, }
+
+% let jurabib insert the S. and p. information
+% no S. necessary in bib-files and in cites/footcites
+\jurabibsetup{pages=format}
+
+% use a compressed literature-list using a small line indent
+\jurabibsetup{bibformat=compress}
+\setlength{\jbbibhang}{1em}
+
+% which follows the design of the cites and offers comments
+\jurabibsetup{biblikecite}
+
+\AddTo\bibsgerman{\renewcommand*{\urldatecomment}
+                                       {Referenzdownload: }}
+
+% we want to have the year of articles in brackets
+\renewcommand*{\bibaldelim}{(}
+\renewcommand*{\bibardelim}{)}
+
+% print annotations into bibliography
+\jurabibsetup{annote}
+\renewcommand*{\jbannoteformat}[1]{{ \itshape #1 }}
+
+\end{verbatim}
+\normalsize
