@@ -1,5 +1,6 @@
 (c) Karsten Reincke, Frankfurt a.M. 2010, 2011, ff.
 
+2018-07-24: examples integrated into the mycsrf framework itself
 2011-08-19/REL-2.1:
 * updated btexmat/myScholarJabrefPrefs.xml
   (proceedings with booktitle AND title)
