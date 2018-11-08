@@ -19,17 +19,23 @@
 % S.25: { article|report|book|letter ... }
 %
 % oder koma-skript S.10 + 16
-\documentclass[DIV=calc,BCOR=5mm,11pt,headings=small,oneside,abstract=true, toc=bib]{scrartcl}
+\documentclass[
+  DIV=calc,
+  BCOR=5mm,
+  11pt,
+  smallheadings,
+  oneside,
+  abstract=true,
+  toc=bib,
+  ngerman,english]{scrartcl}
 
 %%% (1) general configurations %%%
 \usepackage[utf8]{inputenc}
 
 %%% (2) language specific configurations %%%
-\usepackage[]{a4,ngerman}
-\usepackage[ngerman,english]{babel}
-\selectlanguage{english}
+\usepackage[]{a4,babel}
 
-%set langauge specific quotes
+%language specific quoting signs
 \usepackage{csquotes}
 
 % jurabib configuration
@@ -52,12 +58,12 @@
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
-% select the wished distances using the general setlength order:
-% S.34 { baselineskip| parskip | parindent }
-% - general no indent for paragraphs
+% no indent for paragraphs
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1.2ex plus 0.2ex minus 0.2ex}
 
+% package for improving the grey value and the line feed handling
+\usepackage{microtype}
 
 %%% (4) general package activation %%%
 %\usepackage{utopia}
@@ -77,6 +83,17 @@
 \usepackage[marginal]{footmisc}
 %- end(footnote-configuration)
 
+% formatting the footnote with koma script tools
+
+\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
+
+%integrate nomenclature
+\input{../btexmat/mycsrfNclMetaDefineDeInc}
+
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
 
 \begin{document}
 
