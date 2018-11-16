@@ -37,6 +37,6 @@ instance:
 	cp source/${LG}/inc.* $(PRJ)/cfg/
 
 help:
-	@echo "make PRJ='your-prj' LANG='[de|en]'"
+	@echo "make [prj|PRJ]='your-prj' [lang|LANG]='[de|en]'"
 
 #  $(error PRJ is not set)

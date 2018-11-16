@@ -197,19 +197,38 @@ to you use jurabib footnotes. At least you should become familiar with the
 command $\backslash$footcite[cf][1234]\{BibFileKey\}. A good way to learn it, is to
 study the sourcecode of this file, particularly the second chapter.
 
+\subsection{How do I install mycsrft?}
+
+Download and unzip/untar the latest project archive file. That's all.
+
+\subsection{How do I create my own project?}
+
+Change into the mycsrf project directory you have downloaded. Call
+\begin{verbatim}
+make [prj|PRJ]='your-prj' [lang|LANG]='[de|en]'
+\end{verbatim}
+
+\begin{description}	
+  \item [prj/PRJ] :- Define the name of your project (no blanks) [Default: mycsrf]. 
+  You can use the variables $prj$ or $PRJ$.
+  \item [lang/LANG] :- Define the language of your text [Default: de]. The quotation
+  and footnote style will be defined respectively. You can use the variables 
+  $lang$ or $LANG$.
+\end{description}
+
 \subsection{How do I manage my secondary literature?}
-In \texttt{\$(MYCSRF-HOME)/bibfiles} you find a \textit{German Resources
-Bibfile}, an \textit{English Resources Bibfile}, a \textit{Next Action Bibfile}
-and a \textit{Someday-Maybe Bibfile}. The names and the meaning of these
-bib-files follow the book \textit{Getting Things Done}\footcite[cf.][36 et
-passim]{Allen2001a}: If you find a book, an article or anything else, which you
-should still read / use / evalute, then insert its data into the 'next action'
-bib-file. If you find a hint to a piece of literature being less relevant, put
-it into the 'someday-maybe' bib-file. If you then really read a book, an article
-etc. then move its data into your final resources bib-file. Into the English
-resources bib-file you should insert english written annotations, into the
-German bib-files German written annotations. Use \textit{jabref} to maintain /
-to edit your bib-files.
+In the directory \texttt{/bib} you find the default bibfile $literature.bib$.
+You can add as many bibfiles as you want to use. In accordance to the book
+\textit{Getting Things Done}\footcite[cf.][36 et passim]{Allen2001a}, it is a
+good idea also to tuse a \textit{Next Action Bibfile} and a
+\textit{Someday-Maybe Bibfile}: If you find a book, an article or anything else,
+which you should still read / use / evalute, then insert its data into the 'next
+action' bib-file. If you find a hint to a piece of literature being less
+relevant, put it into the 'someday-maybe' bib-file. If you then really read a
+book, an article etc. then move its data into your final resources bib-file.
+Into the English resources bib-file you should insert english written
+annotations, into the German bib-files German written annotations. Use
+\textit{jabref} to maintain / to edit your bib-files.
 
 \subsection{What should I use to maintain my bib-files?}
 You can use each bib-file editor you are used to do. I prefer \textit{jabref}.
