@@ -1,0 +1,19 @@
+% mycsrf  Deutsch Nomenclation Declaration Include Module 
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This file is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): 
+% For details see teh file LICENSE in the top directory
+
+\usepackage[intoc]{nomencl}
+\let\abbr\nomenclature
+% Deutsche Überschrift
+%\renewcommand{\nomname}{Abbreviations}
+\renewcommand{\nomname}{Abkürzungen}
+
+\setlength{\nomlabelwidth}{.20\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+% reduce the line distance
+\setlength{\nomitemsep}{-\parsep}
+\makenomenclature

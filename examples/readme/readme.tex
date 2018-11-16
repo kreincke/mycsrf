@@ -1,0 +1,521 @@
+% myCsrf README file
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2010, 2011, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de and
+% mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite.
+%
+\documentclass[
+  DIV=calc,
+  BCOR=5mm,
+  11pt,
+  headings=small,
+  oneside,
+  abstract=true,
+  toc=bib,
+  ngerman,english]{scrartcl}
+
+%%% (1) general configurations %%%
+\usepackage[utf8]{inputenc}
+
+%%% (2) language specific configurations %%%
+\usepackage[]{a4,babel}
+\selectlanguage{english}
+
+% package for improving the grey value and the line feed handling
+\usepackage{microtype}
+
+%language specific quoting signs
+%default for language english is american style of quotes
+%\usepackage[english=british]{csquotes}
+\usepackage[english=american]{csquotes}
+
+% jurabib configuration
+\usepackage[see]{jurabib}
+\bibliographystyle{jurabib}
+\input{cfg/inc.jbib-cfg}
+
+% language specific hyphenation
+\input{cfg/inc.hyphenations}
+
+%%% (3) layout page configuration %%%
+
+% select the visible parts of a page
+% S.31: { plain|empty|headings|myheadings }
+%\pagestyle{myheadings}
+%\pagestyle{headings}
+
+% select the wished style of page-numbering
+% S.32: { arabic,roman,Roman,alph,Alph }
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% no indent for paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.2ex plus 0.2ex minus 0.2ex}
+
+
+%%% (4) general package activation %%%
+%\usepackage{utopia}
+%\usepackage{courier}
+%\usepackage{avant}
+\usepackage[dvips]{epsfig}
+
+% graphic
+\usepackage{graphicx,color}
+\usepackage{array}
+\usepackage{shadow}
+\usepackage{fancybox}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{trees}
+\usetikzlibrary{matrix}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{chngcntr}
+
+
+%- start(footnote-configuration)
+
+% formatting the footnote with koma script tools
+
+\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
+
+% if document class: count footnotes from start to end
+%- end(footnote-configuration)
+
+
+%for using label as nameref
+\usepackage{nameref}
+
+%integrate nomenclature
+\input{cfg/inc.ncl-meta}
+
+% depth of contents
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
+
+\begin{document}
+
+%% use all entries of the bliography
+\nocite{*}
+
+%%-- start(titlepage)
+\titlehead{myCsrf-\input{DRelease.tex}: the Classical Scholar Research
+Framework} \subject{Humanities Made With \textit{LaTeX}, \textit{BibTeX} and
+\textit{jurabib}}
+\title{Frequently Asked Questions}
+\author{Karsten Reincke\input{cfg/inc.license-fn}}
+
+\maketitle
+%%-- end(titlepage)
+
+\footnotesize
+\tableofcontents
+
+\normalsize
+
+\section{Frequently Asked Questions }
+\subsection{What is the myCsrf?}
+\emph{myCsrf} is the abbreviation of the \textit{\textbf{m}ind \textbf{y}our
+\textbf{C}lassical \textbf{s}cholar \textbf{r}esearch \textbf{f}ramework}. It's
+a collection of prepared and readily configured files for managing the whole
+process of writing a research paper in humanities: It offers a complete set of
+BibTeX-, LaTeX- and Makefiles for searching and evaluating secondary literature,
+for maintaining the bibliographical data, for generating abstracts and extracts
+and for writing the final work. The most prominent property of the
+myCsrf is the method of presenting citations in footnotes (or
+endnotes) following the rules of the classical scholar style as most as
+possible. This style is implemented by configuring jurabib in a special way.
+
+\subsection{What does it mean, 'the classical scholar research style'?}
+The classical scholar research style uses footnotes for referring to the quoted
+secondary literature. The somewhat more modern version - sometimes called the
+style of humanities - uses endnotes. But both styles (a) present the whole
+bibliographical data in the note when a work is quoted for the frist time, (b)
+use the schema of \textit{Author, Title, Year} when a work is quoted again and
+(c) use \textit{id. ibid./l.c.} resp. \textit{ds. a.a.O.} if the same work is
+multiply quoted in a row. For English users I inserted a short explaining text
+at the end of this FAQ. That chapter shows by itself how the classical scholar
+research style looks like. For German users I wrote a more elaborated
+explanation which not only demonstrates the appearance but exemplifies the
+purpose and reason of this method. Goto \texttt{\$(MYCSRF-HOME)/ecopies}
+and open \texttt{fodinaClassicalScholarFoNo.pdf} to get an impression of the
+German footnote version. If you want to see the German endnote version, open
+\texttt{fodinaClassicalScholarEnNo.pdf}\footnote{\$(MYCSRF-HOME) shall
+denote the place where you have extracted respectively installed the
+\textit{my\-keds\--CSR}-tar/zip file.}.
+
+\subsection{What do I need for using myCsrf?}
+Firstly you need a complete \textit{LaTeX} system including \textit{dvi2ps},
+\textit{ps2pdf}, \textit{BibTeX}, \textit{jurabib} and \textit{Koma-Script}. In
+general on GNU/Linux these parts are directly offered by nearly all
+distributions. If you are working on GNU/Linux you should also install
+\textit{make} for being able to use the readily prepared Makefiles of the
+\textit{myCsrf}. On Windows you can use \textit{MiKTeX} and
+\textit{Texmaker}: \textit{my\-keds-CSR} seems to be buildable by their built-in
+features\footnote{Personally I do not work on MS Windows. Hence I can't test
+this way thoroughly.}. Therefore the makefiles could (probably) be
+ignored\footnote{If not, install GNU-make and GNU-bash for Windows. I've never
+done this by myself, so I can't help. But I heard it's possible.}.
+
+Additionally you could use jabref, eclipse and texlipse\footnote{\ldots which
+themselves need the java runtime environment}. Start jabref as \\
+\texttt{\footnotesize java -jar JabRef-2.6.jar -p
+\$(MYCSRF-HOME)/btexmat/myScholarJabrefPrefs.xml}\\
+or import this configuration file by using the options/preferences dialog of
+jab\-ref\footnote{After having done this import you can directly call jabref
+without any parameters.}. Use LaTeX as you are used to do. Together, Eclipse and
+Texlipse provide a very good environment to edit and manage your the scientific
+papers.
+
+If you want to generate html-Versions of your literature lists, you must
+additionally install \textit{tex4ht}.
+
+\subsection{What must I know to use myCsrf successfully?}
+You must already be familiar with using LaTeX and BibTeX and you must know how
+to you use jurabib footnotes. At least you should become familiar with the
+command $\backslash$footcite[cf][1234]\{BibFileKey\}. A good way to learn it, is to
+study the sourcecode of this file, particularly the second chapter.
+
+\subsection{How do I manage my secondary literature?}
+In \texttt{\$(MYCSRF-HOME)/bibfiles} you find a \textit{German Resources
+Bibfile}, an \textit{English Resources Bibfile}, a \textit{Next Action Bibfile}
+and a \textit{Someday-Maybe Bibfile}. The names and the meaning of these
+bib-files follow the book \textit{Getting Things Done}\footcite[cf.][36 et
+passim]{Allen2001a}: If you find a book, an article or anything else, which you
+should still read / use / evalute, then insert its data into the 'next action'
+bib-file. If you find a hint to a piece of literature being less relevant, put
+it into the 'someday-maybe' bib-file. If you then really read a book, an article
+etc. then move its data into your final resources bib-file. Into the English
+resources bib-file you should insert english written annotations, into the
+German bib-files German written annotations. Use \textit{jabref} to maintain /
+to edit your bib-files.
+
+\subsection{What should I use to maintain my bib-files?}
+You can use each bib-file editor you are used to do. I prefer \textit{jabref}.
+There\-fo\-re I've generated a config file which offers for \textit{book},
+\textit{article}, \textit{proceedings}, \textit{elec\-tro\-nic}, \textit{misc}
+and \textit{inproceeding} all those items fitting the requirements of jurabib. Call
+\textit{jabref}, open the \textit{options/preferences} dialog and import the
+config-file
+\texttt{\$(MYCSRF-HOME)/btexmat/myScholarJabrefPrefs.xml}\footnote{Please
+note: after having imported the configuration file you must restart jabref for
+getting the effects work}.
+
+\subsection{Can I use inline-specified and crossref-linked-proceedings?} 
+Yes you can. I've prepared the jabref preferences according to both methods.
+On the one hand you can generate one bibfile entry (type 'Proceedings') for the
+collecting book, one other entry for the article (type 'Inproceedings'), and you
+can link them by inserting the bibkey of the proceedings data into the field
+'crossref' of the article data. On the other hand you can also generate only one
+entry for the article (type 'Inproceedings') and you fill in the data of the
+collecting book directly into this set of data by using the fields Booktitle
+etc. presented in the tab 'Optional fields'. So, feel free to use the inline
+method if you are only quoting one or two articles of the collecting
+'proceedings'. In this case in your bibliography the complete data set of the
+collecting book will be inlinely mentioned as part of the article data. Or feel
+free to use the crossfef method if you are quoting many or all articles of the
+collecting book: In this case the data of the 'proceedings' will fully mentioned
+as own data set in your bibliography. And all articles will refer to this set by
+the inlinely mentioned shortitle, year pattern.
+
+\subsection{How do I generate extracts of my secondary literature?}
+Firstly insert the bibliographic data into the German and/or English
+resources bib-file. Then copy the extract template from
+\texttt{\$(MYCSRF-HOME)/templates} into
+\texttt{\$(MYCSRF-HOME)/extracts} and rename it according to the work you
+want to extract\footnote{A good idea is to rename it like the bibtex-key of the
+work which shall be extracted}. Finally edit this file, insert an title, insert
+the BibTeX-Key into the first footcite and start extracting the ideas of your
+scientific secondary literature.
+
+\subsection{How do I note my own ideas and snippets?}
+At first open a shell and change into \texttt{\$(MYCSRF-HOME)/snippets/}.
+Se\-cond\-ly copy \texttt{mycsrfSnippetInc.tex} while simultaneously renaming
+it. Thirdly edit the existing snippet-frame-file \texttt{mycsrfSnippetFrame.tex}
+and modify the command \texttt{$\backslash$input\{mycsrfSnippetInc\}} so that it
+contains the name of your snippet-file. Finally edit the snippet-include-file
+and insert your LaTeX encoded ideas . If you want to see the compiled results
+generated by LaTeX, call \texttt{make mycsrfSnippetFrame.dvi} and review the
+results by using the command \texttt{xdvi mycsrfSnippetFrame.dvi}.
+
+Later on you can directly 'include'\footnote{Be careful: at least in my
+environment the LaTeX command $\backslash$include\{\} doesn't work as proper as
+I wish. Therefore I constantly use $\backslash$input\{\}.} your snippet into
+your main research document\footnote{\ldots which might be a mdofied copy of
+\texttt{\$(MYCSRF-HOME)/mycsrf.tex}} by inserting the command
+\texttt{$\backslash$input\{snippets/\$(YOURIDEASNIPPET)\}}\footnote{This is the
+reason why I wrote a special snippet-frame file. The frame file contains only
+the header- and document-commands and 'included' the real text. Therefore this
+'include-file' can also directly be 'included' into that main file. But there is
+one little obstacle: Both files need the same bibliography. Because multiple
+snippets probably use the same bib-file the command
+\texttt{$\backslash$bibliography\{\-bibfiles/\-mycsrfResourcesDe\}} can only be
+put into the snippet-frame file and into your main research file. So be sure
+that both files use the same bibliography-command}.
+
+\subsection{How do I write my final paper / work / book?}
+
+Simply edit your main research file which probably will be a modified copy of
+\texttt{\$(MYCSRF-HOME)/mycsrf.tex}. 
+
+\subsection{How do I generate the dvi, ps or pdf versions of my latex files?}
+If you want to see the compiled versions of your LaTeX files simply open a
+shell, change into the corresponding directory and call one of the following
+commands:
+
+\begin{description} 
+\item Generate a dvi file: \texttt{make \$(FILE-WITHOUT-EXTION-TEX).dvi}
+\item Generate ps file: \texttt{make \$(FILE-WITHOUT-EXTION-TEX).ps} 
+\item Generate pdf file: \texttt{make \$(FILE-WITHOUT-EXTION-TEX).pdf}
+\end{description}
+
+For reviewing the results use your tools like \textit{xdvi}, \textit{gs},
+\textit{acroread} or anything else as you are used to do.
+
+\subsection{Can I generate a html version of my literature files?}
+Yes, you can - if you have installed tex4ht. In this case change into
+directory btexmat and simply call \texttt{mycsrfBibRevAllDe.html}, 
+\texttt{mycsrfBibRevAllEn.html}, \texttt{mycsrfBibRevNextAction.html},
+\texttt{mycsrfBibRevCopiedButNotRead.html},
+\texttt{mycsrfBibRevResourcesDe.html}, or
+\texttt{mycsrfBibRevResourcesEn.html}.
+
+\subsection{What's the purpose of all these Makefiles?}
+Each directory contains a \textit{Makefile} by which you can start the
+compilation of your LaTeX files. For details see section \textit{How do I
+generate the dvi, ps or pdf versions of my latex files?}. Additionally the
+makefiles allow you to clean up the directories. Simply call \texttt{make clean}
+or \texttt{make clear}: \textit{make clear} only erases all aux-files,
+\textit{make clean} also deletes the pdf-, ps- and bak-files. In the top
+directory the makefile also offers targets to call \texttt{make
+dclean} or \texttt{make dclear}. These commands clean up the top directory and
+all sub-directories.
+
+\subsection{Can I get a complete survey of the entries of my bib-files?}
+In the directory \texttt{\$(MYCSRF-HOME)/btexmat/} you find the bibliography
+review files. They offer what their names promise. Let them be compiled by the
+commands being mentioned under \textit{How do I generate the dvi, ps or pdf
+versions of my latex files?}. Initially I offer the following review
+files\footnote{If you need a Someday-Maybe-Review, clone
+\texttt{mycsrfBibRevAll??.tex}, uncomment the resources and the next action
+bibliography.}
+
+\begin{itemize}
+  \item \texttt{mycsrfBibRevAllDe.tex} :- presents a list all items of all
+  bib-files (German style / annotations)
+  \item \texttt{mycsrfBibRevAllEn.tex} :- presents a list all items of all
+  bib-files (English style / annotations)
+  \item \texttt{mycsrfBibRevNextAction.tex} :- presents a list all items 
+  which data still must be verified (English style / annotations)
+  \item \texttt{mycsrfBibRevCopiedButNotRead.tex} :- presents a list all items 
+  which bibliographic data are alrey verified but which content still
+  must be evaluated (German style / annotations)
+  \item \texttt{mycsrfBibRevResourcesDe.tex} :- presents a list all items of
+  the Your final literature list (German style / annotations)
+  \item \texttt{mycsrfBibRevResourcesEn.tex} :- presents a list all items of
+  the Your final literature list (English style / annotations)
+\end{itemize}
+
+\subsection{How can I switch from German to English and v.v.?}
+
+\begin{itemize}
+  \item change $\backslash$usepackage[english,ngerman]\{babel\} into
+  $\backslash$usepackage[ngerman, english]\{babel\}
+  \item change $\backslash$selectlanguage\{ngerman\} into 
+  $\backslash$selectlanguage\{english\}
+  \item This modification is automatically managed by the csquotes-package
+  itself. Its' use is already been inserted into the headers of the tex
+  files by the line $\backslash$usepackage\{csquotes\}. For modifying the
+  default values of its' parameters see the csquotes-handout.
+  \item change $\backslash$input\{btexmat/mycsrfJbibCfgDeInc\} into
+  $\backslash$input\{btexmat/my\-keds\-Jbib\-CfgEnInc\}
+  \item activate the English resources bib-file instead of the German by
+  changing the command into $\backslash$bibliography\{bibfiles/mycsrfResourcesDe\}
+  \item change $\backslash$input\{btexmat/osc\-Nomencl\-De\-Inc\} into
+  $\backslash$input\{btexmat/osc\-Nomencl\-En\-Inc\}
+\end{itemize}
+
+If you need help study the LaTeX source files
+\texttt{mycsrfBibRevResourcesDe.tex} and
+\texttt{mycsrfBibRevResourcesEn.tex}, which are both offered in the directory
+\texttt{\$(MYCSRF-HOME)/btexmat}
+
+\subsection{How can I switch from footnote- to the endnote style and v.v.?}
+
+Normally you decide this before you start your real work. But it's not
+really tricky\footnote{
+But nevertheless be careful: 
+\begin{itemize}
+  \item \texttt{$\backslash$footnote} allows to insert the command
+  \texttt{$\backslash$cite} more then onetime, \texttt{$\backslash$endnote}
+  seems to ignore \texttt{$\backslash$cite} commands following after the first.
+  \item Never use \texttt{$\backslash$footnote} and \texttt{$\backslash$endnote}
+  in the same document ( at least if you do not know what your are
+  doing): footnote and endnotes are seperately counted. Hence you can get the
+  same number of the same page. Or your reader is reading the xth endnote
+  instead of seeing that footnote x is placed at the bottom of the page (or
+  much worser: on the page after)
+\end{itemize}} to switch to another style while already being working:
+
+\begin{enumerate}
+  \item Uncomment (or insert) 
+  \texttt{$\backslash$input\{btexmat/mycsrfEnNoCfgEnInc.tex\}} in the LaTeX header of
+  your research paper just before \texttt{$\backslash$begin\{document\}}
+  \item Switch to the correct language file (EN or DE)\footnote{Don't forget to
+  modify the language specific \textit{jurabib-configuration-input} command and the language
+  specific \textit{hyphenation-input-command} in the latex header.}.
+  \item Uncomment (or insert) \texttt{$\backslash$theendnotes}
+  normally near the end of your file just before
+  \texttt{$\backslash$bibliography\{bibfiles/mycsrfResourcesEn\}}
+  \item Replace all strings \texttt{$\backslash$footnote} by the string
+  \texttt{$\backslash$endnote}
+\end{enumerate}
+
+
+%\subsection{What's the meaning of the myCsrf file structure?}
+
+\subsection{Can I use myCsrf \ldots}
+\subsubsection{\ldots on Windows?}
+Yes, extract the myCsrf-zipfile and use \textit{MiKTeX} and
+\textit{Texmaker} for doing your job. Probably you won't be able to use the
+makefiles or shell scripts, but probably you should not need 
+themi necessarily\footnote{As I mentioned
+personally I work on GNU/Linux. Please tell me if you are successful}.
+
+\subsubsection{\ldots on GNU/Linux?}
+Naturally, I'm developing on and for GNU/Linux - personally nothing else!
+
+\subsubsection{\ldots on MacOS?}
+Yes, you can. We verified this way while working on the 'Open Source
+License Compendium'\footnote{But it's senseless to donate me with an iMac etc.
+My wife had done it already. And at once I installed GNU/Linux (naturally 
+by configuring it as an
+optical instance of MacOS.}.
+
+\subsection{What's the license of mycsrf, what am I allowed to do?}
+The \textit{myCsrf} is licensed under the Creative Commons Attribution 3.0
+Germany License (http://creativecommons.org/licenses/by/3.0/de/): Feel free
+\enquote{to share (to copy, distribute and transmit)} or \enquote{to remix (to
+adapt)} it, if you respect how \enquote{you must attribute the work in the
+manner specified by the author(s) [\ldots]}):
+
+In an internet based reuse please link the reused parts to mycsrf.fodina.de and
+mention the original author Karsten Reincke in a suitable manner. In a
+paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+original author, Karsten Reincke, into your preface. For normal quotations
+please use the scientific standard to cite.
+
+This means explicitly that you are allowed to take the
+\textit{myCsrf}, rename it and generate your own book / article on
+the base and with the help of this framework. There's no need to publish the
+result under the same license! The only condition is that you mention the use of
+the \textit{myCsrf} and its author in a suitable manner.
+
+\subsection{Where can I get the myCsrf, how do I install it?}
+
+Goto \texttt{http://mycsrf.fodina.de/en/distribution/}. The download page
+is announced. Download the tar.gz-file or the zip-file. Extract these compressed
+file into any directory you like to do. That's all. For any other help, feel
+free to contact k.reincke@fodina.de.
+
+\subsection{How can I modify all the filenames containing the string 'mycsrf'}
+
+First of all, you can do it manually. But keep in mind: if you
+modify a filename on your disc, you also must modify the tokens 
+in the latex files by which the file is referred.
+
+For those who are working on a GNU/Linux system I added a
+bash shell script (bin/rename.sh) which replaces mycsrf
+(a source-pattern) by the content of a target-pattern namely
+in the names of the files and in the content of the files.
+
+For using that script go to the top directory and call
+\texttt{./bin/rename.sh mycsrf yourOwnProjectName}
+
+\subsection{Where can I get more help?}
+
+For any other help, feel free to contact k.reincke@fodina.de.
+
+
+\section{Short Outline of the features of myCsrf}
+
+A scientific paper written in \textit{Classical Scholar Research} style not only
+wants to argue for a new position or insight but to offer it's reader
+the possibility to adopt the research history by the way. The history of
+humanities is the history of the secondary literature. Hence the footnotes in
+the \textit{Classical Scholar Research} style present all information about a work
+if it's quoted for the first time. If it is quoted again, it's referred by the
+short title of the bib-file\footnote{I prefer the pattern 'Author-Name:
+Short-Title, Year'. But I didn't find any solution to convince jurabib to do
+this automatically. Therefore in each field 'shorttile' of my bib-files I append
+at the real shorttitle a comma followed by the year. If anyone knows a better
+solution I would be glad to get a message from him.}. If it is cited multiply -
+directly in a row of notes on the same page, then and only then the shortcuts \textit{id.}
+and \textit{ibid.} or \textit{l.c.} should be used. Let me demonstrate what
+this means:
+
+\begin{itemize}
+  \item A \textit{book}\footcite[cf.][123]{AllHen2008a} is quoted for the first time.
+  \item A \textit{proceedings}\footcite[cf.][234]{Brachman1985a} is quoted for the first time.
+  \item An \textit{inproceedings}\footcite[cf.][345]{Hays1985a}is quoted for the first time.
+  \item An \textit{article of a journal}\footcite[cf.][456]{McCarthy1980a} is quoted for
+  the first time.
+  \item A \textit{book}\footcite[cf.][123]{AllHen2008a} is quoted for the second time.
+  \item A \textit{proceedings}\footcite[cf.][234]{Brachman1985a} is quoted for the second
+  time.
+  \item An \textit{inproceedings}\footcite[cf.][345]{Hays1985a}is quoted for the
+  second time.
+  \item An \textit{article of a journal}\footcite[cf.][456]{McCarthy1980a} is quoted for the second time.
+  \item A sophisticated book\footcite[cf.][567]{KantKdV1974} is quoted for the first time.
+  \item Now - directly following - another page of this sophisticated
+  book\footcite[cf.][678]{KantKdV1974} is quoted.
+  \item Now - again directly following - the same page of this sophisticated
+  book\footcite[cf.][678]{KantKdV1974} is quoted again.
+  \item Now another complex book of the same
+  author\footcite[cf.][789]{KantKdU1974} is quoted for the first time.
+  \item And now the first sophisticated book of the same
+  author\footcite[cf.][789]{KantKdV1974} is quoted again.
+\end{itemize}
+\small
+
+\section{Acknowledgment}
+
+A little but very annoying problem could recently be solved with the help of
+Markus Kohm, Patrick Happel, Martin Sievers and the Dante mailing lists: In a
+former version, the string 'in:', which indicates, that an article is part
+of a collection, was not correctly used if the inside of the article
+bibdata the collection was reffered its bibtexkey in the field crossref. Many
+thanks to all participants who helped me to solve that issue.
+
+
+%\theendnotes
+% insert nomenclature data here
+\input{bib/ncl.abbreviations}
+\input{bib/ncl.journals}
+\printnomenclature
+
+% insert the bibliographical data here
+\bibliography{bib/literature}
+
+\end{document}

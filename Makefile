@@ -1,86 +1,42 @@
-# (c) Karsten Reincke, Frankfurt am Main, Germany, 2011,2012,2013,2014
-# compile a tex-files 
 
-#LATEX=latex
-LATEX=pdflatex
+PRJNAME='mycsrf'
+LG=de
 
-AUX_EXTS=url bbl blg aux dvi toc log lof nlo nls ilg ils ent out
-RES_EXTS=ps pdf 
-SUB_DIRS=bibfiles btexmat extracts snippets templates
-T=CH
-
-
-all:
-	make README.pdf
-	@ mv README-`cat mycsrf.rel`.pdf README.pdf
-
-	
-.SUFFIXES: .tex .dvi .ps .pdf .rtf .xxx
-
-.tex.xxx:
-	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
-	@ echo "### converting $< to $@"
-	@ $(LATEX) $< 
-	@ bibtex `basename $< .tex`
-	@ $(LATEX) $< 
-	@ $(LATEX) $< 
-	@ $(LATEX) $< 
-ifneq ($(LATEX),pdflatex)
-	@ echo "### converting DVI to PostScript"
-	@ dvips $<
-	@ echo "### converting PostScript to PDF"
-	@ ps2pdf $<
+ifeq ($(PRJ),)
+  ifeq ($(prj),)
+    PRJ=${PRJNAME}
+  else
+    PRJ=$(prj)
+  endif
 endif
-	@ cp $@ `basename $@ .pdf`.xxx
-	@ make dclear
-	
 
-.tex.pdf:
-	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
-	@ echo "### converting $< to $@"
-	@ $(LATEX) $< 
-	@ bibtex `basename $< .tex`
-	@ makeindex `basename $< .tex`.nlo -s btexmat/nomencl.ist -o `basename $< .tex`.nls
-	@ $(LATEX) $< 
-	@ $(LATEX) $< 
-	@ $(LATEX) $< 
-ifneq ($(LATEX),pdflatex)
-	@ echo "### converting DVI to PostScript"
-	@ dvips $<
-	@ echo "### converting PostScript to PDF"
-	@ ps2pdf $<
+ifeq ($(lang),en)
+  LG=en
 endif
-	@ mv $@ `basename $@ .pdf`-`cat mycsrf.rel`.pdf
-	@ make dclear
 
-.tex.dvi:
-	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
-	@ echo "### converting $< to $@"
-	@ latex $< 
-	@ bibtex `basename $< .tex`
-	@ makeindex `basename $< .tex`.nlo -s btexmat/nomencl.ist -o `basename $< .tex`.nls
-	@ latex $< 
-	@ latex $< 
-	@ latex $< 
+ifeq ($(LANG),en) 
+  LG=en
+endif
 
-.dvi.ps:
-	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
-	@ echo "### converting $< to $@"
-	@ dvips $<
 
-clearAuxFiles:
-	$(foreach EXT, ${AUX_EXTS}, if [ ! "x`ls *.${EXT} 2>/dev/null`" = "x" ]; then rm *.${EXT}; fi;)
+instance:
+	echo "LG $(LG)"
+	mkdir -p $(PRJ) ${PRJ}/bib ${PRJ}/cfg ${PRJ}/extracts ${PRJ}/copies ${PRJ}/tools ${PRJ}/snippets
+	cp source/$(LG)/Makefile $(PRJ)/
+	cp source/${LG}/nomencl.ist $(PRJ)/cfg/nomencl.ist
+	cp source/${LG}/prj.tex $(PRJ)/$(PRJ).tex
+	cp source/${LG}/rel.inc $(PRJ)/
+	cp source/${LG}/frame.tex $(PRJ)/snippets/
+	cp source/${LG}/inc.snippet.tex $(PRJ)/snippets/
+	cp source/${LG}/SubMakefile $(PRJ)/snippets/Makefile
+	cp source/${LG}/extract.tex $(PRJ)/tools/
+	cp source/${LG}/verify.tex $(PRJ)/tools/
+	cp source/${LG}/SubMakefile $(PRJ)/tools/Makefile
+	cp source/${LG}/literature.bib $(PRJ)/bib/
+	cp source/${LG}/ncl.* $(PRJ)/bib/
+	cp source/${LG}/inc.* $(PRJ)/cfg/
 
-clearResFiles:
-	$(foreach EXT, ${RES_EXTS}, if [ ! "x`ls *.${EXT} 2>/dev/null`" = "x" ]; then rm *.${EXT}; fi;)
+help:
+	@echo "make PRJ='your-prj' LANG='[de|en]'"
 
-clear:	clearAuxFiles
-
-clean: 	clear clearResFiles
-
-dclear: clear
-	$(foreach DIR, ${SUB_DIRS}, cd ${DIR} && make clear && cd ..; done)
-
-dclean: clean
-	$(foreach DIR, ${SUB_DIRS}, cd ${DIR} && make clean && cd ..; done)
-
+#  $(error PRJ is not set)

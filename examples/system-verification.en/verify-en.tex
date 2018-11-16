@@ -1,0 +1,199 @@
+% fodina Humanities LaTeX-/JuraBib-Reference-Learn-Document
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2010, 2011, ff.
+%
+% This file is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): 
+% For details see teh file LICENSE in the top directory
+%
+\documentclass[
+  DIV=calc,
+  BCOR=5mm,
+  11pt,
+  headings=small,
+  oneside,
+  abstract=true,
+  toc=bib,
+  ngerman,english]{scrartcl}
+
+%%% (1) general configurations %%%
+\usepackage[utf8]{inputenc}
+
+%%% (2) language specific configurations %%%
+\usepackage[]{a4,babel}
+\selectlanguage{english}
+
+% package for improving the grey value and the line feed handling
+\usepackage{microtype}
+
+%language specific quoting signs
+%default for language english is american style of quotes
+%\usepackage[english=british]{csquotes}
+\usepackage[english=american]{csquotes}
+
+% jurabib configuration
+\usepackage[see]{jurabib}
+\bibliographystyle{jurabib}
+\input{cfg/inc.jbib-cfg}
+
+% language specific hyphenation
+\input{cfg/inc.hyphenations}
+
+%%% (3) layout page configuration %%%
+
+% select the visible parts of a page
+% S.31: { plain|empty|headings|myheadings }
+%\pagestyle{myheadings}
+\pagestyle{headings}
+
+% select the wished style of page-numbering
+% S.32: { arabic,roman,Roman,alph,Alph }
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% no indent for paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.2ex plus 0.2ex minus 0.2ex}
+
+
+% some additional symbols
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+
+%- start(footnote-configuration)
+
+% formatting the footnote with koma script tools
+
+\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
+
+%integrate nomenclature
+\input{cfg/inc.ncl-meta}
+
+% depth of contents
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
+
+\begin{document}
+
+%% use all entries of the bliography
+\nocite{*}
+
+%%-- start(titlepage)
+\titlehead{mycsrf.verify-\input{rel.inc}: English}
+\subject{(scholar-) Scientific Texts Based on a Modified \textit{jurabib}}
+\title{List of defined Usecases}
+\subtitle{Comments in Footnotes}
+\author{Author\input{cfg/inc.license-fn}}
+
+%thanks entry cannot be combined with license footnote
+%\thanks{den Autoren von KOMA-Script und denen von Jurabib}
+
+\maketitle
+%%-- end(titlepage)
+
+
+\begin{description}
+
+  \item[01 \checkmark] book 
+    (firstly  mentioned)\footcite[cf.][12]{KantKdU1974} (complete) 
+  \item[02 \checkmark] book (directly repeated,
+      same page)\footcite[cf.][12]{KantKdU1974} (id., ibid.)
+  \item[03 \checkmark] book (directly repeated, 
+      other page)\footcite[cf.][13]{KantKdU1974} (id., l.c., p.)
+  \item[04 \checkmark] journ. artl.
+    (firstly  mentioned)\footcite[cf.][12]{McCarthy1980a} (complete)
+  \item[05 \checkmark] journ. artl., (directly repeated,
+       same page)\footcite[cf.][12]{McCarthy1980a} (id., ibid.)
+  \item[06 \checkmark] journ. artl., (directly repeated,
+       other page)\footcite[cf.][13]{McCarthy1980a} (id., l.c., p.)
+  
+  \item[07 $\lightning$] coll. artl., (firstly  mentioned , 
+      new collection)\footcite[cf.][12]{Hays1985a} (both complete)
+  \item[08 \checkmark] coll. artl., (directly repeated,
+      same page)\footcite[cf.][12]{Hays1985a} (id., ibid.)
+      
+ \item[09 \checkmark] coll. artl. (directly repeated,
+      same page, on the next page)\footcite[cf.][12]{Hays1985a} (short link)
+  \item[10 \checkmark]  coll. artl. (directly repeated,
+      other page)\footcite[cf.][13]{Hays1985a} (id., l.c., p.)
+       
+  \item[11 \checkmark] coll. artl. (firstly  mentioned,
+      known collection)\footcite[cf.][12]{DaBu1985a} (complete + short)
+  \item[12 \checkmark] coll. artl. (directly repeated,
+      same page)\footcite[cf.][12]{DaBu1985a} (id., ibid.)
+
+  \item[13 \checkmark] coll. artl. (directly repeated,
+      other page)\footcite[cf.][13]{DaBu1985a} (id., l.c., p.)
+
+  \item[14 \checkmark] book with 3-x authors
+     (firstly  mentioned)\footcite[cf.][12]{SegEvaTay2009a} (all)
+  \item[15 \checkmark] book with 4+x authors
+     (firstly  mentioned)\footcite[cf.][12]{HitKroRudSur2008a} (1 + et.al.)
+
+  \item[16 \checkmark]  Coll. with 3-x editors
+    (firstly  mentioned)\footcite[cf.][12]{ProcKR2012a} (all)
+  \item[17 \checkmark] Coll. with 4+x editors
+    (firstly  mentioned)\footcite[cf.][12]{MehDreDesMan2011a} (1 + et.al.)
+
+  
+  \item[18 \checkmark] book
+    (indirectly repeated)\footcite[cf.][12]{KantKdU1974}  (short link)
+  \item[19 \checkmark] journ. artl.
+    (indirectly repeated)\footcite[cf.][12]{McCarthy1980a} (short link)
+  \item[20 \checkmark] coll. artl.
+    (indirectly repeated)\footcite[cf.][12]{Hays1985a} (short link)
+  \item[21 \checkmark] man book
+    (firstly  mentioned)\footcite[cf.][12]{Kopka2000a} (complete)
+  \item[22 \checkmark] man book
+    (directly repeated)\footcite[cf.][13]{Kopka2000a} (id., l.c., p.)
+   \newpage
+  \item[23 \checkmark] woman book
+     (firstly  mentioned)\footcite[cf.][12]{Kraemer1988a} (complete)
+  \item[24 \checkmark] woman book
+    (directly repeated)\footcite[cf.][13]{Kraemer1988a} (\textbf{id.}, l.c., p.)
+  \item[25 \checkmark] men book
+    (firstly  mentioned )\footcite[cf.][12]{MitGoo2005a} (complete)
+  \item[26 \checkmark] men book
+    (directly repeated)\footcite[cf.][13]{MitGoo2005a} (\textbf{id.}, l.c., p.)
+  \item[27 \checkmark] women book
+    (firstly  mentioned)\footcite[cf.][12]{CapMoo2016a} (complete)
+  \item[28 \checkmark] women book
+    (directly repeated)\footcite[cf.][13]{CapMoo2016a}  (\textbf{id.}, l.c., p.)
+
+  \item[29 \checkmark] MISC
+    (firstly  mentioned)\footcite[cf.][12]{Daly2007a} (complete)
+  \item[30 \checkmark] MISC
+    (directly repeated, same page)\footcite[cf.][12]{Daly2007a} (id., ibid.)
+  \item[31 \checkmark]  MISC
+    (directly repeated, other page)\footcite[cf.][13]{Daly2007a} (id., l.c.,
+    p.)
+  \item[32 \checkmark] Electronic
+    (firstly  mentioned)\footcite[cf.][12]{Wolter2010a} (complete)
+  \item[33 \checkmark]  Electronic
+    (directly repeated, same page)\footcite[cf.][12]{Wolter2010a} (id., ibid..)
+  \item[34 \checkmark] Electronic
+    (directly repeated, other page)\footcite[cf.][13]{Wolter2010a} (id., l.c.,
+    p.)
+  
+  \item[35 \checkmark] MISC
+    (indirectly repeated)\footcite[cf.][12]{Daly2007a} (short link)
+  \item[36 \checkmark] Electronic,
+    (indirectly repeated)\footcite[cf.][12]{Wolter2010a} (short link)
+    
+  
+\end{description}
+
+% insert the nomenclature here
+
+\input{bib/ncl.abbreviations}
+\input{bib/ncl.journals}
+\printnomenclature
+
+% insert the bibliographical data here
+\bibliography{bib/literature}
+
+\end{document}
