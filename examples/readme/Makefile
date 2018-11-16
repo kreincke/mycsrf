@@ -11,9 +11,12 @@ SUB_DIRS=cfg bib
 T=CH
 
 
-all:
-	make README.pdf
-	@ mv README-`cat rel.inc`.pdf README.pdf
+file:
+	make readme.pdf
+
+readme:	file
+	@ mv readme-`cat ../../DRelease.tex`.pdf README.pdf
+
 
 	
 .SUFFIXES: .tex .dvi .ps .pdf .rtf 
@@ -33,7 +36,7 @@ ifneq ($(LATEX),pdflatex)
 	@ echo "### converting PostScript to PDF"
 	@ ps2pdf $<
 endif
-	@ mv $@ `basename $@ .pdf`-`cat rel.inc`.pdf
+	@ mv $@ `basename $@ .pdf`-`cat ../../DRelease.tex`.pdf
 	@ make clearAuxFiles
 
 .tex.dvi:
