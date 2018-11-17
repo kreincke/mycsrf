@@ -42,4 +42,12 @@ instance:
 help:
 	@echo "make [prj|PRJ]='your-prj' [lang|LANG]='[de|en]'"
 
+legacy:
+	if [ -e deprecated ]; then rm -rf deprecated; fi
+	mkdir -p deprecated
+	cp pdfs/scholar-fono-de.pdf deprecated/fodinaClassicalScholarFoNoDe.pdf 
+	cp pdfs/scholar-enno-de.pdf deprecated/fodinaClassicalScholarEnNoDe.pdf 
+	cp pdfs/scholar-fono-en.pdf deprecated/fodinaClassicalScholarFoNoEn.pdf 
+	cp pdfs/scholar-enno-en.pdf deprecated/fodinaClassicalScholarEnNoEn.pdf 
+
 #  $(error PRJ is not set)
