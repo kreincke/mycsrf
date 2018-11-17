@@ -29,12 +29,15 @@ instance:
 	cp source/${LG}/frame.tex $(PRJ)/snippets/
 	cp source/${LG}/inc.snippet.tex $(PRJ)/snippets/
 	cp source/${LG}/SubMakefile $(PRJ)/snippets/Makefile
-	cp source/${LG}/extract.tex $(PRJ)/tools/
+	cp source/${LG}/extract.tex $(PRJ)/extracts/
+	cp source/${LG}/SubMakefile $(PRJ)/extracts/Makefile
+	cp source/${LG}/litlist.tex $(PRJ)/tools/
 	cp source/${LG}/verify.tex $(PRJ)/tools/
 	cp source/${LG}/SubMakefile $(PRJ)/tools/Makefile
 	cp source/${LG}/literature.bib $(PRJ)/bib/
 	cp source/${LG}/ncl.* $(PRJ)/bib/
 	cp source/${LG}/inc.* $(PRJ)/cfg/
+	cp source/${LG}/jabref.* $(PRJ)/cfg/
 
 help:
 	@echo "make [prj|PRJ]='your-prj' [lang|LANG]='[de|en]'"
