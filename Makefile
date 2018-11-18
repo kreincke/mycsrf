@@ -46,7 +46,7 @@ legacy:
 	if [ -e deprecated ]; then rm -rf deprecated; fi
 	mkdir -p deprecated
 	cp pdfs/scholar-fono-de.pdf deprecated/fodinaClassicalScholarFoNoDe.pdf 
-	cp pdfs/scholar-enno-de.pdf deprecated/fodinaHumantiesEnNoDe.pdf 
+	cp pdfs/scholar-enno-de.pdf deprecated/fodinaHumanitiesEnNoDe.pdf 
 	cp pdfs/scholar-fono-en.pdf deprecated/fodinaClassicalScholarFoNoEn.pdf 
 	cp pdfs/scholar-enno-en.pdf deprecated/fodinaHumanitiesEnNoEn.pdf 
 

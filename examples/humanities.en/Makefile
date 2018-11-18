@@ -33,7 +33,7 @@ ifneq ($(LATEX),pdflatex)
 	@ echo "### converting PostScript to PDF"
 	@ ps2pdf $<
 endif
-	@ mv $@ `basename $@ .pdf`-`cat rel.inc`.pdf
+	@ mv $@ `basename $@ .pdf`-en.pdf
 	@ make clearAuxFiles
 
 .tex.dvi:
