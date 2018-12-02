@@ -31,7 +31,8 @@ instance:
 	cp source/${LG}/SubMakefile $(PRJ)/snippets/Makefile
 	cp source/${LG}/extract.tex $(PRJ)/extracts/
 	cp source/${LG}/SubMakefile $(PRJ)/extracts/Makefile
-	cp source/${LG}/litlist.tex $(PRJ)/tools/
+	cp source/${LG}/list.tex $(PRJ)/tools/
+	cp source/${LG}/search.tex $(PRJ)/tools/
 	cp source/${LG}/verify.tex $(PRJ)/tools/
 	cp source/${LG}/SubMakefile $(PRJ)/tools/Makefile
 	cp source/${LG}/literature.bib $(PRJ)/bib/

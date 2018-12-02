@@ -1,0 +1,276 @@
+% mycsrf bitex- / bibliography search
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2018, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+\documentclass[
+  DIV=calc,
+  BCOR=5mm,
+  11pt,
+  headings=small,
+  oneside,
+  abstract=true,
+  toc=bib,
+  ngerman,english]{scrartcl}
+
+%%% (1) general configurations %%%
+\usepackage[utf8]{inputenc}
+
+%%% (2) language specific configurations %%%
+\usepackage[]{a4,babel}
+\selectlanguage{english}
+
+% package for improving the grey value and the line feed handling
+\usepackage{microtype}
+
+%language specific quoting signs
+\usepackage{csquotes}
+
+% jurabib configuration
+\usepackage[see]{jurabib}
+\bibliographystyle{jurabib}
+\input{../cfg/inc.jbib-cfg}
+
+% language specific hyphenation
+\input{../cfg/inc.hyphenations}
+
+%%% (3) layout page configuration %%%
+
+% select the visible parts of a page
+% S.31: { plain|empty|headings|myheadings }
+%\pagestyle{myheadings}
+\pagestyle{headings}
+
+% select the wished style of page-numbering
+% S.32: { arabic,roman,Roman,alph,Alph }
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% select the wished distances using the general setlength order:
+% S.34 { baselineskip| parskip | parindent }
+% - general no indent for paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.2ex plus 0.2ex minus 0.2ex}
+
+% package for improving the grey value and the line feed handling
+\usepackage{microtype}
+
+%%% (4) general package activation %%%
+%\usepackage{utopia}
+%\usepackage{courier}
+%\usepackage{avant}
+\usepackage[dvips]{epsfig}
+
+% graphic
+\usepackage{graphicx,color}
+\usepackage{array}
+\usepackage{shadow}
+\usepackage{fancybox}
+
+%\usepackage{tikz}
+%\usetikzlibrary{arrows}
+%\usetikzlibrary{shapes,snakes}
+%\usetikzlibrary{positioning}
+%\usetikzlibrary{decorations.text}
+%\usetikzlibrary{trees}
+%\usetikzlibrary{matrix}
+
+%\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{wasysym}
+%\usepackage{chngcntr}
+
+
+%- start(footnote-configuration)
+
+\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
+
+%- end(footnote-configuration)
+
+% package for macking tables with broken lines
+\usepackage{multirow}
+
+%for using label as nameref
+\usepackage{nameref}
+
+%integrate nomenclature
+\input{../cfg/inc.ncl-meta}
+
+\newcommand{\LibraryCatalogA}{Library Catalog A }
+\newcommand{\LibraryCatalogB}{Library Catalog B }
+\newcommand{\LibraryCatalogC}{Library Catalog C }
+\newcommand{\LibraryCatalogD}{Library Catalog D }
+\newcommand{\LibraryCatalogE}{Library Catalog E }
+\newcommand{\LibraryCatalogF}{Library Catalog F }
+\newcommand{\LibraryCatalogG}{Library Catalog G }
+\newcommand{\LibraryCatalogH}{Library Catalog H }
+\newcommand{\LibraryCatalogI}{Library Catalog I }
+\newcommand{\LibraryCatalogJ}{Library Catalog J }
+\newcommand{\LibraryCatalogK}{Library Catalog K }
+%\newcommand{\LibraryCatalogL}{Library Catalog A}
+%\newcommand{\LibraryCatalogM}{Library Catalog A}
+%\newcommand{\LibraryCatalogN}{Library Catalog A}
+%\newcommand{\LibraryCatalogO}{Library Catalog A}
+%\newcommand{\LibraryCatalogP}{Library Catalog A}
+\newcommand{\LibraryCatalogX}{Library Catalog ?}
+
+\newcommand{\SearchItemA}{Search Item A}
+\newcommand{\SearchItemB}{Search Item B}
+\newcommand{\SearchItemC}{Search Item C}
+\newcommand{\SearchItemD}{Search Item D}
+\newcommand{\SearchItemE}{Search Item E}
+\newcommand{\SearchItemF}{Search Item F}
+\newcommand{\SearchItemG}{Search Item G}
+\newcommand{\SearchItemH}{Search Item H}
+\newcommand{\SearchItemI}{Search Item I}
+\newcommand{\SearchItemJ}{Search Item J}
+\newcommand{\SearchItemK}{Search Item L}
+\newcommand{\SearchItemL}{Search Item M}
+
+% Marker for a catalog classification
+\newcommand{\TopicalLibraryCatalog}{$\clubsuit$}
+\newcommand{\TopicalLibraryCatalogDefinition}{subject specific library (group) catalog}
+\newcommand{\GeneralLibraryCatalog}{$\spadesuit$}
+\newcommand{\GeneralLibraryCatalogDefinition}{general library (group) catalog}
+\newcommand{\TopicalInternetCatalog}{$\heartsuit$}
+\newcommand{\TopicalInternetCatalogDefinition}{subject specific internet catalog}
+\newcommand{\GeneralInternetCatalog}{$\diamondsuit$}
+\newcommand{\GeneralInternetCatalogDefinition}{general internet catalog}
+
+% Marker for a status reportin
+\newcommand{\many}{$\ast$}
+\newcommand{\manyDef}{very fruitful evaluation}
+\newcommand{\some}{$\star$}
+\newcommand{\someDef}{productive evaluation}
+\newcommand{\few}{$\odot$}
+\newcommand{\fewDef}{only punctual hits}
+\newcommand{\nothing}{$\neg$}
+\newcommand{\nothingDef}{nothing found}
+\newcommand{\ongoing}{$\circ$}
+\newcommand{\ongoingDef}{ongoing evaluation}
+\newcommand{\open}{?}
+\newcommand{\openDef}{still pending evaluation}
+\newcommand{\ignored}{-}
+\newcommand{\ignoredDef}{finally no longer evaluated}
+
+
+%% use all entries of the bliography
+
+\begin{document}
+
+
+\begin{table}
+\scriptsize
+\caption{Resources [in/via] the University Library Frankfurt}
+\begin{center}
+\begin{tabular}[h]{|r|c|c|c||c||c|c|c|c||c|c|c|c|c|c|c|c||c|}
+\hline
+& \rotatebox{90}{$\clubsuit$ \textit{\LibraryCatalogA}}
+& \rotatebox{90}{$\clubsuit$ \textit{\LibraryCatalogB}}
+& \rotatebox{90}{$\clubsuit$ \textit{\LibraryCatalogC}}
+& \rotatebox{90}{$\spadesuit$ \textit{\LibraryCatalogD}}
+& \rotatebox{90}{$\heartsuit$ \textit{\LibraryCatalogE}}
+& \rotatebox{90}{$\heartsuit$ \textit{\LibraryCatalogF}}
+& \rotatebox{90}{$\heartsuit$ \textit{\LibraryCatalogG}}
+& \rotatebox{90}{$\heartsuit$ \textit{\LibraryCatalogH}}
+& \rotatebox{90}{$\diamondsuit$ \textit{\LibraryCatalogI}} 
+& \rotatebox{90}{$\diamondsuit$ \textit{\LibraryCatalogJ}} 
+& \rotatebox{90}{$\diamondsuit$ \textit{\LibraryCatalogK}}
+& \rotatebox{90}{\textit{\LibraryCatalogX}}
+\\
+\hline \hline
+\SearchItemA
+  & \many & \some & \few & \nothing & \ongoing & \open 
+  & \ignored & ? & ? & ? & ? & ?\\
+\hline
+\SearchItemB
+  & ? & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? & ?\\
+\hline
+\SearchItemC
+  & ? & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? & ?\\
+\hline
+\SearchItemD
+  & ? & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? & ?\\
+\hline
+\SearchItemE
+  & ? & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? & ?\\
+\hline
+\SearchItemF
+  & ? & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? & ?\\
+\hline
+\SearchItemG
+  & ? & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? & ?\\
+\hline
+\SearchItemH
+  & ? & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? & ?\\
+\hline
+\SearchItemI
+  & ? & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? & ?\\
+\hline
+\SearchItemJ
+  & ? & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? & ?\\
+\hline 
+\SearchItemK
+  & ? & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? & ?\\
+\hline
+\SearchItemL
+  & ? & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? & ?\\
+\hline
+\hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\textbf{Literature Search} in / via the
+\emph{Central Library of the University Franfkurt}\footcite[s.][n.P.]{UbFam2018a}:
+
+
+\begin{description}
+  \item[types of catalogs] :-
+    \begin{description}
+      \item[\TopicalLibraryCatalog] :- \TopicalLibraryCatalogDefinition
+      \item[\GeneralLibraryCatalog] :- \GeneralLibraryCatalogDefinition
+      \item[\TopicalInternetCatalog] :- \TopicalInternetCatalogDefinition
+      \item[\GeneralInternetCatalog] :- \GeneralInternetCatalogDefinition
+    \end{description}
+  \item[status of evaluations] :-
+    \begin{description}
+      \item[\many] :- \manyDef
+      \item[\some] :- \someDef
+      \item[\few] :- \fewDef
+      \item[\nothing] :- \nothingDef
+      \item[\ongoing] :- \ongoingDef
+      \item[\open] :- \openDef
+      \item[\ignored] :- \ignoredDef
+    \end{description}
+\end{description}
+
+
+% insert the bibliographical data here
+\bibliography{../bib/literature}
+
+\end{document}
