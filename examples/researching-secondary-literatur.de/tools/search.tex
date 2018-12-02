@@ -1,19 +1,17 @@
-% mycsrf bitex- / bibliography search
+% mycsrf cloak file
 %
-% (c) Karsten Reincke, Frankfurt a.M. 2018, ff.
+% (c) Karsten Reincke, Frankfurt a.M. 2010, 2011, ff.
 %
-% This text is licensed under the Creative Commons Attribution 3.0 Germany
-% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
-% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
-% how you must attribute the work in the manner specified by the author(s):
-% \newline
-% In an internet based reuse please link the reused parts to mycsrf.fodina.de
-% and mention the original author Karsten Reincke in a suitable manner. In a
-% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
-% original author, Karsten Reincke, into your preface. For normal quotations
-% please use the scientific standard to cite
+% This file is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): 
+% For details see teh file LICENSE in the top directory
 %
-
+% select the document class
+% S.26: [ 10pt|11pt|12pt onecolumn|twocolumn oneside|twoside notitlepage|titlepage final|draft
+%         leqno fleqn openbib a4paper|a5paper|b5paper|letterpaper|legalpaper|executivepaper openrigth ]
+% S.25: { article|report|book|letter ... }
+%
+% oder koma-skript S.10 + 16
 \documentclass[
   DIV=calc,
   BCOR=5mm,
@@ -22,14 +20,14 @@
   oneside,
   abstract=true,
   toc=bib,
-  ngerman,english]{scrartcl}
-
+  english,ngerman]{scrartcl}
+  
 %%% (1) general configurations %%%
 \usepackage[utf8]{inputenc}
 
 %%% (2) language specific configurations %%%
 \usepackage[]{a4,babel}
-\selectlanguage{english}
+\selectlanguage{ngerman}
 
 % package for improving the grey value and the line feed handling
 \usepackage{microtype}
@@ -63,8 +61,6 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1.2ex plus 0.2ex minus 0.2ex}
 
-% package for improving the grey value and the line feed handling
-\usepackage{microtype}
 
 %%% (4) general package activation %%%
 %\usepackage{utopia}
@@ -140,30 +136,30 @@
 \newcommand{\SearchItemL}{Search Item M}
 
 % Marker for a catalog classification
-\newcommand{\NecessaryCatalog}{$\clubsuit$}
-\newcommand{\NecessaryCatalogDefinition}{necessary catalog}
-\newcommand{\ImportantCatalog}{$\spadesuit$}
-\newcommand{\ImportantCatalogDefinition}{important catalog}
-\newcommand{\UsefulCatalog}{$\heartsuit$}
-\newcommand{\UsefulCatalogDefinition}{useful catalog}
-\newcommand{\PossibleCatalog}{$\diamondsuit$}
-\newcommand{\PossibleCatalogDefinition}{possible catalog}
+\newcommand{\TopicalLibraryCatalog}{$\clubsuit$}
+\newcommand{\TopicalLibraryCatalogDefinition}{fachspezifischer Bibliotheks- / Verbundkatalog}
+\newcommand{\GeneralLibraryCatalog}{$\spadesuit$}
+\newcommand{\GeneralLibraryCatalogDefinition}{allgemeiner Bibliotheks- / Verbundkatalog}
+\newcommand{\TopicalInternetCatalog}{$\heartsuit$}
+\newcommand{\TopicalInternetCatalogDefinition}{fachspezischer Internetkatalog}
+\newcommand{\GeneralInternetCatalog}{$\diamondsuit$}
+\newcommand{\GeneralInternetCatalogDefinition}{allgemeiner Internetkatalog}
 
 % Marker for a status reportin
 \newcommand{\many}{$\ast$}
-\newcommand{\manyDef}{many items found}
+\newcommand{\manyDef}{sehr ergiebige Auswertung}
 \newcommand{\some}{$\star$}
-\newcommand{\someDef}{some items found}
+\newcommand{\someDef}{ergiebige Auswertung}
 \newcommand{\few}{$\odot$}
-\newcommand{\fewDef}{only few items found}
+\newcommand{\fewDef}{nur punktuelle Treffer}
 \newcommand{\nothing}{$\neg$}
-\newcommand{\nothingDef}{no items found}
+\newcommand{\nothingDef}{nichts gefunden}
 \newcommand{\ongoing}{$\circ$}
-\newcommand{\ongoingDef}{ongoing evaluation}
+\newcommand{\ongoingDef}{gerade ausgeführte Auswertung}
 \newcommand{\open}{?}
-\newcommand{\openDef}{still pending evaluation}
+\newcommand{\openDef}{noch ausstehende Auswertung}
 \newcommand{\ignored}{-}
-\newcommand{\ignoredDef}{finally no longer evaluated}
+\newcommand{\ignoredDef}{schließĺich) nicht mehr ausgewertet}
 
 
 %% use all entries of the bliography
@@ -173,7 +169,7 @@
 
 \begin{table}
 \scriptsize
-\caption{Resources [in/via] the University Library Frankfurt}
+\caption{Resourcen [aus der/über die] Frankfurter Universitätsbibliothek}
 \begin{center}
 \begin{tabular}[h]{|r|c|c|c||c||c|c|c|c||c|c|c|c|c|c|c|c||c|}
 \hline
@@ -245,19 +241,19 @@
 \end{center}
 \end{table}
 
-\textbf{Literature Search} in / via the
-\emph{Central Library of the University Franfkurt}\footcite[s.][n.P.]{UbFam2018a}:
+\textbf{Literaturrecherche} in der / über die 
+\emph{Frankfurter Universitätsbibliothek}\footcite[s.][n.P.]{UbFam2018a}:
 
 
 \begin{description}
-  \item[types of catalogs] :-
+  \item[Katalogformen] :-
     \begin{description}
-      \item[\NecessaryCatalog] :- \NecessaryCatalogDefinition
-      \item[\ImportantCatalog] :- \ImportantCatalogDefinition
-      \item[\UsefulCatalog] :- \UsefulCatalogDefinition
-      \item[\PossibleCatalog] :- \PossibleCatalogDefinition
+      \item[\TopicalLibraryCatalog] :- \TopicalLibraryCatalogDefinition
+      \item[\GeneralLibraryCatalog] :- \GeneralLibraryCatalogDefinition
+      \item[\TopicalInternetCatalog] :- \TopicalInternetCatalogDefinition
+      \item[\GeneralInternetCatalog] :- \GeneralInternetCatalogDefinition
     \end{description}
-  \item[status of evaluations] :-
+  \item[Berichtstatus] :-
     \begin{description}
       \item[\many] :- \manyDef
       \item[\some] :- \someDef

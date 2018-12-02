@@ -1,0 +1,710 @@
+% mycsrf cloak file
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2010, 2011, ff.
+%
+% This file is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): 
+% For details see teh file LICENSE in the top directory
+%
+
+
+\documentclass[
+  DIV=calc,
+  BCOR=5mm,
+  11pt,
+  headings=small,
+  oneside,
+  abstract=true,
+  toc=bib,
+  english,ngerman]{scrartcl}
+  
+%%% (1) general configurations %%%
+\usepackage[utf8]{inputenc}
+
+%%% (2) language specific configurations %%%
+\usepackage[]{a4,babel}
+\selectlanguage{ngerman}
+
+% package for improving the grey value and the line feed handling
+\usepackage{microtype}
+
+%language specific quoting signs
+%default for language emglish is american style of quotes
+\usepackage[german=quotes]{csquotes}
+
+% jurabib configuration
+\usepackage[see]{jurabib}
+\bibliographystyle{jurabib}
+\input{cfg/inc.jbib-cfg}
+
+% language specific hyphenation
+\input{cfg/inc.hyphenations}
+
+%%% (3) layout page configuration %%%
+
+% select the visible parts of a page
+% S.31: { plain|empty|headings|myheadings }
+%\pagestyle{myheadings}
+\pagestyle{headings}
+
+% select the wished style of page-numbering
+% S.32: { arabic,roman,Roman,alph,Alph }
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% select the wished distances using the general setlength order:
+% S.34 { baselineskip| parskip | parindent }
+% - general no indent for paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.2ex plus 0.2ex minus 0.2ex}
+
+
+%%% (4) general package activation %%%
+%\usepackage{utopia}
+%\usepackage{courier}
+%\usepackage{avant}
+\usepackage[dvips]{epsfig}
+
+% graphic
+\usepackage{graphicx,color}
+\usepackage{array}
+\usepackage{shadow}
+\usepackage{fancybox}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{trees}
+\usetikzlibrary{matrix}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{chngcntr}
+
+
+%- start(footnote-configuration)
+\usepackage[marginal]{footmisc}
+\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
+
+% if document class: count footnotes from start to end
+
+%- end(footnote-configuration)
+
+% package for macking tables with broken lines
+\usepackage{multirow}
+
+%for using label as nameref
+\usepackage{nameref}
+
+%integrate nomenclature
+\input{cfg/inc.ncl-meta}
+
+% depth of contents
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
+
+\begin{document}
+
+%% use all entries of the bliography
+\nocite{*}
+
+%%-- start(titlepage)
+\titlehead{Suche nach Sekundärliteratur}
+\subject{Die Bibliothek der Universität Frankfurt am Main}
+\title{Recherchebeispiel zum Thema 'Open Source License Management'}
+\subtitle{Besonderheiten bei der Literatursuche u. -bestellung}
+
+\author{K. Reincke\\input{cfg/inc.license-fn}}
+
+%thanks entry cannot be combined with license footnote
+%\thanks{den Autoren von KOMA-Script und denen von Jurabib}
+
+\maketitle
+%%-- end(titlepage)
+
+\begin{abstract}
+\noindent \itshape
+Dieses Paper erläutert amnhand des Beispielthemas \emph{Open Source}, wie man in der 
+\emph{Universitätsbibliothek Frankfurt a.M.}\footcite[s.][]{UbFaMHome}
+entsprechende Sekundärliteratur findet, resp. deren Bibliotheksstandort
+zwecks Ausleihe ermittelt.
+\end{abstract}
+
+%% no table of content in a snippet
+\footnotesize
+\tableofcontents
+
+\normalsize
+
+\section{Vorbemerkung}
+
+Universitätsbibliotheken kaufen bei Verlagen Bücher und Zeitschriften, die sie
+ihren 'Kunden' zur Einsicht bereitstellen. Manche Werke - insbesondere
+elektronische Texte - dürfen Bibliotheken nur an Studenten oder
+Universtitätsmitarbeiter aushändigen. Anderen dürfen diese Arbeiten nur
+innerhalb des Bibliotheksgebäudes einsehen. Konsequenterweise müssen Bibliotheken
+verifizieren, dass der Ausleihende ein Student, Universitätsmitarbeiter oder
+externer Bibliotheksnutzer ist. Im Falle physischer Werke werden dazu bei der
+Ausleihe die Bibliotheksausweise vorgelegt.
+
+Bei dem Zugriff auf elektronische Werke über das Portal der Bibliothek von
+außerhalb - also per Internet - gibt es statt des Ausweises nur den Login. Der
+reicht als Legitimation (aus Sicht der Verlage) aber nicht aus:
+zusätzlich muss sich der Ausleihende im Universitätsnetz befinden. Dies wird
+über VPNs organisiert.
+
+Externen Bibliotheksnutzern wird ein solches VPN aber nicht bereitgestellt.
+Deshalb müssen sie sich gelegentlich physisch in das Universitätsgebäude begeben
+und mittels die UB eigenen Rechner nach Literatur suchen und sie einsehen.
+
+\section{Standort schon bekannter Werke ermitteln}
+
+Ausgangspunkt sind hier die schon bekannten bibliographischen Daten eines
+Werkes. Es gilt also 'nur', den entsprechenden Bibliotheksstandort zu ermitteln.
+
+\subsection{Monographien und Lehrbücher}
+
+Bei Büchern wird der Bibliotheksstandort über die Suche nach Autor, Titel etc.
+ermittelt. Anhand der Angaben können die physischen Texte in die Ausleihe oder
+den Lesesaal bestellt werden. Und die  Volltextversionen elektronischer Texte
+können darüber eingesehen und/oder downgeloadet werden, sofern der Zugriff
+zulässig ist.
+
+In der UB gibt es 3 Einstiegspunkte für die Suche im Frankfurter
+OPAC\footnote{Online Public Access Catalogue}:
+
+\begin{itemize}
+  \item Gehe zu {\ttfamily http://www.ub.uni-frankfurt.de/} und wähle dort
+  im linken Menu \emph{Kataloge} an.
+  \item Oder gehe direkt zu {\ttfamily http://suche.ub.uni-frankfurt.de/}.
+  \item Oder gehe direkt zum älteren Frontend des
+  Frankfurter OPAC Katalog {\ttfamily https://lbsopac.rz.uni-frankfurt.de/} (er
+  zeigt in der Trefferliste auch an, ob es sich um eine elektronisches oder ein
+  gedrucktes Werk handelt.)
+\end{itemize}
+  
+Um diese zu nutzen, verfährt man wie folgt:
+
+\begin{itemize}
+  \item Logge Dich ein mit den Daten Deines Bibliotheksausweises
+  \item Wähle - je nach Fokus - rechts oben den UB-Katalog oder rechts mittig
+  den ebook-katalog an.
+  \item Gib den Autornamen, Kernwörter des Titels oder Herausgebernamen ins
+  lineare Suchfeld ein.
+  \item Finde das gewünschte Buch in der Trefferliste
+\end{itemize}
+
+Im Erfolgsfall kann das gesuchte Werk in der Trefferliste angeklickt werden. Um
+es real einsehen zu können, sind vier Fälle zu unterscheiden:
+\begin{itemize}
+  \item Liegt es gebunden vor und ist nicht vorbestellt, kann es im
+  erscheinenden OPAC Formular direkt in die Buchausgabe der UB (ggfls. in den
+  Lesesaal) bestellt werden und liegt dann dort (1 Woche) zur
+  Einsicht/Ausleihe bereit. [\emph{verifiziert am} {\ttfamily 2011.07.01}]
+  \item Liegt es gebunden vor und ist vorbestellt, kann es im erscheinenden OPAC
+  Formular direkt vorbestellt werden. Nach der Benachrichtigung kann dan wie
+  o.a. verfahren werden.  [\emph{verifiziert am} {\ttfamily 2011.07.08}]
+  \item Liegt es als elektronische Resource vor, kann es im UB Netz direkt als
+  Volltext eingesehen resp. als PDF auf einen Stick heruntergeladen werden. 
+  [\emph{verifiziert am} {\ttfamily 2011.07.08}]
+  \item Liegt es gebunden vor, ist aber nicht ausleihbar, so muss es direkt
+  unter dem angegebenen Standort im Lesesaal / Freihandbestand eingesehen werden. 
+  [\emph{verifiziert am} {\ttfamily 2011.07.01}]
+\end{itemize}
+
+Wenn das Werk (von außerhalb des UNI/UB-Netzes) nicht über den Katalog der
+UB FaM zu finden ist, gibt es folgende Alternativen:
+
+\begin{itemize}
+  \item Gehe ins Gebäude der UB FaM an einen Rechner im UB-Netz, und wiederhole
+  obiges Verfahren sicherheitshalber innerhalb des UB/UNI-Netzes. 
+  \item Wähle
+  insbesondere unter {\ttfamily http://suche.ub.uni-frankfurt.de/} rechts mittig
+  die Datenbank ebooks (Books \ldots online) an. Oder nutze den allgemeinen
+  Einstieg {\ttfamily http://www.ub.uni-frankfurt.de/}, wähle li. oben den
+  Menueintrag \enquote{Datenbanken, E-Journals, E-Books} und recherchiere
+  in den elektronischen Büchern.  [\emph{verifiziert am} {\ttfamily 2011.07.08}]
+  \item Wähle unter {\ttfamily http://suche.ub.uni-frankfurt.de/} - sofern das
+  gesuchte Buch weder in den gedruckten, noch in den elektronischen Werken zu
+  finden ist - rechts oben satt des UB Kataloges den HeBiS-Katalog an oder gehe
+  direkt zu {\ttfamily https://www.portal.hebis.de}, logge Dich dort mit Deinen
+  UB FaM Daten ein und initiiere nach Erfolg ein Fernleihe.  [\emph{verifiziert
+  am} {\ttfamily 2011.07.08}]
+\end{itemize}
+
+
+\subsection{Zeitschriftenartikel}
+
+Sind die bibliographischen Angaben eines Zeitschriftenartikels bekannt,
+\enquote{reduziert} sich die Recherche auf die Ermittlung des Standorts der
+Zeitschrift selbst und das Holen (Kopieren) des Artikels. Herausforderung ist
+hier, dass wesentlich mehr Zeitschriften nur elektronisch existieren.
+
+\subsubsection{Zeitschriften}
+
+Gedruckte / gebundene Zeitschriften als solche werden wie Bücher behandelt. Für
+die Suche nach elektronische Zeitschriften gibt es eine
+universitätsübergreifende Bibliothek, die \emph{EZB} [\enquote{Elektronische
+Zeitschriftenbibliothek}]. Sie wird von allen Unis verlinkt, allerdings
+jeweils unterschiedlich parametrisiert, sodass nur die von der UB gekauften
+Zeitschriften auch über das je spezifische Netz als Volltext eingesehen werden
+können\footnote{Grüne Ampel: Volltext frei im Internet, gelbe Ampel: UB
+spezifisch, Volltext nur über UB)}.
+
+Um die Zeitschrift zu finden, führt man Folgendes aus:
+
+
+\begin{itemize}
+  \item Verfahre wie bei einem gebundenen gedruckten Buch und suche über den UB
+  FaM Katalog nach dem Zeitschriftentitel (nicht dem Titel/Autor des Artikels
+  in der Zeitschrift)
+  \item Gehe zu {\ttfamily http://www.ub.uni-frankfurt.de/} und dort per
+  Menüeintrag \enquote{Datenbanken, E-Journals, E-Books} und den dabei
+  erscheinenden Link \enquote{Elektronische Zeitschriftenbibliothek}. Hinter
+  diesem Eintrag verbirgt sich der Link auf die EZB, der für UB FaM
+  parametrisiert worden ist: {\ttfamily
+  http://ezb.uni-regensburg.de/fl.phtml?bibid=UBFM}.
+  \item Wähle in der EZB Dein Fachgebiet und in dessen Liste Deine
+  Zeitschrift.
+\end{itemize}
+
+Wenn die Ampel der gefundenen elektronische Zeitschrift grün ist, ist die
+Zeitschrift allgemein im Netz erhältlich. Wenn die Ampel gelb ist, kann sie nur
+im Netz der UB eingesehen resp. als PDF im Volltext runtergeladen werden. Und
+wenn sie rot ist, kann sie nur über Fernleihe bestellt werden.
+  
+Insgesamt gibt es im Erfolgsfall drei Möglichkeiten:
+\begin{itemize}
+  \item Liegt die Zeitschrift nur gebunden vor, muss der entsprechende Band -
+  wie ein Buch - zur Ansicht in den Lesesaal bestellt werden.
+  \item Liegt die Zeitschrift (auch) elektronisch vor und ist ihre Ampel im
+  EZB grün, kann der entsprechende Band übers Internet frei eingesehen und der
+  Artikel (ausserhalb des UB-Netzes) als PDF downgeloaded werden.
+  \item Liegt die Zeitschrift (auch) elektronisch vor und ist ihre Ampel im
+  EZB gelb, kann der entsprechende Band nur über das UB-Netz eingesehen und
+  der Artikel als PDF downgeloaded werden.
+\end{itemize}  
+ 
+
+\subsubsection{Zeitschriftenartikel}
+\begin{itemize}
+  \item Bei einer gebunden Zeitschrift muss die entsprechende Ausgabe der
+  Zeitschrift in den den Lesensaal bestellt werden, um den Artikel kopieren zu
+  können.
+  \item Bei elektronischen Artikeln kann er bei grüner oder gelber Ampel
+  direkt eingesehen und als PDF downgeloaded werden.
+\end{itemize}
+
+\subsection{Sammlungen und Periodica}
+
+Sammlungen und Periodica werden analog zu Büchern oder Zeitschriften behandelt.
+Auch hier ist der Unterschied zwischen gebunden / gedruckten Werken und
+elektronischen entsprechend zu beachten.
+
+\section{Themenzentrierte Suche: relevante Literatur finden }
+
+\subsection{Schlagwortsuche im Title, Abstract und den Keywords}
+Der eine Weg zur thematische Suche führt über die Schlagwortsuche im Titel, im
+Abstract und in den Keywords. Technisch unterscheidet sich diese nicht wirklich
+von der Suche nach bekannten bibliographischen Daten im UB-Bestand. In beiden
+Fällen wird auf den OPAC-Katalog zugegriffen. In das Suchfeld werden eben nur
+thematische Suchbegriffe eingegeben, wobei ggf. die Detailssuche bemüht wird.
+Hier noch einmal die Links auf die Katalogsuche:
+
+
+\begin{itemize}
+  \item books \& ebooks (UB-Katalog): {\ttfamily
+  http://suche.ub.uni-frankfurt.de/}
+  \item books \& ebooks (UB-Katalog): {\small \ttfamily
+  https://lbsopac.rz.uni-frankfurt.de/}
+  \item books \& ebooks: {\ttfamily
+  https://lbsopac.rz.uni-frankfurt.de/}
+  \item ebooks: {\ttfamily \tiny
+  http://www.ub.uni-frankfurt.de/datenbanken/ebooks\_gesamt.html}
+\end{itemize}
+
+Gesucht wird in all diesen Fällen auf Metadaten. Das bedeutet konsequenterweise,
+dass so nicht nach Zeitschriftenartikeln gesucht werden kann. Das wäre erst
+möglich, wenn die UBs alle Artikel ihrer Zeitschriften einzelnd
+verschlagwortet / erfasst hätten. Diesen Service liefern stattdessen
+Literaturdatenbanken.
+
+\subsection{Stichwortsuche in Literaturdatenbanken}
+
+Literaturdatenbanken sind zumeist fachspezifisch, verschlagworten dafür
+aber (auch) die einzelnen Artikel der Zeitschriften. Es gibt Datenbanklisten,
+aus denen eine Datenbank auszuwählen ist, um darin zu suchen. Auch die
+Datenbanken können frei im Netz zugänglich oder bibliotheksspezifisch sein. In
+die Literaturdatenbanklisten kann über verschiedene Links eingestiegen werden\footnote{
+Hier einige wichtige Literaturdatenbanken zum Fach Informatik:
+\begin{itemize}
+  \item ACM Digital Library / Association for Computing Machinery
+  \item CiteSeer.IST Scientific Literature Digital Library
+  \item Web of Knowledge \ldots\footnote{ \tiny vgl. {\ttfamily
+  http://info.ub.uni-frankfurt.de/fach\_liste.html?fach=informatik }}
+  \item arXiv.org e-Print archive (frei)
+  \item CiteSeerX Beta 	(frei)
+  \item Collection of Computer Science Bibliographies (frei)
+  \item Computer Science Bibliography (frei)
+  \item WTI-Frankfurt Datenbanken (ehem. FIZ Technik) (UB)
+  \item FOLDOC : Free On-Line Dictionary of Computing (frei)
+  \item IEEE Xplore / Electronic Library Online (IEL) (UB)
+  \item INFODATA (frei)
+  \item Journal Citation Reports (UB)
+  \item MathSciNet (UB) \ldots
+  \item Web of Science (UB)\ldots
+\end{itemize}
+Für das Web of Science siehe {\ttfamily 
+http://rzblx10.uni-regensburg.de/dbinfo/dbliste.php?
+bib\_id=tuda\&colors=63\&ocolors=40\&lett=f\&gebiete=30
+}
+
+}:
+
+\begin{itemize}
+  \item {\ttfamily http://www.ub.uni-frankfurt.de/} $\Rightarrow$ Menueintrag
+  \emph{Datenbanken, \ldots}
+  \item {\ttfamily http://www.ub.uni-frankfurt.de/banken.html} $\Rightarrow$ 
+  \emph{Datenbanken}
+  \item Oder direkt {\ttfamily http://info.ub.uni-frankfurt.de/}
+\end{itemize}
+
+
+\section{Fallen}
+
+Es gibt Datenbanken, die über das Internet (CiteSeer, Web of Science, ACM
+Digital Library) oder per Bib-Login (Hebis) {\bfseries in ihrer
+Suchfunktionalität} frei erreichbar sind. Allerdings ist der \textbf{Download
+des Volltextes} bei einigen oder vielen Werken dann doch nur \textbf{über das
+Universitätsnetz} möglich. Deshalb lohnt sich der Einstieg bei einigen von ihnen
+( ACM Digital Library, Web of Science, Hebis) direkt über das Universitätsnetz
+(Vor-Ort-Recherche).
+
+Erschwert wird der Zugang dadurch, dass für Gast-Rechercheure \textbf{bei der
+Vor-Ort-Recherche} über das UB-Netz der \textbf{Durchgriff ins Internet
+gesperrt} ist. Deshalb lohnt es sich bei mehrheitlich frei orientierten
+Datanbanken (CiteSeer) eher, zuerst über das freie Internet zu recherchen und
+nicht zugängliche Downloads gezielt über das Universitätsnetz noch einmal zu
+suchen und dann downzuloaden.
+
+\section{Beispielhafter Recherche Report zum Thema Open Source}
+
+Die erste Tabelle listet die Kataloge der Unibibliothek Frankfurt auf, für deren
+Nutzung diese zahlt und die deshalb für Nicht-Universitätsangehörige zumeist nur
+im Netz der Uni-Bibliothek ausgewertet (und die Ergebnisse nur ebenso
+eingesehen) werden können.
+
+Die zweite Tabelle listet die über das Internet zugänglichen
+Literaturdatenbanken auf, die ebenso über Portal der Universität angesteuert und
+außerhalb des Uni-Netzes ausgewertet werden können. Die Ergebnisse können
+wiederum elektronische Bücher/Artikel sein, die dann wieder nur im Uni-Netz
+konkret eingesehen werden können\footnote{\underline{Zur Erinnerung:} Die
+Elektronische Zeitschriften Bibliothek (und der Hebis-Katalog?) bieten nur eine
+fachbereichsbezogene Suche nach Zeitschriftentiteln, nicht nach Artikeln in den
+Zeitschriften. Dafür sind die einzelnen Datenbanken zuständig}!
+
+\begin{table}
+\scriptsize
+\caption{Resourcen aus/über Frankfurter Universiätsbibliothek}
+\begin{center}
+\begin{tabular}[h]{|r|c|c|c||c||c|c|c|c||c|c|c|c|c|c|c|c||c|}
+\hline
+& \rotatebox{90}{$\clubsuit$ OPAC FaM}
+& \rotatebox{90}{$\clubsuit$ \textit{ACM Digital Library}}
+& \rotatebox{90}{$\clubsuit$ \textit{Web of Science}}
+& \rotatebox{90}{$\spadesuit$ Hebis Portal}
+& \rotatebox{90}{$\heartsuit$ \textit{CiteSeer.IST FaM}}
+& \rotatebox{90}{$\heartsuit$ \textit{Web of Knowledge}}
+& \rotatebox{90}{$\heartsuit$ EZB FaM Informatik}
+& \rotatebox{90}{$\heartsuit$ EZB FaM Jura}
+& \rotatebox{90}{$\diamondsuit$ \textit{IBZ (Int. Bibl. geistes-\&soz.-wis. Zeitschr.)~}} 
+& \rotatebox{90}{$\diamondsuit$ \textit{Int. Philsophiocal Bibl.}} 
+& \rotatebox{90}{$\diamondsuit$ \textit{Cambridge Journals Digital Archive}}
+& \rotatebox{90}{$\diamondsuit$ \textit{Index to theses (GB/IR)}}
+& \rotatebox{90}{$\diamondsuit$ \textit{Springer E-books (Comp. Science + Techn. \& Inf.)~}} 
+& \rotatebox{90}{$\diamondsuit$ \textit{Juris Spectrum Datenbank}}
+& \rotatebox{90}{$\diamondsuit$ \textit{Oldenbourg \& Akademie e-books (Inf., Phil)}} 
+& \rotatebox{90}{$\diamondsuit$ \textit{Oxford Journals}}
+& \rotatebox{90}{\itshape{???}}
+\\
+\hline \hline
+Open Source Li[cen[c/s]e]zenz]
+  & $\ast$ & $\ast$ & $\ast$ & $\ast$ & ? & $\circ$ 
+  & $\circ$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+GNU Public Licen[c/s]e
+  & $\star$ & $\star$ & $\circ$ & $\star$ & ? & $\odot$
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+GNU Lizenz
+  & $\circ$ & $\neg$ & $\neg$ & $\circ$ & ? & $\odot$
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+Free Software Licen[c/s]e]
+  & $\circ$ & $\circ$ & $\circ$ & $\circ$ & ? & $\neg$ 
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+Freie Software Lizenz
+  & $\circ$ & $\neg$ & $\neg$ & $\circ$ & ? & $\neg$ 
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+OSI / Open Source Initiative
+  & $\star$ & $\neg$ & $\circ$ & $\neg$ & ? & $\circ$ 
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+FSF / Free Software Foundation
+  & $\star$ & $\star$ & $\neg$ & $\star$ & ? & $\circ$ 
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+Apache Li[cen[c/s]e]zenz]
+  & $\ast$ & $\ast$ & $\neg$ &  $\circ$ & ? & $\odot$
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+Apache Foundation
+  & $\circ$ & $\neg$ & $\neg$ & $\neg$ & ? & $\odot$
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+Eclipse Public Li[cen[c/s]e]zenz]
+  & $\ast$ & $\circ$ & $\circ$ & $\circ$ & ? & $\odot$
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline 
+FL/OSS FOSS
+  & $\neg$ & $\star$ & $\circ$ & $\neg$ & ? & $\odot$
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+Copyleft
+  & $\circ$ & $\circ$ & $\circ$ & $\star$ & ? & $\odot$
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+\hline$\odot$
+GPL
+  & $\circ$ & $\circ$ & $\circ$ & $\neg$ & ? & $\odot$
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+EPL
+  & $\neg$ & $\circ$ & $\neg$ & $\neg$ & ? & $\odot$
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline 
+\hline
+Open Source
+  & $\star$ & $\ast$ & $\odot$ & $\odot$ & ? & $\circ$ 
+  & $\circ$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+Free Software
+  & $\circ$ & $\circ$ & $\odot$ & $\odot$ & ? & $\circ$
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+Freie Software
+  & $\circ$ & $\neg$ & $\neg$ & $\odot$ & ? & $\neg$
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+GNU
+  & $\circ$ & $\circ$ & $\odot$ & $\odot$ & ? & $\odot$
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+Apache
+  & $\circ$ & $\neg$ & $\neg$ & $\odot$ & ? & $\odot$
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+Eclipse
+  & $\neg$ & $\circ$ & $\odot$ & $\odot$ & ? & $\odot$
+  & $\circ$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+\hline
+OSI
+  & $\ast$ & $\neg$ & - & - & ? & -
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+FLOSS
+  & - & - & - & - & ? & -
+  & - & - & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+OSS
+  & $\ast$ & $\ast$ & - & - & ? & -
+  & $\neg$ & $\neg$ & ? & ? & ? & ?
+  & ? & ? & ? & ? & ?\\
+\hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\begin{table}
+\small
+\caption{Freie Internetresourcen (ggfls. redo UB-Portale DA oder FaM)}
+\begin{center}
+\begin{tabular}[h]{|r||c|c|c||c|c||c|c|c|c|c|c||c|c|c|}
+\hline
+& \rotatebox{90}{$\clubsuit$ \textit{CiteSeer}}
+& \rotatebox{90}{$\clubsuit$ Amazon Book Store}
+& \rotatebox{90}{$\clubsuit$ O'Reilly Book Store}
+& \rotatebox{90}{$\spadesuit$ \textit{bibsonomy}}
+& \rotatebox{90}{$\spadesuit$ \textit{Google Scholar}}
+& \rotatebox{90}{$\heartsuit$ \textit{AarXiv.org [DA]}}
+& \rotatebox{90}{$\heartsuit$ \textit{Coll. of Comp. Science Bibl. [DA]}}
+& \rotatebox{90}{$\heartsuit$ \textit{Comp. Science Bibliography [DA]}}
+& \rotatebox{90}{$\heartsuit$ \textit{(F)ree (O)n-(L)ine (D)ictionary (o)f (C)omputing [DA]}}
+& \rotatebox{90}{$\heartsuit$ \textit{INFODATA [DA]}}
+& \rotatebox{90}{$\heartsuit$ \textit{spires}}
+& \rotatebox{90}{$\diamondsuit$ Hebis}
+& \rotatebox{90}{$\diamondsuit$ \textit{Web of Science}}
+& \rotatebox{90}{$\diamondsuit$ \textit{Web of Knowledge}}
+\\
+\hline \hline
+Open Source Li[cen[c/s]e]zenz]
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+GNU Public Licen[c/s]e
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+GNU Lizenz
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+Free Software Licen[c/s]e]
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+Freie Software Lizenz
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+OSI / Open Source Initiative
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+FSF / Free Software Foundation
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+hline
+Apache Li[cen[c/s]e]zenz]
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+Apache Foundation
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+Eclipse Public Li[cen[c/s]e]zenz]
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline 
+FL/OSS FOSS
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+Copyleft
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+\hline
+GPL
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+EPL
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline 
+\hline
+Open Source
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+Free Software
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+Freie Software
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+GNU
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+Apache
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+Eclipse
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+\hline
+OSI
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+FLOSS
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+OSS
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ? & ? 
+  & ? & ? & ? & ?\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\newpage
+\small
+\bibliography{bib/literature}
+
+\end{document}

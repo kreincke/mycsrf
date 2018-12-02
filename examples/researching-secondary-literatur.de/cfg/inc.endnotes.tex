@@ -1,0 +1,32 @@
+% mycsrf German endnotes configuration include module file 
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This file is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): 
+% For details see teh file LICENSE in the top directory
+
+%- start(endnote-configuration)
+% Let all notes being marked with \endnote instead of \footnote
+% become endnotes. This set of endnotes replaces the next 
+% arising command \theendnotes - even if it is not located
+% at the end of the text.
+
+\usepackage{endnotes}
+
+% Format endnotes as Block with indention - Solution 1
+%\renewcommand\enoteformat{%
+%   \noindent\theenmark.) \ \hangindent .7\parindent%
+%}
+
+% Format endnotes as Block with indention - Solution 2
+\makeatletter
+\def\enoteformat{\rightskip\z@ \leftskip0em \parindent=0em \parskip=0em
+\leavevmode\llap{\hbox{\@theenmark.~}}}
+\makeatother
+
+\renewcommand\notesname{Anmerkungen}
+% additionally we shall active a special jurabib option
+% if we want to get all jurabib footnotes as endnotes
+\jurabibsetup{citetoend=true}
+%- end(footnote-configuration)
