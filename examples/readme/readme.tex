@@ -240,7 +240,18 @@ Into the English resources bibfile you should insert english written
 annotations, into the German bibfiles German written annotations. Use
 \textit{jabref} to maintain / to edit your bibfiles.
 
-\subsection{What should I use to maintain my bibfiles?}
+\subsection{Should I treat printed and electronic resources differently?}
+First of all, use it in the same way as printed secondary literature. But inside
+of your BibTex literature database mark all printed works (which you can
+evaluate haptically) with the BibTex token \texttt{note\{Print\}}. And mark your
+electronic resources - in accordance to the file format and the type of your
+network - with \texttt{note\{BibWeb / PDF\}}, \texttt{note\{BibWeb / HTML\}},
+\texttt{note\{FreeWeb / PDF\}}, or \texttt{note\{FreeWeb / HTML\}}. These
+information will be integrated into your bibliography, so that you can announce,
+that you indeed have manually evaluated the printed works and that the other
+have to be considered under the restrictions of the volatile web resources.
+
+\subsection{How should I maintain my bibfiles?}
 You can use each bibfile editor you are used to do. I prefer \textit{jabref}.
 There\-fo\-re I've generated a config file which offers for \textit{book},
 \textit{article}, \textit{proceedings}, \textit{elec\-tro\-nic}, \textit{misc}
@@ -249,6 +260,8 @@ and \textit{inproceeding} all those items fitting the requirements of jurabib. C
 config-file \texttt{\$(MYCSRF)/cfg/jabref.prefs.xml}\footnote{Please
 note: after having imported the configuration file you must restart jabref for
 getting the effects work}.
+
+
 
 \subsection{Can I use inline-specified and crossref-linked-proceedings?} 
 Yes you can. I've prepared the jabref preferences according to both methods.

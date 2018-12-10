@@ -120,3 +120,17 @@
     \def\incollinname{\ifjboxford in:\else\ifjbchicago in:\else in:\fi\fi}%
   }{}{}%
 }
+
+% the field printed before ISBN, ISSN or URL is the bibfield note
+% Hence: If you insert into the field note the type of the literature
+% [ Print | [FreeWeb | BibWeb] / [ PDF | HTML ] ] then you now
+% get entries like:
+% Print: ISBN ....
+% BibWeb / PDF => http...
+% That's nice for dealing with electronic sources correctly
+\DeclareRobustCommand{\jbissn}[1]{\unskip:\space ISSN #1}%
+\DeclareRobustCommand{\jbisbn}[1]{\unskip:\space ISBN #1}%
+
+\DeclareRobustCommand{\biburlprefix}{$\Rightarrow$ }
+\DeclareRobustCommand{\biburlsuffix}{}
+
