@@ -169,7 +169,61 @@ Tutorial\footcite[vgl.][1]{VogSimRyc2018a}.
 Wir teilen diese Einschätzung. Mehr noch: wir glauben sogar, dass für kleinere
 Beispiele - wie etwa Kadenzen oder Motive - die direkte Einbettung von MusixTex
 der produktivere Weg ist. Der folgende Abschnitte präsentiert einige auf diesen
-Zweck ausgerichtete Beispiele.
+Zweck ausgerichtete Beispiele. Über den Quelltext hinaus bietet die Einbindung
+in \emph{mycsrf} den Vorteil, das das für \emph{MusixTeX} konstitutive
+\enquote{Three Pass System} bereits in das Makefile dieses Beispiels
+eingearbeitet worden ist.
+
+\section{Einzeilige Kadenz}
+
+\begin{music}
+  \Largemusicsize
+  \instrumentnumber{1}
+  \setstaffs{1}{1}
+  \setclef{1}{\treble}
+  \generalsignature{1}% G-DUR
+  \generalmeter{\meterfrac32}
+  \startpiece
+  \NOtes\zhp{ce}\en\bar
+  \NOtes\zhp{gj}\en
+  \endpiece
+\end{music}
+
+\section{Zweizeilige Kadenz in einem System}
+
+\begin{music}
+  \hsize=100mm
+  \largemusicsize
+  \instrumentnumber{1}
+  \setstaffs{1}{2}
+  \setclef{2}{\treble}
+  \setclef{1}{\bass}
+  \generalsignature{2}% G-DUR
+  \generalmeter{\meterfrac42}
+  \startpiece
+  \NOtes\qa{dfa} | \qa{d}\en
+  \endpiece
+\end{music}
+
+\section{Zweizeilige Kadenz in zwei Systemen}
+
+\begin{music}
+  \normalmusicsize
+  \instrumentnumber{2}
+  \setstaffs{2}{1}
+  \setstaffs{1}{1}
+  \setclef{2}{\treble}
+  \setclef{1}{\bass}
+  \songtop{2}
+  \songbottom{1}
+  \setname1{\parindent10mm Bass}
+  \setname2{\parindent10mm Diskant}
+  \generalsignature{-1}% F-DUR
+  \generalmeter{\meterfrac42}
+  \startpiece
+  \NOtes\qa{fa} & \qa{cf}\en
+  \endpiece
+\end{music}
 
 \section{Beispiele}
 
