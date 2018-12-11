@@ -20,19 +20,7 @@
   oneside,
   abstract=true,
   toc=bib,
-  english,ngerman]{scrbook}
-  
- 
-\makeatletter
-\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
-\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
-\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
-\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
-\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
-\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
-\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
-\makeatother 
-  
+  english,ngerman]{scrartcl}
   
 %%% (1) general configurations %%%
 \usepackage[utf8]{inputenc}
@@ -105,8 +93,8 @@
 
 \deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
 
-% if document class: count footnotes from start to end
-\counterwithout{footnote}{chapter}
+% if document class = book: count footnotes from start to end
+% \counterwithout{footnote}{chapter}
 %- end(footnote-configuration)
 
 % package for macking tables with broken lines
@@ -128,7 +116,18 @@
 
 
 \usepackage{musixtex}
-
+% Unfortunately musixtex still uses outdated commands for
+% establishing its own \bar command. Hence for enabling
+% the use of musixtex we must 'redefine' these outdated commands:
+\makeatletter
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+\makeatother 
 
 \begin{document}
 
@@ -136,7 +135,7 @@
 \nocite{*}
 
 %%-- start(titlepage)
-\titlehead{Klassifikation}
+\titlehead{Musikwissenschaft}
 \subject{Release \input{rel.inc}}
 \title{mycsrf mit MusixTex}
 \subtitle{Über die Einbettung von MusixTex in wissenschaftliche Texte}
@@ -152,7 +151,27 @@
 \tableofcontents
 
 \normalsize
-\chapter{Einleitung}
+
+\section{Einleitung}
+In dem Tutorial zur Nutzung von MusixTex wird mehrfach erwähnt, dass man in
+einen LaTex-Text Noten als MusixTex basierten Code eher nicht einfügen wolle:
+Schon das Vorwort sagt Anfängern, dass sie nicht mit diesem Tutorial beginnen
+müssen, sondern sich lieber \emph{PMX} oder \emph{M-Tx} aneignen
+sollte\footcite[vgl.][iii]{VogSimRyc2018a}. Selbstverständlich könne man
+Texteditoren nutzen, um MusixTex-Befehle manuell in die Tex-Datei einzufügen.
+Gleichwohl würden die meisten User es weniger anstrengend finden, die dabei
+anstehenden Entscheidungen durch einen Präprozessor wie \emph{PMX} treffen zu
+lassen\footcite[vgl.][1]{VogSimRyc2018a}. Wenn man allerdings normalen Text und
+etwa Musikbeispiele in einem Dokument vereinen wolle, dann gäbe es kaum eine
+bessere Erläutertung dazu als eben das genannte
+Tutorial\footcite[vgl.][1]{VogSimRyc2018a}.
+
+Wir teilen diese Einschätzung. Mehr noch: wir glauben sogar, dass für kleinere
+Beispiele - wie etwa Kadenzen oder Motive - die direkte Einbettung von MusixTex
+der produktivere Weg ist. Der folgende Abschnitte präsentiert einige auf diesen
+Zweck ausgerichtete Beispiele.
+
+\section{Beispiele}
 
 \begin{music}
    \parindent10mm
@@ -192,92 +211,6 @@
 \NOtes\qu c\qp\en\Endpiece
 \end{music}
 
-\section{Verifikation: Zitatmarkierung}
-
-
-\begin{itemize}
-
-  \item \enquote{Zitat mit \enquote{eingebettetem Zitat}}
-
-  \item Deutscher Satz \foreignquote{english}{with embedded foreign phrase} 
-  als eingebettetes Zitat. Erwartetes Resultat: Deutsche Anführungszeichen, 
-  weil Teil in einem deutsche Satz.
-  
-  \item Autonomes englischsprachiges Zitat:
-  \begin{quote}
-    \foreignquote{english}{This shall be an English written paragraph containing
-    a set of sentences which together build the quote.}
-  \end{quote}
-  Erwartetes Ergebnis: Englisches Anführungszeichen, weil Teil in einem deutsche Satz.
-\end{itemize}
-
-\section{Verifikation: Literaturnachweis}
-\begin{itemize}
-  \item Buch1 (erstverwendungen)\footcite[vgl.][15]{Kraemer2012a}
-  \item ders. ebda.\footcite[vgl.][15]{Kraemer2012a}
-  \item ders. a.a.O.\footcite[vgl.][23]{Kraemer2012a}
-  \item Buch2 (erstverwendung)\footcite[vgl.][15]{Kraemer2009a}
-  \item Buch1 (wiederverwendung)\footcite[vgl.][15]{Kraemer2012a}
-\end{itemize}
-
-
-\chapter{Snippet Demo}
-\begin{quote}\itshape
-In diesem Kapitel erläutern wir \ldots
-\end{quote} 
-
-Kernthese: Am Ende soll klar geworden sein, dass \ldots.
-
-\section{Snippet}
-\input{snippets/inc.snippet}
-
-\chapter{Y}
-\begin{quote}\itshape
-In diesem Kapitel erläutern wir \ldots
-\end{quote} 
-
-Kernthese: Am Ende soll klar geworden sein, dass \ldots.
-
-\section{Y.1}
-\begin{quote}\itshape
-Subthese \ldots
-\end{quote} 
-
-\section{Y.2}
-\begin{quote}\itshape
-Subthese \ldots
-\end{quote} 
-
-\subsection{Y.2.1}
-
-\subsection{Y.2.2}
-
-\subsubsection{Y.2.2.1}
-\subsubsection{Y.2.2.2}
-\subsubsection{Y.2.2.3}
-
-\subsection{Y.2.3}
-
-\section{Y.3}
-\begin{quote}\itshape
-Subthese \ldots
-\end{quote} 
-
-\chapter{Z}
-\begin{quote}\itshape
-In diesem Kapitel erläutern wir \ldots
-\end{quote} 
-
-\section{Exkurs: 1}
-
-\section{Exkurs: 2}
-
-\section{Exkurs: 3}
-
-\chapter{Schluss}
-\begin{quote}\itshape
-In diesem Kapitel erläutern wir \ldots
-\end{quote}
 
 \small
 
