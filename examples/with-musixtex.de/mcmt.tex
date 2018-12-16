@@ -1,0 +1,403 @@
+% mycsrf cloak file
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2010, 2011, ff.
+%
+% This file is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): 
+% For details see teh file LICENSE in the top directory
+%
+% select the document class
+% S.26: [ 10pt|11pt|12pt onecolumn|twocolumn oneside|twoside notitlepage|titlepage final|draft
+%         leqno fleqn openbib a4paper|a5paper|b5paper|letterpaper|legalpaper|executivepaper openrigth ]
+% S.25: { article|report|book|letter ... }
+%
+% oder koma-skript S.10 + 16
+\documentclass[
+  DIV=calc,
+  BCOR=5mm,
+  11pt,
+  headings=small,
+  oneside,
+  abstract=true,
+  toc=bib,
+  english,ngerman]{scrartcl}
+  
+%%% (1) general configurations %%%
+\usepackage[utf8]{inputenc}
+
+%%% (2) language specific configurations %%%
+\usepackage[]{a4,babel}
+\selectlanguage{ngerman}
+
+% package for improving the grey value and the line feed handling
+\usepackage{microtype}
+
+%language specific quoting signs
+\usepackage{csquotes}
+
+% jurabib configuration
+\usepackage[see]{jurabib}
+\bibliographystyle{jurabib}
+\input{cfg/inc.jbib-cfg}
+
+% language specific hyphenation
+\input{cfg/inc.hyphenations}
+
+%%% (3) layout page configuration %%%
+
+% select the visible parts of a page
+% S.31: { plain|empty|headings|myheadings }
+%\pagestyle{myheadings}
+\pagestyle{headings}
+
+% select the wished style of page-numbering
+% S.32: { arabic,roman,Roman,alph,Alph }
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% select the wished distances using the general setlength order:
+% S.34 { baselineskip| parskip | parindent }
+% - general no indent for paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.2ex plus 0.2ex minus 0.2ex}
+
+
+%%% (4) general package activation %%%
+%\usepackage{utopia}
+%\usepackage{courier}
+%\usepackage{avant}
+\usepackage[dvips]{epsfig}
+
+% graphic
+\usepackage{graphicx,color}
+\usepackage{array}
+\usepackage{shadow}
+\usepackage{fancybox}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{trees}
+\usetikzlibrary{matrix}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{chngcntr}
+
+
+%- start(footnote-configuration)
+
+\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
+
+% if document class = book: count footnotes from start to end
+% \counterwithout{footnote}{chapter}
+%- end(footnote-configuration)
+
+% package for macking tables with broken lines
+\usepackage{multirow}
+
+%for using label as nameref
+\usepackage{nameref}
+
+%integrate nomenclature
+\input{cfg/inc.ncl-meta}
+
+% depth of contents
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
+
+
+\usepackage{musixtex}
+% Unfortunately musixtex still uses outdated commands for
+% establishing its own \bar command. Hence for enabling
+% the use of musixtex we must 'redefine' these outdated commands:
+\makeatletter
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+\makeatother 
+
+\usepackage{harmony}
+
+\begin{document}
+
+%% use all entries of the bliography
+\nocite{*}
+
+%%-- start(titlepage)
+\titlehead{Musikwissenschaft}
+\subject{Release \input{rel.inc}}
+\title{mycsrf mit MusixTex \& Harmony}
+\subtitle{Die Musikanalyse in wissenschaftlichen Texten}
+\author{Karsten Reincke\input{cfg/inc.license-fn}}
+
+%thanks entry cannot be combined with license footnote
+%\thanks{den Autoren von KOMA-Script und denen von Jurabib}
+
+\maketitle
+%%-- end(titlepage)
+
+\footnotesize
+\tableofcontents
+
+\normalsize
+
+\section*{Einleitung} Das \emph{MusiXTeX}-Tutorial  erwähnt mehrfach, dass man
+in einen \emph{LaTeX}-Text Notenbeispiele eher nicht 'händisch' einfügen wolle:
+Anfänger sollten - wie es heißt - nicht mit diesem Tutorial beginnen,
+sondern lieber gleich \emph{PMX} lernen\footcite[vgl.][iii]{VogSimRyc2018a}.
+Zwar könne man \emph{MusiXTeX}-Befehle durchaus auch manuell in eine
+\emph{LaTeX}-Datei einfügen. Gleichwohl würden es die meisten weniger
+anstrengend finden, die dabei anstehenden Entscheidungen durch einen
+Präprozessor wie \emph{PMX} treffen zu lassen\footcite[vgl.][1]{VogSimRyc2018a}.
+Wolle man jedoch Fließtext und Musik in einem Dokument
+vereinen, dann sei die direkte Verwendung von \emph{MusiXTeX} durchaus eine
+Alternative\footcite[vgl.][1]{VogSimRyc2018a}.
+
+Wir teilen diese Einschätzung. Mehr noch: wir glauben sogar, dass für kleinere
+Beispiele - wie etwa Kadenzen, Motive oder Analysen - die direkte Einbettung von
+\emph{MusiXTeX} der produktivere Weg ist\footnote{Ganz ähnlich siehen es die
+Autoren des genannten Handbuchs, wenn sie im 24. Kapitel genauer erläutern, wie
+man \emph{MusiXTeX} basiert Notenbeispiele in einen Text einbetten möchte.
+\cite[vgl.][113ff]{VogSimRyc2018a}.}. Deshalb hier einige auf diesen Zweck
+ausgerichtete Beispiele\footnote{Deren Nutzung setzt außer der Installation von
+\emph{LaTeX} und \emph{MusiXTeX} nur die Zeile
+\texttt{\textbackslash{usepackage\{musixtex\}}} in der Präambel voraus.
+Das für \emph{MusiXTeX} konstitutive \enquote{Three Pass System} ist bereits in
+das \emph{mycsrf}-Makefile  eingearbeitet worden.}:
+
+\section{Einzeilige Kadenz}
+
+\begin{music}%
+  \largemusicsize%
+  % using defaults: \instrumentnumber{1}% + \setstaffs{1}{1}  
+  % + \setclef{1}{\treble}+ no bar type + \generalsignature{0}%
+  \nobarnumbers%
+  \startextract%
+  \setdoublebar%
+  \NOTEs\lcharnote{10}{(1) }\uptext{T}\zchar{-10}{I}\zw{ce}\wh{g}\en%
+  \NOTEs\uptext{S}\zchar{-10}{IV}\zw{fh}\wh{j}\en%
+  \NOTEs\uptext{D}\zchar{-10}{V}\zw{gi}\wh{k}\en%
+  \bar%
+  \NOTEs\lcharnote{10}{(2) }\uptext{T}\zchar{-10}{I}\zw{ac}\wh{e}\en% 
+  \NOTEs\uptext{S}\zchar{-10}{IV}\zw{df}\wh{h}\en%
+  \NOTEs\uptext{D}\zchar{-10}{{I}}\sh{g}\zw{eg}\wh{i}\en%
+  \setdoublebar%
+  \endextract%
+\end{music}%
+\vspace{0.5cm}
+Dieses 'Extrakt'  bildet das Beispiel 187 aus der Harmonielehre von Grabner
+nach\footcite[vgl.][107]{Grabner1974a}. Man sieht, dass man mit MusixTex und
+LaTeX dem 'Original' recht nahe kommt. Es wird durch folgenden
+\emph{MusiXTeX}-Code generiert:
+\begin{verbatim}
+\begin{music}%
+  \largemusicsize%
+  % using defaults: \instrumentnumber{1}% + \setstaffs{1}{1}  
+  % + \setclef{1}{\treble} + no bar type + \generalsignature{0}%
+  \nobarnumbers%
+  \startextract%
+  \setdoublebar%
+  \NOTEs\lcharnote{10}{(1) }\uptext{T}\zchar{-10}{I}\zw{ce}\wh{g}\en%
+  \NOTEs\uptext{S}\zchar{-10}{IV}\zw{fh}\wh{j}\en%
+  \NOTEs\uptext{D}\zchar{-10}{V}\zw{gi}\wh{k}\en%
+  \bar%
+  \NOTEs\lcharnote{10}{(2) }\uptext{T}\zchar{-10}{I}\zw{ac}\wh{e}\en% 
+  \NOTEs\uptext{S}\zchar{-10}{IV}\zw{df}\wh{h}\en%
+  \NOTEs\uptext{D}\zchar{-10}{{I}}\sh{g}\zw{eg}\wh{i}\en%
+  \setdoublebar%
+  \endextract%
+\end{music}%
+\end{verbatim}
+
+Zumindest prinzipell gibt es auch die Möglichkeit, Notentext in den Fließtext
+einzubetten, indem man den Absatzumbruch per 
+\texttt{{\textbackslash}let{\textbackslash}extractline{\textbackslash}relax}
+unterbindet:
+\begin{music}%
+  \nostartrule \smallmusicsize
+  \let\extractline\relax
+  \staffbotmarg0pt 
+  \startextract
+  \NOTEs\zw{e}\wh{g}\en
+  \NOTEs\zw{h}\wh{j}\en
+  \NOTEs\zw{i}\wh{k}\en
+  \setdoublebar
+  \endextract
+\end{music} . Gleichwohl wird das Ergebnis meist unschön sein, weil eine
+Notensatzzeile selbst mit sehr reduzierten Informationen immer noch deutlich
+höher ist, als eine normale Textzeile, sodass der Zeilenfluss unterbrochen und der
+gleichmäßige Grauwert zerstört wird.
+
+
+\section{Zweizeilige Kadenz in einem System}
+
+\begin{music}
+  \normalmusicsize
+  \parindent4em
+  \instrumentnumber{1}
+  \setstaffs{1}{2}
+  \setclef{2}{\treble}
+  \setclef{1}{\bass}
+  \setname{1}{Piano}
+  \generalsignature{2}% D-DUR
+  \generalmeter{\meterfrac42}
+  \startextract
+  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{f}\hu{k}\en%
+  \NOTes\zmidstaff{S}\zh{G}\hl{N}|\zh{i}\hu{k}\en%
+  \NOTes\zmidstaff{D\textsuperscript{7}}\zh{J}\hl{N}|\zh{h}\hu{l}\en%
+  \NOTes\zmidstaff{T}\zh{K}\hl{M}|\zh{h}\hu{k}\en%
+  \bar
+  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{k}\hu{m}\en%  
+  \NOTes\zmidstaff{S}\zh{N}\hl{b}|\zh{g}\hu{k}\en%  
+  \NOTes\zmidstaff{D\textsuperscript{4 -- 3}}\zhl{a}\hl{c}|
+    \zh{e}\isluru{0}{k}\qu{k}\tslur{0}{j}\qu{j}\en%  
+  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{f}\hu{k}\en%  
+  \setdoublebar
+  \endextract
+\end{music}
+
+\emph{MusiXTex} verwendet zwei Methoden, zu instrumentieren: Die eine ordnet
+jedem Instrument eine Stimme zu, die andere fasst mehrere Stimmen resp. Systeme
+- wie bei einem Klaviertext - zu einem Instrument zusammen. Hier eine solche
+Kadenz, die durch folgenden \emph{MusiXTeX}-Code generiert wird:
+\begin{verbatim}
+\begin{music}
+  \normalmusicsize
+  \instrumentnumber{1}
+  \setstaffs{1}{2}
+  \setclef{2}{\treble}
+  \setclef{1}{\bass}
+  \generalsignature{2}% D-DUR
+  \generalmeter{\meterfrac42}
+  \startextract % statt: startpiece
+  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{f}\hu{k}\en%
+  \NOTes\zmidstaff{S}\zh{G}\hl{N}|\zh{i}\hu{k}\en%
+  \NOTes\zmidstaff{D\textsuperscript{7}}\zh{J}\hl{N}|\zh{h}\hu{l}\en%
+  \NOTes\zmidstaff{T}\zh{K}\hl{M}|\zh{h}\hu{k}\en%
+  \bar
+  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{k}\hu{m}\en%  
+  \NOTes\zmidstaff{S}\zh{N}\hl{b}|\zh{g}\hu{k}\en%  
+  \NOTes\zmidstaff{D\textsuperscript{4 -- 3}}\zhl{a}\hl{c}|\zh{e}\qu{kj}\en%  
+  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{f}\hu{k}\en%  
+  \setdoublebar
+  \endextract % statt: endpiece
+\end{music}
+\end{verbatim}
+
+\section{Zweizeilige Kadenz in zwei Systemen}
+Bei der anderen Methode wird jedem Instrument ein eigenes Notenliniensystem
+zugeordnet. Entsprechend müssen Noten anders verteilt werden. Neben dem
+zentrierten \texttt{\textbackslash{startextract}} steht bei \emph{MusiXTeX} auch
+eine linksorientierte Darstellung \texttt{\textbackslash{startpiece}} zur
+Verfügung, mit der ganze (mehrzeilige) Stücke in einen Text eingefügt werden
+können, und zwar so, dass das erste Gesamtsystem für die Instrumentenbezeichnung
+auch entsprechend eingerückt wird. Das folgende Beispiel zeigt die entsprechende
+Integration in eine LaTeX-Datei\footnote{Da unser Beispiel nur drei Takte enthält,
+die der eingefügten Analysesymbole wegen al\-lerdings knapp über den Rand des
+Seitenspiegels hinausreichen würden, haben wir zu Demonstrationszwecken die
+erlaubte Breite mit dem Kommando \texttt{\textbackslash{hsize=100mm}} verringert
+und so einen Umbruch auf zwei Zeilen erzwungen}:
+
+\begin{music}
+  \hsize=100mm
+  \smallmusicsize
+  \parindent4em
+  \instrumentnumber{2}
+  \setstaffs{2}{1}
+  \setstaffs{1}{1}
+  \setclef{2}{\treble}
+  \setclef{1}{\bass}
+  \songtop{2}
+  \songbottom{1}
+  \setname1{Diskant}
+  \setname2{Bass}
+  \generalsignature{-2}% ES-DUR
+  \generalmeter{\meterfrac58}
+  \startpiece
+  % Takt 1/1: 2 8tel abgekürzt + 4tel Akkord
+  \NOtes \zmidstaff{T} \Dqbl I b & \zq{ik}\qu{m} \en
+  % Takt 1/3: 2 8tel explizit  mit Vorzeichen + 4tel Akkord
+  \NOtes \zmidstaff{\HH.D.3-3$\flat$.8.7..} \ibl{0}{a}{0}\qb{0}{a}\tbl{0}\fl{a}\qb{0}{a} & \zq{j}\rq{l}\qu{m} \en
+  % Takt 1/5: punktierte 16tel explizit mit Vorzeichen + 8el Akkord
+  \NOtes \zmidstaff{\HH.S.3-3$\flat$....} \ibbl{2}{N}{0}\qbp{2}{N}\roff{\tbbbl{2}\fl{N}\tqb{2}{N}} & \zq{il}\cu{p}\en
+  \bar
+  % Takt 2/1: 2 8tel abgekürzt + 4tel Akkord
+  \NOtes \zmidstaff{\HH.D.8-7.7...} \Dqbl M L & \zq{jl}\qu{o} \en
+   % Takt 2/3: punktierte 8tel  + 4tel Akkord
+  \NOtes \zmidstaff{\HH.Dp.8-8$\flat$....} \ibl{1}{K}{0}\qbp{1}{K}\roff{\tbbl{1}\fl{K}\tqb{1}{K}} & \zq{hk}\qu{m}\en
+  % Takt 2/5: punktierte 16tel explizit mit Vorzeichen + 8el Akkord 
+  \NOtes \zmidstaff{\HH.D.5-3.7...} \ibbl{2}{J}{0}\qbp{2}{J}\roff{\tbbl{2}\tqb{2}{H}} & \zq{j}\rq{l}\cu{m} \en%
+  \bar
+  \notes \zmidstaff{T} \ca I & \ds \en
+%   % Takt 3/2: 
+   \notes \ds & \zq{fk}\cu{m}\en
+   % Takt 3/3: 
+   \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
+   % Takt 3/4-5: 
+   \notes \zmidstaff{T} \qa b & \zq{df}\qu{i}\en
+  \Endpiece 
+\end{music}
+
+Dieses Beispiel enthält Analysesymbole, die nicht von \emph{MusiXTeX} selbst
+bereitgestellt werden. Unser folgendes Kapitel zeigt, wie man
+diese 'Fachsprache' typographish trotzdem integrieren kann.
+
+\section{Harmonische Analyse}
+
+\emph{MusiXTeX} selbst trägt wenig zur funktionstheoretischen Analyse bei. Man
+kann zwar\footnote{wie in Beispiel 1 und 2 gezeigt} beliebigen Text unter über
+oder zwischen die Systeme einfügen. Ohne weitere Maßnahme stehen dafür aber nur
+die Zeichen zur Verfügung, die LaTeX sonst auch bietet.
+
+Die harmonische Analyse hat allderings - und zwar insbesondere dort, wo sie die
+Notation der Funktionstheorie mit der Generalbassnotation samt Vorhalten,
+Durchgängen und Alterationen vereinigt - eine eigene, theoriespezifische
+Symbolschrift entwickelt.
+
+Das Paket \emph{harmony}\footcite[vgl.][1ff]{WegWeg2007a} - einzubinden über
+\texttt{\textbackslash{usepackage\{harmony\}}} - stellt die entsprechenden Zeichen
+unter LaTeX bereit. So können spezifische Funktionssymbole genutzt (\Dohne ,
+\DD , \DS , \Ohne[2pt]{S}  \ldots), komplexe Akkorde detalliert beschrieben
+(\HH.D.3.7... , \Fermi{\HH.D.3.9\VM-8.7.5.} ) und Rhythmen innerhalb einer
+Zeile spezifiziert werden: \Halb ~ \Acht ~ \Vier ~ \Acht
+
+Die in solchen Analysen auch zu verwenden Alterations- und Auflösungszeichen
+stellt allerdings auch \emph{harmony} nicht selbst zur Verfügung. Stattdessen
+werden sie von LaTeX direkt beigesteuert und können im Mathematikmodus als
+\texttt{\$\textbackslash{sharp}\$ = $\sharp$}, \texttt{\$\textbackslash{flat}\$
+= $\flat$} und \texttt{\$\textbackslash{natural}\$ = $\natural$} direkt abgerufen
+werden. Sie sind mit \emph{harmony} und \emph{MusiXTeX} kombinierbar.
+
+\section{Fazit}
+
+Tatsächlich sind Notenbeispiele per \emph{MusiXTeX} nur mit Aufwand zu erzeugen.
+Der Wunsch nach einem graphischen Editor ist bei der Arbeit allgegenwärtig.
+Gerade bei der Verknüpfung von Text, Musik, und feinerer harmonischer Analyse
+punkten aber die reinen Auszeichnungssprachen \emph{LaTeX}, \emph{MusiXTeX}
+\emph{harmony}.
+
+\small
+
+% insert the nomenclature here
+
+\input{bib/ncl.abbreviations}
+%\input{bib/ncl.journals}
+\printnomenclature
+
+% insert the bibliographical data here
+\bibliography{bib/literature}
+
+\end{document}
