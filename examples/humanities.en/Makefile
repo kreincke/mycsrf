@@ -58,3 +58,11 @@ clean:	clearAuxFiles
 	$(foreach EXT, ${RES_EXTS}, if [ ! "x`ls *.${EXT} 2>/dev/null`" = "x" ]; then rm *.${EXT}; fi;)
 
 clear:	clean
+
+dclean:
+	echo '#!/bin/bash' > xc.sh
+	echo FEXT="\"`echo $(AUX_EXTS) | sed 's/ /|/g'`\"" >> xc.sh
+	echo 'find . | egrep "\.($$FEXT)" | while read f; do echo "deleting $$f"; rm $$f; done' >> xc.sh
+	chmod 755 xc.sh
+	./xc.sh
+	rm xc.sh

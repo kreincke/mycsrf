@@ -5,7 +5,7 @@
 #LATEX=latex
 LATEX=pdflatex
 
-AUX_EXTS=url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log mx1 mx2
+AUX_EXTS=bak url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log mx1 mx2
 RES_EXTS=ps pdf 
 SUB_DIRS=cfg bib
 T=CH
@@ -61,3 +61,11 @@ clean:	clearAuxFiles
 	$(foreach EXT, ${RES_EXTS}, if [ ! "x`ls *.${EXT} 2>/dev/null`" = "x" ]; then rm *.${EXT}; fi;)
 
 clear:	clean
+
+dclean:
+	echo '#!/bin/bash' > xc.sh
+	echo FEXT="\"`echo $(AUX_EXTS) | sed 's/ /|/g'`\"" >> xc.sh
+	echo 'find . | egrep "\.($$FEXT)" | while read f; do echo "deleting $$f"; rm $$f; done' >> xc.sh
+	chmod 755 xc.sh
+	./xc.sh
+	rm xc.sh
