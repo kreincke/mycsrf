@@ -5,11 +5,12 @@
 #LATEX=latex
 LATEX=pdflatex
 
-AUX_EXTS=bak url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log mx1 mx2
+AUX_EXTS=bak url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log mx1 mx2 dat pml
 RES_EXTS=ps pdf 
 SUB_DIRS=cfg bib
 T=CH
 
+ABCTMP=abc
 
 all:
 	make README.pdf
@@ -21,22 +22,34 @@ all:
 .tex.pdf:
 	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
 	@ echo "### converting $< to $@"
+# (A) creating a temporary directory for storing the abc help files
+	mkdir -p ${ABCTMP}
+# (B) the first latex pass which extracts some default infos and the abc-files
 	@ $(LATEX) $<
-# (A) creating the help files for the literature	
+# (C) creating the help files for the literature	
 	@ bibtex `basename $< .tex`
 	@ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist -o `basename $< .tex`.nls
-# (B) creating the help files for musixtex snippets
+# (D) creating the help files for musixtex snippets
 	@ musixflx $<
+# (E) integrating the musixtex files
 	@ $(LATEX) $< 
-	@ $(LATEX) $< 
-	@ $(LATEX) $< 
+# (F) generating the abc picture by calling the external program abcm2ps
+	@ $(LATEX) --shell-escape $<
+# (G) mv the results into the temporary directory to enable the next pass to integrate (find) them
+	mv *.ps abc/
+# (H) create the final document	
+	@ $(LATEX) --shell-escape $< 
+# (I) mv the recreated results also into the temporary directory for a better cleansing
+	mv *.ps abc/
 ifneq ($(LATEX),pdflatex)
 	@ echo "### converting DVI to PostScript"
 	@ dvips $<
 	@ echo "### converting PostScript to PDF"
 	@ ps2pdf $<
 endif
+# (K) cleasing the environment
 	@ mv $@ `basename $@ .pdf`-`cat rel.inc`.pdf
+	rm -rf ${ABCTMP}
 	@ make clearAuxFiles
 
 .tex.dvi:

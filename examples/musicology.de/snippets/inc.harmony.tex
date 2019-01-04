@@ -1,0 +1,148 @@
+% mycsrf 'for beeing included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+
+%% use all entries of the bibliography
+
+
+\subsubsection{Das harmony-Paket: ein echtes Highlight}
+
+Das Paket \emph{harmony}\footcite[vgl.][\nopage wp]{CtanHarmony2018a} bietet für
+den Gebrauch innerhalb einer Textzeile ein besonders ausgefeiltes System von
+Musikzeichen an. Als \LaTeX-Paket muss es natürlich ebenfalls zuerst mittels
+eines Befehls in die Präambel eingebunden werden (\small 
+\texttt{\textbackslash{usepackage\{harmony\}}}), bevor es Zeichen für die beiden
+Bereiche \emph{Rhythmik} und \emph{Harmonieanalyse} bereitstellt\footcite[Für
+einen vollen Überblick über den Zeichenvorrat und die Kombinationsmöglichkeiten
+vgl.][4ff]{WegWeg2007a}:
+
+\paragraph{\small Rhythmik}$\;$ \\
+
+Zunächst enthält es gut funktionierende Encodierungen für Taktarten \{ 
+\Takt{3}{4} \ (= \texttt{\small \textbackslash{Takt}\{3\}\{4\}}),
+\Takt{4}{4} \ (= \texttt{\small \textbackslash{Takt}\{4\}\{4\}}),
+\ldots,
+\Takt{c}{0} \ (= \texttt{\small \textbackslash{Takt}\{c\}\{0\}}),
+\Takt{c}{1} \ (= \texttt{\small \textbackslash{Takt}\{c\}\{1\}})
+\}.
+Dann offeriert es nicht nur einfache Notenlängen \{
+\Ganz \ (= \texttt{\small \textbackslash{Ganz}}),
+\Halb \ (= \texttt{\small \textbackslash{Halb}}),
+\Vier \ (= \texttt{\small \textbackslash{Vier}}),
+\Acht \ (= \texttt{\small \textbackslash{Acht}}),
+\Sech \ (= \texttt{\small \textbackslash{Sech}}),
+\Zwdr \ (= \texttt{\small \textbackslash{Zwdr}}),
+\}  -- \ die sogar punktiert werden können 
+\{
+\Halb\Pu \ (= \texttt{\small \textbackslash{Halb}\textbackslash{Pu}}),
+\Vier\Pu \ (= \texttt{\small \textbackslash{Vier}\textbackslash{Pu}}),
+\ldots
+\}
+-- ,
+sondern es stellt die Symbole auch mit waagerechten Balken zu Verfügung
+\{
+\AchtBL \ (= \texttt{\small \textbackslash{AchtBL}}),
+\SechBL \ (= \texttt{\small \textbackslash{SechBL}}),
+\Vier\AchtBL \ (= \texttt{\small \textbackslash{Vier} \textbackslash{AchtBL} }),
+\Vier\SechBL \ (= \texttt{\small \textbackslash{Vier} \textbackslash{SechBL} }),
+\ldots
+\}, 
+sodass die einzelnen Elemente zu ganzen Rhythmusketten kombiniert werden können: 
+\Takt{c}{0} \Vier \ \Vier\AchtBL \ \Vier\Pu \ \Acht \ $|$ 
+\AchtBR\Pu \SechBl \ \AchtBR\kern-0.15em\SechBR\Vier \ \SechBr\Vier\SechBl \ $|$
+\ -- eine wirklich ausgefuchste Lösung.
+
+\paragraph{\small Harmonik}$\;$ \\
+
+Einen ähnlich geschickten Ansatz bietet das Paket \emph{harmony} da, wo es
+Symbole erzeugt, die -- der Funktions- und Stufentheorie entsprechend --
+harmonische Zusammenhänge repräsentieren.
+
+Den Kern bildet die allgemeine Tupelkonstruktion \texttt{\small
+\textbackslash{HH.X.u.v.w.z.}}, mit der einfache und komplexe Aspekte
+dargestellt werden können\footcite[vgl. dazu][2ff]{WegWeg2007a}: Was zwischen
+den ersten beiden Punkten erscheint (X), erscheint als Hauptzeichen; dann folgt
+das, was darunter erscheinen soll (u) und schließlich das, was rechts oben
+daneben angezeigt werden soll, und zwar von oben nach unten (v w z):
+
+\begin{center}
+\HH.X.u.v.w.z.
+\end{center}
+
+Der Witz ist nun, dass man nahezu beliebige Latexkonstrukte zwischen den Punkten
+einsetzen kann. Und wenn man nichts zwischen den Punkten einträgt, bleibt der
+Platz leer. So können die einfachen Symbole der Funktionstheorie \{ \HH.T..... 
+\ (= \texttt{\small \textbackslash{HH.T.....}}), \HH.Tp.....  \ (=
+\texttt{\small \textbackslash{HH.Tp.....}}), \HH.S.....  \ (= \texttt{\small
+\textbackslash{HH.S.....}}), \HH.D.....  \ (= \texttt{\small
+\textbackslash{HH.D.....}}) \} ebenso erzeugt werden, wie komplexere \{
+\HH.D.3.9.7..  \ (= \texttt{\small \textbackslash{HH.D.3.9.7..}}),
+\HH.T..9\VM-8.7..  \ (= \texttt{\small \textbackslash{HH.T..9\VM-8.7..}}) \}.
+Die speziellen Zeichen der Funktionstheorie, die nicht so einfach aus dem Fundus
+normaler Fonts gebildet werden können, stellt  \emph{harmony} gesondert zur
+Verfügung:
+\{ \Dohne  \ (= \texttt{\small \textbackslash{Dohne}}), \DD \ (= \texttt{\small
+\textbackslash{DD}}), \DS  \ (= \texttt{\small \textbackslash{DS}}) \}.
+Selbstverständlich können diese ebenfalls in das allgemeine Tupelkonstrukt
+eingebettet werden\footcite[Vgl. dazu][6]{WegWeg2007a}:
+\begin{center}
+ \texttt{\textbackslash{HH}.\textbackslash{DD}.5\textbackslash{VM}.7...} 
+ $\rightarrow$ \HH.\DD.5\VM.7...
+\end{center}
+
+Zudem erlaubt es die Flexibilität des Grundkonstruktes (in gewissen Grenzen),
+Symbole für die Stufentheorie und den Generalbass zu erzeugen:
+
+\begin{center}
+\HH.I..\texttt{(5)}.\texttt{(3)}.. \ 
+\HH.III..\texttt{ 6 }.\texttt{(3)}.. \ 
+\HH.V..\texttt{ 6}.\texttt{ 4}.. \ 
+\HH.I..\texttt{(5)}.\texttt{(3)}.. \ 
+\HH.I..\texttt{(5)}.\texttt{ 3$\flat$ }.. \ 
+\HH.III..\texttt{ 6 }.\texttt{ 3$\flat$}.. \ 
+\HH.III..\texttt{ 6 }.\texttt{ 5 }.\texttt{(3)}. \ 
+\HH.III..\texttt{ 6$\flat$}.\texttt{ 3$\flat$}.. \ 
+\end{center}
+
+Man sieht an diesem Beispiel auch, dass sich die \emph{harmony}-Konstrukte (hier
+\texttt{\textbackslash{texttt}} und \texttt{\$\textbackslash{flat}\$} ) gut mit
+anderen \LaTeX-Elementen kombinieren lassen:
+\begin{verbatim}
+\begin{center}
+\HH.I..\texttt{(5)}.\texttt{(3)}.. \ 
+\HH.III..\texttt{ 6 }.\texttt{(3)}.. \ 
+\HH.V..\texttt{ 6}.\texttt{ 4}.. \ 
+\HH.I..\texttt{(5)}.\texttt{(3)}.. \ 
+\HH.I..\texttt{(5)}.\texttt{ 3$\flat$ }.. \ 
+\HH.III..\texttt{ 6 }.\texttt{ 3$\flat$}.. \ 
+\HH.III..\texttt{ 6 }.\texttt{ 5 }.\texttt{(3)}. \ 
+\HH.III..\texttt{ 6$\flat$}.\texttt{ 3$\flat$}.. \ 
+\end{center}
+\end{verbatim}
+
+Später werden wir zeigen, dass sich die \emph{harmony}-Elemente ihrerseits
+auch gut in MusiX\TeX-Syntagmen einbetten lassen. Insofern haben die
+Programmierer von \emph{harmony} der Community ein mächtiges Werzeug zur
+Verfügung gestellt\footnote{Trotzdem wollen auch wir wenigstens darauf
+hinweisen, dass \emph{harmony}-Konstrukten auf die Einbettung in einen Fließtext
+mit 12 Pt. ausgelegt sind. Bei kleineren Größen von 11PT abwärts werden die
+Zeilenabständen- wie in diesem Beispieltext erkennbar - gedehnt, es entsteht ein
+leicht unruhigeres Druckbild. (\cite[Vgl. dazu][2]{WegWeg2007a}.) Allerdings ist
+dieser Hinweis nicht mehr als ein Jammern auf sehr hohem Niveau.}.
+
+
+% this is only inserted to eject fault messages in texlipse
+%\bibliography{../bib/literature}

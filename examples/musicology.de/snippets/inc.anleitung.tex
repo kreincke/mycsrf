@@ -1,0 +1,181 @@
+% mycsrf 'for beeing included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+
+%% use all entries of the bibliography
+
+\section{Das Anliegen}
+
+Es gibt 'zweieinhalb' Aspekte, die man erreichen möchte, wenn man am Computer
+Notentexte 'schreibt':
+
+\begin{itemize}
+  \item Zum ersten wird man seine Werke hörbar machen wollen, also in
+  Computersound umwandeln. Dies ist nicht unser Thema.
+  \item Zum zweiten wird man seine Notentextdateien ausdrucken wollen, möglichst
+  ansprechend und so leserlich, dass spielbare Notenblätter für Musiker
+  entstehen. Dies werden wir mittelbar behandeln.
+  \item Und schließlich wird man gelegentlich Notenbeispiele als Belege in seine
+  (musikwissenschaftlichen) Texte einbinden wollen. Wie man das in welchen
+  Grenzen mit \LaTeX\ umsetzt, wollen wir hier diskutieren und demonstrieren.
+\end{itemize}
+
+Natürlich ist die Integration von Notenbeispielen in wissenschaftliche Texte
+nicht ein grundsätzlich anderes Szenario als der bloße Druck eines Notenblattes.
+Denn auch eine am Computer erstellte musikwissenschaftliche Arbeit zielt zuletzt
+auf eine ansprechende, ausdruckbare Erscheinung. Gleichwohl fordert sie
+Besonderes: Anders als ein Notenblatt enthält sie vornehmlich Fließtext.
+Außerdem nutzt sie üblicherweise keine ganzen Werke als Beleg, sondern
+Ausschnitte. Und zusätzlich fordert die Musikwissenschaft, in diese 'Extrakte'
+Zeichen oder Kommentare einzufügen, die selbst nicht zur 'Notensprache'
+gehören\footnote{Ein Beispiel dafür ist die 'Harmonieanalyse', die ja eine
+eigene Fachsprache bereitstellt und erwartet, dass z.B. die Abkürzungen für
+\emph{Tonika}, \emph{Subdominante} oder \emph{Dominante} samt Subspezifikatoren
+in den entsprechenden Notentext eingebunden werden.}.
+
+Musikelemente unter \LaTeX\ in (musikwissenschaftliche) Texte einzubetten, ist
+also Thema dieser Arbeit. Ein Blick auf CTAN-Liste mit entsprechenden
+Tools\footnote{$\rightarrow$ \lnkb{https://ctan.org/topic/music}{2018-12-27}}
+verwirrt eher, als dass er hilft: Womit soll man anfangen, was braucht man wozu,
+was davon soll man lernen, was lohnt überhaupt die Mühe? Google beantwortet die
+Query $\langle$\emph{latex music}$\rangle$\footnote{$\rightarrow$
+\lnka{https://www.google.com/search?q=latex+music}} mit Links auf einige kurze
+Artikel und auf die bekannten Tools \emph{MusiX\TeX} und \emph{Lilypond}.
+Zusammen führt auch das den unbedarften Anfänger nicht weiter. Es fehlt einfach
+eine qualifizierte Sichtung und Anleitung, die sagt und zeigt, wie das beste
+Ergebnis mit geringstem Aufwand erzeugt werden kann.  Diese Lücke wollen wir mit
+einem selbstreferentiellen Dokument schließen: Was immer hier erläutert und
+vorgeführt wird, soll anhand dessen eigenen \LaTeX-Quelltexts reproduzierbar
+sein. Und wenn es uns gelingt, den einen oder anderen davon abgehalten zu haben,
+auf's falsche Pferd zu setzen, dann wollen wir zufrieden sein.
+
+Den wissenschaftlichen Text unseres 'Demos' erzeugen wir mit
+\emph{mycsrf}\footcite[vgl.][\nopage wp]{Reincke2018a}, einem Bibliographie- und
+Zitierstil für \LaTeX, der sich eng an die altphilologische Arbeitsweise
+anlehnt, deren Notwendigkeit aber mit modernen Anforderungen an eine
+geisteswissenschaftliche Arbeit zu begründen ist\footnote{Zentrale Bedingung der
+Wissenschaftlichkeit ist die Überprüfbarkeit und Reproduzierbarkeit. Das meint
+bei geisteswissenschaftlichen Arbeiten, dass Argumentationen logisch aufgebaut
+und Zitate ohne großen Aufwand in den Originalen nachgesehen werden können.
+Warum das wie in \emph{mycsrf} realisiert wird, habe ich in einem anderen
+selbstreferentiellen Text diskutiert und dokumentiert. (\cite[Vgl.
+dazu][1ff]{Reincke2018b})}. Dieses 'Framework' zu kennen oder gar zu nutzen,
+wird jedoch nicht vorausgesetzt, weder technisch noch ideell\footnote{Allerdings
+können Sie dieses Dokument unter GNU/Linux aus den Quellen heraus selbst
+erzeugen. Und Sie dürfen den \LaTeX-Quelltext im Rahmen der Lizenzierung
+(\texttt{CC BY-SA 4.0}) weiterverarbeiten. Sie finden die Soucen unter
+~/examples/musicology.de im \emph{mycsrf}-Paket (\cite[Vgl. dazu][\nopage
+wp]{Reincke2019a})}: was wir hier zur Integration von
+Musikbeispielen sagen, kann ohne Umschweife auf andere, in und mit \LaTeX\
+verwirklichte Zitierstile übertragen werden.
+
+Ebenso einfach darf man das, was wir hier anhand von Linuxbeispielen erläutern,
+auf die Windowswelt übertragen: Wer dort mit \LaTeX\ arbeitet, wird unsere
+Ergebnisse ebenfalls direkt nutzen können.
+
+Wie man Notenbeispiele und musikwissenschaftliche Elemente in \LaTeX-Texte
+einbaut, hat dankenswerterweise bereits Martin Thoma
+gesichtet\footcite[vgl.][1ff]{Thoma2018a}. Allerdings ist seine Arbeit 'nur'
+eine HTML-Webseite: sie kann mithin beschreiben, nicht aber zeigen.
+Wir hingegen wollen -- wie schon gesagt -- einen Text erstellen, der aus sich
+heraus und an sich reproduzierbar zeigt, was geht und wie es geht.
+
+Zu guter Letzt rücken zwei Nebenthemen in den Vordergrund:
+
+Notentexte sind von ihrem Gegenstand her zweidimensional - wenigstens, wenn sie
+mehrstimmige Musik notieren: Es folgt Note auf Note, um das Nacheinander
+auszudrücken. Und es steht Note über Note, um die Gleichzeitigkeit von Klängen
+zu signalisieren. Die Schrift\emph{sprache} ist dagegen im Kern eindimensional:
+es folgt einfach Wort auf Wort. Auch \LaTeX\ selbst - als Auszeichnungssprache
+für Schriftsprachen - ist eindimensional: Im Quelltext folgt Token auf Token.
+Von daher geht die Integration von Notenbeispielen in einen Text immer mit einer
+Konvertierung einher. Es gibt Auszeichnungssprachen für Noten, die diese
+Konvertierung in die eindimensionale 'Wort-für-Wort'-Welt erfolgreich bewältigt
+haben, z.B. \emph{MusicXML}\footcite[vgl.][\nopage wp]{MusicXML2018a},
+\emph{MusiX\TeX}\footcite[vgl.][\nopage wp]{CtanMusixTex2018a},
+\emph{PMX}\footcite[vgl.][\nopage wp]{CtanPmx2018a} oder
+\emph{Lilypond}\footcite[vgl.][\nopage wp]{Lilypond2018a}. Trotzdem schreiben
+echte Musiker lieber echte Musik, also zweidimensionale Notentexte.
+
+Damit stellen sich sofort einige Fragen:
+
+\begin{itemize}
+  \item Welche Tools existieren, um Notentexte zweidimensional zu erfassen und
+  in die eindimensionale Welt der Auszeichnungssprachen zu konvertieren?
+  \item Gibt es, wenn man die Auszeichnungssprachen doch direkt nutzen muss,
+  wenigstens Hilfsmittel, die das 'Komponieren' mit diesen in sich sperrigen
+  Auszeichnungssprachen vereinfachen?
+  \item Und wenn man schon mit mehreren Tools arbeiten muss, um zuletzt den
+  einen gewünschten Text zu erhalten, wie sieht dann eine gute Architektur der
+  kooperierenden Komponenten aus, wie ihre Übergabepunkte? Oder anders gefragt:
+  Was muss man wie 'zusammenstöpseln', um mit wenig Aufwand gute Ergebnisse zu
+  erzielen?
+\end{itemize}
+
+Diesen Fragen gehen wir am Ende unseres Textes nach. Allerdings werden wir uns
+dabei auf die Open-Source-Welt konzentrieren. Mehr oder minder konstenintensive
+proprietäre Programme mögen beliebt sein, notwendig sind sie nicht. Es ist auch
+für den Musiker besser, nicht in die Vendorenfalle zu geraten und sein Arbeiten
+von den Produkten einer Firma abhängig zu machen. Deshalb konzentrieren wir uns
+hier auf die Umsetzung mit freier Software\footnote{Wer als Musiker proprietäre
+Programme nutzt, macht sich erpressbar: Auf der einen Seite investiert er in die
+Erstellung von Notentexten, die er auch später noch weiterverarbeiten oder
+wiederverwenden will. Auf der anderen Seite muss er immer fürchten, dass die
+hinter dem eigenen Programm stehende Firma beim nächsten Versionswechsel die
+Lizenzgebühren so stark erhört, dass sie sein Musikerbudget sprengen. Und selbst
+ohne diese finale Katastrophe wird der Wechsel zu einem anderen Anbieter mit der
+Zeit durch die schon investierte Arbeit so aufwendig, dass man lieber bei dem
+bisherigen Programm bleibt, auch wenn es teuerer oder schlechter ist als die
+Alternativen. Damit ist man in die \emph{Vendorenfalle} getappt. Mit freier
+Software kann das nicht geschehen, weil es zum Wesen freier Software gehört,
+dass man ohne pekuniären Aufwand an den Quellcode und an die Nutzungsrechte der
+Programme herankommt. (\cite[vgl. dazu][\nopage wp]{FSF2018a}.) 
+Für Musiker hat sich die Lage mit der Etablierung von \emph{MusicXml} allerdings etwas
+entspannt: Durch die Standardisierung des Dateiformates wird der Wechsel zu
+einem anderen, besseren Programme erleichtert. Hier muss man 'nur' noch
+fürchten, dass das bisher die jeweiligen Programme vorab (noch) nicht
+standardisierte Features benutzen oder den Standard nicht ganz konform
+implementiert haben. Allerdings sind solche 'Eigenarten' ein beliebtes Mittel
+der Entwickler, den zahlenden Kunden zuletzt doch wieder an sich zu binden und
+ihm den Wechsel zur Alternative zu erschweren. (\cite[Zur Lizenzierung von
+MusicXml vgl. auch][\nopage wp.]{WpedMusicXML2018a})}.
+
+Und noch einige Worte zu den Grenzen dieses Textes:
+\begin{itemize}
+  \item Damit Sie einen guten Gewinn von der Lektüre haben, sollten Sie mit der
+  Nutzung von \LaTeX\ unter Ihrem Betriebssystem vertraut sein.
+  Insbesondere die Erweiterung Ihres \TeX-Systems und die Installation von
+  zusätzlichen CTAN-Paketen legen wir kommentarlos in Ihre Hände.
+  \item Ferner setzen wir voraus, dass Sie die Tools und Programme, die wir
+  erwähnen, unter Ihrem Betriebssystem installieren können.
+  \item Außerdem werden wir Sie nicht anleiten, wie man mit einem der
+  begutachteten System Notentexte schreibt. Dazu gibt es bessere und genauere
+  Handbücher, auf die wir gerne und dankbar verweisen. Was wir Ihnen jedoch
+  zeigen werden, ist, wie man die mit den Tools erarbeitete Notentexte - wenn
+  überhaupt möglich - in einen \LaTeX-basierten wissenschaftlichen Text
+  integriert.
+  \item Und schließlich gehen wir ohne große Prüfung davon aus, dass die
+  Programme und Tools, die behaupten, für verschiedene Betriebssysteme zu
+  existieren, im wesentlichen gleich funktionieren. In der Open-Source-Welt ist
+  dem üblicherweise so.
+\end{itemize}
+
+Und damit wollen wir es gut sein lassen mit dem Erwartungsmanagement.
+
+
+
+% this is only inserted to eject fault messages in texlipse
+%\bibliography{../bib/literature}

@@ -1,0 +1,21 @@
+% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% nstaves | ninstr | mtrnuml  | mtrdenl | mtrnump | mtrdenp | npickup
+     2        1         4          2         4         2         0
+%  nkeys  | npages | nsystems | musicsize | fracident
+     2        0         3          16          .1
+Piano
+bt
+./
+% BODY: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%a smaller width than the line width
+w130m
+% MUSIC: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% T:1-1     T:1-2    T:1-3                T:1-4
+  d23l za+  b-l zg+  a-l zg+              dl  zf |/
+  f24u zd+  g-u zd+  cu  ze               a-u zd |/
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% T:2-1     T:2-2    T:2-3                T:2-4
+  d23l za+  g  zb    a zc                 d- za+  /
+  d25u zf   g- zd+   ( e4- zd+ e4- ) zc+  f2- zd+ |/
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  EOF

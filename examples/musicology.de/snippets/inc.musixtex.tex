@@ -1,0 +1,431 @@
+% mycsrf 'for beeing included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+
+%% use all entries of the bibliography
+
+\subsection{MusiX\TeX: komplex, kompliziert und (letztlich) unabdingbar}
+
+Das MusiX\TeX-Tutorial erwähnt mehrfach, dass man Notentexte mit dieser
+Beschreibungssprache eher nicht 'händisch' erarbeiten wolle: Anfänger sollten -
+wie es heißt - nicht mit mit MusiX\TeX\ beginnen, sondern lieber gleich
+\emph{PMX} lernen\footcite[vgl.][iii]{VogSimRyc2018a}. Zwar könne man
+MusiX\TeX-Befehle durchaus auch manuell in eine \LaTeX-Datei
+einfügen. Gleichwohl würden es die meisten weniger anstrengend finden, die dabei
+anstehenden Entscheidungen durch einen Präprozessor wie \emph{PMX} treffen zu
+lassen\footcite[vgl.][1]{VogSimRyc2018a}. Wolle man jedoch Fließtext und Musik
+in einem Dokument vereinen, dann sei die direkte Verwendung von MusiX\TeX
+durchaus eine Alternative\footcite[vgl.][1]{VogSimRyc2018a}.
+
+Wir teilen diese Einschätzung. Mehr noch: wir meinen, dass es Rahmen einer
+musikwissenschaftlichen Arbeit deutlich produktiver ist, seine MusiX\TeX\ 
+encodierten Kadenzen, Motive oder Analysen etc. 'manuell' in den
+\LaTeX-Fließtext einzufügen, anstatt Umwege über PMX zu gehen. Was PMX
+betrifft, so werden wir den Schwierigkeiten später noch genauer nachgehen.
+Für die direkte Verknüpfung von \LaTeX\ und MusiX\TeX\ gäbe es hingegen - wie es
+heißt - zwei grundsätzlichen Methoden: entweder erzeuge man mit MusiX\TeX\ 
+Bilder seiner Notenseiten\footnote{z.B. im Format \emph{EPS} = Encapsulated
+Postscript} -- und zwar unabhängig von \LaTeX\ -- und binde diese Bilder
+dann mit \LaTeX-Standardmitteln -- unabhängig von MusiX\TeX\ -- in
+seinen Code ein. Oder man schreibe seinen MusiX\TeX-Code direkt als
+Bestandteil seines \LaTeX-Quellcodes\footcite[vgl.][114]{VogSimRyc2018a}.
+Beides habe Vor- und Nachteile, ganz zuletzt aber gelte dann doch:
+\begin{quote}\textit{\enquote{On balance, the direct method (of embedding
+musical excerpts in \LaTeX documents) is probably to be preferred}\footcite[vgl.
+dazu][114]{VogSimRyc2018a}.}
+\end{quote}
+
+
+\subsubsection{Technische Vorbereitung}
+
+Auch die Nutzung von MusiX\TeX\ bedarf einiger systemischen Vorarbeiten:
+
+$\RHD$ Sofern es die \emph{(La)\TeX}-Distribution nicht eh schon mitliefert, muss das
+MusiX\TeX-Paket\footcite[vgl.][\nopage wp]{CtanMusixTex2018a} installiert
+werden\footnote{Bei Ubuntu 18.04 ist es im Paket \emph{texlive-music} enthalten.}.
+
+$\RHD$ Danach muss -- wie bei \LaTeX\ üblich -- dieses
+MusiX\TeX-Paket  mit dem entsprechenden Kommando in der Präambel
+eingebunden (\texttt{\textbackslash{usepackage}\{musixtex\}}).
+
+$\RHD$ Schließlich müssen auch hier die \LaTeX-Durchgänge zur Erzeugung des PDFs
+modifiziert werden. MusiX\TeX\ verwendet etwas, was als \enquote{three pass
+system} bezeichnet wird: Beim ersten \LaTeX-Durchgang schreibt das
+MusiX\TeX-Paket Informationen über die benötigten Noten und ihre Kennzeichnungen
+in eine Datei, die wie das \TeX-Dokument heißt, für das der \LaTeX-Durchgang
+gestartet worden ist -- nur dass diese Auslagerungsdatei anstelle der Extension
+\emph{.tex} die Exzension \emph{.mx1} erhält. Danach muss für diese
+\emph{.mx1}-Auslagerungsdatei das Tool \emph{musicflx} aufgerufen werden.
+\emph{musicflx} optimiert die Darstellung und schreibt seine Berechnungen in
+eine 'namensgleiche' Datei mit der Extension \emph{mx2}. Und schließlich liest
+das MusiX\TeX-Paket beim nächsten \LaTeX-Durchgang die Optimierungsinformationen
+wieder ein und integriert sie in das endgültige Dokument\footnote{\cite[Vgl.
+dazu][5]{VogSimRyc2018a}. Bei näherem Hinsehen 'verknäuelt'sich die Beziehung
+von \LaTeX\ und MusiX\TeX\ etwas und muss 'aufgeröselt' werden. Wenn es darum
+geht, welches Tool welche Datei erfolgreich auswertet, muss man sorgsam
+unterscheiden:
+\begin{itemize}
+\item MusiX\TeX: (1) \texttt{etex mutx-file.tex} $\rightarrow$
+mtx-file.mx1 (2) \texttt{musixflx mutx-file.mx1} $\rightarrow$ mutx-file.mx2 (3)
+\texttt{etex mutx-file.tex} $\rightarrow$ mutx-file.dvi
+\item \LaTeX: (1) \texttt{latex latx-file.tex} $\rightarrow$
+latx-file.mx1 (2) \texttt{musixflx latx-file.mx1} $\rightarrow$ latx-file.mx2
+(3) \texttt{latex latx-file.tex} $\rightarrow$ latx-file.dvi
+\end{itemize}
+Wichtig ist dabei, dass die Dateien \emph{mutx} und \emph{latx} einen
+verschiedenen, auf MusiX\TeX\ bzw. \LaTeX\ ausgerichteten Inhalt haben, obwohl
+es beide immer noch \TeX-Dateien sind. Neben den Tools \emph{etex} und
+\emph{latex}, die -- wie beschrieben -- dvi-Dateien erzeugen, gibt es noch die
+Tools \emph{pdflatex} und \emph{musixtex}. Beide erzeugen direkt pdf-Dateien:
+\emph{pdflatex} aus einer reinen \LaTeX-Datei, \emph{musixtex} aus einer reinen
+MusiX\TeX-Datei. In unserem Fall erzeugen wir jedoch \LaTeX-Dateien mit
+MusiX\TeX-Anteilen. Deshalb müssen wir -- sozusagen händisch -- den Aufruf von
+\emph{musixflx} selbst organisieren.}. Der Algorithmus ist also einfach: Findet
+das MusiX\TeX-Paket als Teil des \LaTeX-Durchgangs (noch) keine
+\emph{.mx2}-Auslagerungsdatei, schreibt es die \emph{.mx1}-Auslagerungsdatei,
+ansonsten verarbeitet es die gefunden \emph{.mx2}-Auslagerungsdatei. Dies kann
+automatisiert werden. Die entsprechende Passage aus einem Makefile könnte so
+aussehen:\footnote{Wiederum gilt:
+Wissenschaftliche \LaTeX-Dokumente mit Fußnoten und bibliographischen Angaben
+werden eh schon über mehrere \LaTeX-Durchgänge hinweg erzeugt: Jeder einzelnen
+Durchgang lagert später benötigte Angaben in Hilfsdateien aus und liest die, die
+er selbst verwenden will, aus Dateien ein, die vorhergehende erzeugt haben. Wie
+man beides schlüssig automatisiert, kann im Makefile dieses Tutorials eingesehen
+werden ($\rightarrow$
+\lnka{http://github.com/kreincke/mycsrf/tree/master/examples/musicology.de}) } 
+
+
+\begin{small}
+\begin{verbatim}
+.tex.pdf:
+# (A) the first latex pass also creates the mx1 file
+  @ pdflatex $<
+# (B) create the help files for the literature        
+  @ bibtex `basename $< .tex`
+  @ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist -o `basename $< .tex`.nls
+# (C) create the mx2 file
+  @ musixflx $<
+# (D) create the final document 
+  @ pdflatex $< 
+  @ pdflatex $< 
+\end{verbatim}
+\end{small}
+
+Nach Abschluss dieser Vorarbeiten kann man dann beliebig viele
+MusiX\TeX-Sektionen in seinem \LaTeX-Quellcode erzeugen und mit 
+MusiX\TeX-Notationen füllen, wobei jede Sektion mit
+\texttt{\textbackslash{begin\{musictex\}}} eröffnet und mit
+\texttt{\textbackslash{end\{musictex\}}} beendet wird:
+
+\subsubsection{Einzeilige Kadenz}
+
+Wir beginnen auch hier wieder mit der Nachbildung des Beispieles aus der
+Harmonielehre von Grabner\footcite[vgl.][107]{Grabner1974a}:
+
+\begin{center}
+\begin{music}%
+  \largemusicsize%
+  % using defaults: \instrumentnumber{1}% + \setstaffs{1}{1}  
+  % + \setclef{1}{\treble}+ no bar type + \generalsignature{0}%
+  \nobarnumbers%
+  \startextract%
+  \setdoublebar%
+  \NOTEs\lcharnote{10}{(1) }\uptext{T}\zchar{-10}{I}\zw{ce}\wh{g}\en%
+  \NOTEs\uptext{S}\zchar{-10}{IV}\zw{fh}\wh{j}\en%
+  \NOTEs\uptext{D}\zchar{-10}{V}\zw{gi}\wh{k}\en%
+  \bar%
+  \NOTEs\lcharnote{10}{(2) }\uptext{T}\zchar{-10}{I}\zw{ac}\wh{e}\en% 
+  \NOTEs\uptext{S}\zchar{-10}{IV}\zw{df}\wh{h}\en%
+  \NOTEs\uptext{D}\zchar{-10}{{I}}\sh{g}\zw{eg}\wh{i}\en%
+  \setdoublebar%
+  \endextract%
+\end{music}%
+\cad{I}{MusiXTeX}
+\end{center}
+
+
+Man sieht, mit MusiX\TeX\ und \LaTeX\ kommt man dem 'Original' wirklich nahe,
+näher, als bei der Nachbildung mit der \emph{ABC}-Methodik. Diese Nachbildung
+wird durch folgenden MusiX\TeX-Code generiert:
+\begin{verbatim}
+\begin{music}%
+  \largemusicsize%
+  % using defaults: \instrumentnumber{1}% + \setstaffs{1}{1}  
+  % + \setclef{1}{\treble} + no bar type + \generalsignature{0}%
+  \nobarnumbers%
+  \startextract%
+  \setdoublebar%
+  \NOTEs\lcharnote{10}{(1) }\uptext{T}\zchar{-10}{I}\zw{ce}\wh{g}\en%
+  \NOTEs\uptext{S}\zchar{-10}{IV}\zw{fh}\wh{j}\en%
+  \NOTEs\uptext{D}\zchar{-10}{V}\zw{gi}\wh{k}\en%
+  \bar%
+  \NOTEs\lcharnote{10}{(2) }\uptext{T}\zchar{-10}{I}\zw{ac}\wh{e}\en% 
+  \NOTEs\uptext{S}\zchar{-10}{IV}\zw{df}\wh{h}\en%
+  \NOTEs\uptext{D}\zchar{-10}{{I}}\sh{g}\zw{eg}\wh{i}\en%
+  \setdoublebar%
+  \endextract%
+\end{music}%
+\end{verbatim}
+
+Zumindest prinzipell ermöglicht es MusiX\TeX\ auch, Notentext in den Fließtext
+einzubetten. Dazu unterbindet man den Absatzumbruch, indem man das Kommando 
+\texttt{{\textbackslash}let{\textbackslash}extractline{\textbackslash}relax}
+in den Quellcode einfügt:
+\begin{music}%
+  \nostartrule \smallmusicsize
+  \let\extractline\relax
+  \staffbotmarg0pt 
+  \startextract
+  \NOTEs\zw{e}\wh{g}\en
+  \NOTEs\zw{h}\wh{j}\en
+  \NOTEs\zw{i}\wh{k}\en
+  \setdoublebar
+  \endextract
+\end{music} . Gleichwohl kann das kaum schöne Ergebnis erzeugen, weil eine
+Notensatzzeile selbst mit sehr reduzierten Informationen immer noch deutlich
+höher ist, als eine normale Textzeile, sodass der Zeilenfluss geradezu
+'stolpern' muss.
+
+\subsubsection{Zweizeilige Kadenz in einem System}
+
+MusiX\TeX\ bietet zwei Methoden der Instrumentation an: Die eine ordnet jedem
+Instrument eine Stimme zu, die andere fasst mehrere Stimmen resp. Systeme - wie
+bei einem Klaviertext - zu einem Instrument zusammen. Hier deshalb zunächst eine
+Kadenz für ein Instrument, das in mehreren Systemen notiert wird:
+
+\begin{center}
+\begin{music}
+  \normalmusicsize
+  \parindent4em
+  \instrumentnumber{1}
+  \setstaffs{1}{2}
+  \setclef{2}{\treble}
+  \setclef{1}{\bass}
+  \setname{1}{Piano}
+  \generalsignature{2}% D-DUR
+  \generalmeter{\meterfrac42}
+  \startextract
+  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{f}\hu{k}\en%
+  \NOTes\zmidstaff{S}\zh{I}\hl{N}|\zh{g}\hu{k}\en%
+  \NOTes\zmidstaff{D\textsuperscript{7}}\zh{H}\hl{N}|\zh{j}\hu{l}\en%
+  \NOTes\zmidstaff{T}\zh{K}\hl{M}|\zh{h}\hu{k}\en%
+  \bar
+  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{k}\hu{m}\en%  
+  \NOTes\zmidstaff{S}\zh{N}\hl{b}|\zh{g}\hu{k}\en%  
+  \NOTes\zmidstaff{D\textsuperscript{4 -- 3}}\zhl{a}\hl{c}|
+    \zh{e}\isluru{0}{k}\qu{k}\tslur{0}{j}\qu{j}\en%  
+  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{f}\hu{k}\en%  
+  \setdoublebar
+  \endextract
+\end{music}
+\cad{II}{MusiXTeX}
+\end{center}
+
+Diese Zeilen werden mit folgendem MusiX\TeX-Code generiert:
+\begin{verbatim}
+\begin{music}
+  \normalmusicsize
+  \instrumentnumber{1}
+  \setstaffs{1}{2}
+  \setclef{2}{\treble}
+  \setclef{1}{\bass}
+  \generalsignature{2}% D-DUR
+  \generalmeter{\meterfrac42}
+  \startextract % statt: startpiece
+  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{f}\hu{k}\en%
+  \NOTes\zmidstaff{S}\zh{I}\hl{N}|\zh{g}\hu{k}\en%
+  \NOTes\zmidstaff{D\textsuperscript{7}}\zh{H}\hl{N}|\zh{j}\hu{l}\en%
+  \NOTes\zmidstaff{T}\zh{K}\hl{M}|\zh{h}\hu{k}\en%
+  \bar
+  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{k}\hu{m}\en%  
+  \NOTes\zmidstaff{S}\zh{N}\hl{b}|\zh{g}\hu{k}\en%  
+  \NOTes\zmidstaff{D\textsuperscript{4 -- 3}}\zhl{a}\hl{c}|\zh{e}\qu{kj}\en%  
+  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{f}\hu{k}\en%  
+  \setdoublebar
+  \endextract % statt: endpiece
+\end{music}
+\end{verbatim}
+\subsubsection{Zweizeilige Kadenz in zwei Systemen}
+
+Bei der zweiten Methode wird jedem Instrument ein eigenes Notenliniensystem
+zugeordnet und die Stimmen für die Instrumente zu einer Partitur zusammengefügt.
+Dem entsprechend müssen die Noten anders verteilt werden.
+
+Das folgende Beispiel soll außerdem demonstrieren, dass MusiX\TeX\ neben
+der zentrierten Darstellung über das Kommando
+\texttt{\textbackslash{startextract}} auch eine linksorientierte Darstellung per
+\texttt{\textbackslash{startpiece}} zur Verfügung stellt, um ganze Passagen in
+den eigene Text einzufügen\footnote{Bei längeren Notentexten gelingt es
+\emph{musicflx} gut, ein ausgewogenes Bild zu erzeugen. Bei kürzeren muss man
+gelegentlich über den Parameter \texttt{\textbackslash{hsize=XYZmm}} oder über
+den erzwungenen Zeilenumbruch \texttt{\textbackslash{alaligne}} in die
+Verteilung eingreifen.}:
+
+\begin{center}
+\begin{music}
+  \smallmusicsize
+  \parindent4em 
+  \instrumentnumber{2}
+  \setstaffs{2}{1}
+  \setstaffs{1}{1}
+  \setclef{2}{\treble}
+  \setclef{1}{\bass} 
+  \songtop{2} 
+  \songbottom{1} 
+  \setname1{Diskant}
+  \setname2{Bass}
+  \generalsignature{-2}
+  \generalmeter{\meterfrac58}
+  \startpiece
+    % Takt 1/1: B: 2 8tel (Kurzschreibweise) + D: 4tel AKK
+    \NOtes \zmidstaff{T} 
+      \Dqbl I b & \zq{ik}\qu{m} \en
+    % Takt 1/3: B: 2 8tel explizit  mit Vorzeichen + D: 4etl AKK
+    \NOtes \zmidstaff{\HH.D.3-3$\flat$.8.7..} 
+      \ibl{0}{a}{0}\qb{0}{a}\tbl{0}\fl{a}\qb{0}{a} & 
+      \zq{j}\rq{l}\qu{m} \en
+    % Takt 1/5: B: punktierte 16tel explizit mit Vorzeichen + D: 8tel AKK
+    \NOtes \zmidstaff{\HH.S.3-3$\flat$....} 
+      \ibbl{2}{N}{0}\qbp{2}{N}\roff{\tbbbl{2}\fl{N}\tqb{2}{N}} & 
+      \zq{il}\cu{p}\en
+  \bar % T2: 2*(B:2*8. + D:4. AKK) +  B:2*16. + D:8. AKK
+    \NOtes \zmidstaff{\HH.D.8-7.7...} 
+      \Dqbl M L &  \zq{jl}\qu{o} \en
+    \NOtes \zmidstaff{\HH.Dp.8-8$\flat$....} 
+      \ibl{1}{K}{0}\qbp{1}{K}\roff{\tbbl{1}\fl{K}\tqb{1}{K}} & 
+      \zq{hk}\qu{m}\en
+    \NOtes \zmidstaff{\HH.D.5-3.7...}
+      \ibbl{2}{J}{0}\qbp{2}{J}\roff{\tbbl{2}\tqb{2}{H}} & 
+      \zq{j}\rq{l}\cu{m} \en
+  %\alaligne
+  \bar %T3 B:8. + D:8. P + B:8. P + D:8.AKK + B:8. + D:8.AKK + B:4. + D:4.AKK 
+    \notes \zmidstaff{T} \ca I & \ds \en
+    \notes \ds & \zq{fk}\cu{m}\en
+    \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
+    \notes \zmidstaff{T} \qa b & \zq{df}\qu{i}\en
+  \bar %T4: 8. P + (B:2*8. + D:4. AKK) + B:8. + D:8.AKK + 8. P 
+    \notes \ds & \ds \en
+    \notes \zmidstaff{\HH.D..7...} \ca{M J} & \zq{eh}\qu{j}\en
+    \notes \ca F & \zq{eh}\cu{j}\en  
+    \notes \ds & \ds \en 
+  \bar %T5: 8. P + 2*(B:8. + D:8. AKK) + 8. P +  B:8. + D:8.AKK  
+    \notes \ds & \ds \en
+    \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
+    \notes  \ca H & \zq{eh}\cu{j}\en
+    \notes \ds & \ds \en
+    \notes \zmidstaff{T} \ca I & \zq{df}\cu{i}\en  
+  \bar % T6: 3*(B:8.  + D:8. AKK) + B:4. + D:4. AKK
+    \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
+    \notes \ca J & \zq{eh}\cu{j}\en
+    \notes \ca F & \zq{eh}\cu{j}\en  
+    \notes \zmidstaff{T} \qa I & \zq{df}\qu{i}\en    
+  \Endpiece 
+\end{music}
+\cad{III}{MusiXTeX}
+\end{center}
+
+Dieses Beispiel zeigt außerdem, dass und wie man die Analysesymbole von
+\emph{harmony}, die nicht von MusiX\TeX\ selbst bereitgestellt werden, in
+dessen Code integrieren kann:
+\begin{small}
+\begin{verbatim}
+\begin{music} 
+  \smallmusicsize
+  \parindent4em 
+  \instrumentnumber{2}
+  \setstaffs{2}{1}
+  \setstaffs{1}{1}
+  \setclef{2}{\treble}
+  \setclef{1}{\bass} 
+  \songtop{2} 
+  \songbottom{1} 
+  \setname1{Diskant}
+  \setname2{Bass}
+  \generalsignature{-2}
+  \generalmeter{\meterfrac58}
+  \startpiece
+    % Takt 1/1: B: 2 8tel (Kurzschreibweise) + D: 4tel AKK
+    \NOtes \zmidstaff{T} 
+      \Dqbl I b & \zq{ik}\qu{m} \en
+    % Takt 1/3: B: 2 8tel explizit  mit Vorzeichen + D: 4etl AKK
+    \NOtes \zmidstaff{\HH.D.3-3$\flat$.8.7..} 
+      \ibl{0}{a}{0}\qb{0}{a}\tbl{0}\fl{a}\qb{0}{a} & 
+      \zq{j}\rq{l}\qu{m} \en
+    % Takt 1/5: B: punktierte 16tel explizit mit Vorzeichen + D: 8tel AKK
+    \NOtes \zmidstaff{\HH.S.3-3$\flat$....} 
+      \ibbl{2}{N}{0}\qbp{2}{N}\roff{\tbbbl{2}\fl{N}\tqb{2}{N}} & 
+      \zq{il}\cu{p}\en
+  \bar % T2: 2*(B:2*8. + D:4. AKK) +  B:2*16. + D:8. AKK
+    \NOtes \zmidstaff{\HH.D.8-7.7...} 
+      \Dqbl M L &  \zq{jl}\qu{o} \en
+    \NOtes \zmidstaff{\HH.Dp.8-8$\flat$....} 
+      \ibl{1}{K}{0}\qbp{1}{K}\roff{\tbbl{1}\fl{K}\tqb{1}{K}} & 
+      \zq{hk}\qu{m}\en
+    \NOtes \zmidstaff{\HH.D.5-3.7...}
+      \ibbl{2}{J}{0}\qbp{2}{J}\roff{\tbbl{2}\tqb{2}{H}} & 
+      \zq{j}\rq{l}\cu{m} \en
+  %\alaligne
+  \bar %T3 B:8. + D:8. P + B:8. P + D:8.AKK + B:8. + D:8.AKK + B:4. + D:4.AKK 
+    \notes \zmidstaff{T} \ca I & \ds \en
+    \notes \ds & \zq{fk}\cu{m}\en
+    \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
+    \notes \zmidstaff{T} \qa b & \zq{df}\qu{i}\en
+  \bar %T4: 8. P + (B:2*8. + D:4. AKK) + B:8. + D:8.AKK + 8. P 
+    \notes \ds & \ds \en
+    \notes \zmidstaff{\HH.D..7...} \ca{M J} & \zq{eh}\qu{j}\en
+    \notes \ca F & \zq{eh}\cu{j}\en  
+    \notes \ds & \ds \en 
+  \bar %T5: 8. P + 2*(B:8. + D:8. AKK) + 8. P +  B:8. + D:8.AKK  
+    \notes \ds & \ds \en
+    \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
+    \notes  \ca J & \zq{eh}\cu{j}\en
+    \notes \ds & \ds \en
+    \notes \zmidstaff{T} \ca I & \zq{df}\cu{i}\en  
+  \bar % T6: 3*(B:8.  + D:8. AKK) + B:4. + D:4. AKK
+    \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
+    \notes \ca J & \zq{eh}\cu{j}\en
+    \notes \ca F & \zq{eh}\cu{j}\en  
+    \notes \zmidstaff{T} \qa I & \zq{df}\qu{i}\en    
+  \Endpiece \end{music}
+\end{verbatim} 
+\end{small}
+
+\subsubsection{Einschätzung}
+
+Die optische Qualität, die mit MusiX\TeX\ erzeugt werden kann, ist bestechend.
+Graphische Feinheiten sind bis ins Letzte hinein darstellbar und beeinflussbar.
+Externe Analyse- und Theoriesymbole können problemlos als \LaTeX-Konstrukte in
+den Quellcode der Noten eingebettet werden. \LaTeX\ und seine
+(geistes)wissenschaftlichen Methodik kann einfach mit MusiX\TeX verknüpft
+werden: Sie stehen sich nicht gegenseitig im Weg. Und typographische Abstriche
+aufgrund von Unzulänglichkeiten oder Eigenarten der gewählten Tools braucht man
+bei dieser Konstellation nicht zu machen.
+
+Diese Freiheit und Qualität wird mit einer aufwendigen und nicht eben intuitiven
+Syntax der Auszeichnungssprache MusiX\TeX\ erkauft: Die Verknüpfung von
+Achtelnoten unter einem Stamm mag als Beleg dafür gelten. Wer MusiX\TeX\ 
+nutzt, wird sich nicht nur das Handbuch aufwendig aneignen müssen, er wird auch
+später immer wieder darauf zurückkommen.
+
+Der Gewinn für einen musikwissenschaftlichen Text ist allerdings groß:
+typographisch ist alles erreichbar. Eine saubere, zeilenorientierte
+Programmierung\footnote{wie wir sie bei unserem dritten Kadenzbeispiel aus
+Platzgründen leider nicht haben vollständig einhalten können} erleichtert dabei
+-- wie immer -- das Arbeit. Und nach einiger Zeit gelingt es per
+Copy\&Paste auch, seine Ziele flüssiger umzusetzen.
+
+% this is only inserted to eject fault messages in texlipse
+%\bibliography{../bib/literature}

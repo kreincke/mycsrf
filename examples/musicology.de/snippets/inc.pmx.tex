@@ -1,0 +1,512 @@
+% mycsrf 'for beeing included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+
+%% use all entries of the bibliography
+\subsection{PMX (und M-TX)}
+
+\subsubsection{Das große Versprechen, \ldots}
+
+Als nächstes geht es um \emph{PMX}\footcite[vgl.][\nopage wp]{CtanPmx2018a},
+will sagen: um einen Präprozessor für MusiX\TeX\footcite[Vgl.][4ff]{CtanPmx2018a}.
+
+Ein \emph{PMX}-Tutorial nennt MusiX\TeX\ eines der besten Programme für den
+elektronischen Notensatz\footcite[vgl][2]{Noack2013a}. Allerdings habe es ein
+nicht eben intuitives 'Look and Feel', biete kein 'WYSIWYG' und könne ob seiner
+Natur als symbolische Auszeichnungssprache (nicht nur Musiker)
+entmutigen\footcite[vgl][2]{Noack2013a}: Selbst nach einer sorgfältigen und
+sauberen Installation bleibe das Setzen einer Partitur ein mühsames
+Unterfangen\footcite[vgl][3]{Noack2013a}.
+
+Den Ausweg aus diesem Dilemma -- so das genannte Tutorial -- biete \emph{PMX},
+das als Präprozessor den Eingabeprozess dramatisch vereinfache und so etwas
+liefere, was zu den einfachsten Möglichkeiten gehöre, Notenblätter elektronisch
+zu erarbeiten\footcite[vgl][3]{Noack2013a}. Die Gegenüberstellung der
+MusiX\TeX-Variante und der PMX-Variante derselben Noten unterstreicht diese
+vollmundigen Ankündigungen\footcite[vgl][3]{Noack2013a}.
+
+Betrachtet man die Sache logisch, ist die Emphase nicht unangemessen: Es gehört
+zum Wesen eines Präprozessors, dass er einen (meist) vereinfachten Code nimmt
+und auf die (meist) komplexere und kompliziertere Hauptsprache abbildet. Das
+hieße in diesem Fall, dass die herausragenden typographischen Fähigkeiten von
+MusiX\TeX\ erhalten blieben, ohne dass man weiterhin seine überbordende
+Syntagmen zu tippen hätte. Und dass dem tatsächlich so ist, können auch wir an
+unser kleinen Grabner-Kadenz\footcite[vgl.][107]{Grabner1974a} demonstrieren:
+
+\begin{center}
+\includegraphics{pics/pmx-cadenca1}
+\cad{I}{PMX}
+\end{center}
+
+Der entsprechende kommentierte PMX-Code sieht so aus:
+\begin{verbatim}
+% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% nstaves | ninstr | mtrnuml  | mtrdenl | mtrnump | mtrdenp | npickup
+     1        1        3           0         0         0         0
+%  nkeys  | npages | nsystems | musicsize | fracident
+     0        0         4         16           .0
+% no instrument name
+
+% tremble
+t
+./
+% BODY: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+HEADER: a smaller width than the line width
+w80m
+% MUSIC: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zcharnote{-10}{I}\  \zcharnote{+10}{T}\ c04 ze zg 
+\zcharnote{-10}{IV}\ \zcharnote{+10}{S}\ f04 za zc 
+\zcharnote{-10}{V}\  \zcharnote{+10}{D}\ g04 zb zd
+| 
+\zcharnote{-10}{I}\  \zcharnote{+10}{T}\ a03 zc ze 
+\zcharnote{-10}{IV}\ \zcharnote{+10}{S}\ d04 zf za
+\zcharnote{-10}{V}\  \zcharnote{+10}{D}\ e04 zgs zb
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF
+\end{verbatim}
+
+Man erkennt, dass sich das Handling der Notenbezeichnungen gegenüber dem
+MusiX\TeX-Sourcetext verschlankt hat. Noch auffälliger wird das bei unser
+dritten Referenzkadenz:
+\begin{center}
+\includegraphics{pics/pmx-cadenca3}
+\cad{III}{PMX}
+\end{center}
+
+Zu ihr gehört dieser Sourcecode:
+
+\begin{verbatim}
+% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% nstaves | ninstr | mtrnuml  | mtrdenl | mtrnump | mtrdenp | npickup
+     2        2         5          8         5         8         0
+%  nkeys  | npages | nsystems | musicsize | fracident
+     -2        0         3          16          .1
+Bass
+Diskant
+bt
+./
+% BODY: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HEADER: 
+\\font\ref=cmr10\def\zt#1#2{\zcharnote{#1}{\ref#2}}\def\bs{$\backslash$}\
+%a smaller width than the line width
+w130m
+% MUSIC: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% T1:
+[l b82 b8+ ] [l a8 a8f ] [l g1d g3 ]         |/
+\zt{-7}{T}\  b44u zd zf 
+\zt{-7}{D7}\ cu ze zf 
+\zt{-7}{S}\  b8-u ze zb+                     |/
+% T2: -----------------------------------------
+ [l f83 e83 ] [l d83d d13f ] [l c13d a32 ]   |/
+\zt{-7}{D7}\ c4-u ze za
+\zt{-7}{Dp}\ a-u zd zf 
+\zt{-7}{D7}\ c8u ze zf                       |/
+% T3: -----------------------------------------
+b82 r8 f83 b43                               |/
+\zt{-7}{T}\  r8 [uh f85 zd zf-
+\zt{-7}{D7}\    e85 zc za ] 
+\zt{-7}{T}\     d4- zf zb                    |/
+% T4: -----------------------------------------
+r8 f83 c83 f82 r8                            |/
+r8 
+\zt{-7}{D7}\ e44 za zc 
+\zt{-7}{D7}\ e84 za zc r8                    |/
+% T5: -----------------------------------------
+r8 [l f83 a8- ] r8 b82l                      |/
+r8 
+\zt{-7}{D7}\ [u c85 za ze c85 za ze ] 
+r8 
+\zt{-7}{T}\ b84u zf zd                       |/
+% T6: -----------------------------------------
+[l f83 c83 f82 ] b42l                        |/
+\zt{-7}{D7}\ [u c85 za ze c85 za ze c85 za ze ] 
+\zt{-7}{T}\ b44u zf zd                       |/
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF
+\end{verbatim}
+
+Schon der erste Akkord aus der Musix\TeX-Variante
+\begin{center}\texttt{\textbackslash{NOtes}
+\textbackslash{Dqbl} I b \&
+\textbackslash{zq}\{ik\}\textbackslash{qu}\{m\} \textbackslash{en}} \end{center}
+reduziert\footnote{Um mal die reinen Notensymbole gegenüberzustellen, haben wir
+diesmal die in beiden Varianten als \TeX-Code integrierten Analysesymbole n
+weggelassen.} sich zum schlichteren
+\begin{center}\texttt{[l b82 b8+ ] |/ b44u zd zf }\end{center}
+
+\subsubsection{\ldots der Wermutstropfen \ldots}
+
+Trotz der so euphorisch kolportierten Vorteile wächst sich \emph{PMX} bei
+näherem Hinsehen für den Musikwissenschaftler jedoch zu einer Enttäuschung aus.
+Gehen wir die Punkte der Reihe nach durch:
+
+\paragraph{\small Inkompatibilitäten}$\;$ \\
+
+Zunächst müssen wir 'gestehen', dass wir in diesem Kapitel unseres
+'selbstreferentiellen' Dokumentes die Gegenüberstellung von Notentext und
+generierendem Code nur scheinbar verwirklicht haben: Es gibt überhaupt keine
+Möglichkeit, PMX-Code in \LaTeX-Code einzubetten und daraus dann -- sozusagen in
+einem Rutsch -- eine PDF-Datei zu erzeugen.
+Das liegt in erster Linie an der Arbeitsweise von \emph{PMX}\footnote{In zweiter
+Linie liegt es an den Entwicklern von \emph{PMX}. Sie haben schlicht (noch) kein
+korrespondierendes \LaTeX-Paket geschaffen. Technisch mag das herausfordernd
+sein, unmöglich ist es nicht: Es wird ja schon gesagt, dass der von \emph{pmxab}
+erzeugte Code eigentlich 'nur' auf die richtige Weise auskommentiert werden
+müsse, damit er in der \texttt{\textbackslash{begin/end}\{music\}}-Umgebung
+genutzt werden könne (\cite[vgl.][94]{Noack2013a}). Mithin sollte der Schritt zu
+einer integrierten Lösung so groß nicht sein.}: Als Päprozessor nimmt das
+entsprechende Tool \emph{pmxab} eine \emph{PMX}-Datei und erzeugt daraus eine
+MusiX\TeX-Datei. Diese MusiX\TeX-Datei ist von ihrem Dialekt her aber eine
+vollständige MusiX\TeX-Datei und kein inkludierbares Code-Snippet, das 1:1 in die
+\LaTeX-Umgebung
+\texttt{\textbackslash{begin}\{music\} \ldots \textbackslash{end}\{music\}}
+eingebettet werden könnte. Entsprechende Versuche müssen scheitern.
+
+
+\begin{verbbox}[\footnotesize]
+.pmx.eps:
+  @ make \$< `basename \$< .pmx`.tex
+  @ musixtex -g `basename \$< .pmx`.tex
+  @ ps2eps `basename \$< .pmx`.ps
+.pmx.tex:
+   @ pmxab \$<
+\end{verbbox}
+  
+Die eine, 'direkte' Lösung für dieses Problem besteht darin, zuerst -- ganz
+\LaTeX-unabhängig -- aus der \emph{PMX}-Datei eine Graphik zu erzeugen
+und diese anschließend in die \LaTeX-Datei einzubinden\footcite[Vgl. dazu
+auch][94]{Noack2013a}:
+
+\begin{itemize}
+  \item Dazu ruft man für eine \emph{PMX}-Datei zunächst den
+  \emph{PMX}-Präprozessor auf (z.B. \texttt{pmxab candeza1.pmx}), um die
+  korrespondierende MusiX\TeX-Datei \texttt{candeza1.tex} zu genieren.
+  \item Das Resultat übergibt man dann dem \emph{MusiX\TeX}-Tool als Input, und
+  zwar mit der Option \emph{-g}: (\texttt{musixtex -g candeza1.tex}). So wird
+  nicht eine \emph{PDF}-Datei erzeugt, sondern die Postscriptdatei
+  \texttt{candeza1.ps}.
+  \item Danach lässt man diese Postscriptdatei in eine 
+  Encapsulated-Postscript-Datei umwandeln (\texttt{ps2eps
+  candeza1.ps})\footnote{Eine make-basierte
+  Automatisierung dieser Schritte enthielte als Kern wohl dies:\vspace{0.2em}\\
+  \theverbbox\ \vspace{0.2em}\\
+  \cite[Vgl. dazu][\nopage Makefile aus dem Verzeichnis 'pmx']{Reincke2019a}.}
+  \item Und ganz zuletzt fügt man an der Stelle der \LaTeX-Datei, wo die
+  \emph{eps}-Graphik erscheinen soll, den \LaTeX-Befehl 
+  \texttt{\textbackslash{includegraphics}\{candeza1.eps\}}
+  ein\footnote{Hier muss man beachten, an der Stelle, von wo aus man die
+  \emph{eps}-Datei einlesen will, nicht (versehentlich) auch eine 'gleichnamige'
+  \emph{pdf}-Datei abgelegt zu haben. In diesem Fall lädt
+  \texttt{includegraphix} nämlich letztere. Und das wird im \LaTeX-Dokument zu
+  unerwarteten Seitenumbrüchen führen, nach deren Ursache man u.U. lange sucht.
+  }.
+\end{itemize}
+
+Diese Umstände müssen -- wenigstens den Musikwissenschaftler -- enttäuschen:
+Wenn man zuletzt doch eine Graphik einbindet, die man mit einem externen Tool
+erstellt hat, warum sollte man sich dann die Mühe antun, zwecks
+Erstellung einer Graphik zuerst \emph{PMX} zu lernen, wo es doch so viele gute
+Notenprogramme gibt, die ihre Daten auch als Postscript- oder PDF-Datei
+exportieren? Das könnte doch nur dann sinnvoll sein, wenn man wenigstens auf die
+gestalterischen Vorzüge und Freiheiten von MusiX\TeX\ zugreifen könnte. Aber
+nicht einmal das ist ja der Fall -- wie wir gleich sehen werden.
+
+Zunächst müssen wir aber der Wahrheit Genüge tun und darauf hinweisen, dass der
+Autor des \emph{PMX}-Tutorials sehr wohl um die Irritationen in Sachen \emph{PMX
+/ MusiX\TeX\ } und \emph{\LaTeX\ } weiß, ja mehr noch, dass er sie auch nicht
+verschweigt: Beide Ansätze würden  -- obwohl sie auf \TeX\ beruhen --
+konkurrierend und überschneidend das Layout gestalten und viel Spezialbefehle
+zueinander inkompatibel definieren\footcite[vgl.][93]{Noack2013a}. Und so kommt
+er zu dem Schluss:
+
+\begin{quote}\textit{\enquote{While with modern implementations of ressources
+are no longer a serious problem, the incompatibility problems are, and their
+resolution would be a major programming task. So there have, to this day, not
+been any serious efforts to provide a truly merged version of \LaTeX\ with
+PMX.}\footnote{\cite[vgl.][93f]{Noack2013a}. Man muss an dieser Stelle auch
+im Kopf behalten, dass PMX nicht für die Nutzung in \LaTeX\ entwickelt worden ist.
+Es ging den Entwicklern darum, besser und einfacher qualitativ hochwertige
+Notenblätter zu erzeugen. Und für diesen Zweck ist die Lösung \emph{PMX
+/ MusiX\TeX} sehr wohl geeignet. Nur ist die Gestaltung solcher Blätter meist nicht
+Aufgabe von Musikwissenschaftlern.}
+}\end{quote}
+
+\paragraph{\small Unzulänglichkeiten}$\;$ \\
+
+Die erste kleinere Unzulänglichkeit betrifft das Erscheinungsbild: Die
+Kadenz-III in der \emph{PMX}-Variante\footnote{$\rightarrow$ S.
+\pageref{\cadlab{III}{PMX}}} wirkt optisch weniger klar als die
+\emph{MusiX\TeX}-Variante\footnote{$\rightarrow$ S.
+\pageref{\cadlab{III}{MusiXTeX}}}. Dies liegt am 5/8-Takt. Der kann in eine 3er-
+und eine 2er Hälfte oder in eine 2er und eine 3er Hälfte aufgeteilt werden. Und
+das 3. Achtel der 3er-Hälfte kann auftaktisch gemeint sein. Die Entscheidungen,
+die \emph{PMX} -- sozusagen nach Schema F -- automatisch trifft, können solchen
+fallweisen Feinheiten natürlich nicht wirklich gerecht werden. Diese kann man
+gelegentlich allerdings auch für reine Geschmacksfragen halten.
+
+Die zweite Unzulänglichkeit betrifft die Methode, wie die Analysesymbole in den
+\emph{PMX}-Code eingettet werden: \emph{PMX} bietet zwar die Möglichkeit, Stücke
+auf \emph{PMX}-Level textuell zu kennzeichnen oder Texte über oder unter den
+Systemen einzufügen\footcite[vgl.][61f]{Noack2013a}. Wenn es aber -- wie bei der
+Musikwissenschaft notwendig -- darum geht, Symbole und Texte graphisch variabel
+einzufügen, dann muss der \emph{PMX}-User auf \enquote{Inline \TeX\ commands}
+zurückgreifen, also auf den \TeX-Level
+'zurückfallen'\footcite[vgl.][76f]{Noack2013a}: die Nutzung einer vereinfachten
+\emph{PMX}-Syntax wird dann um den Preis einer komplizierten Texteingabe
+erkauft\footnote{Weil \TeX\ 'zu' kompliziert war, wurde \LaTeX\ 'erfunden';
+und weil \emph{PMX} mit Text 'zu' kompliziert war, entstand \emph{M-Tx}
+(\cite[vgl.][\nopage wp]{CtanMtx2018a}) -- einschließlich eines
+Handbuches (\cite[vgl.][3ff]{Laurie2017a})}.
+
+Wirklich unzulänglich ist dabei jedoch das, \emph{was} eingebettet werden kann.
+Was schon bei den ABC-Lösungen galt\footnote{$\rightarrow$ S.
+\pageref{AppraisalABC}}, gilt auch hier: Aus der \LaTeX-Welt können weder hoch-
+und/oder tiefgestellte Kleinsymbole oder Sonderzeichen eingefügt werden, noch
+die Alterationszeichen $\sharp$, $\flat$ oder $\natural$ aus den Sonderzeichen -
+ganz zu schweigen von der Einbettung jener ausgefeilten Konstrukte, die das
+\emph{harmony}-Paket zur Verfügung stellt. Denn das Konvertierungstool
+\emph{pmxab}, das \emph{MusiX\TeX}-Code aus \emph{PMX}-Code ableitet, arbeitet
+ja noch außerhalb von \TeX. Und das Konvertierungsttool \emph{musixtex}
+versteht 'nur' \emph{Musix\TeX}-Code, nicht aber \LaTeX-Syntagmen.
+
+\subsubsection{\ldots und die kleine Lösung}
+
+Trotz all dieser Nicklichkeiten kann es für den Musikwissenschaftler
+gelegentlich sehr wohl Sinn machen, im Kontext einer \LaTeX-Arbeit\footnote{mit
+inkludiertem MusiX\TeX-Package} auf \emph{PMX} zurückzugreifen: Wenn es nämlich
+gilt, viele längere Musikbeispiele zu verwenden, wird das manuelle Tippen des
+MusiX\TeX-Codes zu einer langwierigen, fehlerträchtigen Angelegenheit werden.
+
+Eine Lösung dafür bestünde darin, zuerst den reinen Notentext mit \emph{PMX} zu
+erstellen und dann mit \emph{pmxab} in MusiX\TeX-Code umzuwandeln. Danach griffe
+man auf die Option zurück, -- wie im Tutorial als Möglichkeit angedeutet --
+\enquote{manuell} bestimmte Zeilen des automatisch generierten Codes
+auszukommentieren und so etwas zu erzeugen, was tatsächlich in die
+\emph{\textbackslash{begin}\ldots\textbackslash{end}\{music\}}-\LaTeX-Umgebung
+kopiert werden kann\footcite[vgl.][94]{Noack2013a}. Dieses Verfahren wollen wir
+noch kurz vorführen:
+
+Wir wissen ja schon, dass wir die Symbole der Harmonieanalyse, die wir auf
+\emph{PMX}-Level erstellen könnten, bei einer Einbettung in einen \LaTeX-Code
+werden nicht verwenden können, eben weil es ja keine \LaTeX-Konstrukte sind,
+sondern \TeX-Syntagmen. Deshalb notieren wir diesmal auf \emph{PMX}-Level nur
+den Notentext. Das 'reine' PMX/MusiX\TeX-Verfahren\footnote{PMX-Code $\rightarrow$
+\texttt{pmxab} $\rightarrow$ Musix\TeX-Code $\rightarrow$ \texttt{musictex -g} 
+$\rightarrow$ PS-Code  $\rightarrow$ \texttt{ps2eps} $\rightarrow$ EPS-Graphik }
+würde daraus die folgende Graphik erzeugen:
+\begin{center}
+\includegraphics{pics/pmx-cadenca2}
+\cad{II}{PMX}
+\end{center}
+
+Ausgegangen wird dabei von folgendem \emph{PMX}-Code:
+
+\begin{verbatim}
+% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% nstaves | ninstr | mtrnuml  | mtrdenl | mtrnump | mtrdenp | npickup
+     2        1         4          2         4         2         0
+%  nkeys  | npages | nsystems | musicsize | fracident
+     2        0         3          16          .1
+Piano
+bt
+./
+% BODY: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%a smaller width than the line width
+w130m
+% MUSIC: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% T:1-1     T:1-2    T:1-3                T:1-4
+  d23l za+  b-l zg+  a-l zg+              dl  zf |/
+  f24u zd+  g-u zd+  cu  ze               a-u zd |/
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% T:2-1     T:2-2    T:2-3                T:2-4
+  d23l za+  g  zb    a zc                 d- za+  /
+  d25u zf   g- zd+   ( e4- zd+ e4- ) zc+  f2- zd+ |/
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  EOF
+\end{verbatim}
+
+Lässt man diesen \emph{PMX}-Code von \texttt{pmxab} verarbeiten, entsteht ein
+Musix\TeX-Code, bei dem man, will man ihn in die Musix\TeX-in-\LaTeX-Umgebung
+\verb|\begin{music}...\end{music}| einbetten, noch  einige Zeilen auskommentieren und
+einige Werte ändern muss:
+
+\begin{verbatim}
+\begin{music}%
+%%ignore:%% \input musixtex
+%%ignore:%% \input pmx
+%%ignore:%% \setmaxslurs{24}\setmaxinstruments{24}%
+\normalmusicsize %%% KR instead of: %%% \smallmusicsize%
+%%ignore:%% \nopagenumbers
+%%ignore:%% \tracingstats=2\relax
+%%ignore:%% \hsize=369pt
+%%ignore:%% \vsize740pt
+\def\nbinstruments{1}
+\setstaffs12
+\setclef1{60}
+\setname1{Piano}
+\generalsignature{ 2}%
+\generalmeter{\meterfrac{4}{2}}%
+\parindent 4em %%% KR instead of %%% 37pt
+%%ignore:%% \elemskip1pt\afterruleskip1.000pt\beforeruleskip0pt\relax
+%%ignore:%% \stafftopmarg0pt\staffbotmarg5\Interligne\interstaff{10}\relax
+%%ignore:%% \readmod{cadenca2}
+%%ignore:%% \startmuflex
+\startpiece
+%%ignore:%% \addspace\afterruleskip%
+%%ignore:%% \znotes|\zcharnote{16}{\titles{2.0}{}{0}{}{0}{}{0}}\en%
+% Bar count 1
+\pnotes{4.00}\zh{''A}\hl{`D}\zh G\hl B\zh G\hl A\zh F\hl D|\zh{'d}%
+\hu{`f}\zh{'d}\hu{`g}\zh{'e}\hu c\zh d\hu a\en%
+% Bar count 2
+\xbar
+\pnotes{4.00}\zh{''A}\hl{`D}\zh{'B}\hl{`G}|\zh{'f}\hu d\zh d\hu{`g}\en%
+\pnotes{2.83}\zh{''C}\hl A|\islurd0e\zq{'d}\qu{`e}\tslur0e\zq{'c}\qu{`e}%
+\en%
+\pnotes{4.00}\zh{''A}\hu{`D}|\zh{'d}\hu{`f}\en%
+\Endpiece
+%%ignore:%% \vfill\eject\endmuflex
+%%ignore:%% \bye
+\end{music}%
+\end{verbatim}
+
+Vor einer erfolgreichen Nutzung diese Codes muss man allerdings in seinem
+\LaTeX-Header auch noch die Regel \verb|\newcommand{\pnotes}[1]{\notes}|
+formuliert haben muss, damit aus der Einbettung auf \LaTeX/MusiX\TeX-Ebene --
+also ohne Einbindung einer externen Graphik -- das folgende Bild  entsteht:
+
+
+\begin{center}
+\begin{music}%
+%%ignore:%% \input musixtex
+%%ignore:%% \input pmx
+%%ignore:%% \setmaxslurs{24}\setmaxinstruments{24}%
+\normalmusicsize %%% KR instead of: %%% \smallmusicsize%
+%%ignore:%% \nopagenumbers
+%%ignore:%% \tracingstats=2\relax
+%%ignore:%% \hsize=369pt
+%%ignore:%% \vsize740pt
+\def\nbinstruments{1}
+\setstaffs12
+\setclef1{60}
+\setname1{Piano}
+\generalsignature{ 2}%
+\generalmeter{\meterfrac{4}{2}}%
+\parindent 4em %%% KR instead of %%% 37pt
+%%ignore:%% \elemskip1pt\afterruleskip1.000pt\beforeruleskip0pt\relax
+%%ignore:%% \stafftopmarg0pt\staffbotmarg5\Interligne\interstaff{10}\relax
+%%ignore:%% \readmod{cadenca2}
+%%ignore:%% \startmuflex
+\startpiece
+%%ignore:%% \addspace\afterruleskip%
+%%ignore:%% \znotes|\zcharnote{16}{\titles{2.0}{}{0}{}{0}{}{0}}\en%
+% Bar count 1
+\pnotes{4.00}\zh{''A}\hl{`D}\zh G\hl B\zh G\hl A\zh F\hl D|\zh{'d}%
+\hu{`f}\zh{'d}\hu{`g}\zh{'e}\hu c\zh d\hu a\en%
+% Bar count 2
+\xbar
+\pnotes{4.00}\zh{''A}\hl{`D}\zh{'B}\hl{`G}|\zh{'f}\hu d\zh d\hu{`g}\en%
+\pnotes{2.83}\zh{''C}\hl A|\islurd0e\zq{'d}\qu{`e}\tslur0e\zq{'c}\qu{`e}%
+\en%
+\pnotes{4.00}\zh{''A}\hu{`D}|\zh{'d}\hu{`f}\en%
+\Endpiece
+%%ignore:%% \vfill\eject\endmuflex
+%%ignore:%% \bye
+\end{music}%
+\cad{II}{PMX+MusiXTeX-in-LaTeX}
+\end{center}
+
+Und eben dahin kann man nun auch wieder die \LaTeX-basierten Elemente einer
+Harmonieanalyse einbaue \ldots
+
+\begin{center}
+\begin{music}%
+\normalmusicsize 
+\def\nbinstruments{1}
+\setstaffs12
+\setclef1{60}
+\setname1{Piano}
+\generalsignature{ 2}%
+\generalmeter{\meterfrac{4}{2}}%
+\parindent 4em 
+\startpiece
+% Bar count 1
+\notes
+  \zmidstaff{\HH.T.....}\zh{''A}\hl{`D}%
+  \zmidstaff{\HH.S.3....}\zh G\hl B%
+  \zmidstaff{\HH.D.7....}\zh G\hl A%
+  \zmidstaff{\HH.T.....}\zh F\hl D|%
+  \zh{'d}\hu{`f}\zh{'d}\hu{`g}\zh{'e}\hu c\zh d\hu a%
+\en%
+% Bar count 2
+\xbar
+\notes
+  \zmidstaff{\HH.T.....}\zh{''A}\hl{`D}%
+  \zmidstaff{\HH.S.....}\zh{'B}\hl{`G}|%
+  \zh{'f}\hu d\zh d\hu{`g}%
+\en%
+\notes
+  \zmidstaff{\HH.D...4-3.5.}\zh{''C}\hl A|%
+  \islurd0e\zq{'d}\qu{`e}\tslur0e\zq{'c}\qu{`e}%
+\en%
+\notes
+  \zmidstaff{\HH.T.....}\zh{''A}\hu{`D}|%
+  \zh{'d}\hu{`f}\en%
+\Endpiece
+\end{music}%
+\cad{II}{PMX+MusiXTeX-in-LaTeX++}
+\end{center}
+ 
+wobei -- zugegebenermaßen -- Geduld, ein geschulter Blick und der Wille zum
+Codeclearing hilfreich sind:
+
+\begin{verbatim}
+\begin{music}%
+\normalmusicsize 
+\def\nbinstruments{1}
+\setstaffs12
+\setclef1{60}
+\setname1{Piano}
+\generalsignature{ 2}%
+\generalmeter{\meterfrac{4}{2}}%
+\parindent 4em 
+\startpiece
+% Bar count 1
+\notes
+  \zmidstaff{\HH.T.....}\zh{''A}\hl{`D}%
+  \zmidstaff{\HH.S.3....}\zh G\hl B%
+  \zmidstaff{\HH.D.7....}\zh G\hl A%
+  \zmidstaff{\HH.T.....}\zh F\hl D|%
+  \zh{'d}\hu{`f}\zh{'d}\hu{`g}\zh{'e}\hu c\zh d\hu a%
+\en%
+% Bar count 2
+\xbar
+\notes
+  \zmidstaff{\HH.T.....}\zh{''A}\hl{`D}%
+  \zmidstaff{\HH.S.....}\zh{'B}\hl{`G}|%
+  \zh{'f}\hu d\zh d\hu{`g}%
+\en%
+\notes
+  \zmidstaff{\HH.D...4-3.5.}\zh{''C}\hl A|%
+  \islurd0e\zq{'d}\qu{`e}\tslur0e\zq{'c}\qu{`e}%
+\en%
+\notes
+  \zmidstaff{\HH.T.....}\zh{''A}\hu{`D}|%
+  \zh{'d}\hu{`f}\en%
+\Endpiece
+\end{music}
+\end{verbatim}
+
+
+% this is only inserted to eject fault messages in texlipse
+% \bibliography{../bib/literature}

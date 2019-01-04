@@ -1,0 +1,75 @@
+% mycsrf 'for beeing included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+
+%% use all entries of the bibliography
+
+\subsubsection{Das musicography-Paket: eine Lösung mit Hindernissen}
+
+Das Zusatzpaket \emph{musicography}\footcite[vgl.][\nopage
+wp]{CtanMusicography2018a} vereinigt und erweitert die bisher erwähnten
+Möglichkeiten. Außerdem sagen manche Fürsprecher, dass es -- im Gegensatz zu
+anderen Paketen -- auch mit \emph{pdflatex} druckfähige PDF-Dateien
+erzeuge\footnote{\cite[Vgl. dazu etwa][1]{Cashner2018a}. Persönlich sind uns
+solche Irritationen bei der PDF-Generierung nicht begegnet.
+\emph{mycsrf} nutzt auch \emph{pdflatex}. Und unter Ubuntu 18.04 werden dabei
+alle Fonts eingebunden und können alles ausdrucken, was auch am Bildschirm
+sichtbar ist: so auch bei dem Beispiel \emph{musicology.de}.}.
+Selbstverständlich muss auch dieses \LaTeX-Paket in die Präambel des
+\LaTeX-Dokumentes eingebunden werden (\texttt{\small
+\textbackslash{usepackage\{musicography\}}}), um entsprechende Befehle nutzen zu
+können.
+
+Anschließend erlaubt das Paket, Vorzeichen \{
+\musFlat \ (= \texttt{\small \textbackslash{musFlat}}),
+\musSharp \ (= \texttt{\small \textbackslash{musSharp}}),
+\musNatural \ (= \texttt{\small \textbackslash{musNatural}}),
+\musDoubleFlat \ (= \texttt{\small \textbackslash{musDoubleFlat}}),
+\musDoubleSharp \ (= \texttt{\small \textbackslash{musDoubleSharp}})
+\}, Notensymbole \{
+\musWhole \ (= \texttt{\small \textbackslash{musWhole}}),
+\musHalf \ (= \texttt{\small \textbackslash{musHalf}}),
+\musQuarter \ (= \texttt{\small \textbackslash{musQuarter}}),
+\musEighth \ (= \texttt{\small \textbackslash{musEighth}}),
+\musSixteenth \ (= \texttt{\small \textbackslash{musSixteenth}}),
+\musHalfDotted \ (= \texttt{\small \textbackslash{musHalfDotted}}),
+\musQuarterDotted \ (= \texttt{\small \textbackslash{musQuarterDotted}})
+\ldots
+\}
+und Metren wie \meterCutC \ (= \texttt{\small \textbackslash{meterCutC}})
+in den Fließtext einzuarbeiten.
+
+Gleichwohl gibt es dabei einige 'Ungereimtheiten', die den Gebrauch erschweren:
+\begin{itemize}
+  \item Zum ersten muss man das Paket \emph{MusiX\TeX}, sofern man es zusammen
+  mit \emph{musicology} verwenden will, nach \emph{musicology} in die Präambel
+  einbinden. Andernfalls 'meckert' \emph{musicology}, dass der Befehl
+  \texttt{meterC} schon definiert sei. Bindet man \emph{MusiX\TeX} tatsächlich
+  nach \emph{musicology} ein, kann \emph{MusiX\TeX} den von \emph{musicology}
+  eingeführten Befehl offensichtlich problemlos redefinieren. Leider passen die
+  Symbole dann -- wie man hier sehen kann -- von der Größe her nicht mehr zu
+  einander: \emph{musicology} $\rightarrow$ \meterCutC : \meterC $\leftarrow$
+  \emph{MusiX\TeX}.
+  \item Außerdem sind die Symbole für die Achtel- (\musEighth) und die
+  Sechzehntelnoten (\musSixteenth) aus Musikersicht völlig unbrauchbar. Solche
+  Zeichen gibt es in der Musik(wissenschaft) nicht.
+\end{itemize}
+
+Wenn man dieses Paket verwenden will, ist also eine gewisse Vorsicht angesagt.
+
+
+% this is only inserted to eject fault messages in texlipse
+%\bibliography{../bib/literature}

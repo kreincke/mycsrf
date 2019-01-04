@@ -1,0 +1,46 @@
+% PREAMBLE
+% nstaves | ninstr | mtrnuml  | mtrdenl | mtrnump | mtrdenp | npickup
+     2        2         5          8         5         8         0
+%  nkeys  | npages | nsystems | musicsize | fracident
+     -2        0         3          16          .1
+Bass
+Diskant
+bt
+./
+% BODY: 
+% HEADER: 
+\\font\ref=cmr10\def\zt#1#2{\zcharnote{#1}{\ref#2}}\def\bs{$\backslash$}\
+%a smaller width than the line width
+w130m
+% MUSIC:
+% T1:
+[l b82 b8+ ] [l a8 a8f ] [l g1d g3 ] |/
+\zt{-7}{T}\  b44u zd zf 
+\zt{-7}{D7}\ cu ze zf 
+\zt{-7}{S}\  b8-u ze zb+ |/
+% T2:
+ [l f83 e83 ] [l d83d d13f ] [l c13d a32 ] |/
+\zt{-7}{D7}\ c4-u ze za
+\zt{-7}{Dp}\ a-u zd zf 
+\zt{-7}{D7}\ c8u ze zf   |/
+% T3:
+b82 r8 f83 b43                           |/
+\zt{-7}{T}\  r8 [uh f85 zd zf-
+\zt{-7}{D7}\    e85 zc za ] 
+\zt{-7}{T}\     d4- zf zb |/
+% T4:
+r8 f83 c83 f82 r8 |/
+r8 
+\zt{-7}{D7}\ e44 za zc 
+\zt{-7}{D7}\ e84 za zc r8 |/
+% T5:
+r8 [l f83 a8- ] r8 b82l |/
+r8 
+\zt{-7}{D7}\ [u c85 za ze c85 za ze ] 
+r8 
+\zt{-7}{T}\ b84u zf zd |/
+% T6:
+[l f83 c83 f82 ] b42l |/
+\zt{-7}{D7}\ [u c85 za ze c85 za ze c85 za ze ] 
+\zt{-7}{T}\ b44u zf zd |/
+%EOF
