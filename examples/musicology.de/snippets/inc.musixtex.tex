@@ -156,10 +156,9 @@ Harmonielehre von Grabner\footcite[vgl.][107]{Grabner1974a}:
 \cad{I}{MusiXTeX}
 \end{center}
 
-
 Man sieht, mit MusiX\TeX\ und \LaTeX\ kommt man dem 'Original' wirklich nahe,
-näher, als bei der Nachbildung mit der \emph{ABC}-Methodik. Diese Nachbildung
-wird durch folgenden MusiX\TeX-Code generiert:
+näher, als mit der Rekonstruktion anhand der \emph{ABC}-Methodik. Die 
+einzeilige Kadenz in der MusiX\TeX-Version wird durch folgenden Code generiert:
 \begin{verbatim}
 \begin{music}%
   \largemusicsize%
@@ -218,16 +217,17 @@ Kadenz für ein Instrument, das in mehreren Systemen notiert wird:
   \generalsignature{2}% D-DUR
   \generalmeter{\meterfrac42}
   \startextract
-  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{f}\hu{k}\en%
-  \NOTes\zmidstaff{S}\zh{I}\hl{N}|\zh{g}\hu{k}\en%
-  \NOTes\zmidstaff{D\textsuperscript{7}}\zh{H}\hl{N}|\zh{j}\hu{l}\en%
-  \NOTes\zmidstaff{T}\zh{K}\hl{M}|\zh{h}\hu{k}\en%
+  \NOTes\zmidstaff{\HH.T.....}\zh{K}\hl{a}|\zh{f}\hu{k}\en%
+  \NOTes\zmidstaff{(\HH.D..7...)}\zh{I}\hl{a}|\zh{f}\sh{k}\hu{k}\en%
+  \NOTes\zmidstaff{\HH.Sp.7...7.}\zh{K}\hl{N}|\zh{i}\hu{l}\en%
+  \NOTes\zmidstaff{\HH.\Dohne.3..7.9.}\zh{J}\hl{N}|\zh{i}\hu{l}\en%
   \bar
-  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{k}\hu{m}\en%  
-  \NOTes\zmidstaff{S}\zh{N}\hl{b}|\zh{g}\hu{k}\en%  
-  \NOTes\zmidstaff{D\textsuperscript{4 -- 3}}\zhl{a}\hl{c}|
-    \zh{e}\isluru{0}{k}\qu{k}\tslur{0}{j}\qu{j}\en%  
-  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{f}\hu{k}\en%  
+  \NOTes\zmidstaff{\HH.Tp.3....}\zh{K}\hl{M}|\zh{i}\hu{m}\en%  
+  \NOTes\zmidstaff{\HH.\DD.5...7.}\zh{I}\hl{K}|\zh{l}\sh{n}\hu{n}\en%  
+  \NOTes\zmidstaff{\HH.D....4-3.}
+    \zh{H}\isluru{0}{K}\qu{K}\tslur{0}{J}\qu{J}|
+    \zhl{l}\hl{o}\en%  
+  \NOTes\zmidstaff{\HH.T.....}\zh{D}\hl{K}|\zh{m}\hu{o}\en%  
   \setdoublebar
   \endextract
 \end{music}
@@ -238,26 +238,35 @@ Diese Zeilen werden mit folgendem MusiX\TeX-Code generiert:
 \begin{verbatim}
 \begin{music}
   \normalmusicsize
+  \parindent4em
   \instrumentnumber{1}
   \setstaffs{1}{2}
   \setclef{2}{\treble}
   \setclef{1}{\bass}
+  \setname{1}{Piano}
   \generalsignature{2}% D-DUR
   \generalmeter{\meterfrac42}
-  \startextract % statt: startpiece
-  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{f}\hu{k}\en%
-  \NOTes\zmidstaff{S}\zh{I}\hl{N}|\zh{g}\hu{k}\en%
-  \NOTes\zmidstaff{D\textsuperscript{7}}\zh{H}\hl{N}|\zh{j}\hu{l}\en%
-  \NOTes\zmidstaff{T}\zh{K}\hl{M}|\zh{h}\hu{k}\en%
+  \startextract
+  \NOTes\zmidstaff{\HH.T.....}\zh{K}\hl{a}|\zh{f}\hu{k}\en%
+  \NOTes\zmidstaff{(\HH.D..7...)}\zh{I}\hl{a}|\zh{f}\sh{k}\hu{k}\en%
+  \NOTes\zmidstaff{\HH.Sp.7...7.}\zh{K}\hl{N}|\zh{i}\hu{l}\en%
+  \NOTes\zmidstaff{\HH.\Dohne.3..7.9.}\zh{J}\hl{N}|\zh{i}\hu{l}\en%
   \bar
-  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{k}\hu{m}\en%  
-  \NOTes\zmidstaff{S}\zh{N}\hl{b}|\zh{g}\hu{k}\en%  
-  \NOTes\zmidstaff{D\textsuperscript{4 -- 3}}\zhl{a}\hl{c}|\zh{e}\qu{kj}\en%  
-  \NOTes\zmidstaff{T}\zh{K}\hl{a}|\zh{f}\hu{k}\en%  
+  \NOTes\zmidstaff{\HH.Tp.3....}\zh{K}\hl{M}|\zh{i}\hu{m}\en%  
+  \NOTes\zmidstaff{\HH.\DD.5...7.}\zh{I}\hl{K}|\zh{l}\sh{n}\hu{n}\en%  
+  \NOTes\zmidstaff{\HH.D....4-3.}
+    \zh{H}\isluru{0}{K}\qu{K}\tslur{0}{J}\qu{J}|
+    \zhl{l}\hl{o}\en%  
+  \NOTes\zmidstaff{\HH.T.....}\zh{D}\hl{K}|\zh{m}\hu{o}\en%  
   \setdoublebar
-  \endextract % statt: endpiece
+  \endextract
 \end{music}
 \end{verbatim}
+
+Zudem zeigt dieses Beispiel gut, dass man in den MusiX\TeX-Code direkt
+auch die Analysesymbole einbetten kann, die nicht von MusiX\TeX\ selbst
+bereitgestellt werden, sondern z.B. von \emph{harmony}.
+
 \subsubsection{Zweizeilige Kadenz in zwei Systemen}
 
 Bei der zweiten Methode wird jedem Instrument ein eigenes Notenliniensystem
@@ -274,7 +283,6 @@ gelegentlich über den Parameter \texttt{\textbackslash{hsize=XYZmm}} oder über
 den erzwungenen Zeilenumbruch \texttt{\textbackslash{alaligne}} in die
 Verteilung eingreifen.}:
 
-\begin{center}
 \begin{music}
   \smallmusicsize
   \parindent4em 
@@ -291,8 +299,7 @@ Verteilung eingreifen.}:
   \generalmeter{\meterfrac58}
   \startpiece
     % Takt 1/1: B: 2 8tel (Kurzschreibweise) + D: 4tel AKK
-    \NOtes \zmidstaff{T} 
-      \Dqbl I b & \zq{ik}\qu{m} \en
+    \NOtes \zmidstaff{T} \Dqbl I b & \zq{ik}\qu{m}\en
     % Takt 1/3: B: 2 8tel explizit  mit Vorzeichen + D: 4etl AKK
     \NOtes \zmidstaff{\HH.D.3-3$\flat$.8.7..} 
       \ibl{0}{a}{0}\qb{0}{a}\tbl{0}\fl{a}\qb{0}{a} & 
@@ -306,43 +313,36 @@ Verteilung eingreifen.}:
       \Dqbl M L &  \zq{jl}\qu{o} \en
     \NOtes \zmidstaff{\HH.Dp.8-8$\flat$....} 
       \ibl{1}{K}{0}\qbp{1}{K}\roff{\tbbl{1}\fl{K}\tqb{1}{K}} & 
-      \zq{hk}\qu{m}\en
+      \zq{hm}\qu{o}\en
     \NOtes \zmidstaff{\HH.D.5-3.7...}
-      \ibbl{2}{J}{0}\qbp{2}{J}\roff{\tbbl{2}\tqb{2}{H}} & 
+      \ibbl{2}{J}{0}\qbp{2}{J}\roff{\tbbbl{2}\tqb{2}{H}} & 
       \zq{j}\rq{l}\cu{m} \en
   %\alaligne
   \bar %T3 B:8. + D:8. P + B:8. P + D:8.AKK + B:8. + D:8.AKK + B:4. + D:4.AKK 
-    \notes \zmidstaff{T} \ca I & \ds \en
-    \notes \ds & \zq{fk}\cu{m}\en
+    \notes \zmidstaff{T} \qa I & \ds \zq{fk}\cu{m}\en
     \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
     \notes \zmidstaff{T} \qa b & \zq{df}\qu{i}\en
   \bar %T4: 8. P + (B:2*8. + D:4. AKK) + B:8. + D:8.AKK + 8. P 
     \notes \ds & \ds \en
     \notes \zmidstaff{\HH.D..7...} \ca{M J} & \zq{eh}\qu{j}\en
-    \notes \ca F & \zq{eh}\cu{j}\en  
-    \notes \ds & \ds \en 
+    \notes \qa F & \zq{eh}\qu{j}\en  
   \bar %T5: 8. P + 2*(B:8. + D:8. AKK) + 8. P +  B:8. + D:8.AKK  
     \notes \ds & \ds \en
     \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
-    \notes  \ca H & \zq{eh}\cu{j}\en
-    \notes \ds & \ds \en
-    \notes \zmidstaff{T} \ca I & \zq{df}\cu{i}\en  
+    \notes \zmidstaff{\HH.D.3.7...} \ca H & \zq{j}\rq{l}\cu{m}\en
+    \notes \zmidstaff{T} \qa I & \zq{ik}\qu{m}\en  
   \bar % T6: 3*(B:8.  + D:8. AKK) + B:4. + D:4. AKK
-    \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
-    \notes \ca J & \zq{eh}\cu{j}\en
-    \notes \ca F & \zq{eh}\cu{j}\en  
-    \notes \zmidstaff{T} \qa I & \zq{df}\qu{i}\en    
-  \Endpiece 
+    \notes \ds & \ds \en
+    \notes \zmidstaff{\HH.S..6...}  \ca L & \zq{g}\rq{i}\cu{j}\en
+    \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en  
+    \notes \zmidstaff{T} \qa b & \zq{df}\qu{i}\en    
+  \Endpiece
 \end{music}
 \cad{III}{MusiXTeX}
-\end{center}
 
-Dieses Beispiel zeigt außerdem, dass und wie man die Analysesymbole von
-\emph{harmony}, die nicht von MusiX\TeX\ selbst bereitgestellt werden, in
-dessen Code integrieren kann:
-\begin{small}
+Der entsprechende MusiX\TeX-Code sieht so aus:\begin{small}
 \begin{verbatim}
-\begin{music} 
+\begin{music}
   \smallmusicsize
   \parindent4em 
   \instrumentnumber{2}
@@ -358,8 +358,7 @@ dessen Code integrieren kann:
   \generalmeter{\meterfrac58}
   \startpiece
     % Takt 1/1: B: 2 8tel (Kurzschreibweise) + D: 4tel AKK
-    \NOtes \zmidstaff{T} 
-      \Dqbl I b & \zq{ik}\qu{m} \en
+    \NOtes \zmidstaff{T} \Dqbl I b & \zq{ik}\qu{m}\en
     % Takt 1/3: B: 2 8tel explizit  mit Vorzeichen + D: 4etl AKK
     \NOtes \zmidstaff{\HH.D.3-3$\flat$.8.7..} 
       \ibl{0}{a}{0}\qb{0}{a}\tbl{0}\fl{a}\qb{0}{a} & 
@@ -373,33 +372,31 @@ dessen Code integrieren kann:
       \Dqbl M L &  \zq{jl}\qu{o} \en
     \NOtes \zmidstaff{\HH.Dp.8-8$\flat$....} 
       \ibl{1}{K}{0}\qbp{1}{K}\roff{\tbbl{1}\fl{K}\tqb{1}{K}} & 
-      \zq{hk}\qu{m}\en
+      \zq{hm}\qu{o}\en
     \NOtes \zmidstaff{\HH.D.5-3.7...}
-      \ibbl{2}{J}{0}\qbp{2}{J}\roff{\tbbl{2}\tqb{2}{H}} & 
+      \ibbl{2}{J}{0}\qbp{2}{J}\roff{\tbbbl{2}\tqb{2}{H}} & 
       \zq{j}\rq{l}\cu{m} \en
   %\alaligne
   \bar %T3 B:8. + D:8. P + B:8. P + D:8.AKK + B:8. + D:8.AKK + B:4. + D:4.AKK 
-    \notes \zmidstaff{T} \ca I & \ds \en
-    \notes \ds & \zq{fk}\cu{m}\en
+    \notes \zmidstaff{T} \qa I & \ds \zq{fk}\cu{m}\en
     \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
     \notes \zmidstaff{T} \qa b & \zq{df}\qu{i}\en
   \bar %T4: 8. P + (B:2*8. + D:4. AKK) + B:8. + D:8.AKK + 8. P 
     \notes \ds & \ds \en
     \notes \zmidstaff{\HH.D..7...} \ca{M J} & \zq{eh}\qu{j}\en
-    \notes \ca F & \zq{eh}\cu{j}\en  
-    \notes \ds & \ds \en 
+    \notes \qa F & \zq{eh}\qu{j}\en  
   \bar %T5: 8. P + 2*(B:8. + D:8. AKK) + 8. P +  B:8. + D:8.AKK  
     \notes \ds & \ds \en
     \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
-    \notes  \ca J & \zq{eh}\cu{j}\en
-    \notes \ds & \ds \en
-    \notes \zmidstaff{T} \ca I & \zq{df}\cu{i}\en  
+    \notes \zmidstaff{\HH.D.3.7...} \ca H & \zq{j}\rq{l}\cu{m}\en
+    \notes \zmidstaff{T} \qa I & \zq{ik}\qu{m}\en  
   \bar % T6: 3*(B:8.  + D:8. AKK) + B:4. + D:4. AKK
-    \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
-    \notes \ca J & \zq{eh}\cu{j}\en
-    \notes \ca F & \zq{eh}\cu{j}\en  
-    \notes \zmidstaff{T} \qa I & \zq{df}\qu{i}\en    
-  \Endpiece \end{music}
+    \notes \ds & \ds \en
+    \notes \zmidstaff{\HH.S..6...}  \ca L & \zq{g}\rq{i}\cu{j}\en
+    \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en  
+    \notes \zmidstaff{T} \qa b & \zq{df}\qu{i}\en    
+  \Endpiece
+\end{music}
 \end{verbatim} 
 \end{small}
 
@@ -408,8 +405,8 @@ dessen Code integrieren kann:
 Die optische Qualität, die mit MusiX\TeX\ erzeugt werden kann, ist bestechend.
 Graphische Feinheiten sind bis ins Letzte hinein darstellbar und beeinflussbar.
 Externe Analyse- und Theoriesymbole können problemlos als \LaTeX-Konstrukte in
-den Quellcode der Noten eingebettet werden. \LaTeX\ und seine
-(geistes)wissenschaftlichen Methodik kann einfach mit MusiX\TeX verknüpft
+den Quellcode der Noten eingebettet werden. \LaTeX\ und die
+musikwissenschaftlichen Methodik kann einfach mit MusiX\TeX\ verknüpft
 werden: Sie stehen sich nicht gegenseitig im Weg. Und typographische Abstriche
 aufgrund von Unzulänglichkeiten oder Eigenarten der gewählten Tools braucht man
 bei dieser Konstellation nicht zu machen.
@@ -424,8 +421,8 @@ Der Gewinn für einen musikwissenschaftlichen Text ist allerdings groß:
 typographisch ist alles erreichbar. Eine saubere, zeilenorientierte
 Programmierung\footnote{wie wir sie bei unserem dritten Kadenzbeispiel aus
 Platzgründen leider nicht haben vollständig einhalten können} erleichtert dabei
--- wie immer -- das Arbeit. Und nach einiger Zeit gelingt es per
-Copy\&Paste auch, seine Ziele flüssiger umzusetzen.
+-- wie immer -- das Arbeiten. Und nach einiger Zeit wird man per Copy\&Paste
+gewiss auch flüssiger vorankommen.
 
 % this is only inserted to eject fault messages in texlipse
 %\bibliography{../bib/literature}

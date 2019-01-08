@@ -5,7 +5,7 @@
 #LATEX=latex
 LATEX=pdflatex
 
-AUX_EXTS=bak url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log mx1 mx2 dat pml
+AUX_EXTS=bak url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log mx1 mx2 dat pml gz
 RES_EXTS=ps pdf 
 SUB_DIRS=cfg bib
 T=CH
@@ -49,7 +49,8 @@ ifneq ($(LATEX),pdflatex)
 endif
 # (K) cleasing the environment
 	@ mv $@ `basename $@ .pdf`-`cat rel.inc`.pdf
-	rm -rf ${ABCTMP}
+	@ rm -rf ${ABCTMP}/*
+	@ echo "preserve dir eclipse auto build" > ${ABCTMP}/save.txt
 	@ make clearAuxFiles
 
 .tex.dvi:

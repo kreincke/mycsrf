@@ -1,16 +1,16 @@
-% PREAMBLE
+%%% PREAMBLE; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % nstaves | ninstr | mtrnuml  | mtrdenl | mtrnump | mtrdenp | npickup
      1        1        3           0         0         0         0
 %  nkeys  | npages | nsystems | musicsize | fracident
      0        0         4         16           .0
-% no instrument name
+% no instrument name = blank line
 
 % tremble
 t
 ./
 % BODY: HEADER: a smaller width than the line width
 w80m
-% MUSIC:
+%%% MUSIC: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \zcharnote{-10}{I}\  \zcharnote{+10}{T}\ c04 ze zg 
 \zcharnote{-10}{IV}\ \zcharnote{+10}{S}\ f04 za zc 
 \zcharnote{-10}{V}\  \zcharnote{+10}{D}\ g04 zb zd
@@ -18,4 +18,4 @@ w80m
 \zcharnote{-10}{I}\  \zcharnote{+10}{T}\ a03 zc ze 
 \zcharnote{-10}{IV}\ \zcharnote{+10}{S}\ d04 zf za
 \zcharnote{-10}{V}\  \zcharnote{+10}{D}\ e04 zgs zb
-% EOF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF

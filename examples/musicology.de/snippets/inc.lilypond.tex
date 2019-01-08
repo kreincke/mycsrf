@@ -1,0 +1,95 @@
+% mycsrf 'for beeing included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+
+%% use all entries of the bibliography
+
+\subsection{Lilypond}
+
+Das \enquote{Notensatzsystem} \emph{LilyPond} tritt unter dem Slogan
+\enquote{Notensatz für jedermann} an, \enquote{[\ldots] Notendruck in (bester)
+Qualität} zu ermöglichen, also \enquote{[\ldots] die Ästhetik handgestochenen
+traditionellen Notensatzes mit computergesetzten Noten zu
+erreichen}\footcite[vgl.][\nopage wp]{LilyPond2018x}. Was das systemisch
+bedeutet, hat das LilyPond-Entwicklerteam in einem besonderen Artikel
+dargestellt\footcite[vgl.][5ff]{LilyPond2018e}. Um die entsprechenden Techniken
+erfolgreich anzuwenden, wird man sich ein einfach strukturiertes
+Lerntutorial\footcite[vgl.][20ff]{LilyPond2018b} aneignen und ein umfangreiches
+Referenzhandbuch\footcite[vgl.][1ff]{LilyPond2018b} bereitlegen müssen.
+
+Wie die anderen bisher diskutierten Systeme auch, erwartet \emph{LilyPond}, dass
+man Code schreibt, keine Noten: Der Texteditor ist das bevorzugte Mittel, um
+Musik im \emph{LilyPond}-Dialekt zu notieren.
+
+Trotzdem gibt es Unterschiede, die über die bloße Syntax hinausgehen: 
+
+Die wichtigste Eigenart dürfte sein, dass Lilypond konsequent zwischen Musik und
+Druck unterscheidet: Wer in D-Dur ein fis einfügen möchte, kann sich hier nicht
+auf die zu Beginn gesetzte Tonartssignatur 'verlassen', er muss trotzdem statt
+'f' 'fis' tippen, an jeder Stelle, wo er 'fis' meint. Das hat den gewaltigen
+Vorteil, dass Lilypond bei alterierten Passagen die nötigen Vorzeichen
+automatisch setzen kann: in g-moll erhält das fis ein Kreuz, in D-Dur nicht.
+
+Und der auffälligste dürfte sein, dass LilyPond seine Nutzer konsequent dazu
+anhält, in Elementen zu denken, die in einer 1:n-Beziehung verschachtelt sind:
+Das Notenheft besteht aus einem oder mehreren Stücken, das Stück besteht aus
+einem oder mehreren Notensystemen, ein Notensystem besteht aus einer oder
+mehrerer Stimmen, die Stimme kann solistisch oder akkordisch sein. Die
+Informatik würde sagen, dass Datenmodell ist als Baum angelegt. Die syntaktische
+Markanten diese ineinandergreifenden Teile machen es sehr einfach, LilyPond-Code
+zu verstehen.
+
+Gelegentlich wird gesagt, dass LilyPond sich historisch aus TeX entwickelt habe
+(zit), Wikipedia meint sogar, dass seine Syntax der von \TeX\ ähnelt. Beides
+dürfte nur sehr bedingt stimmen. Lilypond selbst führt sein Entstehen
+
+Der entscheidende Punkt hierbei ist aber, dass LilyPond (heute) systemisch
+gesehen nichts (mehr) \LaTeX\ oder \TeX\  zu tun hat: es nutzt seine eigene
+Eingabesprache und seine eigene Maschine zum erzeugen des Notencodes. Als
+Ausgabeformate bietet lilypond PDF und PS \ldots an. Von der Softwarearchektur
+habe wir hier also die gleiche Struktur, wie bei ABC oder MusiX\TeX: ein
+Probgramm -- früher \texttt{abcm2ps} oder \texttt{musixtex}, hier
+\texttt{lilypond} -- nimmt eine Datei mit passendem Inhalt und passender
+Extension -- früher \texttt{.abc} oder \texttt{.tex}, hier
+\texttt{.ly} -- und erzeugt daraus eine Graphik im PS, PDF oder PNG Format.
+
+\subsubsection{Technische Voraussetzungen}
+
+Damit wissen wir, dass wir auch hier einiges vorzubereiten haben, bevor wir
+\emph{LilyPond} erfolgreich verwenden können.
+
+$\RHD$ Zunächst muss -- ganz unabhängig von \LaTeX\ -- \emph{LilyPond}
+installiert werden\footnote{Unter Ubuntu: \texttt{sudo apt-get lilypond
+lilypond-data}}. Dieses Paket stellt auch LilyPond-Book bereit, ein Tool, mit
+dem -- analog zum ABC-Verfahren -- im  ersten Durchgang des \LaTeX basierten
+PDF-Erzeugungsprozess aus der \LaTeX-Datei die \emph{LilyPond}-Daten extrahiert
+und in ein Postscriptbild umgewandelt werden, das dann bei der nächsten Runde --
+automatisiert -- anstelle des \emph{LilyPond}-Codes in die \LaTeX-Datei
+eingesetzt wird.
+  
+$\RHD$ Sofern es die \TeX-Distribution oder das Lilypond-Paket nicht eh schon
+mitliefert, muss noch das lilypond-\LaTeX-Paket\footcite[vgl.][\nopage
+wp]{CtanAbc2018a} installiert werden\footnote{Bei Ubuntu 18.04 reicht
+Installation der Pakete \emph{texlive-music} und Lilypond aus.}.
+  
+$\RHD$ Danach muss -- wie bei \LaTeX\ üblich -- dieses
+lilypondbook-\LaTeX-Paket  mit dem entsprechenden Kommando in der Präambel
+eingebunden (\texttt{\textbackslash{usepackage}\{lilypond\}}).
+
+%\footcite[vgl.][]{LilyPond2018a}.
+
+% this is only inserted to eject fault messages in texlipse
+%\bibliography{../bib/literature}

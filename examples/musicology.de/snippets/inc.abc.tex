@@ -36,10 +36,10 @@ wird\footcite[vgl.][\nopage wp]{CtanAbc2018a}.
 
 Die Art der Notation -- die natürlich für alle Verwertungsszenarios im
 Wesentlichen gleich ist -- kann per Online-Tutorials gelernt werden, etwa dem
-von Steve Mansfield\footcite[vgl.][\nopage wp.]{Mansfield2016a} oder dem von
-John Chambers\footcite[vgl.][\nopage wp.]{Chambers2018a}; die Besonderheiten im
+von Steve Mansfield\footcite[vgl.][\nopage wp]{Mansfield2016a} oder dem von
+John Chambers\footcite[vgl.][\nopage wp]{Chambers2018a}; die Besonderheiten im
 Rahmen der \LaTeX-Nutzung werden im Pakethandbuch
-erläutert\footcite[vgl.][\nopage wp.]{Gregorio2016a}.
+erläutert\footcite[vgl.][\nopage wp]{Gregorio2016a}.
 
 Auch wenn die \emph{ABC-Notation} zunächst 'nur' Lieder erfassen sollte und
 Mehrstimmigkeit nicht unbedingt das Anliegen der initialen Programmierer gewesen
@@ -165,12 +165,12 @@ L: 1/4
 K: D 
 M: none
 %%score { RH | LH }
-V: RH clef=treble name="Piano"
-V: LH clef=bass 
-[V: RH]    [F2d2]      [G2d2]         [c2e2]           [A2d2]   |
-[V: LH] "T"[D,2A,2] "S"[B,,2G,2]  "D7"[A,,2G,2]      "T"[D,2F,2] |
-[V: RH]    [d2f2]      [G2d2]         [E2(d1]c1)       [F2d2]   ||
-[V: LH] "T"[D,2A,2] "S"[G,2B,2] "D4-3"[A,2(C,1]C,1) "T"[D,2A,2] ||
+V: RH clef=treble name="Piano" stem=up
+V: LH clef=bass stem=down
+[V:RH]    [F2d2]         [F2^d2]        [B2e2]           [B2e2]   |
+[V:LH] "T"[D,2A,2] "(D7)"[B,,2A,2]  "Sp7"[D,2G,2]    "D79"[C,2G,2] |
+[V:RH]    [B2f2]         [e2^g2]        [e2(a1]a1)       [a2f2]   ||
+[V:LH] "Tp"[D,2F,2] "DD7"[B,,2D,2] "D4-3"[A,,2(D,1]C,1) "T"[D,2D,,2] ||
 \end{abc}
 \cad{II}{ABC}
 \end{center}
@@ -183,12 +183,12 @@ L: 1/4
 K: D 
 M: none
 %%score { RH | LH }
-V: RH clef=treble name="Piano"
-V: LH clef=bass 
-[V: RH]    [F2d2]      [G2d2]         [c2e2]           [A2d2]   |
-[V: LH] "T"[D,2A,2] "S"[B,,2G,2]  "D7"[A,,2G,2]      "T"[D,2F,2] |
-[V: RH]    [d2f2]      [G2d2]         [E2(d1]c1)       [F2d2]   ||
-[V: LH] "T"[D,2A,2] "S"[G,2B,2] "D4-3"[A,2(C,1]C,1) "T"[D,2A,2] ||
+V: RH clef=treble name="Piano" stem=up
+V: LH clef=bass stem=down
+[V:RH]    [F2d2]         [F2^d2]        [B2e2]           [B2e2]   |
+[V:LH] "T"[D,2A,2] "(D7)"[B,,2A,2]  "Sp7"[D,2G,2]    "D79"[C,2G,2] |
+[V:RH]    [B2f2]         [e2^g2]        [e2(a1]a1)       [a2f2]   ||
+[V:LH] "Tp"[D,2F,2] "DD7"[B,,2D,2] "D4-3"[A,,2(D,1]C,1) "T"[D,2D,,2] ||
 \end{abc}
 \end{verbatim}
 
@@ -204,18 +204,20 @@ integriert, und zwar über die Option, Liedtexte (Wörter) unter Noten und
 Man sieht diesen Beispielen aber auch an, dass das Ergebnis optisch nicht
 optimal ist: Die Breite der Notensysteme wird automatisch auf die Seitenbreite
 gesetzt und die Analysesymbole sitzen nicht mittig unter den
-Akkorden\footnote{Es soll allerdings die Möglichkeit geben, Parameter an das
-abcm2ps-Tool aus dem Notencode heraus zu übergeben, mit dem solche Aspekte zu
-steuern wären. Unglücklicherweise ist es uns nicht gelungen, das zu
-aktivieren.}. \label{AppraisalABC}Wichtiger ist jedoch, dass man nicht in der
-Lage ist, die eingefügten Analysesymbole typographisch der Stufen- oder
-Funktionstheorie entsprechend zu gestalten: Weder können hoch- und tiefgestellte
-Kleinsymbole oder Sonderzeichen eingefügt werden, noch die Alterationszeichen
-$\sharp$, $\flat$ oder $\natural$ aus den Sonderzeichen - ganz zu schweigen von
-der Einbettung jener ausgefeilten Konstrukte, die das \emph{harmony}-Paket zur
-Verfügung stellt\footnote{Das kann ja auch nicht sein, weil die
-\emph{ABC-Notation} außerhalb von \LaTeX\ in ein Bild umgewandelt wird, sodass
-eventuell noch eingebettete \emph{(La)\TeX}-Konstrukte gar nicht mehr
+Akkorden\footnote{Es soll jedoch die Möglichkeit geben, Parameter an das
+\emph{abcm2ps}-Tool aus dem Notencode heraus zu übergeben, mit dem solche
+Aspekte zu steuern wären. Unglücklicherweise ist es uns nicht gelungen, das zu
+aktivieren. Allerdings wird man diese 'Linksbündigkeit' auch bei den anderen
+Ansätzen finden; es ist also -- wenn überhaupt -- gar keine
+\emph{ABC}-spezifische Unschönheit.}. \label{AppraisalABC}Wichtiger ist jedoch,
+dass man nicht in der Lage ist, die eingefügten Analysesymbole typographisch der
+Stufen- oder Funktionstheorie entsprechend zu gestalten: Weder können hoch- und
+tiefgestellte Kleinsymbole oder Sonderzeichen eingefügt werden, noch die
+Alterationszeichen $\sharp$, $\flat$ oder $\natural$ aus den Sonderzeichen -
+ganz zu schweigen von der Einbettung jener ausgefeilten Konstrukte, die das
+\emph{harmony}-Paket zur Verfügung stellt\footnote{Das kann ja auch nicht sein,
+weil die \emph{ABC-Notation} außerhalb von \LaTeX\ in ein Bild umgewandelt wird,
+sodass eventuell noch eingebettete \emph{(La)\TeX}-Konstrukte gar nicht mehr
 ausgewertet werden.}.
 
 Außerdem muss man gelegentlich dort, wo man die Einfachheit der Notation
@@ -236,13 +238,30 @@ positioniert. Deshalb unser Hack der 'Vorhaltsverdoppelung mit gleichem Ton'
 mehreren Stimmen, was die Mehrarbeit erträglich macht.
 }. Und das kompliziert das Handling deutlich.
 
-Trotzdem bietet die \emph{ABC}-Notationsmethode ein technisch ausgereiftes
-Verfahren mit einer sehr steilen Lernkurve, das schnell ansprechende Ergebnisse
-erzeugt. Wenn man sich für seine Verwendung entscheidet, nimmt gewisse optische
-und funktionelle Einschränkungen in Kauf, die allerdings gerade bei der
-theoretischen Musikwissenschaft nur bedingt akzeptabel sind. Dafür eignet man
-sich eine Technik an, die Dank der vielfältigen Konverter in vielen Szenarien
-verwendet werden kann\footnote{Pars pro toto sei auf das herausragende
-ABC-Wordpressplugin verwiesen: \cite[vgl.][\nopage wp]{Rosen2018a}.}.
+Schließlich bliebe zu erwähnen, dass das ABC-Verfahren sozusagen auf einer
+'kleinen Mogelei' beruht: es wird der Notentext ja nicht in (La)\TeX-Code
+verwandelt, sondern in ein Bild, das dann in den (La)\TeX-Code eingebunden
+wird\footnote{Die Stufen des Prozesses spiegeln sich in den Dateien, die anhand
+des Namensparameters gebildet werden: eine \emph{.abs}-Datei, die
+korrespondierenden Postscriptdateien \emph{.ps} und \emph{.eps} und die finale
+\emph{.pdf}-Datei.}. Und wie immer kann die Einbindung von externen Graphiken
+ungünstigenfalls zu einigen Irritationen hinsichtlich des Seitenumbruchs
+führen\footnote{Diese Idee ist natürlich nicht ehrenrührig, im Gegenteil: wir
+werden noch sehen, dass andere Methoden sie auch verwenden: LilyPondBook wäre
+ein Beispiel dafür, die manuelle Verbindung von PMX und Musix\TeX\ die andere.
+Und man darf daraus sofort auch folgern, dass man selbst ebenso vorgehen kann,
+um den Output ganz anderer Notensatzprogramme in seine \LaTeX-Code einzubinden.
+Wir werden die Einbindung von Graphiken deshalb auch ganz generell beschreiben.
+($\rightarrow$ S. \pageref{IncludeGraphics})}.
+
+Trotzdem bietet die \emph{ABC}-Notationsmethode ein
+technisch ausgereiftes Verfahren mit einer sehr steilen Lernkurve, das schnell
+ansprechende Ergebnisse erzeugt. Wer sich für seine Verwendung entscheidet,
+nimmt gewisse optische und funktionelle Einschränkungen in Kauf, die allerdings
+gerade bei der theoretischen Musikwissenschaft nur bedingt akzeptabel sind.
+Dafür eignet man sich eine Technik an, die Dank der vielfältigen Konverter in
+vielen Szenarien verwendet werden kann\footnote{Pars pro toto sei auf das
+herausragende ABC-Wordpressplugin verwiesen: \cite[vgl.][\nopage
+wp]{Rosen2018a}.}.
 % this is only inserted to eject fault messages in texlipse
-%\bibliography{../bib/literature}
+% \bibliography{../bib/literature}
