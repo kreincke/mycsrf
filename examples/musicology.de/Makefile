@@ -5,12 +5,14 @@
 #LATEX=latex
 LATEX=pdflatex
 
-AUX_EXTS=bak url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log mx1 mx2 dat pml gz
+AUX_EXTS=sav bak url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log mx1 mx2 dat pml gz
 RES_EXTS=ps pdf 
 SUB_DIRS=cfg bib
 T=CH
 
 ABCTMP=abc
+
+REL=inc.rel.tex
 
 all:
 	make README.pdf
@@ -48,7 +50,7 @@ ifneq ($(LATEX),pdflatex)
 	@ ps2pdf $<
 endif
 # (K) cleasing the environment
-	@ mv $@ `basename $@ .pdf`-`cat rel.inc`.pdf
+	@ mv $@ `basename $@ .pdf`-`cat ${REL}`.pdf
 	@ rm -rf ${ABCTMP}/*
 	@ echo "preserve dir eclipse auto build" > ${ABCTMP}/save.txt
 	@ make clearAuxFiles
