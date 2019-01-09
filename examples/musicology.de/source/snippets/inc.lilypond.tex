@@ -50,9 +50,9 @@ Die wichtigste Eigenart dürfte sein, dass Lilypond konsequent zwischen Musik un
 Druck unterscheidet: Wer in D-Dur ein \emph{fis} einfügen möchte, kann sich hier
 nicht auf die zu Beginn spezifizierte Tonart 'berufen', er muss trotzdem
 \texttt{fis} tippen, nicht \texttt{f}, und zwar an jeder Stelle, wo er
-\emph{fis} meint. Diese Abkehr von der Musikertradition hat einen gewichtigen
-Vorteil: Lilypond kann bei alterierten Passagen die nötigen Vorzeichen
-automatisch setzen. In \emph{g-moll} erhält das \emph{fis} ein Kreuz, in D-Dur
+\emph{fis} meint. Diese Abkehr von der Tradition hat einen gewichtigen Vorteil:
+Lilypond kann bei alterierten Passagen die nötigen Vorzeichen automatisch
+setzen. In \emph{g-moll} erhält das \emph{fis} ein Kreuz, in D-Dur
 nicht\footcite[vgl.][21]{LilyPond2018b}.
 
 Die augenfälligste Besonderheit dürfte jedoch sein, dass \emph{LilyPond} seine
@@ -61,8 +61,8 @@ einem oder mehreren Stücken, das Stück besteht aus einem oder mehreren
 Notensystemen, ein Notensystem besteht aus einer oder mehrerer Stimmen, die
 Stimme kann solistisch oder akkordisch sein. Das Datenmodell ist mithin als Baum
 ausgelegt. Und syntaktisch haben die Ebenen je eigene Markanten. Das macht das
-Lesen und Verstehen von \emph{LilyPond} auf Dauer einfacher, es entsteht ein
-klarerer Code\footcite[vgl.][40ff]{LilyPond2018b}.
+Lesen und Verstehen von \emph{LilyPond}-Code auf Dauer einfacher, es entsteht ein
+klarerer Sourcetext\footcite[vgl.][40ff]{LilyPond2018b}.
 
 Systemisch gesehen hat LilyPond (heute) nichts (mehr) \LaTeX\ , MusiX\TeX\ oder
 \TeX\ zu tun: es nutzt seine eigene Eingabesprache und seine eigene Maschine zum
@@ -84,35 +84,335 @@ Notenzeilen und die Graphikbreite auf die gewünschte Zeilenlänge des Dokumente
 ausrichten muss. 
 
 Deshalb bietet \emph{LilyPond} -- neben \texttt{lilypond} als Tool zur Erzeugung
-der Graphiken\footnote{und aller anderen Outputformate wie \emph{midi} u.Ä.m.}
--- auch das Tool \texttt{lilypond-book} an: es \enquote{automatisiert} die
-manuelle Integration, in dem es die \enquote{[\ldots] Musik-Schnipsel aus Ihrem
-Dokument (extrahiert), [\ldots] lilypond (aufruft) und [\ldots] die
-resultierenden Bilder in Ihr Dokument (einfügt)}, wobei es \enquote{[\ldots] die
-Länge der Zeilen und die Schriftgröße dabei [automatisch] (dem) Dokument
+ganzer Notenblätter in den geannten Formaten\footnote{samt aller anderen
+Outputformate wie \emph{midi} u.Ä.m.} -- auch das Tool \texttt{lilypond-book}
+an: es \enquote{automatisiert} die manuelle Integration, in dem es die
+\enquote{[\ldots] Musik-Schnipsel aus Ihrem Dokument (extrahiert), [\ldots]
+\texttt{lilypond} (aufruft) und [\ldots] die resultierenden Bilder in Ihr
+Dokument (einfügt)}, wobei es \enquote{[\ldots] die Länge der Zeilen und die
+Schriftgröße dabei [automatisch] (dem) Dokument
 (anpasst}\footcite[vgl.][20]{LilyPond2018e}.
 
-
-Wer diesen Weg beschreitet, muss
-allerdings beachten, dass \texttt{lilypond-book} 
-
-
-Damit wissen wir, dass wir auch hier einiges vorzubereiten haben, bevor wir
-\emph{LilyPond} erfolgreich verwenden können:
+Damit wissen wir, dass man auch hier einiges vorzubereiten hat, wenn man
+\emph{LilyPond} erfolgreich verwenden will:
 
 $\RHD$ Zunächst muss -- ganz unabhängig von \LaTeX\ -- \emph{LilyPond}
 installiert werden\footnote{Unter Ubuntu: \texttt{sudo apt-get lilypond
 lilypond-data}}. Dieses Paket stellt dann auch LilyPond-Book bereit.
   
-$\RHD$ In diesem Fall muss keine LilyPond-Paket in die \LaTeX-Präambel
-eingebunden werden: Da \texttt{lilypond-book} immer zuerst und damit unabhängig
-von \texttt{latex} bzw.
-\texttt{pdflatex} aufgerufen wird
+$\RHD$ Im Gegensatz zu \emph{ABC} oder \emph{MusiX\TeX} muss man bei
+\emph{LilyPond} kein Paket in die \LaTeX-Präambel einbinden. Denn
+\texttt{lilypond-book} muss immer zuerst und unabhängig von \texttt{latex} bzw.
+\texttt{pdflatex} aufgerufen werden: Es generiert erst den eigentlichen
+\LaTeX-Code, der dann keine \verb|\begin{lilypond}...\end{lilypond}|-Umgebungen
+mehr enthält. Also kann -- sozusagen direkt nach der Installation -- der
+\emph{LilyPond}-Quelltext eines jeden Notenbeispiels in je einer eigenen
+(virtuellen) Umgebung \verb|\begin{lilypond}...\end{lilypond}| zusammengestellt
+werden. Virtuell sind diese Umgebungen insofern, als \LaTeX ja nichts von
+\emph{LilyPond} weiß.
 
-$\RHD$ Schließlich kann der \emph{LilyPond}-Quelltext der Notenbeispiele jeweils
-in einer (virtuellen) Umgebung
-\verb|\begin{lilypond}...\end{lilypond}|-\LaTeX-Umgebung eingegeben werden.
-Virtuell ist diese Umgebung insofern, als \LaTeX ja nichts von \emph{LilyPond} weiß.
+$\RHD$ Schließlich muss man noch organisieren, dass den eigentlichen
+\LaTeX-Aufrufen ein \emph{lilypond-book}-Aufruf vorausgeht. Das kann wieder in
+einem Makefile organisiert werden.
+
+Leider steckt der Teufel dabei -- wie so oft -- im Detail: 
+
+\emph{lilypond-book} nimmt eine -- wie wir jetzt wissen -- gewissermaßen
+'unechte' \LaTeX-Datei mit \emph{lilypond}-Sektionen, erzeugt die entsprechenden
+Graphiken und ersetzt die \emph{lilypond}-Sektionen durch die passenden
+'include-Graphik'-Befehle. Das ist der Grund, warum \emph{lilypond-book} immer
+als erstes aufgerufen werden muss.
+
+Ruft man \emph{lilypond-book} ohne weitere Parameter für eine 'unechte
+\LaTeX-Datei' mit der Extension \emph{.tex} auf, beschwert es sich jedoch, dass
+es seine Inputdatei überschreiben müsste und verweigert die Weiterarbeit. Dies
+Problem wird gelöst, indem man es mit der Option --out und einem Namen aufruft.
+Dann erzeugt \emph{lilypond-book} einen Ordner dieses Namens und sammelt darin
+alle Materialien ein, die es für eine \LaTeX-compilierbare Version benötigt.
+
+Unglücklicherweise findet \emph{lilypond-book} nicht alles, was tatsächlich
+benötigt wird: \emph{lilypond-book} evaluiert und bearbeitet zwar sehr
+erfolgreich alle Dateien mit der Extension \emph{.tex}, und zwar insbesondere
+auch die, die per \emph{input}-Befehl in die Hauptdatei eingebunden sind. Und
+diese Dateien kopiert es auch --- ggfls. überarbeitet -- in den Zielordner. Es
+gibt alledings Dateien, die der \LaTeX-Durchgang benötigt, die aber von
+\emph{lilypond-book} nicht entdeckt und also auch nicht in den Zielordner
+kopiert werden. Prominentestes Beispiel sind die bib-Files.
+
+Deshalb muss der Nutzer von \emph{lilypond-book} -- sozusagen manuell -- die
+fehlenden Dateien in den von \emph{lilypond-book} erzeugten Arbeitsordner kopieren,
+bevor er den 'normalen' \LaTeX-Erzegungsprozess aufruft.
+
+Eine entsprechendes Makefile könnte so aussehen:
+
+\begin{verbatim}
+tbd
+\end{verbatim}
+
+
+\subsubsection{Kadenz I}
+
+Und damit können wir die Früchte der Arbeit ernten. Das mittlerweile Vertraute
+Beispiel der Grabner-Kadenz sieht -- mit \emph{LilyPond} erzeugt -- so aus:
+
+\begin{center}
+\begin{lilypond}
+\version "2.18.2"
+\header { tagline = "" }
+\score {
+  \new Staff {
+    \relative c' { 
+      \time 3/1
+      <c  e g>1 _\markup {I} ^\markup {T}
+      <f a c>  _\markup {IV} ^\markup {S}
+      <g b d>  _\markup {V} ^\markup {D}
+      |
+      <a, c e> _"I"         ^"T"
+      <d f a>  _"IV"        ^"S"
+      <e gis b> _"V"        ^"D"
+      \bar "||"
+    }   
+  }
+  \layout {
+    \context {
+      \Staff
+        \remove Time_signature_engraver
+    }
+  }
+}
+\end{lilypond}
+\cad{I}{LilyPond}
+\end{center}
+
+Und der entsprechende Quellcode sieht so aus:
+\begin{verbatim}
+\begin{lilypond}
+\version "2.18.2"
+\header { tagline = "" }
+\score {
+  \new Staff {
+    \relative c' { 
+      \time 3/1
+      <c  e g>1 _\markup {I} ^\markup {T}
+      <f a c>  _\markup {IV} ^\markup {S}
+      <g b d>  _\markup {V} ^\markup {D}
+      |
+      <a, c e> _"I"         ^"T"
+      <d f a>  _"IV"        ^"S"
+      <e gis b> _"V"        ^"D"
+      \bar "||"
+    }   
+  }
+  \layout {
+    \context {
+      \Staff
+        \remove Time_signature_engraver
+    }
+  }
+}
+\end{lilypond}
+\end{verbatim}
+
+
+\subsubsection{Kadenz II}
+
+Die zweite Kadenz sieht dann so aus
+
+\begin{center}
+\begin{lilypond}
+\version "2.18.2"
+\header { tagline = "" }
+\score {
+  \new StaffGroup {
+    \time 4/2
+    <<
+      \new Staff {
+        \relative d' {
+          \clef "treble"
+          \key d \major  
+          \stemUp
+          < fis  d'>2 
+          < fis  dis'>2 
+          < b  e>2 
+          < b  e>2
+          |
+          < b fis'>2 
+          < e gis >2 
+          < e a >2
+          < a fis>2       
+          \bar "||"
+        }   
+      }
+      \new Staff {
+        \relative d { 
+          \clef "bass"
+          \key d \major  
+          \stemDown
+          < d a'>2 ^\markup {T}
+          < b a'>2 ^\markup {(D7)}
+          < d g>2 ^\markup {Sp7}
+          < cis g'>2 ^\markup {D79}
+          |
+          < d fis>2 ^\markup {Tp}
+          < b d>2  ^\markup {DD7}
+          <<
+            { a2 ^\markup {D4>3}}
+            { d4( cis4) }
+          >> 
+          < d, d'>2 ^\markup {T}      
+          \bar "||"
+        }   
+      }
+    >>
+  }
+}
+\end{lilypond}
+\cad{II}{LilyPond}
+\end{center}
+Und der entsprechende Quellcode sieht so aus:
+\begin{verbatim}
+\begin{lilypond}
+\version "2.18.2"
+\header { tagline = "" }
+\score {
+  \new StaffGroup {
+    \time 4/2
+    <<
+      \new Staff {
+        \relative d' {
+          \clef "treble"
+          \key d \major  
+          \stemUp
+          < fis  d'>2 
+          < fis  dis'>2 
+          < b  e>2 
+          < b  e>2
+          |
+          < b fis'>2 
+          < e gis >2 
+          < e a >2
+          < a fis>2       
+          \bar "||"
+        }   
+      }
+      \new Staff {
+        \relative d { 
+          \clef "bass"
+          \key d \major  
+          \stemDown
+          < d a'>2 ^\markup {T}
+          < b a'>2 ^\markup {(D7)}
+          < d g>2 ^\markup {Sp7}
+          < cis g'>2 ^\markup {D79}
+          |
+          < d fis>2 ^\markup {Tp}
+          < b d>2  ^\markup {DD7}
+          <<
+            { a2 ^\markup {D4>3}}
+            { d4( cis4) }
+          >> 
+          < d, d'>2 ^\markup {T}      
+          \bar "||"
+        }   
+      }
+    >>
+  }
+}
+\end{lilypond}
+\end{verbatim}
+
+
+\subsubsection{Kadenz III}
+
+Und schließlich fehlt noch die dritte Kdenz in der Version, die \emph{LilyPond}
+erzeugt:
+
+\begin{lilypond}
+\version "2.18.2"
+\header { tagline = "" }
+\score {
+  \new StaffGroup {
+    \time 5/8
+    <<
+      \new Staff {
+        \relative c'' {
+          \clef "treble"
+          \key bes \major  
+          \stemUp
+          < bes d  f >4 < c  es f >4 < bes es bes'>8 |
+          < c   es a >4 < a  f' a>4 < c   es f   >8 |         
+          r8 < f, d' f >8 < a  c  es >8 < f bes d>4 |
+          r8 < es a  c >4 < es a  c  >4|
+          r8 < es a  c >8 < c' es f  >8 < bes d f >4 |
+          r8  < g bes c >8 < es a c >8 <d f bes>4
+        }   
+      }
+      \new Staff {
+        \relative c { 
+          \clef "bass"
+          \key bes \major  
+          \stemDown
+            bes8[ bes'] a[ as] g16.[ ges32] |
+            f8[ es] d8.[ des16] c16.[ a32] | 
+            bes4  f'8 bes4 |
+            r8 f8 c f,4  | 
+            r8 f' a,8 bes4 | 
+            r8  es8 f  bes4
+          \bar "||"
+        }   
+      }
+    >>
+  }
+}
+\end{lilypond}
+\cad{III}{LilyPond}
+
+Für diese ist folgender Quellcode zuständig:
+
+\begin{verbatim}
+\begin{lilypond}
+\version "2.18.2"
+\header { tagline = "" }
+\score {
+  \new StaffGroup {
+    \time 5/8
+    <<
+      \new Staff {
+        \relative c'' {
+          \clef "treble"
+          \key bes \major  
+          \stemUp
+          < bes d  f >4 < c  es f >4 < bes es bes'>8 |
+          < c   es a >4 < a  f' a>4 < c   es f   >8 |         
+          r8 < f, d' f >8 < a  c  es >8 < f bes d>4 |
+          r8 < es a  c >4 < es a  c  >4|
+          r8 < es a  c >8 < c' es f  >8 < bes d f >4 |
+          r8  < g bes c >8 < es a c >8 <d f bes>4
+        }   
+      }
+      \new Staff {
+        \relative c { 
+          \clef "bass"
+          \key bes \major  
+          \stemDown
+            bes8[ bes'] a[ as] g16.[ ges32] |
+            f8[ es] d8.[ des16] c16.[ a32] | 
+            bes4  f'8 bes4 |
+            r8 f8 c f,4  | 
+            r8 f' a,8 bes4 | 
+            r8  es8 f  bes4
+          \bar "||"
+        }   
+      }
+    >>
+  }
+}
+\end{lilypond}
+\end{verbatim}
+
+\subsubsection{Bewertung}
+
+
 % \footcite[vgl.][]{LilyPond2018a}.
 
 

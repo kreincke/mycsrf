@@ -1,7 +1,5 @@
 \version "2.18.2"
-
 \header { tagline = "" }
-
 \score {
   \new StaffGroup {
     \time 5/8
