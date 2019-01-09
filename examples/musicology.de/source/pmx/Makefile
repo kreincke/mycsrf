@@ -22,9 +22,9 @@ RES_EXTS=eps pdf
 	@ make $< `basename $< .pmx`.tex
 	@ musixtex -g `basename $< .pmx`.tex
 	@ ps2eps `basename $< .pmx`.ps
-	@ echo deleting all generated pdfs in ${IMGDIR}
-	@ if [ ! "x`ls *.pdf 2>/dev/null`" = "x" ]; then rm *.pdf; fi; 
-	@ mv `basename $< .pmx`.eps ${IMGDIR}/pmx-`basename $< .pmx`.eps
+	#@ echo deleting all generated pdfs in ${IMGDIR}
+	#@ if [ ! "x`ls *.pdf 2>/dev/null`" = "x" ]; then rm *.pdf; fi; 
+	#@ mv `basename $< .pmx`.eps ${IMGDIR}/pmx-`basename $< .pmx`.eps
 	@ make clearAuxFiles
 
 
