@@ -2,6 +2,8 @@
 
 \header { tagline = "" }
 
+\include "inc.hanalysis.ly"
+  
 \score {
   \new StaffGroup {
     \time 4/2
@@ -11,15 +13,15 @@
           \clef "treble"
           \key d \major  
           \stemUp
-          < fis  d'>2 
-          < fis  dis'>2 
-          < b  e>2 
-          < b  e>2
-          |
-          < b fis'>2 
+          < fis  d'>2   
+          < fis  dis'>2  
+          < b  e>2       
+          < b  e>2     
+          | 
+          < b fis'>2  
           < e gis >2 
-          < e a >2
-          < a fis>2       
+          < e a >2  
+          < a fis>2      
           \bar "||"
         }   
       }
@@ -28,18 +30,18 @@
           \clef "bass"
           \key d \major  
           \stemDown
-          < d a'>2 ^\markup {T}
-          < b a'>2 ^\markup {(D7)}
-          < d g>2 ^\markup {Sp7}
-          < cis g'>2 ^\markup {D79}
+          < d a'>2        ^\markup { \hf T }
+          < b a'>2        ^\markup { ( \hfOne D "7" ) } 
+          < d g>2         ^\markup { \hfiOne Sp "7" "7" }
+          < cis g'>2      ^\markup { \hfiTri D "3" "5" "7" "8" } 
           |
-          < d fis>2 ^\markup {Tp}
-          < b d>2  ^\markup {DD7}
+          < d fis>2       ^\markup { \hfi Tp "3" }
+          < b d>2         ^\markup { \hfiOne DD "5" "7" }
           <<
-            { a2 ^\markup {D4>3}}
+            { a2          ^\markup { \hfOne D "4>3" } }
             { d4( cis4) }
           >> 
-          < d, d'>2 ^\markup {T}      
+          < d, d'>2       ^\markup { \hf T }      
           \bar "||"
         }   
       }

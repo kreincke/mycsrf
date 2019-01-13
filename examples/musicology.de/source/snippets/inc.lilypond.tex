@@ -20,14 +20,15 @@
 \subsection{Lilypond}
 
 \emph{LilyPond} möchte guten \enquote{Notensatz für jedermann} anbieten: Als
-elektronisches \enquote{Notensatzsystem} wolle es \enquote{[\ldots] Notendruck
-in (bester) Qualität} ermöglichen, also \enquote{[\ldots] die Ästhetik
-handgestochenen traditionellen Notensatzes mit computergesetzten Noten [\ldots]
-erreichen}\footcite[vgl.][\nopage wp]{LilyPond2018a}. In einem besonderen
-Artikel haben die LilyPond-Entwickler dargestellt, was das systemisch
-bedeutet\footcite[vgl.][5ff]{LilyPond2018d} und welchen Konsequenzen sich daraus
-für ein Notensatzprogramm ergeben\footcite[vgl.][8ff]{LilyPond2018d}. Der daraus
-erwachsende Anspruch ist hoch:
+elektronisches \enquote{Notensatzsystem} -- so das Entwicklungsteam -- wolle es
+\enquote{[\ldots] Notendruck in (bester) Qualität} ermöglichen, mithin
+\enquote{[\ldots] die Ästhetik handgestochenen traditionellen Notensatzes mit
+computergesetzten Noten [\ldots] erreichen}\footcite[vgl.][\nopage
+wp]{LilyPond2018a}. In einem besonderen Artikel haben die LilyPond-Entwickler
+dargestellt, was das systemisch bedeutet\footcite[vgl.][5ff]{LilyPond2018d} und
+welchen Konsequenzen sich daraus für ein Notensatzprogramm
+ergeben\footcite[vgl.][8ff]{LilyPond2018d}. Der daraus erwachsende Anspruch ist
+hoch:
 
 \begin{quote}\begin{em}
   \enquote{LilyPond wurde geschaffen, um die Probleme zu lösen, die wir in
@@ -38,10 +39,10 @@ erwachsende Anspruch ist hoch:
 Wer die entsprechenden Techniken erfolgreich anwenden will, kann auf ein einfach
 strukturiertes Lerntutorial\footcite[vgl.][20ff]{LilyPond2018b} und ein kürzeres
 Nutzungshandbuch\footcite[vgl.][1ff]{LilyPond2018e} zurückgreifen. Letztlich
-wird er sich auch das umfangreiche
+wird er sich allerdings auch das umfangreiche
 Notationshandbuch\footcite[vgl.][1ff]{LilyPond2018c} bereitlegen wollen.
 
-Wie die bisher diskutierten Systeme erwartet auch \emph{LilyPond}, dass man Code
+Wie die bisher diskutierten Systeme erwartet \emph{LilyPond}, dass man Code
 schreibt, keine Noten: Hier wie da ist der Texteditor das bevorzugte Werkzeug,
 um Musik im entsprechenden 'Dialekt' zu notieren. Trotzdem gibt es Unterschiede,
 die über die bloße Syntax hinausgehen:
@@ -53,7 +54,7 @@ nicht auf die zu Beginn spezifizierte Tonart 'berufen', er muss trotzdem
 \emph{fis} meint. Diese Abkehr von der musikalischen Tradition hat einen
 gewichtigen Vorteil: Lilypond kann bei Alterationen die nötigen Vorzeichen
 automatisch setzen. In \emph{g-moll} erhält das \emph{fis} ein Kreuz, in D-Dur
-nicht\footnote{cite[vgl.][21]{LilyPond2018b}. In der Konsequenz wird man sich
+nicht\footnote{\cite[vgl.][21]{LilyPond2018b}. In der Konsequenz wird man sich
 allerdings auch an -- wenigstens für Deutsche -- überraschende 'Töne' wie
 \texttt{bes}, \texttt{beses} oder \texttt{bis} gewöhnen müssen}.
 
@@ -61,10 +62,11 @@ Die augenfälligste Besonderheit dürfte jedoch sein, dass \emph{LilyPond} seine
 Elemente konsequent in einer 1:n-Beziehung anordnet: Das Notenheft besteht aus
 einem oder mehreren Stücken, das Stück besteht aus einem oder mehreren
 Notensystemen, ein Notensystem besteht aus einer oder mehrerer Stimmen, die
-Stimme kann solistisch oder akkordisch sein. Das Datenmodell ist mithin als Baum
-ausgelegt. Und syntaktisch haben die Ebenen je eigene Markanten. Das macht das
-Lesen und Verstehen von \emph{LilyPond}-Code auf Dauer einfacher, es entsteht ein
-klarerer Sourcetext\footcite[vgl.][40ff]{LilyPond2018b}.
+Stimme kann solistisch oder akkordisch sein. Das Datenmodell ist mithin als
+Baum\footcite[vgl.][\nopage wp.]{WpedBaum2019a} ausgelegt. Und syntaktisch haben
+die Ebenen je eigene Markanten. Das macht das Lesen und Verstehen von
+\emph{LilyPond}-Code auf Dauer einfacher, es entsteht ein klarerer
+Sourcetext\footcite[vgl.][40ff]{LilyPond2018b}.
 
 Systemisch gesehen hat LilyPond (heute) nichts (mehr) \LaTeX\ , MusiX\TeX\ oder
 \TeX\ zu tun: es nutzt seine eigene Eingabesprache und seine eigene Maschine zum
@@ -78,18 +80,18 @@ werden\footcite[vgl.][481]{LilyPond2018c}.
 \subsubsection{Technische Voraussetzungen}
 
 \emph{LilyPond} sagt selbst, dass man Notenbeispiele in Form von Graphiken auch
-manuell in den \LaTeX-Text einfügen könne, einfach imdem man -- zuerst und
+manuell in den \LaTeX-Text einfügen könne, einfach indem man -- zuerst und
 unabhängig von \LaTeX -- die Graphiken mit \texttt{lilypond} erzeuge und sie
 danach mit \LaTeX-Mitteln einbinde\footcite[vgl.][20]{LilyPond2018e}. Bei vielen
 Notenbeispielen kann das allerdings aufwendig werden, insbesondere, wenn man
 manuell die Länge der Notenzeilen und die Graphikbreite auf die gewünschte
 Zeilenlänge des Dokumentes ausrichten muss.
 
-Deshalb bietet \emph{LilyPond} als Tool nicht nur \texttt{lilypond} zur
-Erzeugung ganzer Notenblätter in den geannten Formaten\footnote{samt aller
-anderen Outputformate wie \emph{midi} u.Ä.m.} an, sondern auch
-\texttt{lilypond-book}: dieses Tool \enquote{automatisiert} die manuelle Integration,
-imdem es die \enquote{[\ldots] Musik-Schnipsel aus Ihrem Dokument (extrahiert),
+Deshalb bietet \emph{LilyPond} nicht nur das Tool \texttt{lilypond} zur
+Erzeugung ganzer Notenblätter in den genannten Formaten an\footnote{samt aller
+anderen Outputformate wie \emph{midi} u.Ä.m.}, sondern auch das Tool
+\texttt{lilypond-book}: dieses \enquote{automatisiert} die manuelle Integration,
+indem es die \enquote{[\ldots] Musik-Schnipsel aus Ihrem Dokument (extrahiert),
 [\ldots] \texttt{lilypond} (aufruft) und [\ldots] die resultierenden Bilder in
 Ihr Dokument (einfügt)}, wobei es \enquote{[\ldots] die Länge der Zeilen und die
 Schriftgröße dabei [automatisch] (dem) Dokument
@@ -113,44 +115,45 @@ editieren. Virtuell sind diese Umgebungen insofern, als \LaTeX\ ja nichts von
 \emph{LilyPond} weiß.
 
 $\RHD$ Schließlich muss man noch organisieren, dass den eigentlichen
-\LaTeX-Durchgängen zur Generierung der PDFs ein \emph{lilypond-book}-Aufruf
+\LaTeX-Durchgängen zur Generierung der PDFs ein \texttt{lilypond-book}-Aufruf
 vorausgeht. Das kann wieder in einem Makefile organisiert werden.
 
 Leider steckt der Teufel dabei -- wie so oft -- im Detail: 
 
-\emph{lilypond-book} nimmt eine -- wie wir jetzt wissen -- gewissermaßen
-'unechte' \LaTeX-Datei, die noch \emph{lilypond}-Sektionen enthält, erzeugt die
-entsprechenden Graphiken und ersetzt die \emph{lilypond}-Sektionen durch die
-korrespondierenden 'include-Graphik'-Befehle auf \LaTeX-Ebene. Das ist der
-Grund, warum \emph{lilypond-book} immer als erstes prozessiert werden muss.
+\texttt{lilypond-book} nimmt eine -- wie wir jetzt wissen -- gewissermaßen
+'unechte' \LaTeX-Datei, die noch \emph{lilypond}-Sektionen enthält, und erzeugt
+die entsprechenden Graphiken, bevor es die \emph{lilypond}-Sektionen durch die
+korrespondierenden 'include-Graphik'-Befehle auf \LaTeX-Ebene ersetzt. Das ist
+der Grund, warum \texttt{lilypond-book} immer als erstes prozessiert werden
+muss.
 
-Ruft man \emph{lilypond-book} ohne weitere Parameter für eine 'unechte
-\LaTeX-Datei' mit der Extension \emph{.tex} auf, beschwert es sich, dass es
-seine Inputdatei überschreiben müsste und verweigert die Weiterarbeit. Dies wird
-aufgelöst, indem man es mit der Option \texttt{--out IHRDIR} aufruft.
-Dann erzeugt \emph{lilypond-book} einen Ordner des mitgegebenen Namens und
-sammelt darin alle Materialien ein, die es für eine \LaTeX-compilierbare Version
-benötigt.
+Ruft man \texttt{lilypond-book} ohne weitere Parameter für eine ('unechte')
+\LaTeX-Datei mit der Extension \emph{.tex} auf, beschwert es sich, dass es seine
+Inputdatei überschreiben müsste und verweigert die Weiterarbeit. Dies wird
+gelöst, indem man es mit der Option \texttt{--out IHRDIR} aufruft. Dann erzeugt
+\texttt{lilypond-book} einen Ordner des mitgegebenen Namens und sammelt darin
+alle Materialien ein, die es für eine \LaTeX-compilierbare Version benötigt.
 
-Unglücklicherweise muss man \emph{lilypond-book} dabei ein wenig unter die Arme
+Unglücklicherweise muss man \texttt{lilypond-book} dabei ein wenig unter die Arme
 greifen:
 
-Tatsächlich evaluiert und bearbeitet \emph{lilypond-book} zwar sehr erfolgreich
-alle Dateien mit der Extension \emph{.tex}, insbesondere auch die, die per
-\emph{input}-Befehl in die Hauptdatei eingebunden worden sind. Die Aufteilung
-eines LaTeX-Textes in mehrere Snippets bedeutet für \emph{lilypond-book} kein
-Problem. Und \emph{lilypond-book} kopiert auch alle gefundenen Daten -- ggfls.
-überarbeitet -- korrekt in den Arbeitsordner, den man auf der Kommandozeile mit
-gegeben hat, und zwar unter Beibehaltung der Ordnerstrukturen, sodass die
-include-Referenzen in den kopierten Dateien nicht ins Leere zeigen. Gleichwohl
-gibt es Dateien, die nicht in den Blick von \emph{lilypond-book} geraten und die
-es darum auch nicht mit in den Arbeitsordner übernimmt. Trotzdem werden auch
-diese Dateien innerhalb des Arbeitsordners benötigt, wenn man dort den
+Tatsächlich evaluiert und bearbeitet \texttt{lilypond-book} zwar sehr
+erfolgreich alle Dateien mit der Extension \emph{.tex}, insbesondere auch die,
+die per \emph{input}-Befehl in die Hauptdatei eingebunden worden sind. Die
+Aufteilung eines LaTeX-Textes in mehrere Snippets bedeutet für
+\texttt{lilypond-book} kein Problem. Und \texttt{lilypond-book} kopiert auch
+alle gefundenen Daten -- ggfls. überarbeitet -- korrekt in den Arbeitsordner,
+den man dem Tool auf der Kommandozeile mit gegeben hat, und zwar unter
+Beibehaltung der Ordnerstrukturen, sodass die include-Referenzen in den
+kopierten Dateien nicht ins Leere zeigen. Gleichwohl gibt es Dateien, die nicht
+in den Blick von \texttt{lilypond-book} geraten und die es darum auch nicht mit
+in den Arbeitsordner übernimmt. Trotzdem werden natürlich auch diese Dateien
+innerhalb des Arbeitsordners benötigt, wenn man dort erfolgreich einen
 \LaTeX-Lauf starten will. Prominentestes Beispiel für solche Dateien sind die
 \emph{bib-Files} und ausgelagerte Konfigurationsdateien.
 
-Deshalb muss der \LaTeX-User als Nutzer von \emph{lilypond-book} -- sozusagen
-manuell -- die fehlenden Dateien in den von \emph{lilypond-book} erzeugten
+Deshalb muss der \LaTeX-User als Nutzer von \texttt{lilypond-book} -- sozusagen
+manuell -- die fehlenden Dateien in den von \texttt{lilypond-book} erzeugten
 Arbeitsordner kopieren, bevor er den 'normalen' \LaTeX-Erzegungsprozess aufruft.
 
 Eine entsprechendes Makefile könnte so aussehen:
@@ -162,48 +165,66 @@ tbd
 
 \subsubsection{Kadenz I}
 
-Und damit können wir langsam beginnen, die Früchte der Vorarbeit zu ernten: Wir
-ahnen sicher schon, dass die eigentliche Herausforderung zuletzt nicht mehr die
-Nutzung \emph{LilyPond} an sich sein wird, sondern die Integration jener Zeichen
-und Texte, die für den musikwissenschaftler so wichtig sein. Und wir wissen auch
-schon, dass man dabei nicht auf die \LaTeX-Sonderzeichen oder die
-\emph{harmony}-Konstrukte zurückgreifen kann: \emph{LilyPond} arbeitet
-\LaTeX-unabhängig.
+Und damit können die Früchte der Vorarbeit geerntet werden: Es ist bereits
+absehbar, dass die eigentliche Herausforderung zuletzt nicht mehr die Nutzung
+\emph{LilyPond} als solches sein wird, sondern die Einbindung jener Symbole in
+den Notentext, die für den Musikwissenschaftler so wichtig sein. Und es ist an
+dieser Stelle auch gewiss, dass man dabei nicht auf die \LaTeX-Sonderzeichen
+oder die \emph{harmony}-Konstrukte wird zurückgreifen kann: \emph{LilyPond}
+arbeitet \LaTeX-unabhängig.
 
-\emph{LilyPond} bietet 3+x Verfahren an, eigenen Text in die Noten zu integrieren:
+\emph{LilyPond} bietet 3 Verfahren an, (echten) Text in die Noten zu integrieren:
 
-\begin{itemize}
-  \item Zum einen kann 'Liedtext' unter ein System gesetzt werden. Und als Text
-  kann man dann sicher auch Analysesymbole verwenden.
-  \item Zum zweiten kann man mit einfachen Makros Texte an Noten hängen. Diese
-  einfachen Makros sind Sonderfälle einer generelle Markupsprache
-  \item Und zum dritten kann man die generalisierte Markupsprache verwenden und
-  dabei das Erscheinungsbild des Textes relativ komplex gestalten
-\end{itemize}
+\begin{enumerate}
+  \item Man darf 'Liedtext' unter ein Notensystem setzen, wobei als Text dort
+  auch -- in einfacher Form  -- Analysesymbole erscheinen
+  können\footcite[vgl.][31ff]{LilyPond2018b}.
+  \item Man kann Makros mit Text an Noten anhängen, die dann -- je nach
+  Vorzeichen \texttt{\_} oder \texttt{\^} über oder unter der Note erscheinen. Diese
+  Makros gibt es in einer verkürzten und einer expliziten Version. Beide sind
+  Sonderfälle einer generellen Markupsprache\footcite[vgl.][211ff]{LilyPond2018c}.
+  \item Man kann komplexer strukturierte Syntagmen der erwähnten generalisierten
+  Markupsprache an Noten anhängen, mit denen es dann auch möglich wird, feinere
+  Texte differenziert zu gestalten\footcite[vgl.][218ff]{LilyPond2018c} und
+  einzufügen.
+\end{enumerate}
 
 Die letztlich entscheindende Frage hinsichtlich der Verwendbarkeit von
 \emph{LilyPond} wird für den Musikwissenschaftler also sein, wie gut man die
-Harmonieanalysezeichen, die \emph{harmony} bereitstellt, mit den Mittel von
-\emph{LilyPond} nachbilden kann und welcher Aufwand dabei entsteht.
+Symbole der Harmonieanalyse, die \emph{harmony} bereitstellt, mit den Mitteln
+von \emph{LilyPond} nachbilden kann und welcher Aufwand dabei entsteht.
 
-Aber gehen wir die Dinge der Reihe nach durch, beginnend -- wie kaum anders zu
-erwarten -- mit fer einzeiligen 'Grabner-Kadenz':
+Aber gehen wir diese Dinge der Reihe nach durch, beginnend -- wie kaum anders zu
+erwarten -- mit der einzeiligen
+Grabner-Kadenz\footcite[vgl.][107]{Grabner1974a}: Die ersten beiden Akkorde sind
+mit einfachen Markups klassifiziert, der dritte mit der entsprechenden
+abgekürzten Version. Und unter den letzten drei Akkorden ist ein 'Liedtext'
+eingefügt worden:
 
 \begin{center}
 \begin{lilypond}
 \version "2.18.2"
+\include "lilypond/inc.test.ly"
 \header { tagline = "" }
 \score {
   \new Staff {
     \relative c' { 
       \time 3/1
-      <c  e g>1 _\markup {I} ^\markup {T}
+      <c e g>1 _\markup {I} ^\markup {T}
       <f a c>  _\markup {IV} ^\markup {S}
-      <g b d>  _\markup {V} ^\markup {D}
+      <g b d>  _"V" ^"D"
       |
-      <a, c e> _"I"         ^"T"
-      <d f a>  _"IV"        ^"S"
-      <e gis b> _"V"        ^"D"
+      {	<< 
+      	  {
+            <a, c e>  ^"T"
+            <d f a>   ^"S"
+            <e gis b> ^"D"
+          }
+          \addlyrics {
+          	I IV V
+          }
+        >>
+      }
       \bar "||"
     }   
   }
@@ -218,7 +239,10 @@ erwarten -- mit fer einzeiligen 'Grabner-Kadenz':
 \cad{I}{LilyPond}
 \end{center}
 
-Und der entsprechende Quellcode sieht so aus:
+Man sieht, dass die einfacheren Markup-Konstrukte noch auf einer Linie
+ausgerichtet werden müssen. Das ist bei der Methode 'Liedtext' schon implizit --
+im Rahmen der Implementation --  erledigt worden. Der zugehörige Quellcode sieht
+so aus:
 \begin{verbatim}
 \begin{lilypond}
 \version "2.18.2"
@@ -227,13 +251,21 @@ Und der entsprechende Quellcode sieht so aus:
   \new Staff {
     \relative c' { 
       \time 3/1
-      <c  e g>1 _\markup {I} ^\markup {T}
+      <c e g>1 _\markup {I} ^\markup {T}
       <f a c>  _\markup {IV} ^\markup {S}
-      <g b d>  _\markup {V} ^\markup {D}
+      <g b d>  _"V" ^"D"
       |
-      <a, c e> _"I"         ^"T"
-      <d f a>  _"IV"        ^"S"
-      <e gis b> _"V"        ^"D"
+      { << 
+          {
+            <a, c e>  ^"T"
+            <d f a>   ^"S"
+            <e gis b> ^"D"
+          }
+          \addlyrics {
+            I IV V
+          }
+        >>
+      }
       \bar "||"
     }   
   }
@@ -247,15 +279,43 @@ Und der entsprechende Quellcode sieht so aus:
 \end{lilypond}
 \end{verbatim}
 
+An diesem Code erkennt man gut die systematische 1:n-Struktur eines
+\emph{LilyPond}-Quelltextes: Der \texttt{score} hat eine Stimme
+(\texttt{staff}). All ihre Noten bezihen sich sich auf \texttt{c'}. Und sie hat
+vier Abschnitte, nämlich drei Akkorde \texttt{< \ldots\ >}, gefolgt von einer
+strukturierten Einheit. Dieser Komplex besteht seinerseits aus zwei Teilen, die
+'gleichzeitig' (= übereinander) abgedruckt werden sollen: nochmals 3 Akkorde und
+die 3 Symbole, die darunter erscheinen.
+
+Es zeigt sich aber auch, dass die naheliegenden Methoden,
+Funktionsanalysesymbole in die Noten zu integrieren inhaltlich gesehen nicht
+ausdrucksreich genug sind und optisch nicht zufriedenstellen. Hier wird man
+etwas tun müssen.
 
 \subsubsection{Kadenz II}
 
-Die zweite Kadenz sieht dann so aus
+\emph{LilyPond} ist nicht nur waschechte \emph{Open-Source-Software}, sondern
+kommt außerdem mit einer Erweiterungssprache daher. Diese zu nutzen, um die
+Möglichkeiten vom \LaTeX-Paket \emph{harmony} nachzubiilden, artet in echte
+Programmierarbeit aus, die man einem Musikwissenschaftler nicht mehr zumuten
+kann - wohl aber jemandem, der in beiden Welten zuhause ist, also uns.
+
+Wir haben deshalb begonnen, eine kleine \emph{LilyPond}-Library zu entwickeln,
+die man einfach in seine \emph{LilyPond}-Datei mit dem Befehl
+\texttt{\textbackslash{include}} hinzulädt, sodass man die entsprechende Symbole
+der Harmonieanalyse in seinen Notentext hinzufügen kann. Unser aktuelle stabile
+Version liefert folgendes Ergebnis\footnote{Das ist zugegebenermaßen noch etwas
+ugly, aber es wird nicht so bleiben! Versprochen.}:
+
 
 \begin{center}
 \begin{lilypond}
 \version "2.18.2"
+
 \header { tagline = "" }
+
+\include "lilypond/inc.hanalysis.ly"
+  
 \score {
   \new StaffGroup {
     \time 4/2
@@ -265,15 +325,15 @@ Die zweite Kadenz sieht dann so aus
           \clef "treble"
           \key d \major  
           \stemUp
-          < fis  d'>2 
-          < fis  dis'>2 
-          < b  e>2 
-          < b  e>2
-          |
-          < b fis'>2 
+          < fis  d'>2   
+          < fis  dis'>2  
+          < b  e>2       
+          < b  e>2     
+          | 
+          < b fis'>2  
           < e gis >2 
-          < e a >2
-          < a fis>2       
+          < e a >2  
+          < a fis>2      
           \bar "||"
         }   
       }
@@ -282,18 +342,18 @@ Die zweite Kadenz sieht dann so aus
           \clef "bass"
           \key d \major  
           \stemDown
-          < d a'>2 ^\markup {T}
-          < b a'>2 ^\markup {(D7)}
-          < d g>2 ^\markup {Sp7}
-          < cis g'>2 ^\markup {D79}
+          < d a'>2        ^\markup { \hf T }
+          < b a'>2        ^\markup { ( \hfOne D "7" ) } 
+          < d g>2         ^\markup { \hfiOne Sp "7" "7" }
+          < cis g'>2      ^\markup { \hfiTri D "3" "5" "7" "8" } 
           |
-          < d fis>2 ^\markup {Tp}
-          < b d>2  ^\markup {DD7}
+          < d fis>2       ^\markup { \hfi Tp "3" }
+          < b d>2         ^\markup { \hfiOne DD "5" "7" }
           <<
-            { a2 ^\markup {D4>3}}
+            { a2          ^\markup { \hfOne D "4>3" } }
             { d4( cis4) }
           >> 
-          < d, d'>2 ^\markup {T}      
+          < d, d'>2       ^\markup { \hf T }      
           \bar "||"
         }   
       }
@@ -303,11 +363,17 @@ Die zweite Kadenz sieht dann so aus
 \end{lilypond}
 \cad{II}{LilyPond}
 \end{center}
-Und der entsprechende Quellcode sieht so aus:
+
+Mit Rückgriff auf diese kleine Zusatzbibliothek sähe der entsprechende
+\emph{Lilypond}-Code dann so aus:
 \begin{verbatim}
 \begin{lilypond}
 \version "2.18.2"
+
 \header { tagline = "" }
+
+\include "lilypond/inc.hanalysis.ly"
+  
 \score {
   \new StaffGroup {
     \time 4/2
@@ -317,15 +383,15 @@ Und der entsprechende Quellcode sieht so aus:
           \clef "treble"
           \key d \major  
           \stemUp
-          < fis  d'>2 
-          < fis  dis'>2 
-          < b  e>2 
-          < b  e>2
-          |
-          < b fis'>2 
+          < fis  d'>2   
+          < fis  dis'>2  
+          < b  e>2       
+          < b  e>2     
+          | 
+          < b fis'>2  
           < e gis >2 
-          < e a >2
-          < a fis>2       
+          < e a >2  
+          < a fis>2      
           \bar "||"
         }   
       }
@@ -334,18 +400,18 @@ Und der entsprechende Quellcode sieht so aus:
           \clef "bass"
           \key d \major  
           \stemDown
-          < d a'>2 ^\markup {T}
-          < b a'>2 ^\markup {(D7)}
-          < d g>2 ^\markup {Sp7}
-          < cis g'>2 ^\markup {D79}
+          < d a'>2        ^\markup { \hf T }
+          < b a'>2        ^\markup { ( \hfOne D "7" ) } 
+          < d g>2         ^\markup { \hfiOne Sp "7" "7" }
+          < cis g'>2      ^\markup { \hfiTri D "3" "5" "7" "8" } 
           |
-          < d fis>2 ^\markup {Tp}
-          < b d>2  ^\markup {DD7}
+          < d fis>2       ^\markup { \hfi Tp "3" }
+          < b d>2         ^\markup { \hfiOne DD "5" "7" }
           <<
-            { a2 ^\markup {D4>3}}
+            { a2          ^\markup { \hfOne D "4>3" } }
             { d4( cis4) }
           >> 
-          < d, d'>2 ^\markup {T}      
+          < d, d'>2       ^\markup { \hf T }      
           \bar "||"
         }   
       }
