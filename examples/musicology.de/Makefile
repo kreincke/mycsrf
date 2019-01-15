@@ -7,9 +7,9 @@ prod:	clear
 	# (1) create a lilypond working directory and call the liypond pre operations 
 	@ cp -rd ${SRCD} ${LPWD}
 	@ ( cd ${LPWD} && lilypond-book --out ../${ISWD} ${ISNM}.tex )
-	# (2) now lilypond has created has collected all source it needs into the final working dir i
-	# but unfortunatelay not all. They are now copied into the final working dir
-	# enssure that the dirs exist we need
+	# (2) now lilypond has created & collected all sources it needs into the final working dir
+	# but unfortunatelay not all sources. The missed parts must be copied into that dir manually
+	# (3) ensure that the dirs exist we need
 	@ mkdir -p  ${ISWD}/bib/ ${ISWD}/cfg ${ISWD}/pics
 	# (3) derive all pmx pictures	
 	@ cp -rd ${SRCD}/pmx .
@@ -20,7 +20,7 @@ prod:	clear
 	@ mkdir -p ${ISWD}/pics/pmx/
 	@ mv pmx/*.eps ${ISWD}/pics/pmx
 	@ rm -rf pmx
-	# (4) ensure that even the missed files can be found in the final working directory
+	# (4) ensure that also the missed files can be found in the final working directory
 	@ cp -rd ${SRCD}/bib/* ${ISWD}/bib/
 	@ cp -rd ${SRCD}/cfg/* ${ISWD}/cfg/
 	@ cp ${SRCD}/inc.rel.tex ${ISWD}/

@@ -7,17 +7,19 @@
   "insert a harmony analysis symbol + ( 0 bass & 0 descant specifier(s))"
   (interpret-markup layout props
     #{\markup 
-      \column{
-        \line{ #FS 
-          \translate #'(-0.5 . 8) 
-          \column {
-            \fontsize #-3 \translate #'(0 . -5)  \BLNK
-            \fontsize #-3 \translate #'(0 . -1.8) \BLNK
-            \fontsize #-3 \translate #'(0 . -0.5) \BLNK
-          }
-        }
-        \line{ \fontsize #-3 \translate #'(0.4 . 1.5) \BLNK }
-      }      
+      \line {
+        \override #'(baseline-skip . 1.4) {
+          \center-column{       
+            \line{ #FS }
+            \line{ \typewriter \fontsize #-5 \BLNK }
+        } }  
+        \super{
+          \override #'(baseline-skip . 1.5) {
+            \fontsize #-4 \typewriter
+            \translate #'(-2 . 1)
+            \column { \BLNK \BLNK \BLNK }
+        } }      
+      }       
     #}
   )
 )
@@ -27,17 +29,19 @@
   "insert a harmony analysis symbol + ( 0 bass & 1 descant specifier(s))"
   (interpret-markup layout props
     #{\markup 
-      \column{
-        \line{ #FS 
-          \translate #'(-0.5 . 8) 
-          \column {
-            \fontsize #-3 \translate #'(0 . -5)  \BLNK
-            \fontsize #-3 \translate #'(0 . -1.8) #Mid
-            \fontsize #-3 \translate #'(0 . -0.5) \BLNK
-          }
-        }
-        \line{ \fontsize #-3 \translate #'(0.4 . 1.5) \BLNK }
-      }      
+       \line {
+        \override #'(baseline-skip . 1.4) {
+          \center-column{       
+            \line{ #FS }
+            \line{ \typewriter \fontsize #-5 \BLNK }
+        } }  
+        \super{
+          \override #'(baseline-skip . 1.5) {
+            \fontsize #-4 \typewriter
+            \translate #'(-2 . 1)
+            \column { \BLNK #Mid \BLNK }
+        } }      
+      }       
     #}
   )
 )
@@ -47,17 +51,19 @@
   "insert a harmony analysis symbol + ( 0 bass & 2 descant specifier(s))"
   (interpret-markup layout props
     #{\markup 
-      \column{       
-        \line{ #FS 
-          \translate #'(-0.5 . 8) 
-          \column {
-            \fontsize #-3 \translate #'(0 . -5)  #Top
-            \fontsize #-3 \translate #'(0 . -1.8) #Mid
-            \fontsize #-3 \translate #'(0 . -0.5) \BLNK
-          }
-        }
-        \line{ \fontsize #-3 \translate #'(0.4 . 1.5) \BLNK }
-      }      
+       \line {
+        \override #'(baseline-skip . 1.4) {
+          \center-column{       
+            \line{ #FS }
+            \line{ \typewriter \fontsize #-5 \BLNK }
+        } }  
+        \super{
+          \override #'(baseline-skip . 1.5) {
+            \fontsize #-4 \typewriter
+            \translate #'(-2 . 1)
+            \column { #Top #Mid \BLNK }
+        } }      
+      }       
     #}
   )
 )
@@ -67,17 +73,19 @@
   "insert a harmony analysis symbol + ( 0 bass & 3 descant specifier(s))"
   (interpret-markup layout props
     #{\markup 
-      \column{     
-        \line{ #FS 
-          \translate #'(-0.5 . 8) 
-          \column {
-            \fontsize #-3 \translate #'(0 . -5)  #Top
-            \fontsize #-3 \translate #'(0 . -1.8) #Mid
-            \fontsize #-3 \translate #'(0 . -0.5) #Bot
-          }
-        }
-        \line{ \fontsize #-3 \translate #'(0.4 . 1.5) \BLNK }
-      }      
+      \line {
+        \override #'(baseline-skip . 1.4) {
+          \center-column{       
+            \line{ #FS }
+            \line{ \typewriter \fontsize #-5 \BLNK }
+        } }  
+        \super{
+          \override #'(baseline-skip . 1.5) {
+            \fontsize #-4 \typewriter
+            \translate #'(-2 . 1)
+            \column { #Top #Mid #Bot }
+        } }      
+      }       
     #}
   )
 )
@@ -87,17 +95,19 @@
   "insert a harmony analysis symbol + ( 1 bass &  0 descant specifier(s))"
   (interpret-markup layout props
     #{\markup 
-      \column{
-        \line{ #FS 
-          \translate #'(-0.5 . 8) 
-          \column {
-            \fontsize #-3 \translate #'(0 . -5)  \BLNK
-            \fontsize #-3 \translate #'(0 . -1.8) \BLNK
-            \fontsize #-3 \translate #'(0 . -0.5) \BLNK
-          }
-        }
-        \line{ \fontsize #-3 \translate #'(0.4 . 1.5) #Sub }
-      }      
+      \line {
+        \override #'(baseline-skip . 1.4) {
+          \center-column{       
+            \line{ #FS }
+            \line{ \typewriter \fontsize #-5 #Sub }
+        } }  
+        \super{
+          \override #'(baseline-skip . 1.5) {
+            \fontsize #-4 \typewriter
+            \translate #'(-2 . 1)
+            \column { \BLNK \BLNK \BLNK }
+        } }      
+      }       
     #}
   )
 )
@@ -107,17 +117,19 @@
   "insert a harmony analysis symbol + ( 1 bass &  1 descant specifier(s))"
   (interpret-markup layout props
     #{\markup 
-      \column{       
-        \line{ #FS 
-          \translate #'(-0.5 . 8) 
-          \column {
-            \fontsize #-3 \translate #'(0 . -5)  \BLNK
-            \fontsize #-3 \translate #'(0 . -1.8) #Mid
-            \fontsize #-3 \translate #'(0 . -0.5) \BLNK
-          }
-        }
-        \line{ \fontsize #-3 \translate #'(0.4 . 1.5) #Sub }
-      }      
+       \line {
+        \override #'(baseline-skip . 1.4) {
+          \center-column{       
+            \line{ #FS }
+            \line{ \typewriter \fontsize #-5 #Sub }
+        } }  
+        \super{
+          \override #'(baseline-skip . 1.5) {
+            \fontsize #-4 \typewriter
+            \translate #'(-2 . 1)
+            \column { \BLNK #Mid \BLNK }
+        } }      
+      }       
     #}
   )
 )
@@ -127,38 +139,42 @@
   "insert a harmony analysis symbol + ( 1 bass &  2 descant specifier(s))"
   (interpret-markup layout props
     #{\markup 
-      \column{
-        \line{ #FS 
-          \translate #'(-0.5 . 8) 
-          \column {
-            \fontsize #-3 \translate #'(0 . -5)  #Top
-            \fontsize #-3 \translate #'(0 . -1.8) #Mid
-            \fontsize #-3 \translate #'(0 . -0.5) \BLNK
-          }
-        }
-        \line{ \fontsize #-3 \translate #'(0.4 . 1.5) #Sub }
-      }      
+       \line {
+        \override #'(baseline-skip . 1.4) {
+          \center-column{       
+            \line{ #FS }
+            \line{\typewriter \fontsize #-5 #Sub }
+        } }  
+        \super{
+           \override #'(baseline-skip . 1.5) {
+            \fontsize #-4 \typewriter
+            \translate #'(-2 . 1)
+            \column { #Top #Mid \BLNK }
+        } }      
+      }       
     #}
   )
 )
+
 
 #(define-markup-command 
   (hfiTri layout props FS Sub Bot Mid Top) (markup? markup? markup? markup? markup? )
   "insert a harmony analysis symbol + ( 1 bass &  3 descant specifier(s))"
   (interpret-markup layout props
     #{\markup 
-      \column{     
-        \line{ #FS 
-          \translate #'(-0.5 . 8) 
-          \column {
-            \fontsize #-3 \translate #'(0 . -5)  #Top
-            \fontsize #-3 \translate #'(0 . -1.8) #Mid
-            \fontsize #-3 \translate #'(0 . -0.5) #Bot
-          }
-        }
-        \line{ \fontsize #-3 \translate #'(0.4 . 1.5) #Sub }
-      }      
+      \line {
+        \override #'(baseline-skip . 1.4) {
+          \center-column{       
+            \line{ #FS }
+            \line{ \typewriter \fontsize #-5 #Sub }
+        } }  
+        \super{
+           \override #'(baseline-skip . 1.5) {
+            \fontsize #-4 \typewriter
+            \translate #'(-2 . 1)
+            \column { #Top #Mid #Bot }
+        } }      
+      }       
     #}
   )
-)
-  
+) 

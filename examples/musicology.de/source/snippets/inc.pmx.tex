@@ -177,11 +177,11 @@ eingebettet werden könnte. Entsprechende Versuche müssen scheitern.
 .pmx.tex:
    @ pmxab \$<
 \end{verbbox}
-  
-Die eine, 'direkte' Lösung für dieses Problem besteht darin, zuerst -- ganz
-\LaTeX-unabhängig -- aus der \emph{PMX}-Datei eine Graphik zu erzeugen
-und diese anschließend in die \LaTeX-Datei einzubinden\footcite[Vgl. dazu
-auch][94]{Noack2013a}:
+
+\label{PmxGraphics} Die eine, 'direkte' Lösung für dieses Problem besteht darin,
+zuerst -- ganz \LaTeX-unabhängig -- aus der \emph{PMX}-Datei eine Graphik zu
+erzeugen und diese anschließend in die \LaTeX-Datei einzubinden\footcite[Vgl.
+dazu auch][94]{Noack2013a}:
 
 \begin{itemize}
   \item Dazu ruft man für eine \emph{PMX}-Datei zunächst den
@@ -327,7 +327,7 @@ w130m
 % MUSIC: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % T:1-1     T:1-2    T:1-3                T:1-4
   d23l za+  b-l za+  d-l zg              c-l zg+ |/
-  f24u zd+  f-u zd+s  bu  ze              bu ze |/
+  f24u zd+  f-u zd+s  bu  ze              bu zes |/
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % T:2-1     T:2-2    T:2-3                T:2-4
   d23l zf  b-l  zd   (u d4 za2 c4 za2 )   d2-l zd+  /
@@ -367,7 +367,7 @@ auskommentieren und einige Werte ändern muss:
 %%ignore:%% \znotes|\zcharnote{16}{\titles{2.0}{}{0}{}{0}{}{0}}\en%
 % Bar count 1
 \pnotes{4.00}\zh{''A}\hl{`D}\zh{'A}\hl{`B}\zh G\hl D\zh G\hl C|\zh{'d}%
-\hu{`f}\bigsh{'d}\zh d\hu{`f}\zh{'e}\hu b\zh e\hu b\en%
+\hu{`f}\bigsh{'d}\zh d\hu{`f}\zh{'e}\hu b\bigsh e\zh e\hu b\en%
 % Bar count 2
 \xbar
 \pnotes{4.00}\zh{'F}\hl D\zh D\hl B|\zh{'f}\hu b\bigsh g\zh g\hl e\en%
@@ -413,7 +413,7 @@ einer externen Graphik -- das folgende Bild  entsteht:
 %%ignore:%% \znotes|\zcharnote{16}{\titles{2.0}{}{0}{}{0}{}{0}}\en%
 % Bar count 1
 \pnotes{4.00}\zh{''A}\hl{`D}\zh{'A}\hl{`B}\zh G\hl D\zh G\hl C|\zh{'d}%
-\hu{`f}\bigsh{'d}\zh d\hu{`f}\zh{'e}\hu b\zh e\hu b\en%
+\hu{`f}\bigsh{'d}\zh d\hu{`f}\zh{'e}\hu b\bigsh e\zh e\hu b\en%
 % Bar count 2
 \xbar
 \pnotes{4.00}\zh{'F}\hl D\zh D\hl B|\zh{'f}\hu b\bigsh g\zh g\hl e\en%
@@ -457,9 +457,9 @@ erledigt man auf \emph{PMX}-Level, die Feinheiten fügt man manuell ein:
   \zmidstaff{\HH.T.....}\zh{''A}\hl{`D}%
   \zmidstaff{(\HH.D..7...)}\zh{'A}\hl{`B}%
   \zmidstaff{\HH.Sp.7...7.}\zh G\hl D
-  \zmidstaff{\HH.\Dohne.3..7.9.}\zh G\hl C |%
+  \zmidstaff{\HH.\Dohne.3.$\flat$9=$\sharp$8.7.5.}\zh G\hl C |%
   \zh{'d}\hu{`f}\bigsh{'d}\zh d\hu{`f}%
-  \zh{'e}\hu b\zh e\hu b%
+  \zh{'e}\hu b\bigsh{e}\zh e\hu b%
 \en%
 % Bar count 2
 \xbar
@@ -502,9 +502,9 @@ Wille zum Codeclearing:
   \zmidstaff{\HH.T.....}\zh{''A}\hl{`D}%
   \zmidstaff{(\HH.D..7...)}\zh{'A}\hl{`B}%
   \zmidstaff{\HH.Sp.7...7.}\zh G\hl D
-  \zmidstaff{\HH.\Dohne.3..7.9.}\zh G\hl C |%
+  \zmidstaff{\HH.\Dohne.3.$\flat$9=$\sharp$8.7.5.}\zh G\hl C |%
   \zh{'d}\hu{`f}\bigsh{'d}\zh d\hu{`f}%
-  \zh{'e}\hu b\zh e\hu b%
+  \zh{'e}\hu b\bigsh{e}\zh e\hu b%
 \en%
 % Bar count 2
 \xbar
