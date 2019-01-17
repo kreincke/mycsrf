@@ -43,7 +43,7 @@ Ausschnitte. Und zusätzlich fordert die Musikwissenschaft, in diese 'Extrakte'
 Zeichen oder Kommentare einzufügen, die selbst nicht zur 'Notensprache'
 gehören\footnote{Ein Beispiel dafür ist die 'Harmonieanalyse', die ja eine
 eigene Fachsprache bereitstellt und erwartet, dass z.B. die Abkürzungen für
-\emph{Tonika}, \emph{Subdominante} oder \emph{Dominante} samt Subspezifikatoren
+\textit{Tonika}, \textit{Subdominante} oder \textit{Dominante} samt Subspezifikatoren
 in den entsprechenden Notentext eingebunden werden.}.
 
 Musikelemente unter \LaTeX\ in (musikwissenschaftliche) Texte einzubetten, ist
@@ -51,9 +51,9 @@ also Thema dieser Arbeit. Ein Blick auf CTAN-Liste mit entsprechenden
 Tools\footnote{$\rightarrow$ \lnkb{https://ctan.org/topic/music}{2018-12-27}}
 verwirrt eher, als dass er hilft: Womit soll man anfangen, was braucht man wozu,
 was davon soll man lernen, was lohnt überhaupt die Mühe? Google beantwortet die
-Query $\langle$\emph{latex music}$\rangle$\footnote{$\rightarrow$
+Query $\langle$\textit{latex music}$\rangle$\footnote{$\rightarrow$
 \lnka{https://www.google.com/search?q=latex+music}} mit Links auf einige kurze
-Artikel und auf die bekannten Tools \emph{MusiX\TeX} und \emph{LilyPond}.
+Artikel und auf die bekannten Tools \textit{MusiX\TeX} und \textit{LilyPond}.
 Zusammen führt auch das den unbedarften Anfänger nicht weiter. Es fehlt einfach
 eine qualifizierte Sichtung und Anleitung, die sagt und zeigt, wie man das beste
 Ergebnis mit geringstem Aufwand erreicht. Diese Lücke wollen wir mit einem
@@ -63,21 +63,21 @@ es uns gelingt, den einen oder anderen davon abgehalten zu haben, auf's falsche
 Pferd zu setzen, dann wollen wir zufrieden sein.
 
 Den wissenschaftlichen Text unseres 'Demos' erzeugen wir mit
-\emph{mycsrf}\footcite[vgl.][\nopage wp]{Reincke2018a}, einem Bibliographie- und
+\textit{mycsrf}\footcite[vgl.][\nopage wp]{Reincke2018a}, einem Bibliographie- und
 Zitierstil für \LaTeX, der sich eng an die altphilologische Arbeitsweise
 anlehnt, deren Notwendigkeit aber mit modernen Anforderungen an eine
 geisteswissenschaftliche Arbeit zu begründen ist\footnote{Zentrale Bedingung der
 Wissenschaftlichkeit ist die Überprüfbarkeit und Reproduzierbarkeit. Das meint
 bei geisteswissenschaftlichen Arbeiten, dass Argumentationen logisch aufgebaut
 und Zitate ohne großen Aufwand in den Originalen nachgesehen werden können.
-Warum das wie in \emph{mycsrf} realisiert wird, habe ich in einem anderen
+Warum das wie in \textit{mycsrf} realisiert wird, habe ich in einem anderen
 selbstreferentiellen Text diskutiert und dokumentiert. (\cite[Vgl.
 dazu][1ff]{Reincke2018b})}. Dieses 'Framework' zu kennen oder gar zu nutzen,
 wird jedoch nicht vorausgesetzt, weder technisch noch ideell\footnote{Allerdings
 können Sie dieses Dokument unter GNU/Linux aus den Quellen heraus selbst
 erzeugen. Und Sie dürfen den \LaTeX-Quelltext im Rahmen der Lizenzierung
 (\texttt{CC BY-SA 4.0}) weiterverarbeiten. Sie finden die Soucen unter
-~/examples/musicology.de im \emph{mycsrf}-Paket (\cite[Vgl. dazu][\nopage
+~/examples/musicology.de im \textit{mycsrf}-Paket (\cite[Vgl. dazu][\nopage
 wp]{Reincke2019a})}: was wir hier zur Integration von
 Musikbeispielen sagen, kann ohne Umschweife auf andere, in und mit \LaTeX\
 verwirklichte Zitierstile übertragen werden.
@@ -91,7 +91,7 @@ einbaut, hat -- neben Michael Enzenhofer\footnote{Diese Arbeit liefert
 allerdings 'nur' eine eher grundsätzlich Einführung in die \LaTeX-Co\-die\-rung mit
 einigen Hinweisen zur Einbindungen von Graphilken im Allgemeinen und zur Nutzung
 von LilyPond im Besonderen (\cite[vgl. dazu][4ff, 31ff u.
-21ff]{Enzenhofer2016a}). Über die Arbeitsweise von \emph{LilyPond} und damit
+21ff]{Enzenhofer2016a}). Über die Arbeitsweise von \textit{LilyPond} und damit
 über die notwendigen Schritte zur Integration spricht die Arbeit nicht, ebenso
 wenig über Alternativen zu LilyPond. Insofern verspricht der Titel mehr, als er
 zuletzt bietet. Nichtsdestotrotz bietet er einen praktikablen 'Crashkurs' in
@@ -106,16 +106,16 @@ Zu guter Letzt rücken zwei Nebenthemen in den Vordergrund:
 Notentexte sind von ihrem Gegenstand her zweidimensional - wenigstens, wenn sie
 mehrstimmige Musik notieren: Es folgt Note auf Note, um das Nacheinander
 auszudrücken. Und es steht Note über Note, um die Gleichzeitigkeit von Klängen
-zu signalisieren. Die Schrift\emph{sprache} ist dagegen im Kern eindimensional:
+zu signalisieren. Die Schrift\textit{sprache} ist dagegen im Kern eindimensional:
 es folgt einfach Wort auf Wort. Auch \LaTeX\ selbst - als Auszeichnungssprache
 für Schriftsprachen - ist eindimensional: Im Quelltext folgt Token auf Token.
 Von daher geht die Integration von Notenbeispielen in einen Text immer mit einer
 Konvertierung einher. Es gibt Auszeichnungssprachen für Noten, die diese
 Konvertierung in die eindimensionale 'Wort-für-Wort'-Welt erfolgreich bewältigt
-haben, z.B. \emph{MusicXML}\footcite[vgl.][\nopage wp]{MusicXML2018a},
-\emph{MusiX\TeX}\footcite[vgl.][\nopage wp]{CtanMusixTex2018a},
-\emph{PMX}\footcite[vgl.][\nopage wp]{CtanPmx2018a} oder
-\emph{LilyPond}\footcite[vgl.][\nopage wp]{LilyPond2018a}. Trotzdem schreiben
+haben, z.B. \textit{MusicXML}\footcite[vgl.][\nopage wp]{MusicXML2018a},
+\textit{MusiX\TeX}\footcite[vgl.][\nopage wp]{CtanMusixTex2018a},
+\textit{PMX}\footcite[vgl.][\nopage wp]{CtanPmx2018a} oder
+\textit{LilyPond}\footcite[vgl.][\nopage wp]{LilyPond2018a}. Trotzdem schreiben
 echte Musiker lieber echte Musik, also zweidimensionale Notentexte.
 
 Damit stellen sich sofort einige Fragen:
@@ -148,12 +148,12 @@ Versionswechsel die Lizenzgebühren so stark erhöhen, dass sie sein Budget
 sprengen. Und selbst ohne diese finale Katastrophe wird der Wechsel zu einem
 anderen Anbieter mit der Zeit durch die schon investierte Arbeit so aufwendig,
 dass man lieber bei dem bisherigen Programm bleibt, auch wenn es teuerer oder
-schlechter ist als die Alternativen. Damit ist man in die \emph{Vendorenfalle}
+schlechter ist als die Alternativen. Damit ist man in die \textit{Vendorenfalle}
 getappt. Mit freier Software kann das nicht geschehen, weil es zum Wesen freier
 Software gehört, dass man ohne pekuniären Aufwand an den Quellcode und an die
 Nutzungsrechte der Programme herankommt - auch an die neuerer und besserer
 Versionen. (\cite[vgl. dazu][\nopage wp]{FSF2018a}.) Für Musiker hat sich die
-Lage mit der Etablierung von \emph{MusicXml} allerdings etwas entspannt: Durch
+Lage mit der Etablierung von \textit{MusicXml} allerdings etwas entspannt: Durch
 die Standardisierung des Dateiformates wird der Wechsel zu einem anderen,
 besseren Programme erleichtert. Hier muss man 'nur' noch fürchten, dass das
 bisher die jeweiligen Programme vorab (noch) nicht standardisierte Features

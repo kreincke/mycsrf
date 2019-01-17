@@ -22,10 +22,10 @@
 Das MusiX\TeX-Tutorial erwähnt mehrfach, dass man Notentexte mit dieser
 Beschreibungssprache eher nicht 'händisch' erarbeiten wolle: Anfänger sollten -
 wie es heißt - nicht mit mit MusiX\TeX\ beginnen, sondern lieber gleich
-\emph{PMX} lernen\footcite[vgl.][iii]{VogSimRyc2018a}. Zwar könne man
+\textit{PMX} lernen\footcite[vgl.][iii]{VogSimRyc2018a}. Zwar könne man
 MusiX\TeX-Befehle durchaus auch manuell in eine \LaTeX-Datei
 einfügen. Gleichwohl würden es die meisten weniger anstrengend finden, die dabei
-anstehenden Entscheidungen durch einen Präprozessor wie \emph{PMX} treffen zu
+anstehenden Entscheidungen durch einen Präprozessor wie \textit{PMX} treffen zu
 lassen\footcite[vgl.][1]{VogSimRyc2018a}. Wolle man jedoch Fließtext und Musik
 in einem Dokument vereinen, dann sei die direkte Verwendung von MusiX\TeX
 durchaus eine Alternative\footcite[vgl.][1]{VogSimRyc2018a}.
@@ -37,7 +37,7 @@ encodierten Kadenzen, Motive oder Analysen etc. 'manuell' in den
 betrifft, so werden wir den Schwierigkeiten später noch genauer nachgehen.
 Für die direkte Verknüpfung von \LaTeX\ und MusiX\TeX\ gäbe es hingegen - wie es
 heißt - zwei grundsätzlichen Methoden: entweder erzeuge man mit MusiX\TeX\ 
-Bilder seiner Notenseiten\footnote{z.B. im Format \emph{EPS} = Encapsulated
+Bilder seiner Notenseiten\footnote{z.B. im Format \textit{EPS} = Encapsulated
 Postscript} -- und zwar unabhängig von \LaTeX\ -- und binde diese Bilder
 dann mit \LaTeX-Standardmitteln -- unabhängig von MusiX\TeX\ -- in
 seinen Code ein. Oder man schreibe seinen MusiX\TeX-Code direkt als
@@ -53,9 +53,9 @@ dazu][114]{VogSimRyc2018a}.}
 
 Auch die Nutzung von MusiX\TeX\ bedarf einiger systemischen Vorarbeiten:
 
-$\RHD$ Sofern es die \emph{(La)\TeX}-Distribution nicht eh schon mitliefert, muss das
+$\RHD$ Sofern es die \textit{(La)\TeX}-Distribution nicht eh schon mitliefert, muss das
 MusiX\TeX-Paket\footcite[vgl.][\nopage wp]{CtanMusixTex2018a} installiert
-werden\footnote{Bei Ubuntu 18.04 ist es im Paket \emph{texlive-music} enthalten.}.
+werden\footnote{Bei Ubuntu 18.04 ist es im Paket \textit{texlive-music} enthalten.}.
 
 $\RHD$ Danach muss -- wie bei \LaTeX\ üblich -- dieses
 MusiX\TeX-Paket  mit dem entsprechenden Kommando in der Präambel
@@ -67,10 +67,10 @@ system} bezeichnet wird: Beim ersten \LaTeX-Durchgang schreibt das
 MusiX\TeX-Paket Informationen über die benötigten Noten und ihre Kennzeichnungen
 in eine Datei, die wie das \TeX-Dokument heißt, für das der \LaTeX-Durchgang
 gestartet worden ist -- nur dass diese Auslagerungsdatei anstelle der Extension
-\emph{.tex} die Exzension \emph{.mx1} erhält. Danach muss für diese
-\emph{.mx1}-Auslagerungsdatei das Tool \emph{musicflx} aufgerufen werden.
-\emph{musicflx} optimiert die Darstellung und schreibt seine Berechnungen in
-eine 'namensgleiche' Datei mit der Extension \emph{mx2}. Und schließlich liest
+\textit{.tex} die Exzension \textit{.mx1} erhält. Danach muss für diese
+\textit{.mx1}-Auslagerungsdatei das Tool \textit{musicflx} aufgerufen werden.
+\textit{musicflx} optimiert die Darstellung und schreibt seine Berechnungen in
+eine 'namensgleiche' Datei mit der Extension \textit{mx2}. Und schließlich liest
 das MusiX\TeX-Paket beim nächsten \LaTeX-Durchgang die Optimierungsinformationen
 wieder ein und integriert sie in das endgültige Dokument\footnote{\cite[Vgl.
 dazu][5]{VogSimRyc2018a}. Bei näherem Hinsehen 'verknäuelt'sich die Beziehung
@@ -85,18 +85,18 @@ mtx-file.mx1 (2) \texttt{musixflx mutx-file.mx1} $\rightarrow$ mutx-file.mx2 (3)
 latx-file.mx1 (2) \texttt{musixflx latx-file.mx1} $\rightarrow$ latx-file.mx2
 (3) \texttt{latex latx-file.tex} $\rightarrow$ latx-file.dvi
 \end{itemize}
-Wichtig ist dabei, dass die Dateien \emph{mutx} und \emph{latx} einen
+Wichtig ist dabei, dass die Dateien \textit{mutx} und \textit{latx} einen
 verschiedenen, auf MusiX\TeX\ bzw. \LaTeX\ ausgerichteten Inhalt haben, obwohl
-es beide immer noch \TeX-Dateien sind. Neben den Tools \emph{etex} und
-\emph{latex}, die -- wie beschrieben -- dvi-Dateien erzeugen, gibt es noch die
-Tools \emph{pdflatex} und \emph{musixtex}. Beide erzeugen direkt pdf-Dateien:
-\emph{pdflatex} aus einer reinen \LaTeX-Datei, \emph{musixtex} aus einer reinen
+es beide immer noch \TeX-Dateien sind. Neben den Tools \textit{etex} und
+\textit{latex}, die -- wie beschrieben -- dvi-Dateien erzeugen, gibt es noch die
+Tools \textit{pdflatex} und \textit{musixtex}. Beide erzeugen direkt pdf-Dateien:
+\textit{pdflatex} aus einer reinen \LaTeX-Datei, \textit{musixtex} aus einer reinen
 MusiX\TeX-Datei. In unserem Fall erzeugen wir jedoch \LaTeX-Dateien mit
 MusiX\TeX-Anteilen. Deshalb müssen wir -- sozusagen händisch -- den Aufruf von
-\emph{musixflx} selbst organisieren.}. Der Algorithmus ist also einfach: Findet
+\textit{musixflx} selbst organisieren.}. Der Algorithmus ist also einfach: Findet
 das MusiX\TeX-Paket als Teil des \LaTeX-Durchgangs (noch) keine
-\emph{.mx2}-Auslagerungsdatei, schreibt es die \emph{.mx1}-Auslagerungsdatei,
-ansonsten verarbeitet es die gefunden \emph{.mx2}-Auslagerungsdatei. Dies kann
+\textit{.mx2}-Auslagerungsdatei, schreibt es die \textit{.mx1}-Auslagerungsdatei,
+ansonsten verarbeitet es die gefunden \textit{.mx2}-Auslagerungsdatei. Dies kann
 automatisiert werden. Die entsprechende Passage aus einem Makefile könnte so
 aussehen:\footnote{Wiederum gilt:
 Wissenschaftliche \LaTeX-Dokumente mit Fußnoten und bibliographischen Angaben
@@ -157,7 +157,7 @@ Harmonielehre von Grabner\footcite[vgl.][107]{Grabner1974a}:
 \end{center}
 
 Man sieht, mit MusiX\TeX\ und \LaTeX\ kommt man dem 'Original' wirklich nahe,
-näher, als mit der Rekonstruktion anhand der \emph{ABC}-Methodik. Die 
+näher, als mit der Rekonstruktion anhand der \textit{ABC}-Methodik. Die 
 einzeilige Kadenz in der MusiX\TeX-Version wird durch folgenden Code generiert:
 \begin{verbatim}
 \begin{music}%
@@ -265,7 +265,7 @@ Diese Zeilen werden mit folgendem MusiX\TeX-Code generiert:
 
 Zudem zeigt dieses Beispiel gut, dass man in den MusiX\TeX-Code direkt
 auch die Analysesymbole einbetten kann, die nicht von MusiX\TeX\ selbst
-bereitgestellt werden, sondern z.B. von \emph{harmony}.
+bereitgestellt werden, sondern z.B. von \textit{harmony}.
 
 \subsubsection{Kadenz III: Zweizeilig für mehrere Instrumente}
 
@@ -278,7 +278,7 @@ der zentrierten Darstellung über das Kommando
 \texttt{\textbackslash{startextract}} auch eine linksorientierte Darstellung per
 \texttt{\textbackslash{startpiece}} zur Verfügung stellt, um ganze Passagen in
 den eigene Text einzufügen\footnote{Bei längeren Notentexten gelingt es
-\emph{musicflx} gut, ein ausgewogenes Bild zu erzeugen. Bei kürzeren muss man
+\textit{musicflx} gut, ein ausgewogenes Bild zu erzeugen. Bei kürzeren muss man
 gelegentlich über den Parameter \texttt{\textbackslash{hsize=XYZmm}} oder über
 den erzwungenen Zeilenumbruch \texttt{\textbackslash{alaligne}} in die
 Verteilung eingreifen.}:

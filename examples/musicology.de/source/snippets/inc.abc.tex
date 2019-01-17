@@ -20,17 +20,17 @@
 
 \subsection{ABC: einfach und vielfach genutzt}
 
-Das \emph{ABC}-Notationssystem ist eine ASCII basierte Methode zum Dokumentieren
+Das \textit{ABC}-Notationssystem ist eine ASCII basierte Methode zum Dokumentieren
 von Musik. Initial entworfen wurde sie, um die Lieder zu
 erfassen\footcite[vgl.][\nopage Subpage 'Intro']{Chambers2018a}. So bezeichnet
 sich dieses Verfahren -- weil schon lange gepflegt und vielfach genutzt -- denn
-auch als \emph{das} textbasierte Musiknotationssystem und als \emph{den}
+auch als \textit{das} textbasierte Musiknotationssystem und als \textit{den}
 Defacto-Standard für Volksmusik\footnote{\cite[vgl.][\nopage wp]{Abc2018a}. Im
 Original: \enquote{the text-based music notation system and the de facto
 standard for folk and traditional music}.}. Für dieses Verfahren gibt es eine
 Fülle von Konvertern, die ganz verschiedene Nutzungsszenarien
 bedienen\footcite[vgl.][\nopage wp]{Abc2018b}. Und eines der
-Verwertungsszenarios ist eben die Einbettung von \emph{ABC-Noten} in
+Verwertungsszenarios ist eben die Einbettung von \textit{ABC-Noten} in
 \LaTeX-Text, wie es von dem abc-\LaTeX-Paket ermöglicht
 wird\footcite[vgl.][\nopage wp]{CtanAbc2018a}.
 
@@ -41,9 +41,9 @@ John Chambers\footcite[vgl.][\nopage wp]{Chambers2018a}; die Besonderheiten im
 Rahmen der \LaTeX-Nutzung werden im Pakethandbuch
 erläutert\footcite[vgl.][\nopage wp]{Gregorio2016a}.
 
-Auch wenn die \emph{ABC-Notation} zunächst 'nur' Lieder erfassen sollte und
+Auch wenn die \textit{ABC-Notation} zunächst 'nur' Lieder erfassen sollte und
 Mehrstimmigkeit nicht unbedingt das Anliegen der initialen Programmierer gewesen
-ist, gibt es mit \emph{ABC-PLUS}\footcite[vgl.][\nopage wp]{Gonzato2018a}
+ist, gibt es mit \textit{ABC-PLUS}\footcite[vgl.][\nopage wp]{Gonzato2018a}
 inzwischen auch für mehrsystemige Partituren eine Lösung, die gut dokumentiert
 ist\footcite[vgl.][XVff]{Gonzato2018b} und die Integration in
 \LaTeX-Texte ermöglicht\footcite[vgl.][134]{Gonzato2018b}.
@@ -53,16 +53,16 @@ ist\footcite[vgl.][XVff]{Gonzato2018b} und die Integration in
 Trotz aller Einfachheit bedarf es zur erfolgreichen Nutzung der ABC-Notation
 in und mit einer \LaTeX-Datei einiger systemischen Vorbereitungen:
 
-$\RHD$ Zunächst muss -- ganz unabhängig von \LaTeX\ -- das Tool \emph{abcm2ps}
+$\RHD$ Zunächst muss -- ganz unabhängig von \LaTeX\ -- das Tool \textit{abcm2ps}
 installiert werden\footnote{Unter Ubuntu: \texttt{sudo apt-get apcm2ps}}. Es
 wird genutzt, um die im  ersten Durchgang des PDF-Erzeugungsprozess aus der
-\LaTeX-Datei extrahierten \emph{ABC}-Daten in ein Postscriptbild
+\LaTeX-Datei extrahierten \textit{ABC}-Daten in ein Postscriptbild
 umzuwandeln, das dann bei der nächsten Runde -- automatisiert -- anstelle des
-\emph{ABC}-Codes in die \LaTeX-Datei eingesetzt wird.
+\textit{ABC}-Codes in die \LaTeX-Datei eingesetzt wird.
   
 $\RHD$ Sofern es die \TeX-Distribution nicht eh schon mitliefert, muss das
 abc-\LaTeX-Paket\footcite[vgl.][\nopage wp]{CtanAbc2018a} installiert
-werden\footnote{Bei Ubuntu 18.04 ist es im Paket \emph{texlive-music} enthalten.}.
+werden\footnote{Bei Ubuntu 18.04 ist es im Paket \textit{texlive-music} enthalten.}.
   
 $\RHD$ Danach muss -- wie bei \LaTeX\ üblich -- dieses
 abc-\LaTeX-Paket  mit dem entsprechenden Kommando in der Präambel
@@ -70,7 +70,7 @@ eingebunden (\texttt{\textbackslash{usepackage}\{abc\}}).
   
 $\RHD$ Schließlich müssen die \LaTeX-Durchgänge zur Erzeugung des PDFs
 modifiziert werden: Um das Bild aus dem extrahierten Code generieren zu können,
-ist es notwendig, dass das generierende Programm \emph{pdflatex} hilfsweise auch
+ist es notwendig, dass das generierende Programm \textit{pdflatex} hilfsweise auch
 externe Programme aufrufen darf\footnote{Dies ist normalerweise aus
 Sicherheitsgründen untersagt, denn sonst könnten die Computer, die die Dokumente
 erzeugen, aus 'Dokumenten' heraus manipuliert werden.}, also mit der Option
@@ -80,10 +80,10 @@ mit Fußnoten und bibliographischen Angaben werden eh schon über mehrere
 \LaTeX-Durchgänge hinweg erzeugt: Jeder einzelnen Durchgang lagert später
 benötigte Angaben in Hilfsdateien aus und liest die, die er selbst verwenden
 will, aus Dateien ein, die vorhergehende erzeugt haben.
-Verwendet man das \emph{abc-LaTeX}-Paket generiert der erste Durchgang also
+Verwendet man das \textit{abc-LaTeX}-Paket generiert der erste Durchgang also
 nicht mehr nur die bibliographischen Hilfsdateien, sondern auch die
-korrespondierenden \emph{ABC}-Dateien, für die er anschließend das externe Tool
-\emph{apcm2ps} aufruft. Dies konvertiert die extrahierten Vorlagen dann
+korrespondierenden \textit{ABC}-Dateien, für die er anschließend das externe Tool
+\textit{apcm2ps} aufruft. Dies konvertiert die extrahierten Vorlagen dann
 seinerseits in Postscript- und PDF-Dateien. Und der nächste
 \LaTeX-Durchgang integriert dann diese erzeugten Dateien in das
 Gesamtwerk. Wie man das schlüssig automatisiert, zeigt das Makefile dieses
@@ -115,8 +115,8 @@ Tutorials ($\rightarrow$
 \end{small}
 
 Nach Abschluss dieser Vorbereitungen kann man beliebig viele
-\emph{ABC}-Sektionen in seinem \LaTeX-Quellcode erzeugen und mit 
-\emph{ABC}-Notationen füllen, wobei jede Sektion mit
+\textit{ABC}-Sektionen in seinem \LaTeX-Quellcode erzeugen und mit 
+\textit{ABC}-Notationen füllen, wobei jede Sektion mit
 \texttt{\textbackslash{begin\{abc\}}} eröffnet und mit
 \texttt{\textbackslash{end\{abc\}}} beendet wird:
 
@@ -155,7 +155,7 @@ w: I IV V
 
 \subsubsection{Kadenz II: mehrzeilig}
 
-Als Beleg dafür, dass auch die \emph{ABC}-Methodik mittlerweile tatsächlich
+Als Beleg dafür, dass auch die \textit{ABC}-Methodik mittlerweile tatsächlich
 mehrsystemige Konstrukte erzeugen kann, hier ein entsprechendes Beispiel:
 
 \begin{center}
@@ -194,7 +194,7 @@ V: LH clef=bass stem=down
 
 \subsubsection{Bewertung}
 
-Offensichtlich kommt man mit der \emph{ABC}-Notationsmethode und \LaTeX\ dem
+Offensichtlich kommt man mit der \textit{ABC}-Notationsmethode und \LaTeX\ dem
 realen oder intendierten 'Original' recht nahe, und zwar ohne großen
 Schreibaufwand: Die musikalische Notation ist (fast) intuitiv verständlich, Stufen-
 und Funktionssymbole werden als normale Schriftzeichen in das Notenbild
@@ -205,19 +205,19 @@ Man sieht diesen Beispielen aber auch an, dass das Ergebnis optisch nicht
 optimal ist: Die Breite der Notensysteme wird automatisch auf die Seitenbreite
 gesetzt und die Analysesymbole sitzen nicht mittig unter den
 Akkorden\footnote{Es soll jedoch die Möglichkeit geben, Parameter an das
-\emph{abcm2ps}-Tool aus dem Notencode heraus zu übergeben, mit dem solche
+\textit{abcm2ps}-Tool aus dem Notencode heraus zu übergeben, mit dem solche
 Aspekte zu steuern wären. Unglücklicherweise ist es uns nicht gelungen, das zu
 aktivieren. Allerdings wird man diese 'Linksbündigkeit' auch bei den anderen
 Ansätzen finden; es ist also -- wenn überhaupt -- gar keine
-\emph{ABC}-spezifische Unschönheit.}. \label{AppraisalABC}Wichtiger ist jedoch,
+\textit{ABC}-spezifische Unschönheit.}. \label{AppraisalABC}Wichtiger ist jedoch,
 dass man nicht in der Lage ist, die eingefügten Analysesymbole typographisch der
 Stufen- oder Funktionstheorie entsprechend zu gestalten: Weder können hoch- und
 tiefgestellte Kleinsymbole oder Sonderzeichen eingefügt werden, noch die
 Alterationszeichen $\sharp$, $\flat$ oder $\natural$ aus den Sonderzeichen -
 ganz zu schweigen von der Einbettung jener ausgefeilten Konstrukte, die das
-\emph{harmony}-Paket zur Verfügung stellt\footnote{Das kann ja auch nicht sein,
-weil die \emph{ABC-Notation} außerhalb von \LaTeX\ in ein Bild umgewandelt wird,
-sodass eventuell noch eingebettete \emph{(La)\TeX}-Konstrukte gar nicht mehr
+\textit{harmony}-Paket zur Verfügung stellt\footnote{Das kann ja auch nicht sein,
+weil die \textit{ABC-Notation} außerhalb von \LaTeX\ in ein Bild umgewandelt wird,
+sodass eventuell noch eingebettete \textit{(La)\TeX}-Konstrukte gar nicht mehr
 ausgewertet werden.}.
 
 Außerdem muss man gelegentlich dort, wo man die Einfachheit der Notation
@@ -229,11 +229,11 @@ Stimmen innerhalb eines Systems für das ganze Stück festzulegen, nicht aber
 taktweise (\cite[vgl.][49f]{Gonzato2018b}). Wir hätten also -- um dem Preis einer
 signifikanten Mehrarbeit -- die unschöne Halteklammer im Bass des zweiten Kadenz
 vermeiden können, wenn wir den Bass durchweg zweistimmig angelegt hätten. Sie
-einfach als \Halb\ zu notieren, ist aber keine Option, weil \emph{abc} den
+einfach als \Halb\ zu notieren, ist aber keine Option, weil \textit{abc} den
 folgenden Schlussakkord im Bass dann unter die Vorhaltsauflösung im Diskant
 positioniert. Deshalb unser Hack der 'Vorhaltsverdoppelung mit gleichem Ton'
 ($\rightarrow$ S. \pageref{\cadlab{II}{ABC}}). Wir werden später erkennen, dass
-\emph{PMX} unter demselben Positionierungsproblem leidet ($\rightarrow$ S.
+\textit{PMX} unter demselben Positionierungsproblem leidet ($\rightarrow$ S.
 \pageref{\cadlab{II}{PMX}}). Allerdings bietet es die taktweise Notation in
 mehreren Stimmen, was die Mehrarbeit erträglich macht.
 }. Und das kompliziert das Handling deutlich.
@@ -242,9 +242,9 @@ Schließlich bliebe zu erwähnen, dass das ABC-Verfahren sozusagen auf einer
 'kleinen Mogelei' beruht: es wird der Notentext ja nicht in (La)\TeX-Code
 verwandelt, sondern in ein Bild, das dann in den (La)\TeX-Code eingebunden
 wird\footnote{Die Stufen des Prozesses spiegeln sich in den Dateien, die anhand
-des Namensparameters gebildet werden: eine \emph{.abs}-Datei, die
-korrespondierenden Postscriptdateien \emph{.ps} und \emph{.eps} und die finale
-\emph{.pdf}-Datei.}. Und wie immer kann die Einbindung von externen Graphiken
+des Namensparameters gebildet werden: eine \textit{.abs}-Datei, die
+korrespondierenden Postscriptdateien \textit{.ps} und \textit{.eps} und die finale
+\textit{.pdf}-Datei.}. Und wie immer kann die Einbindung von externen Graphiken
 ungünstigenfalls zu einigen Irritationen hinsichtlich des Seitenumbruchs
 führen\footnote{Diese Idee ist natürlich nicht ehrenrührig, im Gegenteil: wir
 werden noch sehen, dass andere Methoden sie auch verwenden: LilyPondBook wäre
@@ -254,7 +254,7 @@ um den Output ganz anderer Notensatzprogramme in seine \LaTeX-Code einzubinden.
 Wir werden die Einbindung von Graphiken deshalb auch ganz generell beschreiben.
 ($\rightarrow$ S. \pageref{IncludeGraphics})}.\label{AbcGraphics}
 
-Trotzdem bietet die \emph{ABC}-Notationsmethode ein technisch ausgereiftes
+Trotzdem bietet die \textit{ABC}-Notationsmethode ein technisch ausgereiftes
 Verfahren mit einer sehr steilen Lernkurve, das schnell ansprechende Ergebnisse
 erzeugt. Wer sich für seine Verwendung entscheidet, nimmt gewisse optische und
 funktionelle Einschränkungen in Kauf, die allerdings gerade bei der

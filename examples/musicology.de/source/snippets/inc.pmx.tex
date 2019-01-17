@@ -20,10 +20,10 @@
 
 \subsubsection{Das große Versprechen: Kadenz I und III}
 
-Als nächstes geht es um \emph{PMX}\footcite[vgl.][\nopage wp]{CtanPmx2018a},
+Als nächstes geht es um \textit{PMX}\footcite[vgl.][\nopage wp]{CtanPmx2018a},
 will sagen: um einen Präprozessor für MusiX\TeX\footcite[Vgl.][4ff]{CtanPmx2018a}.
 
-Ein \emph{PMX}-Tutorial nennt MusiX\TeX\ eines der besten Programme für den
+Ein \textit{PMX}-Tutorial nennt MusiX\TeX\ eines der besten Programme für den
 elektronischen Notensatz\footcite[vgl][2]{Noack2013a}. Allerdings habe es ein
 nicht eben intuitives 'Look and Feel', biete kein 'WYSIWYG' und könne ob seiner
 Natur als symbolische Auszeichnungssprache (nicht nur Musiker)
@@ -31,7 +31,7 @@ entmutigen\footcite[vgl][2]{Noack2013a}: Selbst nach einer sorgfältigen und
 sauberen Installation bleibe das Setzen einer Partitur ein mühsames
 Unterfangen\footcite[vgl][3]{Noack2013a}.
 
-Einen Ausweg aus diesem Dilemma -- so das Tutorial -- biete \emph{PMX}, das als
+Einen Ausweg aus diesem Dilemma -- so das Tutorial -- biete \textit{PMX}, das als
 Präprozessor den Eingabeprozess dramatisch vereinfache und so etwas liefere, was
 zu den einfachsten Möglichkeiten gehöre, Notenblätter elektronisch zu
 erarbeiten\footcite[vgl][3]{Noack2013a}. Die Gegenüberstellung der
@@ -142,7 +142,7 @@ weggelassen.} sich zum schlichteren
 
 \subsubsection{\ldots der Wermutstropfen \ldots}
 
-Trotz der so euphorisch kolportierten Vorteile wächst sich \emph{PMX} bei
+Trotz der so euphorisch kolportierten Vorteile wächst sich \textit{PMX} bei
 näherem Hinsehen für den Musikwissenschaftler jedoch zu einer Enttäuschung aus.
 Gehen wir die Punkte der Reihe nach durch:
 
@@ -153,15 +153,15 @@ Zunächst müssen wir 'gestehen', dass wir in diesem Kapitel unseres
 generierendem Code nur scheinbar verwirklicht haben: Es gibt überhaupt keine
 Möglichkeit, PMX-Code in \LaTeX-Code einzubetten und daraus dann -- sozusagen in
 einem Rutsch -- eine PDF-Datei zu erzeugen.
-Das liegt in erster Linie an der Arbeitsweise von \emph{PMX}\footnote{In zweiter
-Linie liegt es an den Entwicklern von \emph{PMX}. Sie haben schlicht (noch) kein
+Das liegt in erster Linie an der Arbeitsweise von \textit{PMX}\footnote{In zweiter
+Linie liegt es an den Entwicklern von \textit{PMX}. Sie haben schlicht (noch) kein
 korrespondierendes \LaTeX-Paket geschaffen. Technisch mag das herausfordernd
-sein, unmöglich ist es nicht: Es wird ja schon gesagt, dass der von \emph{pmxab}
+sein, unmöglich ist es nicht: Es wird ja schon gesagt, dass der von \textit{pmxab}
 erzeugte Code eigentlich 'nur' auf die richtige Weise auskommentiert werden
 müsse, damit er in der \texttt{\textbackslash{begin/end}\{music\}}-Umgebung
 genutzt werden könne (\cite[vgl.][94]{Noack2013a}). Mithin sollte der Schritt zu
 einer integrierten Lösung so groß nicht sein.}: Als Päprozessor nimmt das
-entsprechende Tool \emph{pmxab} eine \emph{PMX}-Datei und erzeugt daraus eine
+entsprechende Tool \textit{pmxab} eine \textit{PMX}-Datei und erzeugt daraus eine
 MusiX\TeX-Datei. Diese MusiX\TeX-Datei ist von ihrem Dialekt her aber eine
 vollständige MusiX\TeX-Datei und kein inkludierbares Code-Snippet, das 1:1 in die
 \LaTeX-Umgebung
@@ -179,17 +179,17 @@ eingebettet werden könnte. Entsprechende Versuche müssen scheitern.
 \end{verbbox}
 
 \label{PmxGraphics} Die eine, 'direkte' Lösung für dieses Problem besteht darin,
-zuerst -- ganz \LaTeX-unabhängig -- aus der \emph{PMX}-Datei eine Graphik zu
+zuerst -- ganz \LaTeX-unabhängig -- aus der \textit{PMX}-Datei eine Graphik zu
 erzeugen und diese anschließend in die \LaTeX-Datei einzubinden\footcite[Vgl.
 dazu auch][94]{Noack2013a}:
 
 \begin{itemize}
-  \item Dazu ruft man für eine \emph{PMX}-Datei zunächst den
-  \emph{PMX}-Präprozessor auf (z.B. \texttt{pmxab candeza1.pmx}), um die
+  \item Dazu ruft man für eine \textit{PMX}-Datei zunächst den
+  \textit{PMX}-Präprozessor auf (z.B. \texttt{pmxab candeza1.pmx}), um die
   korrespondierende MusiX\TeX-Datei \texttt{candeza1.tex} zu genieren.
-  \item Das Resultat übergibt man dann dem \emph{MusiX\TeX}-Tool als Input, und
-  zwar mit der Option \emph{-g}: (\texttt{musixtex -g candeza1.tex}). So wird
-  nicht eine \emph{PDF}-Datei erzeugt, sondern die Postscriptdatei
+  \item Das Resultat übergibt man dann dem \textit{MusiX\TeX}-Tool als Input, und
+  zwar mit der Option \textit{-g}: (\texttt{musixtex -g candeza1.tex}). So wird
+  nicht eine \textit{PDF}-Datei erzeugt, sondern die Postscriptdatei
   \texttt{candeza1.ps}.
   \item Danach lässt man diese Postscriptdatei in eine 
   Encapsulated-Postscript-Datei umwandeln (\texttt{ps2eps
@@ -198,11 +198,11 @@ dazu auch][94]{Noack2013a}:
   \theverbbox\ \vspace{0.2em}\\
   \cite[Vgl. dazu][\nopage Makefile aus dem Verzeichnis 'pmx']{Reincke2019a}.}
   \item Und ganz zuletzt fügt man an der Stelle der \LaTeX-Datei, wo die
-  \emph{eps}-Graphik erscheinen soll, den \LaTeX-Befehl 
+  \textit{eps}-Graphik erscheinen soll, den \LaTeX-Befehl 
   \texttt{\textbackslash{includegraphics}\{candeza1.eps\}}
   ein\footnote{Hier muss man beachten, an der Stelle, von wo aus man die
-  \emph{eps}-Datei einlesen will, nicht (versehentlich) auch eine 'gleichnamige'
-  \emph{pdf}-Datei abgelegt zu haben. In diesem Fall lädt
+  \textit{eps}-Datei einlesen will, nicht (versehentlich) auch eine 'gleichnamige'
+  \textit{pdf}-Datei abgelegt zu haben. In diesem Fall lädt
   \texttt{includegraphix} nämlich letztere. Und das wird im \LaTeX-Dokument zu
   unerwarteten Seitenumbrüchen führen, nach deren Ursache man u.U. lange sucht.
   }.
@@ -211,18 +211,18 @@ dazu auch][94]{Noack2013a}:
 Diese Umstände müssen -- wenigstens den Musikwissenschaftler -- enttäuschen:
 Wenn man zuletzt doch eine Graphik einbindet, die man mit einem externen Tool
 erstellt hat, warum sollte man sich dann die Mühe antun, zwecks Erstellung einer
-Graphik zuerst \emph{PMX} zu lernen, wo es doch so viele gute Notenprogramme
+Graphik zuerst \textit{PMX} zu lernen, wo es doch so viele gute Notenprogramme
 gibt, die ihre Daten auch als Postscript- oder PDF-Datei
-exportieren?\footnote{Zu Erinnerung: \emph{ABC} geht implizit genauso vor.
-Insofern träfe dieses Argument eben auch \emph{ABC}. Allerdings punktet
-\emph{ABC} durch seine vielen Konverter und Tools und durch seine lange
+exportieren?\footnote{Zu Erinnerung: \textit{ABC} geht implizit genauso vor.
+Insofern träfe dieses Argument eben auch \textit{ABC}. Allerdings punktet
+\textit{ABC} durch seine vielen Konverter und Tools und durch seine lange
 Tradition.} Das könnte doch nur dann sinnvoll sein, wenn man wenigstens auf die
 gestalterischen Vorzüge und Freiheiten von MusiX\TeX\ zugreifen könnte. Aber
 nicht einmal das ist ja der Fall -- wie wir gleich sehen werden.
 
 Zunächst müssen wir aber der Wahrheit Genüge tun und darauf hinweisen, dass der
-Autor des \emph{PMX}-Tutorials sehr wohl um die Irritationen in Sachen \emph{PMX
-/ MusiX\TeX}\ und \emph{\LaTeX}\ weiß, ja mehr noch, dass er sie auch nicht
+Autor des \textit{PMX}-Tutorials sehr wohl um die Irritationen in Sachen \textit{PMX
+/ MusiX\TeX}\ und \textit{\LaTeX}\ weiß, ja mehr noch, dass er sie auch nicht
 verschweigt: Beide Ansätze würden  -- obwohl sie auf \TeX\ beruhen --
 konkurrierend und überschneidend das Layout gestalten und viel Spezialbefehle
 zueinander inkompatibel definieren\footcite[vgl.][93]{Noack2013a}. Und so kommt
@@ -235,7 +235,7 @@ been any serious efforts to provide a truly merged version of \LaTeX\ with
 PMX.}\footnote{\cite[vgl.][93f]{Noack2013a}. Man muss an dieser Stelle auch
 im Kopf behalten, dass PMX nicht für die Nutzung in \LaTeX\ entwickelt worden ist.
 Es ging den Entwicklern darum, besser und einfacher qualitativ hochwertige
-Notenblätter zu erzeugen. Und für diesen Zweck ist die Lösung \emph{PMX
+Notenblätter zu erzeugen. Und für diesen Zweck ist die Lösung \textit{PMX
 / MusiX\TeX} sehr wohl geeignet. Nur ist die Gestaltung solcher Blätter meist nicht
 Aufgabe von Musikwissenschaftlern.}
 }\end{quote}
@@ -243,51 +243,51 @@ Aufgabe von Musikwissenschaftlern.}
 \paragraph{\small Unzulänglichkeiten}$\;$ \\
 
 Die erste kleinere Unzulänglichkeit betrifft das Erscheinungsbild: Die
-Kadenz-III in der \emph{PMX}-Variante\footnote{$\rightarrow$ S.
+Kadenz-III in der \textit{PMX}-Variante\footnote{$\rightarrow$ S.
 \pageref{\cadlab{III}{PMX}}} wirkt optisch weniger klar als die
-\emph{MusiX\TeX}-Variante\footnote{$\rightarrow$ S.
+\textit{MusiX\TeX}-Variante\footnote{$\rightarrow$ S.
 \pageref{\cadlab{III}{MusiXTeX}}}. Dies liegt am 5/8-Takt. Der kann in eine 3er-
 und eine 2er Hälfte oder in eine 2er und eine 3er Hälfte aufgeteilt werden. Und
 das 3. Achtel der 3er-Hälfte kann auftaktisch gemeint sein. Die Entscheidungen,
-die \emph{PMX} -- sozusagen nach Schema F -- automatisch trifft, können solchen
+die \textit{PMX} -- sozusagen nach Schema F -- automatisch trifft, können solchen
 fallweisen Feinheiten natürlich nicht gerecht werden\footnote{Gelegentlich wird
 man diese allerdings auch für reine Geschmacksfragen halten dürfen.}.
 
 Die zweite Unzulänglichkeit betrifft die Methode, wie die Analysesymbole in den
-\emph{PMX}-Code eingettet werden: \emph{PMX} bietet zwar die Möglichkeit, Stücke
-auf \emph{PMX}-Level textuell zu kennzeichnen oder Texte über oder unter den
+\textit{PMX}-Code eingettet werden: \textit{PMX} bietet zwar die Möglichkeit, Stücke
+auf \textit{PMX}-Level textuell zu kennzeichnen oder Texte über oder unter den
 Systemen einzufügen\footcite[vgl.][61f]{Noack2013a}. Wenn es aber -- wie bei der
 Musikwissenschaft notwendig -- darum geht, Symbole und Texte graphisch variabel
-einzufügen, dann muss der \emph{PMX}-User auf \enquote{Inline \TeX\ commands}
+einzufügen, dann muss der \textit{PMX}-User auf \enquote{Inline \TeX\ commands}
 zurückgreifen, also unter den \LaTeX-Level auf den \TeX-Level
 'zurückfallen'\footcite[vgl.][76f]{Noack2013a}: die Nutzung einer vereinfachten
-\emph{PMX}-Syntax wird dann um den Preis einer komplizierten Texteingabe
+\textit{PMX}-Syntax wird dann um den Preis einer komplizierten Texteingabe
 erkauft\footnote{Weil \TeX\ 'zu' kompliziert war, wurde \LaTeX\ 'erfunden';
-und weil \emph{PMX} mit Text 'zu' kompliziert war, entstand \emph{M-Tx}
+und weil \textit{PMX} mit Text 'zu' kompliziert war, entstand \textit{M-Tx}
 (\cite[vgl.][\nopage wp]{CtanMtx2018a}) -- einschließlich eines
 Handbuches (\cite[vgl.][3ff]{Laurie2017a})}.
 
-Wirklich unzulänglich ist dabei jedoch das, \emph{was} eingebettet werden kann.
+Wirklich unzulänglich ist dabei jedoch das, \textit{was} eingebettet werden kann.
 Was schon bei den ABC-Lösungen galt\footnote{$\rightarrow$ S.
 \pageref{AppraisalABC}}, gilt auch hier: Aus der \LaTeX-Welt können weder hoch-
 und/oder tiefgestellte Kleinsymbole oder Sonderzeichen eingefügt werden, noch
 die Alterationszeichen $\sharp$, $\flat$ oder $\natural$ aus den Sonderzeichen -
 ganz zu schweigen von der Einbettung jener ausgefeilten Konstrukte, die das
-\emph{harmony}-Paket zur Verfügung stellt. Denn das Konvertierungstool
-\emph{pmxab}, das \emph{MusiX\TeX}-Code aus \emph{PMX}-Code ableitet, arbeitet
-ja noch außerhalb von \TeX. Und das Konvertierungsttool \emph{musixtex}
-versteht 'nur' \emph{Musix\TeX}-Code, nicht aber \LaTeX-Syntagmen.
+\textit{harmony}-Paket zur Verfügung stellt. Denn das Konvertierungstool
+\textit{pmxab}, das \textit{MusiX\TeX}-Code aus \textit{PMX}-Code ableitet, arbeitet
+ja noch außerhalb von \TeX. Und das Konvertierungsttool \textit{musixtex}
+versteht 'nur' \textit{Musix\TeX}-Code, nicht aber \LaTeX-Syntagmen.
 
 \subsubsection{\ldots und die kleine Lösung: Kadenz II}
 
 Trotz all dieser Nicklichkeiten kann es für den Musikwissenschaftler
 gelegentlich sehr wohl Sinn machen, im Kontext einer \LaTeX-Arbeit\footnote{mit
-inkludiertem MusiX\TeX-Package} auf \emph{PMX} zurückzugreifen: Wenn es nämlich
+inkludiertem MusiX\TeX-Package} auf \textit{PMX} zurückzugreifen: Wenn es nämlich
 gilt, viele längere Musikbeispiele zu verwenden, wird das manuelle Tippen des
 MusiX\TeX-Codes zu einer langwierigen, fehlerträchtigen Angelegenheit werden.
 
-Eine Lösung dafür bestünde darin, zuerst den reinen Notentext mit \emph{PMX} zu
-erstellen und dann mit \emph{pmxab} in MusiX\TeX-Code umzuwandeln. Danach griffe
+Eine Lösung dafür bestünde darin, zuerst den reinen Notentext mit \textit{PMX} zu
+erstellen und dann mit \textit{pmxab} in MusiX\TeX-Code umzuwandeln. Danach griffe
 man auf die Option zurück, -- wie im Tutorial als Möglichkeit angedeutet --
 \enquote{manuell} bestimmte Zeilen des automatisch generierten Codes
 auszukommentieren und so etwas zu erzeugen, was tatsächlich in die
@@ -296,9 +296,9 @@ kann\footcite[vgl.][94]{Noack2013a}. Dieses Verfahren wollen wir noch kurz
 vorführen:
 
 Wir wissen ja schon, dass wir die Symbole der Harmonieanalyse, die wir auf
-\emph{PMX}-Level erstellen könnten, bei einer Einbettung in einen \LaTeX-Code
+\textit{PMX}-Level erstellen könnten, bei einer Einbettung in einen \LaTeX-Code
 werden nicht verwenden können, eben weil es ja keine \LaTeX-Konstrukte sind,
-sondern \TeX-Syntagmen. Deshalb notieren wir diesmal auf \emph{PMX}-Level nur
+sondern \TeX-Syntagmen. Deshalb notieren wir diesmal auf \textit{PMX}-Level nur
 den Notentext. Das 'reine' PMX/MusiX\TeX-Verfahren\footnote{PMX-Code $\rightarrow$
 \texttt{pmxab} $\rightarrow$ Musix\TeX-Code $\rightarrow$ \texttt{musictex -g} 
 $\rightarrow$ PS-Code  $\rightarrow$ \texttt{ps2eps} $\rightarrow$ EPS-Graphik }
@@ -309,7 +309,7 @@ würde daraus die folgende Graphik erzeugen:
 \cad{II}{PMX}
 \end{center}
 
-Ausgegangen wird dabei von folgendem \emph{PMX}-Code:
+Ausgegangen wird dabei von folgendem \textit{PMX}-Code:
 
 \begin{verbatim}
 % PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -335,7 +335,7 @@ w130m
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  EOF 
 \end{verbatim}
 
-Lässt man diesen \emph{PMX}-Code von \texttt{pmxab} verarbeiten, entsteht ein
+Lässt man diesen \textit{PMX}-Code von \texttt{pmxab} verarbeiten, entsteht ein
 Musix\TeX-Code, bei dem man, will man ihn in die Musix\TeX-in-\LaTeX-Umgebung
 \verb|\begin{music} ... \end{music}| einbetten, noch  einige Zeilen
 auskommentieren und einige Werte ändern muss:
@@ -433,13 +433,13 @@ bloß mal eben Zeilen auszukommentieren, der Sachlage nicht gerecht wird: Damit
 obiger Code überhaupt kompilierbar wurde, mussten wir die Vorhaltsklammer im
 Bass aus dem Code herausnehmen, was dort unmittelbar zu einer ungewollten
 Oktavierung führte. Tatsächlich wird man -- falls man den MusiX\TeX-Code in
-seinen \LaTeX-Code einfügen will, den \texttt{pmxab} aus der \emph{pmx}-Datei
+seinen \LaTeX-Code einfügen will, den \texttt{pmxab} aus der \textit{pmx}-Datei
 erzeugt -- ein wenig 'Tuning'-Zeit einplanen müssen. Geht man diesen Weg, kann
 man nun allerdings auch die \LaTeX-basierten Elemente einer Harmonieanalyse
 darin verwenden. Man hat also in der Tat die gestalterische Freiheit auf
 \LaTeX-MusiX\TeX-Level gewonnen, ohne den komplexen und komplizierten
 MusiX\TeX-Code als Ganzes selbst entworfen haben zu müssen. Die Grundarbeit
-erledigt man auf \emph{PMX}-Level, die Feinheiten fügt man manuell ein:
+erledigt man auf \textit{PMX}-Level, die Feinheiten fügt man manuell ein:
 
 \vspace{0.7cm}
 \begin{music}%

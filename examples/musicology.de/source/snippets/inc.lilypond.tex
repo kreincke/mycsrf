@@ -19,7 +19,7 @@
 
 \subsection{Lilypond}
 
-\emph{LilyPond} möchte guten \enquote{Notensatz für jedermann} anbieten: Als
+\textit{LilyPond} möchte guten \enquote{Notensatz für jedermann} anbieten: Als
 elektronisches \enquote{Notensatzsystem} -- so das Entwicklungsteam -- wolle es
 \enquote{[\ldots] Notendruck in (bester) Qualität} ermöglichen, mithin
 \enquote{[\ldots] die Ästhetik handgestochenen traditionellen Notensatzes mit
@@ -30,11 +30,11 @@ welchen Konsequenzen sich daraus für ein Notensatzprogramm
 ergeben\footcite[vgl.][8ff]{LilyPond2018d}. Der daraus erwachsende Anspruch ist
 hoch:
 
-\begin{quote}\begin{em}
+\begin{quote}\begin{textit}
   \enquote{LilyPond wurde geschaffen, um die Probleme zu lösen, die wir in
   existierenden Programmen gefunden haben und um schöne Noten zu schaffen, die
   die besten handgestochenen Partituren imitieren.}\footcite[vgl.][2]{LilyPond2018d}
-\end{em}\end{quote}
+\end{textit}\end{quote}
 
 Wer die entsprechenden Techniken erfolgreich anwenden will, kann auf ein einfach
 strukturiertes Lerntutorial\footcite[vgl.][20ff]{LilyPond2018b} und ein kürzeres
@@ -42,44 +42,44 @@ Nutzungshandbuch\footcite[vgl.][1ff]{LilyPond2018e} zurückgreifen. Letztlich
 wird er sich allerdings auch das umfangreiche
 Notationshandbuch\footcite[vgl.][1ff]{LilyPond2018c} bereitlegen wollen.
 
-Wie die bisher diskutierten Systeme erwartet \emph{LilyPond}, dass man Code
+Wie die bisher diskutierten Systeme erwartet \textit{LilyPond}, dass man Code
 schreibt, keine Noten: Hier wie da ist der Texteditor das bevorzugte Werkzeug,
 um Musik im entsprechenden 'Dialekt' zu notieren. Trotzdem gibt es Unterschiede,
 die über die bloße Syntax hinausgehen:
 
 Die wichtigste Eigenart dürfte sein, dass Lilypond konsequent zwischen Musik und
-Druck unterscheidet: Wer in D-Dur ein \emph{fis} einfügen möchte, kann sich hier
+Druck unterscheidet: Wer in D-Dur ein \textit{fis} einfügen möchte, kann sich hier
 nicht auf die zu Beginn spezifizierte Tonart 'berufen', er muss trotzdem
 \texttt{fis} tippen, nicht \texttt{f}, und zwar an jeder Stelle, wo er
-\emph{fis} meint. Diese Abkehr von der musikalischen Tradition hat einen
+\textit{fis} meint. Diese Abkehr von der musikalischen Tradition hat einen
 gewichtigen Vorteil: Lilypond kann bei Alterationen die nötigen Vorzeichen
-automatisch setzen. In \emph{g-moll} erhält das \emph{fis} ein Kreuz, in D-Dur
+automatisch setzen. In \textit{g-moll} erhält das \textit{fis} ein Kreuz, in D-Dur
 nicht\footnote{\cite[vgl.][21]{LilyPond2018b}. In der Konsequenz wird man sich
 allerdings auch an -- wenigstens für Deutsche -- überraschende 'Töne' wie
 \texttt{bes}, \texttt{beses} oder \texttt{bis} gewöhnen müssen}.
 
-Die augenfälligste Besonderheit dürfte jedoch sein, dass \emph{LilyPond} seine
+Die augenfälligste Besonderheit dürfte jedoch sein, dass \textit{LilyPond} seine
 Elemente konsequent in einer 1:n-Beziehung anordnet: Das Notenheft besteht aus
 einem oder mehreren Stücken, das Stück besteht aus einem oder mehreren
 Notensystemen, ein Notensystem besteht aus einer oder mehrerer Stimmen, die
 Stimme kann solistisch oder akkordisch sein. Das Datenmodell ist mithin als
 Baum\footcite[vgl.][\nopage wp.]{WpedBaum2019a} ausgelegt. Und syntaktisch haben
 die Ebenen je eigene Markanten. Das macht das Lesen und Verstehen von
-\emph{LilyPond}-Code auf Dauer einfacher, es entsteht ein klarerer
+\textit{LilyPond}-Code auf Dauer einfacher, es entsteht ein klarerer
 Sourcetext\footcite[vgl.][40ff]{LilyPond2018b}.
 
 Systemisch gesehen hat LilyPond (heute) nichts (mehr) \LaTeX\ , MusiX\TeX\ oder
 \TeX\ zu tun: es nutzt seine eigene Eingabesprache und seine eigene Maschine zum
 Erzeugen des Notenbildes: Als \enquote{Standardausgabeformat} -- heißt es --
-seien \emph{PDF}\footnote{Portable Document Format} und
-\emph{PS}\footnote{Postscript} gesetzt; außerdem könnten
-\emph{SVG\footnote{Scalable Vector Graphics}-}, \emph{EPS\footnote{Encapsulated
-PostScript}-} und \emph{PNG\footnote{Portable Network Graphics}-}Dateien erzeugt
+seien \textit{PDF}\footnote{Portable Document Format} und
+\textit{PS}\footnote{Postscript} gesetzt; außerdem könnten
+\textit{SVG\footnote{Scalable Vector Graphics}-}, \textit{EPS\footnote{Encapsulated
+PostScript}-} und \textit{PNG\footnote{Portable Network Graphics}-}Dateien erzeugt
 werden\footcite[vgl.][481]{LilyPond2018c}.
 
 \subsubsection{Technische Voraussetzungen}
 
-\emph{LilyPond} sagt selbst, dass man Notenbeispiele in Form von Graphiken auch
+\textit{LilyPond} sagt selbst, dass man Notenbeispiele in Form von Graphiken auch
 manuell in den \LaTeX-Text einfügen könne, einfach indem man -- zuerst und
 unabhängig von \LaTeX -- die Graphiken mit \texttt{lilypond} erzeuge und sie
 danach mit \LaTeX-Mitteln einbinde\footcite[vgl.][20]{LilyPond2018e}. Bei vielen
@@ -87,9 +87,9 @@ Notenbeispielen kann das allerdings aufwendig werden, insbesondere, wenn man
 manuell die Länge der Notenzeilen und die Graphikbreite auf die gewünschte
 Zeilenlänge des Dokumentes ausrichten muss.
 
-Deshalb bietet \emph{LilyPond} nicht nur das Tool \texttt{lilypond} zur
+Deshalb bietet \textit{LilyPond} nicht nur das Tool \texttt{lilypond} zur
 Erzeugung ganzer Notenblätter in den genannten Formaten an\footnote{samt aller
-anderen Outputformate wie \emph{midi} u.Ä.m.}, sondern auch das Tool
+anderen Outputformate wie \textit{midi} u.Ä.m.}, sondern auch das Tool
 \texttt{lilypond-book}: dieses \enquote{automatisiert} die manuelle Integration,
 indem es die \enquote{[\ldots] Musik-Schnipsel aus Ihrem Dokument (extrahiert),
 [\ldots] \texttt{lilypond} (aufruft) und [\ldots] die resultierenden Bilder in
@@ -98,21 +98,21 @@ Schriftgröße dabei [automatisch] (dem) Dokument
 (anpasst}\footcite[vgl.][20]{LilyPond2018e}.
 
 Daraus folgt sofort, dass man auch hier einiges vorzubereiten hat, wenn man
-\emph{LilyPond} erfolgreich verwenden will:
+\textit{LilyPond} erfolgreich verwenden will:
 
-$\RHD$ Zunächst muss man -- ganz unabhängig von \LaTeX\ -- \emph{LilyPond}
+$\RHD$ Zunächst muss man -- ganz unabhängig von \LaTeX\ -- \textit{LilyPond}
 installieren\footnote{Unter Ubuntu: \texttt{sudo apt-get lilypond
 lilypond-data}}. Dieses Paket stellt dann auch \texttt{lilypond-book} bereit.
   
-$\RHD$ Im Gegensatz zu \emph{ABC} oder \emph{MusiX\TeX} ist es
+$\RHD$ Im Gegensatz zu \textit{ABC} oder \textit{MusiX\TeX} ist es
 \texttt{lilypond-book} nicht notwendig, ein Paket in die \LaTeX-Präambel
 einzubinden. Denn \texttt{lilypond-book} muss immer zuerst und unabhängig von
 \LaTeX\ aufgerufen werden: Es generiert erst den eigentlichen \LaTeX-Code, der
-dann keine \emph{LilyPond}-Sektionen mehr enthält. Also kann man -- direkt nach
-der Installation -- den \emph{LilyPond}-Quelltext eines jeden Notenbeispiels in
+dann keine \textit{LilyPond}-Sektionen mehr enthält. Also kann man -- direkt nach
+der Installation -- den \textit{LilyPond}-Quelltext eines jeden Notenbeispiels in
 je einer eigenen (virtuellen) Umgebung \verb|\begin{lilypond}...\end{lilypond}|
 editieren. Virtuell sind diese Umgebungen insofern, als \LaTeX\ ja nichts von
-\emph{LilyPond} weiß.
+\textit{LilyPond} weiß.
 
 $\RHD$ Schließlich muss man noch organisieren, dass den eigentlichen
 \LaTeX-Durchgängen zur Generierung der PDFs ein \texttt{lilypond-book}-Aufruf
@@ -122,13 +122,13 @@ Leider steckt der Teufel dabei -- wie so oft -- im Detail:
 
 \label{LilyPondGraphics}\texttt{lilypond-book} nimmt eine -- wie wir jetzt
 wissen -- gewissermaßen 'unechte' \LaTeX-Datei, die noch
-\emph{lilypond}-Sektionen enthält, und erzeugt die entsprechenden Graphiken,
-bevor es die \emph{lilypond}-Sektionen durch die korrespondierenden
+\textit{lilypond}-Sektionen enthält, und erzeugt die entsprechenden Graphiken,
+bevor es die \textit{lilypond}-Sektionen durch die korrespondierenden
 'include-Graphik'-Befehle auf \LaTeX-Ebene ersetzt. Das ist der Grund, warum
 \texttt{lilypond-book} immer als erstes prozessiert werden muss.
 
 Ruft man \texttt{lilypond-book} ohne weitere Parameter für eine ('unechte')
-\LaTeX-Datei mit der Extension \emph{.tex} auf, beschwert es sich, dass es seine
+\LaTeX-Datei mit der Extension \textit{.tex} auf, beschwert es sich, dass es seine
 Inputdatei überschreiben müsste und verweigert die Weiterarbeit. Dies wird
 gelöst, indem man es mit der Option \texttt{--out IHRDIR} aufruft. Dann erzeugt
 \texttt{lilypond-book} einen Ordner des mitgegebenen Namens und sammelt darin
@@ -138,8 +138,8 @@ Unglücklicherweise muss man \texttt{lilypond-book} dabei ein wenig unter die Ar
 greifen:
 
 Tatsächlich evaluiert und bearbeitet \texttt{lilypond-book} zwar sehr
-erfolgreich alle Dateien mit der Extension \emph{.tex}, insbesondere auch die,
-die per \emph{input}-Befehl in die Hauptdatei eingebunden worden sind. Die
+erfolgreich alle Dateien mit der Extension \textit{.tex}, insbesondere auch die,
+die per \textit{input}-Befehl in die Hauptdatei eingebunden worden sind. Die
 Aufteilung eines LaTeX-Textes in mehrere Snippets bedeutet für
 \texttt{lilypond-book} kein Problem. Und \texttt{lilypond-book} kopiert auch
 alle gefundenen Daten -- ggfls. überarbeitet -- korrekt in den Arbeitsordner,
@@ -150,7 +150,7 @@ in den Blick von \texttt{lilypond-book} geraten und die es darum auch nicht mit
 in den Arbeitsordner übernimmt. Trotzdem werden natürlich auch diese Dateien
 innerhalb des Arbeitsordners benötigt, wenn man dort erfolgreich einen
 \LaTeX-Lauf starten will. Prominentestes Beispiel für solche Dateien sind die
-\emph{bib-Files} und ausgelagerte Konfigurationsdateien.
+\textit{bib-Files} und ausgelagerte Konfigurationsdateien.
 
 Deshalb muss der \LaTeX-User als Nutzer von \texttt{lilypond-book} -- sozusagen
 manuell -- die fehlenden Dateien in den von \texttt{lilypond-book} erzeugten
@@ -191,13 +191,13 @@ prod:
 
 Und damit können die Früchte der Vorarbeit geerntet werden: Es ist bereits
 absehbar, dass die eigentliche Herausforderung zuletzt nicht mehr die Nutzung
-von \emph{LilyPond} als solches sein wird, sondern die Einbindung jener Symbole in
+von \textit{LilyPond} als solches sein wird, sondern die Einbindung jener Symbole in
 den Notentext, die für den Musikwissenschaftler so wichtig sind. Und es ist an
 dieser Stelle auch gewiss, dass man dabei nicht auf die \LaTeX-Sonderzeichen
-oder die \emph{harmony}-Konstrukte wird zurückgreifen können: \emph{LilyPond}
+oder die \textit{harmony}-Konstrukte wird zurückgreifen können: \textit{LilyPond}
 arbeitet \LaTeX-unabhängig.
 
-\emph{LilyPond} bietet 3 Verfahren an, (echten) Text in die Noten zu integrieren:
+\textit{LilyPond} bietet 3 Verfahren an, (echten) Text in die Noten zu integrieren:
 
 \begin{enumerate}
   \item Man darf 'Liedtext' unter ein Notensystem setzen, wobei als Text dort
@@ -215,9 +215,9 @@ arbeitet \LaTeX-unabhängig.
 \end{enumerate}
 
 Die letztlich entscheidende Frage hinsichtlich der Verwendbarkeit von
-\emph{LilyPond} wird für den Musikwissenschaftler also sein, ob und wie gut man
-die Symbole der Harmonieanalyse, die \emph{harmony} bereitstellt, mit den
-Mitteln von \emph{LilyPond} nachbilden kann und welcher Aufwand dabei entsteht.
+\textit{LilyPond} wird für den Musikwissenschaftler also sein, ob und wie gut man
+die Symbole der Harmonieanalyse, die \textit{harmony} bereitstellt, mit den
+Mitteln von \textit{LilyPond} nachbilden kann und welcher Aufwand dabei entsteht.
 
 Aber gehen wir diese Dinge der Reihe nach durch, beginnend -- wie kaum anders zu
 erwarten -- mit der einzeiligen
@@ -305,7 +305,7 @@ so aus:
 \end{verbatim}
 
 An diesem Code erkennt man gut die systematische 1:n-Struktur eines
-\emph{LilyPond}-Quelltextes: Der \texttt{score} hat eine Stimme
+\textit{LilyPond}-Quelltextes: Der \texttt{score} hat eine Stimme
 (\texttt{staff}). All ihre Noten beziehen sich sich auf \texttt{c'}. Und sie hat
 vier Abschnitte, nämlich drei Akkorde \texttt{< \ldots\ >}, gefolgt von einer
 strukturierten Einheit. Dieser Komplex besteht seinerseits aus zwei Teilen, die
@@ -319,22 +319,22 @@ etwas tun müssen.
 
 \subsubsection{Kadenz II}
 
-\emph{LilyPond} ist nicht nur 'waschechte' \emph{Open-Source-Software}, sondern
+\textit{LilyPond} ist nicht nur 'waschechte' \textit{Open-Source-Software}, sondern
 kommt zudem mit einer Erweiterungssprache daher\footcite[vgl. dazu][\nopage
 wp]{WpedGuile2019a}. Diese zu nutzen, um die Möglichkeiten vom \LaTeX-Paket
-\emph{harmony} nachzubilden, artet jedoch in echte Programmierarbeit aus und
+\textit{harmony} nachzubilden, artet jedoch in echte Programmierarbeit aus und
 dürfte einem Musikwissenschaftler kaum mehr zuzumiten sein - wohl aber denen,
 der in beiden Welten zuhause ist, also uns.
 
-Wir haben deshalb begonnen, eine kleine \emph{LilyPond}-Library zu entwickeln,
-die man einfach in seine \emph{LilyPond}-Datei mit dem Befehl
+Wir haben deshalb begonnen, eine kleine \textit{LilyPond}-Library zu entwickeln,
+die man einfach in seine \textit{LilyPond}-Datei mit dem Befehl
 \texttt{\textbackslash{include}} hinzulädt. Danach kann man die entsprechende
 Symbole der Harmonieanalyse in seinen Notentext hinzufügen. Unsere aktuelle
 stabile Version liefert folgendes -- sicher noch nicht ganz optimales --
 Ergebnis\footnote{Die Einschränkungen werden aber nicht so bleiben! Z.Zt.
 benötigen wir noch \ldots
 \begin{itemize}
-  \item die Möglichkeit, innerhalb des \emph{LilyPond}-Markups Zeichen
+  \item die Möglichkeit, innerhalb des \textit{LilyPond}-Markups Zeichen
   übereinander zu schreiben, um Symbole für die Doppeldominante, die
   Doppelsubdominante und für das Fehlen von etwas ('Schräge Durchstreichung')
   generieren zu können. Ohne eine solche Kennzeichnung bleibt die
@@ -347,7 +347,7 @@ benötigen wir noch \ldots
   hinein.
   \item die Möglichkeit, die hochgestellten Akkordzahlen näher an das
   Grundsymbol heranzurücken, um Zusammenhänge optisch zu verdeutlichen.
-  \item die \emph{Guile-} resp. \emph{LilyPond}-Techniken zum Refactoring,
+  \item die \textit{Guile-} resp. \textit{LilyPond}-Techniken zum Refactoring,
   sodass derselbe Code nicht mehrfach in der Bibliothek auftauchen muss, sondern
   einmal programmiert und ansonsten wiederverwendet wird.
 \end{itemize}}:
@@ -412,7 +412,7 @@ benötigen wir noch \ldots
 \end{center}
 
 Mit Rückgriff auf diese kleine Zusatzbibliothek sähe der entsprechende
-\emph{Lilypond}-Code so aus:
+\textit{Lilypond}-Code so aus:
 \begin{verbatim}
 \begin{lilypond}
 \version "2.18.2"
@@ -473,7 +473,7 @@ Mit Rückgriff auf diese kleine Zusatzbibliothek sähe der entsprechende
 
 \subsubsection{Kadenz III}
 
-Und so fehlt noch die dritte Kadenz in der Version, die \emph{LilyPond} heute -- also
+Und so fehlt noch die dritte Kadenz in der Version, die \textit{LilyPond} heute -- also
 noch mit einigen Einschränkungen -- erzeugen kann:
 
 \begin{lilypond}
@@ -583,17 +583,17 @@ Für diese ist folgender Quellcode zuständig:
 
 \subsubsection{Bewertung}
 
-Vergleicht man das 'Druckbild' von Noten, die \emph{LilyPond} erzeugt, mit
+Vergleicht man das 'Druckbild' von Noten, die \textit{LilyPond} erzeugt, mit
 denen, die MusiX\TeX\ im Verbund mit \LaTeX\ generiert, dann fällt in der Tat auf,
-dass die \emph{LilyPond}-Noten irgendwie 'weicher' und 'dichter' sind:
-\emph{LilyPond} hat seine selbst gesetzte Aufgabe offensichtlich
+dass die \textit{LilyPond}-Noten irgendwie 'weicher' und 'dichter' sind:
+\textit{LilyPond} hat seine selbst gesetzte Aufgabe offensichtlich
 erfüllt\footcite[vgl.][8ff]{LilyPond2018d}.
 
-Musikwissenschaftler werden gut mit \emph{LilyPond} 'klarkommen': diese
+Musikwissenschaftler werden gut mit \textit{LilyPond} 'klarkommen': diese
 Notationsweise zu lernen, ist einfach, sie anzuwenden leicht. In dieser Hinsicht
-bietet \emph{LilyPond} mehr als MusiX\TeX. Wenn es allerdings um die Integration
+bietet \textit{LilyPond} mehr als MusiX\TeX. Wenn es allerdings um die Integration
 von Symbolen der Harmonieanalyse in den Notentext geht, so liefert die
-Verbindung von \LaTeX, MusiX\TeX\ und das Paket \emph{harmony} \underline{noch} die
+Verbindung von \LaTeX, MusiX\TeX\ und das Paket \textit{harmony} \underline{noch} die
 saubereren Ergebnisse.
 
 

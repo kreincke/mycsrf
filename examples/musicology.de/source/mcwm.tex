@@ -122,6 +122,8 @@
 \usepackage{abc}
 \usepackage{musixtex}
 \usepackage{graphicx,color}
+\usepackage{tabulary}
+\usepackage{ulem}
 
 %\usepackage{bigfoot}
 \usepackage{verbatimbox}
@@ -152,7 +154,7 @@
 \nocite{*}
 
 %%-- start(titlepage)
-\titlehead{\emph{mycsrf} und Musik}
+\titlehead{\textit{mycsrf} und Musik}
 \subject{Release \input{inc.rel.tex}}
 \title{Musikwissenschaft mit \LaTeX}
 \subtitle{Wie man Musikbeispiele (mit Open-Source-Tools) 
@@ -175,7 +177,7 @@ in wissenschaftliche Texte integriert.\\
 
 \section{Leichtgewichtige Teillösungen}
 
-Selbstverständlich wird sich zuletzt herausstellen, dass adäquate Systeme zur
+\sout {Selbstverständlich} wird sich zuletzt herausstellen, dass adäquate Systeme zur
 Erfassung von Musik i.d.R. eine gewisse Komplexität und ein sperrigeres Handling
 mitbringen. Das liegt in der Natur der Sache: Musik ist eben (meistens)
 zweidimensional. Das hat einige Autoren ermutigt, wenigstens für Teilaufgaben
@@ -209,25 +211,54 @@ komprimieren.
 
 \section{Tools}
 
+Abgesehen von der letzten Variante, werden bei den hier diskutierten Methoden
+die Noten zuletzt textbasiert codiert: um zu komponieren oder zu arrangieren
+benötigt man einen Texteditor. Das ist nicht das, was man unter einem
+musikerfreundlichen Programm verstehen würde. Die Sprache der Musiker sind
+Noten, keine mehr oder minder kryptischen Syntagmen. Und so gibt es denn auch
+eine Reihe von graphischen Programmen, bei denen der Musiker Noten schreibt,
+nicht Text.
+
+Damit darf man fragen, ob und wie man Opensource-Notensatzprogramme dazu nutzen
+kann, den zuletzt im \LaTeX-Dokument benötigten Code aus dem abzuleiten, was man
+in und mit diesen Programmen graphisch eingegeben hat. Diese Frage ist im
+Einzelfall -- und nicht nur für Opensourceprogramme -- einfach zu beantworten: 
+
+\begin{itemize}
+\item Zum einen muss man überprüfen, ob es das Programm erlaubt, den Inhalt in
+einem der benötigten Formate zu speichern.
+\item Und zum anderen muss man testen, ob das Programm den Inhalt auch
+hinreichend 'verlustfrei' exportiert.
+\end{itemize}
+
+Dem werden wir nachgehen. Allerdings wollen wir noch etwas vorausschicken:
+
+Notensatzprogramme nutzen meist ein natives Dateiformat und exportieren ihren
+Inhalt ggfls. in Fremdformate. Sie agieren implizit als Konverter. Daneben gibt es
+noch eine Reihe von expliziten Konvertern, die eine Datei in dem einen Format
+einlesen und in einem anderen wieder abspeichern. 
+
+Sollte also ein Notensatzprogramm von sich aus das eine oder andere der in
+unserem Kontext benötigten Formate nicht oder nur unzureichend exportieren,
+bliebe immer noch die Möglichkeit, einen expliziten Konverter
+zwischenzuschalten. Zu wissen, welche expliziten Konverter es (in welcher
+Qualität) gibt, könnte mithin die Anzahl der gut zu nutzenden Notensatzprogramme
+erhöhen\footnote{Wollte man diesem Gedanken in letzter Konsequenz nachgehen,
+müsste man zunächst eine Liste aller Notationsformate erstellen und dann nach
+Konvertern suchen, die diese 'anderen' auf die Formate \textit{ABC},
+\textit{Musix\TeX}, \textit{PMX} oder \textit{LilyPond} abbilden. Das kann beliebig
+komplex werden. Wir konzentrieren uns hier auf die freie Software. Formate, die
+proprietäre Programme verwenden, geraten also gar nicht erst in unseren Blick.
+Von daher würde eine Übersicht der Konverter, die wir erstellen, niemals alle
+Wege abdecken. Insofern erlauben wir uns, die Konverter 'nur' kursorisch zu
+sichten.}.
 
 
-\emph{harmony}.
-\subsection{Frontends}
 
-\subsubsection{Denemo}
-\subsubsection{Elysium (Eclipse)}
-\subsubsection{Frescobaldi}
-\subsubsection{Rosegarden}
 
-\subsection{musescore2}
-\subsection{canorus}
-\subsection{nted}
-\subsection{notedit}
-\subsection{muX2d}
+\input{snippets/inc.converter.tex}
 
-\subsection{Converter}
-\subsubsection{musicxml2ly}
-\subsubsection{mc2mt}
+\input{snippets/inc.frontends.tex}
 
 \subsection{Kombinationsarchitektur}
 
