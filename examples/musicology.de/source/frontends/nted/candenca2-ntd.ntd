@@ -1,0 +1,46 @@
+NTED version 24
+HEAD
+MEDIA A4
+ORIENTATION Portrait
+SPACEMENT 2.000000
+SCALE 50
+NUMERATOR 4
+DENOMINATOR 2
+TIMESIG_SYMBOL 0
+TEMPOINVERSE 500
+UPBEAT_INVERSE 0
+MEASURE_NUMBERS On
+STAFFS 2
+STAFF 0: NAME: 0 NAME_SHORT_NAME: 0 GROUP_NAME: 0 GROUP_SHORT_NAME: 0  KEY: 2 CLEF: TREBLE 0 CHANNEL: 0 DIFFERENT: Off VOL: 64 64 64 64 MIDIPGM: 0 0 0 0 PAN: 64 64 64 64 CHORUS: 20 REVERB: 20 FLAGS: 9
+PLAY_TRANSPOSED: 0
+STAFF 1: NAME: 0 NAME_SHORT_NAME: 0 GROUP_NAME: 5 Piano
+GROUP_SHORT_NAME: 0  KEY: 2 CLEF: BASS 0 CHANNEL: 1 DIFFERENT: Off VOL: 64 64 64 64 MIDIPGM: 1 0 0 0 PAN: 64 64 64 64 CHORUS: 20 REVERB: 20 FLAGS: 2
+PLAY_TRANSPOSED: 0
+SPEC_MEASURES
+( 3 END_BAR HIDE_FOLLOWING )
+MUSIC
+PAGE 0
+SYSTEM 0: 4 MEASURES
+MEASURE: 1 2.000000
+MEASURE: 2 2.000000
+MEASURE: 3 2.000000
+MEASURE: 4 2.000000
+STAFF 0
+VOICE 0
+(nu 256, 1  { _1  , _6  } [ T  ] )(nu 256, 1  { _1  , #6  } [ (D7)  ] )(nd 256, 0  { _4  , _7  } [ Sp7  ] )(nd 256, 0  { _4  , #7  } [ D79  ] )(nd 256, 0  { _4  , _8  } )(nd 256, 0  { _7  , _9  } )(nd 256, 0  { _7  , _10  } )(nd 256, 0  { _8  , _10  } )(r 512, 0 )(r 512, 0 )
+VOICE 1
+(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )
+VOICE 2
+(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )
+VOICE 3
+(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )
+STAFF 1
+VOICE 0
+(nd 256, 0  { _4  , _8  } )(nd 256, 0  { _2  , _8  } )(nd 256, 0  { _4  , _7  } )(nd 256, 0  { _3  , _7  } )(<1>nd 256, 0  { _4  , _6  } )(<2>nu 256, 1  { _2  , _4  } )(<3>nu 128, 1  { _1  , _4  } )(<4>nu 128, 1  { _1  , _3  } )(<5>nu 256, 1  { _-3  , _4  } )(r 512, 0 )(r 512, 0 )
+FREE_PLACEABLES ( < 1 -0.143880 -0.991647 > FREE_TEXT 2 Tp 4 Sans 0.500000 0 64 0 120 0 -1 0 1 1 0 0  ) ( < 2 -0.133762 -1.015176 > FREE_TEXT 3 DD7 4 Sans 0.500000 0 64 0 120 0 -1 0 1 1 0 0  ) ( < 3 -0.065102 -1.038706 > FREE_TEXT 4 D4-3 4 Sans 0.500000 0 64 0 120 0 -1 0 1 1 0 0  ) ( < 3 0.099604 -0.231647 >  SLUR  3 0.452545 -0.584588 4 -0.231737 -0.137529 ) ( < 5 -0.033384 -0.944588 > FREE_TEXT 1 T 4 Sans 0.500000 0 64 0 120 0 -1 0 1 1 0 0  ) 
+VOICE 1
+(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )
+VOICE 2
+(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )
+VOICE 3
+(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )

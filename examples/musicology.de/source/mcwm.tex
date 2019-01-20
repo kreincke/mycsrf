@@ -148,6 +148,8 @@
 }
 \newcommand{\pnotes}[1]{\notes}
 
+\newcommand{\acc}[0]{\textit}
+
 \begin{document}
 
 %% use all entries of the bliography
@@ -159,7 +161,7 @@
 \title{Musikwissenschaft mit \LaTeX}
 \subtitle{Wie man Musikbeispiele (mit Open-Source-Tools) 
 in wissenschaftliche Texte integriert.\\
-{\small Ein selbstreferentielles Tutorial}}
+{\small Eine selbstreferentielle Anleitung}}
 \author{Karsten Reincke\input{cfg/inc.license-fn.tex}}
 
 %thanks entry cannot be combined with license footnote
@@ -167,6 +169,8 @@ in wissenschaftliche Texte integriert.\\
 
 \maketitle
 %%-- end(titlepage)
+
+\input{snippets/inc.vorwort.tex}
 
 \footnotesize
 \tableofcontents
@@ -195,9 +199,9 @@ komprimieren.
 
 \input{snippets/inc.harmony.tex}
 
-\input{snippets/inc.texmuse.tex}
-
 \section{Komplexe Notationssysteme.tex}
+
+\input{snippets/inc.texmuse.tex}
 
 \input{snippets/inc.abc.tex}
 
@@ -213,8 +217,8 @@ komprimieren.
 
 Abgesehen von der letzten Variante, werden bei den hier diskutierten Methoden
 die Noten zuletzt textbasiert codiert: um zu komponieren oder zu arrangieren
-benötigt man einen Texteditor. Das ist nicht das, was man unter einem
-musikerfreundlichen Programm verstehen würde. Die Sprache der Musiker sind
+benötigt man einen Texteditor. Das ist nicht das, was man unter einer
+musikerfreundlichen Umgebung verstehen würde. Die Sprache der Musiker sind
 Noten, keine mehr oder minder kryptischen Syntagmen. Und so gibt es denn auch
 eine Reihe von graphischen Programmen, bei denen der Musiker Noten schreibt,
 nicht Text.
@@ -264,7 +268,7 @@ sichten.}.
 
 \section{Fazit}
 
-
+\input{snippets/inc.appendices.tex}
 % insert the nomenclature here
 
 \input{bib/ncl.abbreviations.tex}

@@ -1,0 +1,48 @@
+NTED version 24
+HEAD
+MEDIA A4
+ORIENTATION Portrait
+SPACEMENT 2.000000
+SCALE 50
+NUMERATOR 4
+DENOMINATOR 2
+TIMESIG_SYMBOL 0
+TEMPOINVERSE 500
+UPBEAT_INVERSE 0
+MEASURE_NUMBERS On
+STAFFS 2
+STAFF 0: NAME: 0 NAME_SHORT_NAME: 0 GROUP_NAME: 0 GROUP_SHORT_NAME: 0  KEY: 2 CLEF: TREBLE 0 CHANNEL: 0 DIFFERENT: Off VOL: 64 64 64 64 MIDIPGM: 0 0 0 0 PAN: 64 64 64 64 CHORUS: 20 REVERB: 20 FLAGS: 9
+PLAY_TRANSPOSED: 0
+STAFF 1: NAME: 0 NAME_SHORT_NAME: 0 GROUP_NAME: 5 Piano
+GROUP_SHORT_NAME: 0  KEY: 2 CLEF: BASS 0 CHANNEL: 1 DIFFERENT: Off VOL: 64 64 64 64 MIDIPGM: 1 0 0 0 PAN: 64 64 64 64 CHORUS: 20 REVERB: 20 FLAGS: 2
+PLAY_TRANSPOSED: 0
+SPEC_MEASURES
+( 3 END_BAR HIDE_FOLLOWING )
+MUSIC
+PAGE 0
+SYSTEM 0: 6 MEASURES
+MEASURE: 1 2.000000
+MEASURE: 2 2.000000
+MEASURE: 3 2.000000
+MEASURE: 4 2.000000
+MEASURE: 5 2.000000
+MEASURE: 6 2.000000
+STAFF 0
+VOICE 0
+(nu 256, 1  { _1  , _6  } )(nu 256, 1  { _1  , #6  } )(nd 256, 0  { _4  , _7  } )(nd 256, 0  { _4  , #7  } )(nd 256, 0  { _4  , _8  } )(nd 256, 0  { _7  , _9  } )(nd 256, 0  { _7  , _10  } )(nd 256, 0  { _8  , _10  } )(r 512, 0 )(r 512, 0 )(r 512, 0 )(r 512, 0 )
+VOICE 1
+(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )
+VOICE 2
+(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )
+VOICE 3
+(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )
+STAFF 1
+VOICE 0
+(nd 256, 0  { _4  , _8  } )(nd 256, 0  { _2  , _8  } )(nd 256, 0  { _4  , _7  } )(nd 256, 0  { _3  , _7  } )(nd 256, 0  { _4  , _6  } )(nu 256, 1  { _2  , _4  } )(<1>nu 128, 1  { _1  , _4  } )(<2>nu 128, 1  { _1  , _3  } )(nu 256, 1  { _-3  , _4  } )(r 512, 0 )(r 512, 0 )(r 512, 0 )(r 512, 0 )
+FREE_PLACEABLES ( < 1 0.102379 -0.174824 >  SLUR  1 0.455320 -0.739529 2 -0.111079 -0.104235 ) 
+VOICE 1
+(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )
+VOICE 2
+(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )
+VOICE 3
+(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )(rh 512, 0 )

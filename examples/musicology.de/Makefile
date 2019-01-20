@@ -23,6 +23,7 @@ prod:	clear
 	# (4) ensure that also the missed files can be found in the final working directory
 	@ cp -rd ${SRCD}/bib/* ${ISWD}/bib/
 	@ cp -rd ${SRCD}/cfg/* ${ISWD}/cfg/
+	@ cp -rd ${SRCD}/frontends/ ${ISWD}/
 	@ cp ${SRCD}/inc.rel.tex ${ISWD}/
 	@ cp ${SRCD}/Makefile ${ISWD}/
 	( cd ${ISWD} && make mcwm.pdf && mv *.pdf ../ )
