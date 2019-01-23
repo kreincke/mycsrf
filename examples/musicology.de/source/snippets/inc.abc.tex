@@ -54,7 +54,7 @@ Trotz aller Einfachheit bedarf es zur erfolgreichen Nutzung der ABC-Notation
 in und mit einer \LaTeX-Datei einiger systemischen Vorbereitungen:
 
 $\RHD$ Zunächst muss -- ganz unabhängig von \LaTeX\ -- das Tool \textit{abcm2ps}
-installiert werden\footnote{Unter Ubuntu: \texttt{sudo apt-get apcm2ps}}. Es
+installiert werden\footnote{Unter Ubuntu: \texttt{sudo apt-get abcm2ps}}. Es
 wird genutzt, um die im  ersten Durchgang des PDF-Erzeugungsprozess aus der
 \LaTeX-Datei extrahierten \textit{ABC}-Daten in ein Postscriptbild
 umzuwandeln, das dann bei der nächsten Runde -- automatisiert -- anstelle des
@@ -83,7 +83,7 @@ will, aus Dateien ein, die vorhergehende erzeugt haben.
 Verwendet man das \textit{abc-LaTeX}-Paket generiert der erste Durchgang also
 nicht mehr nur die bibliographischen Hilfsdateien, sondern auch die
 korrespondierenden \textit{ABC}-Dateien, für die er anschließend das externe Tool
-\textit{apcm2ps} aufruft. Dies konvertiert die extrahierten Vorlagen dann
+\textit{abcm2ps} aufruft. Dies konvertiert die extrahierten Vorlagen dann
 seinerseits in Postscript- und PDF-Dateien. Und der nächste
 \LaTeX-Durchgang integriert dann diese erzeugten Dateien in das
 Gesamtwerk. Wie man das schlüssig automatisiert, zeigt das Makefile dieses
@@ -239,19 +239,20 @@ mehreren Stimmen, was die Mehrarbeit erträglich macht.
 }. Und das kompliziert das Handling deutlich.
 
 Schließlich bliebe zu erwähnen, dass das ABC-Verfahren sozusagen auf einer
-'kleinen Mogelei' beruht: es wird der Notentext ja nicht in (La)\TeX-Code
-verwandelt, sondern in ein Bild, das dann in den (La)\TeX-Code eingebunden
-wird\footnote{Die Stufen des Prozesses spiegeln sich in den Dateien, die anhand
-des Namensparameters gebildet werden: eine \textit{.abs}-Datei, die
-korrespondierenden Postscriptdateien \textit{.ps} und \textit{.eps} und die finale
-\textit{.pdf}-Datei.}. Und wie immer kann die Einbindung von externen Graphiken
-ungünstigenfalls zu einigen Irritationen hinsichtlich des Seitenumbruchs
-führen\footnote{Diese Idee ist natürlich nicht ehrenrührig, im Gegenteil: wir
-werden noch sehen, dass andere Methoden sie auch verwenden: LilyPondBook wäre
-ein Beispiel dafür, die manuelle Verbindung von PMX und Musix\TeX\ die andere.
-Und man darf daraus sofort auch folgern, dass man selbst ebenso vorgehen kann,
-um den Output ganz anderer Notensatzprogramme in seine \LaTeX-Code einzubinden.
-Wir werden die Einbindung von Graphiken deshalb auch ganz generell beschreiben.
+kleinen, aber auch von anderen gern genutzten 'Mogelei' beruht: es wird der
+Notentext ja nicht in (La)\TeX-Code verwandelt, sondern in ein Bild, das dann in
+den (La)\TeX-Code eingebunden wird\footnote{Die Stufen des Prozesses spiegeln
+sich in den Dateien, die anhand des Namensparameters gebildet werden: eine
+\textit{.abs}-Datei, die korrespondierenden Postscriptdateien \textit{.ps} und
+\textit{.eps} und die finale \textit{.pdf}-Datei.}. Und wie immer kann die
+Einbindung von externen Graphiken ungünstigenfalls zu einigen Irritationen
+hinsichtlich des Seitenumbruchs führen\footnote{Diese Idee ist natürlich nicht
+ehrenrührig, im Gegenteil: wir werden noch sehen, dass andere Methoden sie auch
+verwenden: LilyPondBook wäre ein Beispiel dafür, die manuelle Verbindung von PMX
+und Musix\TeX\ die andere. Und man darf daraus sofort auch folgern, dass man
+selbst ebenso vorgehen kann, um den Output ganz anderer Notensatzprogramme in
+seine \LaTeX-Code einzubinden. Wir werden die Einbindung von Graphiken deshalb
+auch ganz generell beschreiben.
 ($\rightarrow$ S. \pageref{IncludeGraphics})}.\label{AbcGraphics}
 
 Trotzdem bietet die \textit{ABC}-Notationsmethode ein technisch ausgereiftes

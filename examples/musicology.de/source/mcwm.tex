@@ -150,6 +150,10 @@
 
 \newcommand{\acc}[0]{\textit}
 
+
+
+
+
 \begin{document}
 
 %% use all entries of the bliography
@@ -181,15 +185,13 @@ in wissenschaftliche Texte integriert.\\
 
 \section{Leichtgewichtige Teillösungen}
 
-\sout {Selbstverständlich} wird sich zuletzt herausstellen, dass adäquate Systeme zur
-Erfassung von Musik i.d.R. eine gewisse Komplexität und ein sperrigeres Handling
-mitbringen. Das liegt in der Natur der Sache: Musik ist eben (meistens)
-zweidimensional. Das hat einige Autoren ermutigt, wenigstens für Teilaufgaben
-einfachere Lösungen zu entwickeln. Diesen werden wir zuerst nachgehen. Behalten
-wir aber im Hinterkopf: Komplexität ist wie Wasser, man kann es nicht
-komprimieren.
+Selbstverständlich wird sich zuletzt herausstellen, dass adäquate Systeme zur
+Erfassung von Musik i.d.R. eine gewisse Komplexität mitbringen. Das liegt in der
+Natur der Sache: Musik ist eben (meistens) zweidimensional. Das hat einige
+Autoren nicht entmutigt, wenigstens für Teilaufgaben einfachere Lösungen zu
+entwickeln. Diesen werden wir zuerst nachgehen. Behalten wir aber im Hinterkopf:
+Komplexität ist wie Wasser, man kann es nicht komprimieren.
 
-\subsection{Font-basierte Musikzeichen innerhalb von Textzeilen}
 
 \input{snippets/inc.sonderzeichen.tex}
 
@@ -258,11 +260,40 @@ Wege abdecken. Insofern erlauben wir uns, die Konverter 'nur' kursorisch zu
 sichten.}.
 
 
-
-
 \input{snippets/inc.converter.tex}
 
-\input{snippets/inc.frontends.tex}
+
+\subsection{Frontends}
+
+Eine umfangreiche Sichtung\footcite[vgl.][\nopage wp]{WpedNotensatz2019a} von
+Notensatzprogrammen listet die freien Frontends \textit{Aria Maestosa},
+\textit{Brahms}, \textit{Canorus}, \textit{Denemo}, \textit{Laborejo},
+\textit{Mup}, \textit{MuseScore}, \textit{NoteEdit}, \textit{NtEd},
+\textit{Rosegarden} auf. Außerdem findet man im Netz noch die Tools
+\textit{Frescobaldi}, \textit{muX2d} und \textit{Elysium/Eclipse}. \textit{Aria
+Maestosa}, \textit{Brahms} und \textit{Rosegarden} sind in erster Linie
+Sequenzer, \textit{Frescobaldi} und \textit{Elysium/Eclipse} bieten 'nur' eine
+textuelle Eingabeschnittstelle, machen das Ergebnis der Eingabe aber direkt als
+Bild sichtbar.
+ 
+Eine solche Fülle von Möglichkeiten fordert geradezu dazu auf, praktisch zu
+überprüfen, welche von ihnen den Anforderungen von Musikwissenschaftlern (am
+besten) gerecht werden. Deshalb werden wir -- entsprechend der Clusterung --
+überprüfen, wie diese Tools mit der Kadenz II umgehen können, in wie weit sie
+die Symbole der Harmonieanalyse aufzunehmen vermögen und ob sie diesen Inhalt in
+einem Format abspeichern können. 
+
+\subsubsection{Echte graphische Frontends}
+ 
+\input{snippets/inc.noteedit.tex} 
+ 
+\input{snippets/inc.nted.tex} 
+
+ \subsubsection{Textuelle Interface mit visuellem Output}
+
+ \subsubsection{Sequencer}
+ 
+ \subsubsection{Übersicht}
 
 \subsection{Kombinationsarchitektur}
 

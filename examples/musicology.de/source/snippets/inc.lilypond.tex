@@ -95,7 +95,7 @@ indem es die \enquote{[\ldots] Musik-Schnipsel aus Ihrem Dokument (extrahiert),
 [\ldots] \texttt{lilypond} (aufruft) und [\ldots] die resultierenden Bilder in
 Ihr Dokument (einfügt)}, wobei es \enquote{[\ldots] die Länge der Zeilen und die
 Schriftgröße dabei [automatisch] (dem) Dokument
-(anpasst}\footcite[vgl.][20]{LilyPond2018e}.
+(anpasst)}\footcite[vgl.][20]{LilyPond2018e}.
 
 Daraus folgt sofort, dass man auch hier einiges vorzubereiten hat, wenn man
 \textit{LilyPond} erfolgreich verwenden will:
@@ -191,13 +191,10 @@ prod:
 
 Und damit können die Früchte der Vorarbeit geerntet werden: Es ist bereits
 absehbar, dass die eigentliche Herausforderung zuletzt nicht mehr die Nutzung
-von \textit{LilyPond} als solches sein wird, sondern die Einbindung jener Symbole in
-den Notentext, die für den Musikwissenschaftler so wichtig sind. Und es ist an
-dieser Stelle auch gewiss, dass man dabei nicht auf die \LaTeX-Sonderzeichen
-oder die \textit{harmony}-Konstrukte wird zurückgreifen können: \textit{LilyPond}
-arbeitet \LaTeX-unabhängig.
-
-\textit{LilyPond} bietet 3 Verfahren an, (echten) Text in die Noten zu integrieren:
+von \textit{LilyPond} als solches sein wird, sondern die Einbindung jener
+Symbole in den Notentext, die für den Musikwissenschaftler so wichtig sind.
+\textit{LilyPond} selbst bietet 3 Verfahren an, (echten) Text in die Noten zu
+integrieren:
 
 \begin{enumerate}
   \item Man darf 'Liedtext' unter ein Notensystem setzen, wobei als Text dort
@@ -214,10 +211,12 @@ arbeitet \LaTeX-unabhängig.
   einzufügen.
 \end{enumerate}
 
-Die letztlich entscheidende Frage hinsichtlich der Verwendbarkeit von
-\textit{LilyPond} wird für den Musikwissenschaftler also sein, ob und wie gut man
-die Symbole der Harmonieanalyse, die \textit{harmony} bereitstellt, mit den
-Mitteln von \textit{LilyPond} nachbilden kann und welcher Aufwand dabei entsteht.
+Dabei wird der Musikwissenschaftler nicht auf die \LaTeX-Sonderzeichen oder die
+\textit{harmony}-Konstrukte zurückgreifen können. Denn \textit{LilyPond}
+arbeitet ja \LaTeX-unabhängig. Also wird über die Brauchbarkeit von
+\textit{LilyPond} letzlich die Frage entscheiden, ob und wie gut man die Symbole
+der Harmonieanalyse, die \textit{harmony} bereitstellt, mit den Mitteln von
+\textit{LilyPond} nachbilden kann und welcher Aufwand dabei entsteht.
 
 Aber gehen wir diese Dinge der Reihe nach durch, beginnend -- wie kaum anders zu
 erwarten -- mit der einzeiligen
@@ -323,7 +322,7 @@ etwas tun müssen.
 kommt zudem mit einer Erweiterungssprache daher\footcite[vgl. dazu][\nopage
 wp]{WpedGuile2019a}. Diese zu nutzen, um die Möglichkeiten vom \LaTeX-Paket
 \textit{harmony} nachzubilden, artet jedoch in echte Programmierarbeit aus und
-dürfte einem Musikwissenschaftler kaum mehr zuzumiten sein - wohl aber denen,
+dürfte einem Musikwissenschaftler kaum mehr zuzumuten sein - wohl aber denen,
 der in beiden Welten zuhause ist, also uns.
 
 Wir haben deshalb begonnen, eine kleine \textit{LilyPond}-Library zu entwickeln,
@@ -474,7 +473,7 @@ Mit Rückgriff auf diese kleine Zusatzbibliothek sähe der entsprechende
 \subsubsection{Kadenz III}
 
 Und so fehlt noch die dritte Kadenz in der Version, die \textit{LilyPond} heute -- also
-noch mit einigen Einschränkungen -- erzeugen kann:
+noch mit leichten Einschränkungen -- erzeugen kann:
 
 \begin{lilypond}
 \version "2.18.2"
@@ -584,10 +583,11 @@ Für diese ist folgender Quellcode zuständig:
 \subsubsection{Bewertung}
 
 Vergleicht man das 'Druckbild' von Noten, die \textit{LilyPond} erzeugt, mit
-denen, die MusiX\TeX\ im Verbund mit \LaTeX\ generiert, dann fällt in der Tat auf,
-dass die \textit{LilyPond}-Noten irgendwie 'weicher' und 'dichter' sind:
-\textit{LilyPond} hat seine selbst gesetzte Aufgabe offensichtlich
-erfüllt\footcite[vgl.][8ff]{LilyPond2018d}.
+denen, die MusiX\TeX\ im Verbund mit \LaTeX\ generiert, fällt in der Tat auf,
+dass die \textit{LilyPond}-Noten irgendwie 'weicher', 'dichter' und lesbarer
+sind: \textit{LilyPond} wollte die Qualität des guten manuellen Notensatzes in
+den elektronische Notensatz einbringen\footcite[vgl.][8ff]{LilyPond2018d}. Diese 
+selbstgesetzte Aufgabe hat es offensichtlich erfüllt.
 
 Musikwissenschaftler werden gut mit \textit{LilyPond} 'klarkommen': diese
 Notationsweise zu lernen, ist einfach, sie anzuwenden leicht. In dieser Hinsicht
