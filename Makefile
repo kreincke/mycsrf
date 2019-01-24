@@ -25,7 +25,7 @@ instance:
 	cp source/$(LG)/Makefile $(PRJ)/
 	cp source/${LG}/nomencl.ist $(PRJ)/cfg/nomencl.ist
 	cp source/${LG}/prj.tex $(PRJ)/$(PRJ).tex
-	cp source/${LG}/rel.inc $(PRJ)/
+	cp source/${LG}/inc.rel.tex $(PRJ)/
 	cp source/${LG}/frame.tex $(PRJ)/snippets/
 	cp source/${LG}/inc.snippet.tex $(PRJ)/snippets/
 	cp source/${LG}/SubMakefile $(PRJ)/snippets/Makefile

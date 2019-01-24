@@ -1,23 +1,16 @@
 @ARTICLE
 @BOOK
-@BOOKLET
-@comment
-@ELECTRONIC
 @INBOOK
 @INCOLLECTION
 @INPROCEEDINGS
 @MISC
-@PHDTHESIS
 @PROCEEDINGS
 
 custom tab fields 1 (optional):
 	* annote;
 	* note;
-	* crossref;
-	* keywords;
 	* url;
 	* urldate;
-	* comment;
 	* owner;
 	* timestamp
 custom tab fields 2 (optional):
@@ -26,44 +19,32 @@ custom tab fields 3 (optional):
 	* review
 
 Type_0: article
-req.:	* author;title;journal;year;volume;pages;shorttitle
-fac.:	* titeladdon;number;month;issn
+req.:	* author;title;journal;year;pages;shorttitle
+fac.:	* titeladdon;volume;number;issn
 
 Type_1: book
 req.:	* author;title;address;year;shorttitle"
-fac.:	* titleaddon;bookauthor;booktitle;booktitleaddon;editor;edition;volume;number;series;publisher;organization;isbn
+fac.:	* titleaddon;editor;edition;publisher;isbn;volume;volumes;series;number
 
-Type_2: booklet
-req.:	* title;shorttitle
-fac.:	* author;lastchecked;address;month;year;titleaddon;series
+Type_6: inbook
+req.:	* author;title;pages;shorttitle;booktitle;address;year
+fac.:	* titleaddon;bookauthor;booktitleaddon;editor;edition;publisher;volume;number;series;number;isbn
 
-Type_4: electronic
-req.:	* shorttitle
-fac.:	* author;month;year;title;titleaddon;organization;address;editor;publisher;isbn
+Type_7: incollection
+req.:	* author;title;pages;shorttitle;booktitle;address;year
+fac.:	* titleaddon;bookauthor;booktitleaddon;editor;edition;publisher;volume;number;series;number;isbn
 
-Type_5: inbook
-req.:	* author;title;pages;year;shorttitle
-fac.:	* titleaddon;chapter;bookauthor;booktitle;booktitleaddon;editor;edition;volume;number;series;address;publisher;organization;isbn
+Type_8: inproceedings
+req.:	* author;title;crossref;pages;shorttitle
+fac.:	* titleaddon;
 
-Type_6: incollection
-req.: 	* author;title;year;pages;shorttitle
-fac.:	* titleaddon;chapter;booktitle;booktitleaddon;editor;edition;volume;number;series;type;address;publisher;organization;isbn
+Type11:	misc
+req.:	* author; title; year; shorttitle
+fac.:	* 
 
-Type_7: inproceedings
-req.:	* author;title;year;pages;shorttitle
-fac.:	* titleaddon;booktitle;booktitleaddon;editor;edition;volume;number;series;address;publisher;organization;isbn
-
-Type10:	misc
-req.:	* --
-fac.:	* author;title;month;year;shorttitle
-
-Type13:	phdthesis
-req.:	* author;title;school;year;shorttitle
-fac.:	* type;address;month
-
-Type14: proceedings
-req.:	* title;booktitle;year;shorttitle
-fac.:	* titleaddon;booktitle;booktitleaddon;editor;edition;volume;number;series;address;publisher;organization;isbn
+Type15: proceedings
+req.:	* editor;title;address;year;shorttitle
+fac.:	* titleaddon;publisher;edition;volume;number;series;
 
 
 

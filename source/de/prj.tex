@@ -38,10 +38,10 @@
 % jurabib configuration
 \usepackage[see]{jurabib}
 \bibliographystyle{jurabib}
-\input{cfg/inc.jbib-cfg}
+\input{cfg/inc.jbib-cfg.tex}
 
 % language specific hyphenation
-\input{cfg/inc.hyphenations}
+\input{cfg/inc.hyphenations.tex}
 
 %%% (3) layout page configuration %%%
 
@@ -104,7 +104,7 @@
 \usepackage{nameref}
 
 %integrate nomenclature
-\input{cfg/inc.ncl-meta}
+\input{cfg/inc.ncl-meta.tex}
 
 % depth of contents
 \setcounter{secnumdepth}{5}
@@ -121,10 +121,10 @@
 
 %%-- start(titlepage)
 \titlehead{Klassifikation}
-\subject{Release \input{rel.inc}}
+\subject{Release \input{inc.rel.tex}}
 \title{Titel}
 \subtitle{Untertitel}
-\author{Autor\input{cfg/inc.license-fn}}
+\author{Autor\input{cfg/inc.license-fn.tex}}
 
 %thanks entry cannot be combined with license footnote
 %\thanks{den Autoren von KOMA-Script und denen von Jurabib}
@@ -175,7 +175,7 @@ In diesem Kapitel erläutern wir \ldots
 Kernthese: Am Ende soll klar geworden sein, dass \ldots.
 
 \section{Snippet}
-\input{snippets/inc.snippet}
+\input{snippets/inc.snippet.tex}
 
 \chapter{Y}
 \begin{quote}\itshape
@@ -229,8 +229,8 @@ In diesem Kapitel erläutern wir \ldots
 
 % insert the nomenclature here
 
-\input{bib/ncl.abbreviations}
-\input{bib/ncl.journals}
+\input{bib/ncl.abbreviations.tex}
+\input{bib/ncl.journals.tex}
 \printnomenclature
 
 % insert the bibliographical data here

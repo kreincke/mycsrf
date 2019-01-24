@@ -34,10 +34,10 @@
 % jurabib configuration
 \usepackage[see]{jurabib}
 \bibliographystyle{jurabib}
-\input{cfg/inc.jbib-cfg}
+\input{cfg/inc.jbib-cfg.tex}
 
 % language specific hyphenation
-\input{cfg/inc.hyphenations}
+\input{cfg/inc.hyphenations.tex}
 
 %%% (3) layout page configuration %%%
 
@@ -67,7 +67,7 @@
 \deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
 
 %integrate nomenclature
-\input{cfg/inc.ncl-meta}
+\input{cfg/inc.ncl-meta.tex}
 
 % depth of contents
 \setcounter{secnumdepth}{5}
@@ -83,11 +83,11 @@
 \nocite{*}
 
 %%-- start(titlepage)
-\titlehead{mycsrf.verify-\input{rel.inc}: English}
+\titlehead{mycsrf.verify-\input{inc.rel.tex}: English}
 \subject{(scholar-) Scientific Texts Based on a Modified \textit{jurabib}}
 \title{List of defined Usecases}
 \subtitle{Comments in Footnotes}
-\author{Author\input{cfg/inc.license-fn}}
+\author{Author\input{cfg/inc.license-fn.tex}}
 
 %thanks entry cannot be combined with license footnote
 %\thanks{den Autoren von KOMA-Script und denen von Jurabib}
@@ -189,8 +189,8 @@
 
 % insert the nomenclature here
 
-\input{bib/ncl.abbreviations}
-\input{bib/ncl.journals}
+\input{bib/ncl.abbreviations.tex}
+\input{bib/ncl.journals.tex}
 \printnomenclature
 
 % insert the bibliographical data here

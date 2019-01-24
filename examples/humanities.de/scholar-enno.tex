@@ -47,10 +47,10 @@
 % jurabib configuration
 \usepackage[see]{jurabib}
 \bibliographystyle{jurabib}
-\input{cfg/inc.jbib-cfg}
+\input{cfg/inc.jbib-cfg.tex}
 
 % language specific hyphenation
-\input{cfg/inc.hyphenations}
+\input{cfg/inc.hyphenations.tex}
 
 %%% (3) layout page configuration %%%
 
@@ -116,7 +116,7 @@
 \usepackage{nameref}
 
 %integrate nomenclature
-\input{cfg/inc.ncl-meta}
+\input{cfg/inc.ncl-meta.tex}
 
 % depth of contents
 \setcounter{secnumdepth}{5}
@@ -125,6 +125,8 @@
 % Hyperlinks
 \usepackage{hyperref}
 \hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
+\newcommand{\lnka}[1]{\href{#1}{\texttt{#1}}}
+\newcommand{\lnkb}[2]{\href{#1}{\texttt{#1} (Referenzdownload: #2)}}
 
 \begin{document}
 
@@ -135,23 +137,23 @@
 \titlehead{scholar-enno.de: my Classical Scholar Research framework}
 \subject{(Geistes-) Wissenschaftliche Texte mit \textit{jurabib}}
 \title{Dienst am Leser, Dienst am Scholaren}
-\subtitle{Über Anmerkungsapparate in Endnoten - aber richtig: Release \input{rel.inc}}
-\author{Karsten Reincke\input{cfg/inc.license-fn}}
+\subtitle{Über Anmerkungsapparate in Endnoten - aber richtig: Release \input{inc.rel.tex}}
+\author{Karsten Reincke\input{cfg/inc.license-fn.tex}}
 
 \maketitle
 %%-- end(titlepage)
 
-\input{snippets/DEC0-BothAbstractInc}
+\input{snippets/DEC0-BothAbstractInc.tex}
 
 \footnotesize
 \tableofcontents
 \normalsize
 
-\input{snippets/DEC1-EnNoFormFollowsFunctionInc}
+\input{snippets/DEC1-EnNoFormFollowsFunctionInc.tex}
 
-\input{snippets/DEC2-BothFunctionReflectsOthersInc}
+\input{snippets/DEC2-BothFunctionReflectsOthersInc.tex}
 
-\input{snippets/DEC3-BothFunctionSupportsFormInc}
+\input{snippets/DEC3-BothFunctionSupportsFormInc.tex}
 
 Bliebe nur noch die Aktivierung von Endnoten anstelle von Fußnoten: Dafür gibt es
 ein gesondertes Paket $\backslash$endnotes. Ist dieses aktiviert, wertet
@@ -160,16 +162,18 @@ $\backslash$footnote muss man händisch in $\backslash$endnote umformen. Den Res
 besorgt eine Konfiguration, die in eine Datei ausgelagert sind und per
 \texttt{{\textbackslash}input\{cfg/inc.endnotes\}} hinzugeladen werden müssen. 
 
-\input{snippets/DEC5-BothDealingWithESourcesInc}
+\input{snippets/DEC5-BothDealingWithESourcesInc.tex}
 
-\input{snippets/DEC6-EnNoFunctionFormsThanksInc}
+\input{snippets/DEC6-BothDealingWithBibtexJabref.tex}
+
+\input{snippets/DEC7-EnNoFunctionFormsThanksInc}
 
 \small
 
 % insert the nomenclature here
 
-\input{bib/ncl.abbreviations}
-\input{bib/ncl.journals}
+\input{bib/ncl.abbreviations.tex}
+\input{bib/ncl.journals.tex}
 \printnomenclature
 
 % insert the bibliographical data here

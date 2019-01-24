@@ -33,10 +33,10 @@
 % jurabib configuration
 \usepackage[see]{jurabib}
 \bibliographystyle{jurabib}
-\input{cfg/inc.jbib-cfg}
+\input{cfg/inc.jbib-cfg.tex}
 
 % language specific hyphenation
-\input{cfg/inc.hyphenations}
+\input{cfg/inc.hyphenations.tex}
 
 %%% (3) layout page configuration %%%
 
@@ -74,7 +74,7 @@
 \usepackage{nameref}
 
 %integrate nomenclature
-\input{cfg/inc.ncl-meta}
+\input{cfg/inc.ncl-meta.tex}
 
 % depth of contents
 \setcounter{secnumdepth}{5}
@@ -90,11 +90,11 @@
 \nocite{*}
 
 %%-- start(titlepage)
-\titlehead{mycsrf.verify-\input{rel.inc}: Deutsch}
+\titlehead{mycsrf.verify-\input{inc.rel.tex}: Deutsch}
 \subject{(Geistes-) Wissenschaftliche Texte mit modifiziertem \textit{jurabib}}
 \title{Übersicht der Anwendungsfälle}
 \subtitle{Anmerkungsapparat in Fußnoten}
-\author{Karsten Reincke\input{cfg/inc.license-fn}}
+\author{Karsten Reincke\input{cfg/inc.license-fn.tex}}
 %\thanks{den Autoren von KOMA-Script und denen von Jurabib}
 
 \maketitle
@@ -203,8 +203,8 @@
 
 % insert the nomenclature here
 
-\input{bib/ncl.abbreviations}
-\input{bib/ncl.journals}
+\input{bib/ncl.abbreviations.tex}
+\input{bib/ncl.journals.tex}
 \printnomenclature
 
 % insert the bibliographical data here

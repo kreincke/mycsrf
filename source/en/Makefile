@@ -13,7 +13,7 @@ T=CH
 
 all:
 	make README.pdf
-	@ mv README-`cat rel.inc`.pdf README.pdf
+	@ mv README-`cat inc.rel.tex`.pdf README.pdf
 
 	
 .SUFFIXES: .tex .dvi .ps .pdf .rtf 
@@ -33,7 +33,7 @@ ifneq ($(LATEX),pdflatex)
 	@ echo "### converting PostScript to PDF"
 	@ ps2pdf $<
 endif
-	@ mv $@ `basename $@ .pdf`-`cat rel.inc`.pdf
+	@ mv $@ `basename $@ .pdf`-`cat inc.rel.tex`.pdf
 	@ make clearAuxFiles
 
 .tex.dvi:

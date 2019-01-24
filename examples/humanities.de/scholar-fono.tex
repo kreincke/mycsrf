@@ -47,10 +47,10 @@
 % jurabib configuration
 \usepackage[see]{jurabib}
 \bibliographystyle{jurabib}
-\input{cfg/inc.jbib-cfg}
+\input{cfg/inc.jbib-cfg.tex}
 
 % language specific hyphenation
-\input{cfg/inc.hyphenations}
+\input{cfg/inc.hyphenations.tex}
 
 %%% (3) layout page configuration %%%
 
@@ -113,7 +113,7 @@
 \usepackage{nameref}
 
 %integrate nomenclature
-\input{cfg/inc.ncl-meta}
+\input{cfg/inc.ncl-meta.tex}
 
 % depth of contents
 \setcounter{secnumdepth}{5}
@@ -122,6 +122,8 @@
 % Hyperlinks
 \usepackage{hyperref}
 \hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
+\newcommand{\lnka}[1]{\href{#1}{\texttt{#1}}}
+\newcommand{\lnkb}[2]{\href{#1}{\texttt{#1} (Referenzdownload: #2)}}
 
 \begin{document}
 
@@ -132,36 +134,38 @@
 \titlehead{scholar-fonno.de: my Classical Scholar Research framework}
 \subject{(Geistes-) Wissenschaftliche Texte mit \textit{jurabib}}
 \title{Dienst am Leser, Dienst am Scholaren}
-\subtitle{Über Anmerkungsapparate in Fußnoten - aber richtig: Realease \input{rel.inc}}
-\author{Karsten Reincke\input{cfg/inc.license-fn}}
+\subtitle{Über Anmerkungsapparate in Fußnoten - aber richtig: Realease \input{inc.rel.tex}}
+\author{Karsten Reincke\input{cfg/inc.license-fn.tex}}
 
 \maketitle
 %%-- end(titlepage)
 
-\input{snippets/DEC0-BothAbstractInc}
+\input{snippets/DEC0-BothAbstractInc.tex}
 
 \footnotesize
 \tableofcontents
 \normalsize
 
-\input{snippets/DEC1-FoNoFormFollowsFunctionInc}
+\input{snippets/DEC1-FoNoFormFollowsFunctionInc.tex}
 
-\input{snippets/DEC2-BothFunctionReflectsOthersInc}
+\input{snippets/DEC2-BothFunctionReflectsOthersInc.tex}
 
-\input{snippets/DEC3-BothFunctionSupportsFormInc}
+\input{snippets/DEC3-BothFunctionSupportsFormInc.tex}
 
-\input{snippets/DEC4-BothSupportFormsWishesInc}
+\input{snippets/DEC4-BothSupportFormsWishesInc.tex}
 
-\input{snippets/DEC5-BothDealingWithESourcesInc}
+\input{snippets/DEC5-BothDealingWithESourcesInc.tex}
 
-\input{snippets/DEC6-FoNoFunctionFormsThanksInc}
+\input{snippets/DEC6-BothDealingWithBibtexJabref.tex}
+
+\input{snippets/DEC7-FoNoFunctionFormsThanksInc.tex}
 
 \small
 
 % insert the nomenclature here
 
-\input{bib/ncl.abbreviations}
-\input{bib/ncl.journals}
+\input{bib/ncl.abbreviations.tex}
+\input{bib/ncl.journals.tex}
 \printnomenclature
 
 % insert the bibliographical data here

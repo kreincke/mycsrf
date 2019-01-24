@@ -1,0 +1,229 @@
+%fodina humanitied 'for being included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2010, 2011, ff.
+%
+% This LaTeX-File is licensed under the Creative Commons Attribution-ShareAlike
+% 3.0 Germany License (http://creativecommons.org/licenses/by-sa/3.0/de/): Feel
+% free 'to share (to copy, distribute and transmit)' or 'to remix (to adapt)'
+% it, if you '... distribute the resulting work under the same or similar
+% license to this one' and if you respect how 'you must attribute the work in
+% the manner specified by the author ...':
+%
+% In an internet based reuse please link the reused parts to www.fodina.de and
+% mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to www.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite.
+%
+%% use all entries of the bibliography
+%\nocite{*}
+\section{Bib\TeX\ und Jabref - aufeinander abgestimmt abgestimmt}
+
+Um in und mit \LaTeX\ Literaturverweise möglichst geschickt zu managen, muss man
+sich die Konzepte klargemacht haben, die dafür benötigt werden:
+
+\begin{enumerate}
+  \item \LaTeX\ selbst stellt Fußnoten oder -- mit geeigneten Zusatzpaketen --
+  Endnoten zur Verfügung. Das ist auch schon alles. Und es ist eigentlich auch
+  alles, was man braucht: für jeden Quellennachweis könnte man jetzt händisch in
+  eine Fußnote die entsprechenden bibliographischen Angaben
+  eintragen\footnote{wie u.a. vorgeführt in Fakeautor, Class: Über geünsteltes
+  Schreiben, Hamburg 2019, S.66}, die lange Form, wenn die Quelle zum ersten Mal
+  auftaucht, die kürzere, wenn sie schon erwähnt worden ist. Und das
+  Literaturverzeichnis würde man dann am Ende auch noch händisch tippen. Nur wäre es nicht
+  besonders geschickt, wenn man so verführe. Denn Computer können und sollen uns
+  wiederkehrende Arbeiten erleichtern -- hier: die fehlerträchtige Eingabe immer
+  derselben Daten.
+  \item Um das zu automatisieren, existiert mit Bib\TeX\ eine Abmachung, wie man
+  die bibliographischen Angaben in einer Textdatei strukturiert abspeichert.
+  Allerdings verlangen verschiedene Literaturtypen unterschiedliche Angaben: zu
+  einem Zeitschriftenartikel muss die Zeitschrift angegeben werden, zu einem
+  Internetartikel nicht unbedingt. Und Bücher brauchen ganz andere
+  Informationen. Deshalb wird jeder Datensatz in der Bib\TeX-Datei auch
+  typisiert.
+  \item Allerdings ist man sich in der Forschungsgemeinschaft durchaus nicht
+  einig, bei welchem Typ welche bibliographischen Angaben in welchem Kontext
+  erscheinen müssen. Das ist von Profession zu Profession und gelegentlich auch
+  von Professor zu Professor und Forscher zu Forscher verschieden. Es ist -- bis
+  zu einer gewissen Grenze\footnote{An dieser Stelle haben wir unsere eigene
+  dezidierte Meinung: Es sollte alles angegeben werden, was die Überprüfung
+  erleichtert. Und es darf nichts fehlen, was die Überprüfung systematisch oder
+  vom angemessenen Aufwand her verhindert: wer als Nachweis für ein Zitat nur
+  auf ein 1000 seitiges Werk verweist, ohne die Seite zu nennen, erwartet von
+  seinem Leser implizit, dass er das ganze Werk durchgeht, um zu verifizieren,
+  dass es das Zitat enthält. Solch eine Erwartung ist unzumutbar. Sie behindert
+  und verhindert letztlich die Überprüfbarkeit. Sie unterläuft das
+  \emph{Abgrenzungskriterium} und evoziert Unwissenschaftlichkeit!} -- eine
+  Stilfrage. Deshalb erlaubt \LaTeX\ das Einbinden verschiedener Zitierstile.
+  Diese legen fest, was für welche Literaturtypen an welcher Stelle ausgegeben
+  wird.
+\end{enumerate}
+
+Dies alles muss aufeinander abgestimmt sein. Der Zitierstil muss die Typen
+bedienen, die in der Bib\TeX-Datei verwendet werden. Und die Bib\TeX-Datensätze
+müssen die Informationen bereitstellen, die der Zitierstil für vernüftige
+Angaben benötigt. Und das Verbindungsglied ist der Nutzer. Er muss wissen,
+welche Typen sein Zitierstil verwenden kann und welche Angaben dabei jeweils
+mindestens notwendig sind. Dabei unterstützen ihn Bib\TeX-Frontends. Besonders
+ausgereift ist \emph{Jabref}\footcite[vgl.][\nopage wp]{Jabref2019a}. Wenn es
+entsprechend konfiguriert ist, signalisiert es fehlende Angaben.
+
+In unserem Fall haben wir den Zitierstil \emph{Jurabib} 'umkonfiguriert'.  Wer
+den so entstandenen aplphilologisch-geisteswissenschaftlichen Stil verwenden
+möchte, muss also offensichtlich noch erfahren, welche realen Literaturtypen er
+auf welche Bib\TeX-Typen abbilden kann, damit er die versprochenen Ergebnisse
+bekommt. Es sind viele Typen im Umlauf. Selbst die reduziertere
+Wikipedia-Klassifikation\footnote{$\rightarrow$
+\lnkb{https://de.wikipedia.org/wiki/BibTeX}{2019-01-24}} kann noch verwirren.
+Die Lösung bringt ein einfacher Gedanke: Es ist nicht wichtig, der
+Bib\TeX-Typologie gerecht zu werden. Es ist nur wichtig, konsistent den
+Literaturtyp aus der realen Welt auf einen Bib\TeX-Typ abzubilden, aus dem der
+Zitierstil die richtigen Angaben erzeugt.
+
+Mit diesem Ansatz kann man die Möglichkeiten auf ein sehr überschaubares Maß
+reduzieren. Und man kann Jabref entsprechend konfigurieren:
+
+\subsection{Definition der Literaturtypen}
+
+Allen Typen gemeinsam sind die optionalen Felder \textsf{Annote,
+Note, Language, Url, Urldate}. Ansonsten unterscheiden sie sich durch folgende
+Kombinationen\footnote{\emph{InProceedings} versus \emph{Inbook} dürften ebenso
+etwas schwieriger zu unterscheiden sein wie \emph{Misc} versus \emph{Www}.
+Deshalb hier die Auflösung:
+\begin{itemize}
+  \item \emph{InProceedings} verweist nur auf den Sammlungsband per
+  \emph{Crossref}. \emph{Inbook} nimmt die Daten des Sammlungsbandes dagegen in
+  sich selbst auf. Einen Sammlungsartikelso zu erfassen, macht Sinn, wenn aus
+  der Sammlung nur diesen einen Artikel benötigt.
+  \item Viele Seiten im Internet haben sehr wohl einen Autor und ggfls. sogar
+  ein Erscheinungsjahr, obwohl sie eben nicht als Teil einer Sammlung, eines
+  Buches oder einer Zeitschrift veröffentlicht worden sind. Solche Werke erfasst
+  \emph{mycsrf} im Typ \texttt{Misc}. Der Typ \texttt{Www} meint dann einen bloßen
+  Link auf eine Seite ohne Autor oder Jahr.
+\end{itemize}}:
+
+\subsubsection{Buch (mit Autor(en)) = Bib\TeX-Typ \texttt{Book} } 
+
+  \begin{description}
+  \item[obligatorisch] :- \textsf{BibtexKey, Author, Title, Address, Year,  Shorttitle}
+  \item[fakultativ] :- \textsf{TitleAddon, Editor, Edition, Publisher, ISBN, Series, Volume,
+  Volumes (+ generelle Felder)}
+  \end{description}
+
+\subsubsection{Zeitschriftenartikel = Bib\TeX-Typ \texttt{Article} }
+
+  \begin{description}
+  \item[obligatorisch] :- \textsf{BibtexKey, Author, Title, Journal, Year, Pages, Shorttitle}
+  \item[fakultativ] :- \textsf{TitleAddon, Volume, Number, ISSN (+ generelle Felder)}
+  \end{description}
+
+\subsubsection{Sammlung  Bib\TeX-Typ \texttt{Proceedings}}
+
+  \begin{description}
+  \item[obligatorisch] :- \textsf{BibtexKey, Editor, Title, Address, Year, Shorttitle}
+  \item[fakultativ] :- \textsf{TitleAddon, Publisher, ISBN, Volume, Volumes, Series,
+  Number (+ generelle Felder)}
+  \end{description}
+
+\subsubsection{Sammlungsartikel mit Referenz = Bib\TeX-Typ \texttt{Inproceedings} }
+
+  \begin{description}
+  \item[obligatorisch] :- \textsf{BibtexKey, Author, Title, Crossref, Pages, Shorttitle}
+  \item[fakultativ] :- \textsf{TitleAddon, (generelle Felder)}
+  \end{description}
+  
+\subsubsection{Sammlungsartikel mit Buchangaben = Bib\TeX-Typ \texttt{Incollection | Inbook}   }
+
+  \begin{description}
+  \item[obligatorisch] :- \textsf{BibtexKey, Author, Title, Pages, Shorttitle, booktitle, address, year}
+  \item[fakultativ] :- \textsf{Titleaddon, Bookauthor, Booktitleaddon, Editor, Edition, Volume, Series, Number,  Isbn  (+ generelle Felder)}
+  \end{description}  
+  
+
+\subsubsection{Internetwerk (mit Autor(en)) = Bib\TeX-Typ \texttt{Misc} }
+
+  \begin{description}
+  \item[obligatorisch] :- \textsf{BibtexKey, Author, Title, Year, Shorttitle}
+  \item[fakultativ] :- \textsf{Titleaddon, (generelle Felder)}
+  \end{description}
+
+\subsubsection{Internetseite Bib\TeX-Typ \texttt{Www} }
+
+  \begin{description}
+  \item[obligatorisch] :- \textsf{BibtexKey, Author=\texttt{anonymous}, Title, Shorttitle}
+  \item[fakultativ] :-  \textsf{Titleaddon, Year (+ generelle Felder)}
+  \end{description}
+
+
+
+\subsection{Definition der Datensatzfelder}
+
+Die Semantik der einzelnen Felder ergibt sich wie folgt:
+
+\begin{description}
+  \item[Address] :- Erscheinungsort\footnote{Wird mittlerweile als 'deprecated'
+  gewertet, informiert bei älteren Werken aber über über Aspekte der
+  Forschungshistorie.}
+  \item[Annote] :- Kommentar für ein kommentiertes Literaturverzeichnis.
+  \item[Author] Name(n) de(s|r) Autor(s|en) -- falls unbekannt, anonymous  
+  \item[Bibtexkey] eindeutiger Schlüssel, am besten 
+  \textit{Autor}$\cup$\textit{Jahr}$\cup$\texttt{\{a, b, c, \ldots\}}. Bei
+  mehreren Autoren von den ersten drei jeweils die ersten drei Buchstaben - capitalized.
+  \item[Crossref] :- Bei InProccedings oder InBook Bibtexkey des Proceedings / Books
+  \item[Edition] : reine Auflagenzahl
+  \item[Editor] :- Herausgeber  
+  \item[ISBN] :- ISBN-Nummer
+  \item[ISSN] :- ISSN-Nummer
+  \item[Journal] :- Zeitschriftentitel
+  \item[Language] :- \{english,
+  german\footnote{Ja! -- muss kleingeschrieben werden. Bestimmt u. gewissen
+  Umständen die Zeichensetzung}, \ldots \} 
+  \item[Note] :- \{ \texttt{Print} , ( \texttt{\{FreeWeb, BibWeb\}} $\times$ \}
+  \texttt{\{HTML, PDF, \ldots\}} )) 
+  \item[Number] :- Nummer / Jhrg einer Zeitschrift
+  \item[Pages] :- \emph{Anfangsseite} \texttt{-} \emph{Endseite}
+  \item[Publisher] :- Verlag
+  \item[Series] :- Reihename
+   \item[Shorttitle] Kurztitel der Form
+  \emph{Titel}\texttt{,}\emph{Jahr}\footnote{Dies ist bei \emph{mycsrf} ein
+  zentraler Datensatzteil. Bei anderen Zitaten aus dem Werk wird nur noch der
+  Kurztitel ausgegeben. Leider muss man den Kurztitel immer selbst bilden und 
+  manuell eingegeben. Eine automatisierte Ableitung hätte zu tiefe Eingriffe in
+  Jurabib erfordert.}
+  \item[Title] Werktitel und Untertitel, letzterer mit Punkt abgetrennt
+  \item[Titleaddon] : Zusatzangaben wie \emph{aus dem Amerikanischen übers.v.}
+  oder \emph{aus dem Amerikanischen übers.v.} oder \emph{3.verb. u. erweit. Aufl.}
+  \item[Url] :- weist bei eResourcen  auf
+  die Quelle. Sollte / muss bei \texttt{\{FreeWeb, BibWeb\}} gesetzt sein.
+  \item[Urldate] :- das Bezugsdatum
+  \item[Volume] :- Band in einer Reihe
+  \item[Volumes] :- Anzahl der Bände
+  \item[Year] Erscheinungsjahr\footnote{Jabref hält dies für 'deprecated'. Wir sehen das
+  anders. ISBN und Erscheinungsort und -jahr erleichtern das Auffinden.
+  Erscheinungsort- und vor allem: -jahr sind forschungsgeschichtlich wichtige Angaben.}
+ \end{description}
+
+
+\subsection{Jabref Konfiguration}
+
+Mit dieser Typologie sollten man alle realen Werktypen abbilden können. Fehlt
+ein Feld, darf man die Informationen im Feld 'Titleaddon' ablegen. \emph{mycsrf}
+bietet in der Datei  \texttt{cfg/jabref.prefs.xml} eine Konfiguration, die diese
+Typologie umsetzt. Sie müssen sie nur in Jabref laden\footnote{$rightarrow$
+Preferences/Import}. Wird sie Ihren Anforderungen nicht gerecht, konfigurieren
+Sie \emph{Jabref} einfach um. Aber probieren Sie aus, ob auch wirklich alle
+Informationen von unser \emph{jurabib}-Version entsprechend Ihrer Vorstellungen
+ausgegeben werden. Ist dem nicht so, müssen Sie selbst an die Konfiguration
+'ran'.
+
+Und als Referenz werde ich jetzt noch einmal für jeden Typ ein neues, möglichst
+umfangreiches Beispiel geben:
+
+\begin{description}
+  \item[Buch (mit Autor(en))] : \cite[][]{GarSpr2018a}
+  \item[Zeitschriftenartikel] : \cite[][59]{Lewin1992a} (Hinweis: Seitenbereich erscheint nur im Literaturverzeichnis)
+  \item[Sammlung] : \cite[][]{Cysarz1978a}
+  \item[Sammlungsartikel mit Referenz] :  \cite[][]{Dach1978a}
+  \item[Sammlungsartikel mit Buchangaben] : \cite[][]{Arndt1811a} (Hinweis: Seitenbereich erscheint nur im Literaturverzeichnis)
+\end{description}
+%\bibliography{../bib/literature}
