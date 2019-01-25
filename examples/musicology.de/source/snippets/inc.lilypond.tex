@@ -30,11 +30,13 @@ welchen Konsequenzen sich daraus für ein Notensatzprogramm
 ergeben\footcite[vgl.][8ff]{LilyPond2018d}. Der daraus erwachsende Anspruch ist
 hoch:
 
-\begin{quote}\begin{textit}
+\begin{quote}
+ \textit{
   \enquote{LilyPond wurde geschaffen, um die Probleme zu lösen, die wir in
   existierenden Programmen gefunden haben und um schöne Noten zu schaffen, die
   die besten handgestochenen Partituren imitieren.}\footcite[vgl.][2]{LilyPond2018d}
-\end{textit}\end{quote}
+  }
+\end{quote}
 
 Wer die entsprechenden Techniken erfolgreich anwenden will, kann auf ein einfach
 strukturiertes Lerntutorial\footcite[vgl.][20ff]{LilyPond2018b} und ein kürzeres
@@ -48,12 +50,13 @@ um Musik im entsprechenden 'Dialekt' zu notieren. Trotzdem gibt es Unterschiede,
 die über die bloße Syntax hinausgehen:
 
 Die wichtigste Eigenart dürfte sein, dass Lilypond konsequent zwischen Musik und
-Druck unterscheidet: Wer in D-Dur ein \textit{fis} einfügen möchte, kann sich hier
-nicht auf die zu Beginn spezifizierte Tonart 'berufen', er muss trotzdem
+Druck unterscheidet: Wer in D-Dur ein \textit{fis} einfügen möchte, kann sich
+hier nicht auf die zu Beginn spezifizierte Tonart 'berufen', er muss trotzdem
 \texttt{fis} tippen, nicht \texttt{f}, und zwar an jeder Stelle, wo er
 \textit{fis} meint. Diese Abkehr von der musikalischen Tradition hat einen
 gewichtigen Vorteil: Lilypond kann bei Alterationen die nötigen Vorzeichen
-automatisch setzen. In \textit{g-moll} erhält das \textit{fis} ein Kreuz, in D-Dur
+automatisch setzen. In \textit{g-moll} erhält die Note \textit{f} bei
+eingegebenem \texttt{fis} automatisch ein Kreuz, in D-Dur
 nicht\footnote{\cite[vgl.][21]{LilyPond2018b}. In der Konsequenz wird man sich
 allerdings auch an -- wenigstens für Deutsche -- überraschende 'Töne' wie
 \texttt{bes}, \texttt{beses} oder \texttt{bis} gewöhnen müssen}.
@@ -212,18 +215,18 @@ integrieren:
 \end{enumerate}
 
 Dabei wird der Musikwissenschaftler nicht auf die \LaTeX-Sonderzeichen oder die
-\textit{harmony}-Konstrukte zurückgreifen können. Denn \textit{LilyPond}
+schönen \textit{harmony}-Konstrukte zurückgreifen können. Denn \textit{LilyPond}
 arbeitet ja \LaTeX-unabhängig. Also wird über die Brauchbarkeit von
 \textit{LilyPond} letzlich die Frage entscheiden, ob und wie gut man die Symbole
 der Harmonieanalyse, die \textit{harmony} bereitstellt, mit den Mitteln von
 \textit{LilyPond} nachbilden kann und welcher Aufwand dabei entsteht.
 
-Aber gehen wir diese Dinge der Reihe nach durch, beginnend -- wie kaum anders zu
+Gehen wir diese Dinge der Reihe nach durch, beginnend -- wie kaum anders zu
 erwarten -- mit der einzeiligen
 Grabner-Kadenz\footcite[vgl.][107]{Grabner1974a}: Die ersten beiden Akkorde sind
 mit einfachen Markups klassifiziert, der dritte mit der entsprechenden
-abgekürzten Version. Und unter den letzten drei Akkorden ist ein 'Liedtext'
-eingefügt worden:
+abgekürzten Version. Und unter den letzten drei Akkorden sind die Symbole als
+'Liedtext' eingefügt worden:
 
 \begin{center}
 \begin{lilypond}
@@ -586,8 +589,12 @@ Vergleicht man das 'Druckbild' von Noten, die \textit{LilyPond} erzeugt, mit
 denen, die MusiX\TeX\ im Verbund mit \LaTeX\ generiert, fällt in der Tat auf,
 dass die \textit{LilyPond}-Noten irgendwie 'weicher', 'dichter' und lesbarer
 sind: \textit{LilyPond} wollte die Qualität des guten manuellen Notensatzes in
-den elektronische Notensatz einbringen\footcite[vgl.][8ff]{LilyPond2018d}. Diese 
-selbstgesetzte Aufgabe hat es offensichtlich erfüllt.
+den elektronische Notensatz einbringen\footcite[vgl.][8ff]{LilyPond2018d}.
+Dieses selbstgesetzt Ziel hat es offensichtlich erreicht: auch wenn sich
+\textit{MusiX\TeX} und \textit{LilyPond} von der graphischen Erscheinung her
+nicht viel geben -- den Output eines der beiden nicht exzellent zu nennen, wäre
+unangebracht --, so kommt doch das Druckbild von \textit{LilyPond} einen Tick
+augenfreundlicher daher.
 
 Musikwissenschaftler werden gut mit \textit{LilyPond} 'klarkommen': diese
 Notationsweise zu lernen, ist einfach, sie anzuwenden leicht. In dieser Hinsicht

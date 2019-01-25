@@ -74,7 +74,7 @@ ist es notwendig, dass das generierende Programm \textit{pdflatex} hilfsweise au
 externe Programme aufrufen darf\footnote{Dies ist normalerweise aus
 Sicherheitsgründen untersagt, denn sonst könnten die Computer, die die Dokumente
 erzeugen, aus 'Dokumenten' heraus manipuliert werden.}, also mit der Option
-\texttt{--shell-escape} aufgerufen werden. Die entsprechende Passage aus einem
+\texttt{--shell-escape} gestartet wird. Die entsprechende Passage aus einem
 Makefile könnte so aussehen:\footnote{Wissenschaftliche \LaTeX-Dokumente
 mit Fußnoten und bibliographischen Angaben werden eh schon über mehrere
 \LaTeX-Durchgänge hinweg erzeugt: Jeder einzelnen Durchgang lagert später
@@ -203,21 +203,18 @@ integriert, und zwar über die Option, Liedtexte (Wörter) unter Noten und
 
 Man sieht diesen Beispielen aber auch an, dass das Ergebnis optisch nicht
 optimal ist: Die Breite der Notensysteme wird automatisch auf die Seitenbreite
-gesetzt und die Analysesymbole sitzen nicht mittig unter den
-Akkorden\footnote{Es soll jedoch die Möglichkeit geben, Parameter an das
+gesetzt\footnote{Es soll jedoch die Möglichkeit geben, Parameter an das
 \textit{abcm2ps}-Tool aus dem Notencode heraus zu übergeben, mit dem solche
 Aspekte zu steuern wären. Unglücklicherweise ist es uns nicht gelungen, das zu
-aktivieren. Allerdings wird man diese 'Linksbündigkeit' auch bei den anderen
-Ansätzen finden; es ist also -- wenn überhaupt -- gar keine
-\textit{ABC}-spezifische Unschönheit.}. \label{AppraisalABC}Wichtiger ist jedoch,
-dass man nicht in der Lage ist, die eingefügten Analysesymbole typographisch der
-Stufen- oder Funktionstheorie entsprechend zu gestalten: Weder können hoch- und
-tiefgestellte Kleinsymbole oder Sonderzeichen eingefügt werden, noch die
-Alterationszeichen $\sharp$, $\flat$ oder $\natural$ aus den Sonderzeichen -
-ganz zu schweigen von der Einbettung jener ausgefeilten Konstrukte, die das
-\textit{harmony}-Paket zur Verfügung stellt\footnote{Das kann ja auch nicht sein,
-weil die \textit{ABC-Notation} außerhalb von \LaTeX\ in ein Bild umgewandelt wird,
-sodass eventuell noch eingebettete \textit{(La)\TeX}-Konstrukte gar nicht mehr
+aktivieren.}. \label{AppraisalABC}Wichtiger ist jedoch, dass man nicht in der
+Lage ist, die eingefügten Analysesymbole typographisch der Stufen- oder
+Funktionstheorie entsprechend zu gestalten: Weder können hoch- und tiefgestellte
+Kleinsymbole oder Sonderzeichen eingefügt werden, noch die Alterationszeichen
+$\sharp$, $\flat$ oder $\natural$ aus den Sonderzeichen - ganz zu schweigen von
+der Einbettung jener ausgefeilten Konstrukte, die das \textit{harmony}-Paket zur
+Verfügung stellt\footnote{Das kann ja auch nicht sein, weil die
+\textit{ABC-Notation} außerhalb von \LaTeX\ in ein Bild umgewandelt wird, sodass
+eventuell noch eingebettete \textit{(La)\TeX}-Konstrukte gar nicht mehr
 ausgewertet werden.}.
 
 Außerdem muss man gelegentlich dort, wo man die Einfachheit der Notation
@@ -236,7 +233,7 @@ positioniert. Deshalb unser Hack der 'Vorhaltsverdoppelung mit gleichem Ton'
 \textit{PMX} unter demselben Positionierungsproblem leidet ($\rightarrow$ S.
 \pageref{\cadlab{II}{PMX}}). Allerdings bietet es die taktweise Notation in
 mehreren Stimmen, was die Mehrarbeit erträglich macht.
-}. Und das kompliziert das Handling deutlich.
+}. Und das hätte das Handling deutlich kompliziert.
 
 Schließlich bliebe zu erwähnen, dass das ABC-Verfahren sozusagen auf einer
 kleinen, aber auch von anderen gern genutzten 'Mogelei' beruht: es wird der

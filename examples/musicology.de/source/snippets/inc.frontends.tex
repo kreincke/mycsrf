@@ -1,0 +1,106 @@
+% mycsrf 'for beeing included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+
+%% use all entries of the bibliography
+
+\subsection{Frontends}
+
+Eine umfangreiche Sichtung\footcite[vgl.][\nopage wp]{WpedNotensatz2019a} von
+Notensatzprogrammen listet die freien Frontends \textit{Aria Maestosa},
+\textit{Brahms}, \textit{Canorus}, \textit{Denemo}, \textit{Laborejo},
+\textit{Mup}, \textit{MuseScore}, \textit{NoteEdit}, \textit{NtEd},
+\textit{Rosegarden} auf. Außerdem findet man im Netz noch die Tools
+\textit{Frescobaldi}, \textit{muX2d} und \textit{Elysium/Eclipse}.
+Für die \acc{ABC-Notationsmethode} stehen auch einige Opensource-Frontends zur
+Verfügung, etwa \acc{EasyABC} oder \acc{ABCJ}\footcite[vgl.][\nopage
+wp]{Abc2018b}. \textit{Aria Maestosa}, \textit{Brahms} und \textit{Rosegarden}
+sind in erster Linie \textsf{Sequenzer}, \textit{Frescobaldi} und
+\textit{Elysium/Eclipse} bieten 'nur' eine textuelle Eingabeschnittstelle,
+machen das Ergebnis der Eingabe aber direkt als Bild sichtbar. Systematisch kann
+man die Lage so darstellen:
+ 
+\begin{center}\scriptsize
+\begin{tabulary}{15cm}{R||C|C|C|C|C|C||C|C||C|C|C|C|C|C|C|C|C|}
+\hline
+Frontend & 
+  \multicolumn{6}{c||}{Import} & 
+  \multicolumn{2}{c||}{Change} & 
+  \multicolumn{9}{c|}{Export} \\
+\hline
+Programm & 
+  \rotatebox{90}{ABC} & 
+  \rotatebox{90}{LilyPond} & 
+  \rotatebox{90}{Midi} & 
+  \rotatebox{90}{MusicXML} & 
+  \rotatebox{90}{MusiX\TeX} & 
+  \rotatebox{90}{PMX} &
+  \rotatebox{90}{graphisch} & \rotatebox{90}{textuell} &
+  \rotatebox{90}{ABC} & 
+  \rotatebox{90}{LilyPond} & 
+  \rotatebox{90}{Midi} & 
+  \rotatebox{90}{MusicXML} & 
+  \rotatebox{90}{MusiX\TeX} & 
+  \rotatebox{90}{PMX} &  
+  \rotatebox{90}{PDF} &  
+  \rotatebox{90}{PS} &  
+  \rotatebox{90}{PNG $\lor$ JPEG $\lor$ SVG}
+\\
+\hline
+\hline
+ABCJ & & & & & & & & & & & & & & &  & & \\
+\hline
+Aria Mae. & & & & & & & & & & & & & & &  & & \\
+\hline
+Brahms & & & & & & & & & & & & & & &  & & \\
+\hline
+Canorus & & & & & & & & & & & & & & &  & & \\
+\hline
+Denemo & & & & & & & & & & & & & & &  & & \\
+\hline
+EasyABC & & & & & & & & & & & & & & &  & & \\
+\hline
+Elysium & & & & & & & & & & & & & & &  & & \\
+\hline
+Frescobaldi & & & & & & & & & & & & & & &  & & \\
+\hline
+Laborejo & & & & & & & & & & & & & & &  & & \\
+\hline
+mup & & & & & & & & & & & & & & &  & & \\
+\hline
+MuseScore & & & & & & & & & & & & & & &  & & \\
+\hline
+muX2D & & & & & & & & & & & & & & &  & & \\
+\hline
+NoteEdit & $\neg$ &$\neg$ &$\neg$ &$\neg$ &$\neg$ &$\neg$ & 
+$\neg$& $\neg$& 
+$\neg$& $\neg$& $\neg$& $\neg$& $\neg$& $\neg$&  $\neg$& $\neg$ & $\neg$ \\
+\hline 
+NtEd & & & \checkmark & \checkmark & & &
+ \checkmark & $\neg$ &
+  & \checkmark & \checkmark & & & & \checkmark & \checkmark  & \checkmark \\
+\hline
+\end{tabulary}
+\end{center}
+  
+Eine solche Fülle von Möglichkeiten fordert geradezu dazu auf, praktisch zu
+überprüfen, welche den Anforderungen von Musikwissenschaftlern (am besten)
+gerecht werden. Deshalb werden wir überprüfen, wie diese Tools mit der Kadenz II
+umgehen können, in wie weit sie die Symbole der Harmonieanalyse aufzunehmen
+vermögen und ob sie diesen Inhalt in einem Format abspeichern können.
+
+% this is only inserted to eject fault messages in texlipse
+%\bibliography{../bib/literature}
