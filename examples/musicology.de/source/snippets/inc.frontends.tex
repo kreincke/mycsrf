@@ -61,37 +61,68 @@ Programm &
 \\
 \hline
 \hline
-ABCJ & & & & & & & & & & & & & & &  & & \\
+ABCJ & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
 \hline
-Aria Mae. & & & & & & & & & & & & & & &  & & \\
+Aria Mae. & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
 \hline
-Brahms & & & & & & & & & & & & & & &  & & \\
+Brahms & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
 \hline
-Canorus & & & & & & & & & & & & & & &  & & \\
+Canorus & 
+ 1 & 2 & \checkmark & \checkmark & 5 & 6 & 
+ \checkmark & 8 & 
+ 9 & \checkmark & \checkmark & \checkmark & D & E & \checkmark & G & \checkmark \\
 \hline
-Denemo & & & & & & & & & & & & & & &  & & \\
+Denemo & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
 \hline
-EasyABC & & & & & & & & & & & & & & &  & & \\
+EasyABC & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
 \hline
-Elysium & & & & & & & & & & & & & & &  & & \\
+Elysium & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
 \hline
-Frescobaldi & & & & & & & & & & & & & & &  & & \\
+Frescobaldi & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
 \hline
-Laborejo & & & & & & & & & & & & & & &  & & \\
+Laborejo & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
 \hline
-mup & & & & & & & & & & & & & & &  & & \\
+MuseScore & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
 \hline
-MuseScore & & & & & & & & & & & & & & &  & & \\
-\hline
-muX2D & & & & & & & & & & & & & & &  & & \\
+muX2D & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
 \hline
 NoteEdit & $\neg$ &$\neg$ &$\neg$ &$\neg$ &$\neg$ &$\neg$ & 
 $\neg$& $\neg$& 
 $\neg$& $\neg$& $\neg$& $\neg$& $\neg$& $\neg$&  $\neg$& $\neg$ & $\neg$ \\
 \hline 
-NtEd & & & \checkmark & \checkmark & & &
+NtEd & $\neg$ & $\neg$ & \checkmark & \checkmark & $\neg$ & $\neg$ &
  \checkmark & $\neg$ &
-  & \checkmark & \checkmark & & & & \checkmark & \checkmark  & \checkmark \\
+  $\neg$ & \checkmark & \checkmark & $\neg$ & $\neg$ & $\neg$ & \checkmark & \checkmark  & \checkmark \\
 \hline
 \end{tabulary}
 \end{center}
@@ -100,7 +131,16 @@ Eine solche Fülle von Möglichkeiten fordert geradezu dazu auf, praktisch zu
 überprüfen, welche den Anforderungen von Musikwissenschaftlern (am besten)
 gerecht werden. Deshalb werden wir überprüfen, wie diese Tools mit der Kadenz II
 umgehen können, in wie weit sie die Symbole der Harmonieanalyse aufzunehmen
-vermögen und ob sie diesen Inhalt in einem Format abspeichern können.
+vermögen und ob sie diesen Inhalt in einem Format abspeichern
+können\footnote{Konkret werden wir unsere Referenzkadenz-II jeweils mit den
+\acc{LilyPond}-kompatiblen Frontends erfassen, das Result von dort aus als
+\acc{LilyPond}-Datei exportieren und diese wiederum vom Eclipse-Plugin
+\acc{Elysium} einlesen lassen. \acc{Elysium} leitet aus dieser ursprünglich
+exportierten Datei automatisch eine PDF-Datei ab, die genauso aussehen sollte,
+wie das Original. Stimmt also diese Datei mit den Erwartungen überein,
+betrachten wir den ursprünglichen Export als verifziert.\label{ExportVerifikation}
+Die anderen Exportformate werden wir entsprechend verifizieren. Einzelheiten dazu
+vermerken wir bei den entsprechenden Fällen.}.
 
 % this is only inserted to eject fault messages in texlipse
 %\bibliography{../bib/literature}

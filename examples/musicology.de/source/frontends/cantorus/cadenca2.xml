@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE canorusml>
+<canorus-document>
+ <canorus-version>0.7.3rc3</canorus-version>
+ <document date-last-modified="2019-01-26T13:06:32" date-created="2019-01-25T23:11:55" time-edited="5104">
+  <sheet name="Cadenca-II">
+   <staff name="RH" number-of-lines="5">
+    <voice name="Staff1Voice1" midi-program="0" midi-pitch-offset="0" midi-channel="0" stem-direction="stem-up">
+     <clef color="#00000000" offset="0" clef-type="G" time-start="0" c1="-2"/>
+     <time-signature beat="4" beats="4" color="#00000000" time-signature-type="classical" time-start="0"/>
+     <key-signature color="#00000000" key-signature-type="major-minor" time-start="0">
+      <diatonic-key gender="major">
+       <diatonic-pitch note-name="1" accs="0"/>
+      </diatonic-key>
+     </key-signature>
+     <time-signature beat="2" beats="4" color="#00000000" time-signature-type="classical" time-start="0"/>
+     <note time-length="512" color="#00000000" time-start="0">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="31" accs="1"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="0">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="36" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="512">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="31" accs="1"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="512">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="36" accs="1"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="1024">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="34" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="1024">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="37" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="1536">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="34" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="1536">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="37" accs="1"/>
+     </note>
+     <barline barline-type="single" color="#00000000" time-start="2048"/>
+     <note time-length="512" color="#00000000" time-start="2048">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="34" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="2048">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="38" accs="1"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="2560">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="37" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="2560">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="39" accs="1"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="3072">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="37" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="3072">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="40" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="3584">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="38" accs="1"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="3584">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="40" accs="0"/>
+     </note>
+     <barline barline-type="end" color="#00000000" time-start="4096"/>
+    </voice>
+    <voice name="Staff1Voice2" midi-program="0" midi-pitch-offset="0" midi-channel="1" stem-direction="stem-down">
+     <clef color="#00000000" offset="0" clef-type="G" time-start="0" c1="-2"/>
+     <time-signature beat="4" beats="4" color="#00000000" time-signature-type="classical" time-start="0"/>
+     <key-signature color="#00000000" key-signature-type="major-minor" time-start="0">
+      <diatonic-key gender="major">
+       <diatonic-pitch note-name="1" accs="0"/>
+      </diatonic-key>
+     </key-signature>
+     <time-signature beat="2" beats="4" color="#00000000" time-signature-type="classical" time-start="0"/>
+     <rest time-length="2048" color="#00000000" rest-type="hidden" time-start="0">
+      <playable-length dotted="0" music-length="breve"/>
+     </rest>
+     <barline barline-type="single" color="#00000000" time-start="2048"/>
+     <rest time-length="2048" color="#00000000" rest-type="hidden" time-start="2048">
+      <playable-length dotted="0" music-length="breve"/>
+     </rest>
+     <barline barline-type="end" color="#00000000" time-start="4096"/>
+    </voice>
+   </staff>
+   <function-mark-context name="Functional Harmonies">
+    <function-mark chord-area="undefined" minor="0" tonic-degree-minor="0" time-length="512" function="T" tonic-degree="T" chord-area-minor="0" time-start="0" ellipse="0">
+     <diatonic-key gender="major">
+      <diatonic-pitch note-name="0" accs="0"/>
+     </diatonic-key>
+    </function-mark>
+    <function-mark chord-area="D" minor="0" tonic-degree-minor="0" time-length="512" function="undefined" tonic-degree="T" chord-area-minor="0" time-start="512" ellipse="0">
+     <diatonic-key gender="major">
+      <diatonic-pitch note-name="0" accs="0"/>
+     </diatonic-key>
+    </function-mark>
+    <function-mark chord-area="D" minor="0" tonic-degree-minor="0" time-length="512" function="undefined" tonic-degree="T" chord-area-minor="0" time-start="1024" ellipse="0">
+     <diatonic-key gender="major">
+      <diatonic-pitch note-name="0" accs="0"/>
+     </diatonic-key>
+    </function-mark>
+    <function-mark chord-area="undefined" minor="0" tonic-degree-minor="0" time-length="512" function="D" tonic-degree="T" chord-area-minor="0" time-start="1536" ellipse="0">
+     <diatonic-key gender="major">
+      <diatonic-pitch note-name="0" accs="0"/>
+     </diatonic-key>
+    </function-mark>
+    <function-mark chord-area="undefined" minor="0" tonic-degree-minor="0" time-length="512" function="T" tonic-degree="T" chord-area-minor="0" time-start="2048" ellipse="0">
+     <diatonic-key gender="major">
+      <diatonic-pitch note-name="0" accs="0"/>
+     </diatonic-key>
+    </function-mark>
+    <function-mark chord-area="undefined" minor="0" tonic-degree-minor="0" time-length="512" function="undefined" tonic-degree="T" chord-area-minor="0" time-start="2560" ellipse="0">
+     <diatonic-key gender="major">
+      <diatonic-pitch note-name="0" accs="0"/>
+     </diatonic-key>
+    </function-mark>
+    <function-mark chord-area="undefined" minor="0" tonic-degree-minor="0" time-length="256" function="D" tonic-degree="T" chord-area-minor="0" time-start="3072" ellipse="0">
+     <diatonic-key gender="major">
+      <diatonic-pitch note-name="0" accs="0"/>
+     </diatonic-key>
+    </function-mark>
+    <function-mark chord-area="undefined" minor="0" tonic-degree-minor="0" time-length="256" function="undefined" tonic-degree="T" chord-area-minor="0" time-start="3328" ellipse="0">
+     <diatonic-key gender="major">
+      <diatonic-pitch note-name="0" accs="0"/>
+     </diatonic-key>
+    </function-mark>
+    <function-mark chord-area="undefined" minor="0" tonic-degree-minor="0" time-length="512" function="T" tonic-degree="T" chord-area-minor="0" time-start="3584" ellipse="0">
+     <diatonic-key gender="major">
+      <diatonic-pitch note-name="0" accs="0"/>
+     </diatonic-key>
+    </function-mark>
+   </function-mark-context>
+   <lyrics-context stanza-number="1" name="LyricsContext4" associated-voice-idx="0">
+    <syllable time-length="512" melisma="0" text="T" time-start="0" hyphen="0"/>
+    <syllable time-length="512" melisma="0" text="(D7)" time-start="512" hyphen="0"/>
+    <syllable time-length="512" melisma="0" text="Sp" time-start="1024" hyphen="0"/>
+    <syllable time-length="512" melisma="0" text="D97" time-start="1536" hyphen="0"/>
+    <syllable time-length="512" melisma="0" text="Tp" time-start="2048" hyphen="0"/>
+    <syllable time-length="512" melisma="0" text="DD7" time-start="2560" hyphen="0"/>
+    <syllable time-length="512" melisma="0" text="D4-3" time-start="3072" hyphen="0"/>
+    <syllable time-length="512" melisma="0" text="T" time-start="3584" hyphen="0"/>
+   </lyrics-context>
+   <staff name="LH" number-of-lines="5">
+    <voice name="Staff2Voice1" midi-program="0" midi-pitch-offset="0" midi-channel="2" stem-direction="stem-up">
+     <clef color="#00000000" offset="0" clef-type="F" time-start="0" c1="10"/>
+     <time-signature beat="4" beats="4" color="#00000000" time-signature-type="classical" time-start="0"/>
+     <key-signature color="#00000000" key-signature-type="major-minor" time-start="0">
+      <diatonic-key gender="major">
+       <diatonic-pitch note-name="1" accs="0"/>
+      </diatonic-key>
+     </key-signature>
+     <time-signature beat="2" beats="4" color="#00000000" time-signature-type="classical" time-start="0"/>
+     <note time-length="512" color="#00000000" time-start="0" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="22" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="0" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="26" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="512" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="20" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="512" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="26" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="1024" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="22" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="1024" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="25" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="1536" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="21" accs="1"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="1536" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="25" accs="0"/>
+     </note>
+     <barline barline-type="single" color="#00000000" time-start="2048"/>
+     <note time-length="512" color="#00000000" time-start="2048" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="22" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="2048" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="24" accs="1"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="2560" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="20" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="2560" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="22" accs="0"/>
+     </note>
+     <note time-length="256" color="#00000000" time-start="3072" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="quarter"/>
+      <diatonic-pitch note-name="19" accs="0"/>
+     </note>
+     <note time-length="256" color="#00000000" time-start="3072" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="quarter"/>
+      <diatonic-pitch note-name="22" accs="0"/>
+     </note>
+     <note time-length="256" color="#00000000" time-start="3328" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="quarter"/>
+      <diatonic-pitch note-name="19" accs="0"/>
+     </note>
+     <note time-length="256" color="#00000000" time-start="3328" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="quarter"/>
+      <diatonic-pitch note-name="21" accs="1"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="3584" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="15" accs="0"/>
+     </note>
+     <note time-length="512" color="#00000000" time-start="3584" stem-direction="stem-down">
+      <playable-length dotted="0" music-length="half"/>
+      <diatonic-pitch note-name="22" accs="0"/>
+     </note>
+     <barline barline-type="end" color="#00000000" time-start="4096"/>
+    </voice>
+    <voice name="Staff2Voice2" midi-program="0" midi-pitch-offset="0" midi-channel="3" stem-direction="stem-down">
+     <clef color="#00000000" offset="0" clef-type="F" time-start="0" c1="10"/>
+     <time-signature beat="4" beats="4" color="#00000000" time-signature-type="classical" time-start="0"/>
+     <key-signature color="#00000000" key-signature-type="major-minor" time-start="0">
+      <diatonic-key gender="major">
+       <diatonic-pitch note-name="1" accs="0"/>
+      </diatonic-key>
+     </key-signature>
+     <time-signature beat="2" beats="4" color="#00000000" time-signature-type="classical" time-start="0"/>
+     <rest time-length="2048" color="#00000000" rest-type="hidden" time-start="0">
+      <playable-length dotted="0" music-length="breve"/>
+     </rest>
+     <barline barline-type="single" color="#00000000" time-start="2048"/>
+     <rest time-length="1024" color="#00000000" rest-type="hidden" time-start="2048">
+      <playable-length dotted="0" music-length="whole"/>
+     </rest>
+     <rest time-length="1024" color="#00000000" rest-type="hidden" time-start="3072">
+      <playable-length dotted="0" music-length="whole"/>
+     </rest>
+     <barline barline-type="end" color="#00000000" time-start="4096"/>
+    </voice>
+   </staff>
+  </sheet>
+ </document>
+</canorus-document>
