@@ -31,7 +31,7 @@ standard for folk and traditional music}.}. Für dieses Verfahren gibt es eine
 Fülle von Konvertern, die ganz verschiedene Nutzungsszenarien
 bedienen\footcite[vgl.][\nopage wp]{Abc2018b}. Und eines der
 Verwertungsszenarios ist eben die Einbettung von \textit{ABC-Noten} in
-\LaTeX-Text, wie es von dem abc-\LaTeX-Paket ermöglicht
+\LaTeX-Text, wie es von dem \acc{abc-}\LaTeX-Paket ermöglicht
 wird\footcite[vgl.][\nopage wp]{CtanAbc2018a}.
 
 Die Art der Notation -- die natürlich für alle Verwertungsszenarios im
@@ -61,11 +61,11 @@ umzuwandeln, das dann bei der nächsten Runde -- automatisiert -- anstelle des
 \textit{ABC}-Codes in die \LaTeX-Datei eingesetzt wird.
   
 $\RHD$ Sofern es die \TeX-Distribution nicht eh schon mitliefert, muss das
-abc-\LaTeX-Paket\footcite[vgl.][\nopage wp]{CtanAbc2018a} installiert
+\acc{abc-}\LaTeX-Paket\footcite[vgl.][\nopage wp]{CtanAbc2018a} installiert
 werden\footnote{Bei Ubuntu 18.04 ist es im Paket \textit{texlive-music} enthalten.}.
   
 $\RHD$ Danach muss -- wie bei \LaTeX\ üblich -- dieses
-abc-\LaTeX-Paket  mit dem entsprechenden Kommando in der Präambel
+\acc{abc-}\LaTeX-Paket  mit dem entsprechenden Kommando in der Präambel
 eingebunden (\texttt{\textbackslash{usepackage}\{abc\}}).
   
 $\RHD$ Schließlich müssen die \LaTeX-Durchgänge zur Erzeugung des PDFs
@@ -80,7 +80,7 @@ mit Fußnoten und bibliographischen Angaben werden eh schon über mehrere
 \LaTeX-Durchgänge hinweg erzeugt: Jeder einzelnen Durchgang lagert später
 benötigte Angaben in Hilfsdateien aus und liest die, die er selbst verwenden
 will, aus Dateien ein, die vorhergehende erzeugt haben.
-Verwendet man das \textit{abc-LaTeX}-Paket generiert der erste Durchgang also
+Verwendet man das \acc{abc-}\LaTeX-Paket generiert der erste Durchgang also
 nicht mehr nur die bibliographischen Hilfsdateien, sondern auch die
 korrespondierenden \textit{ABC}-Dateien, für die er anschließend das externe Tool
 \textit{abcm2ps} aufruft. Dies konvertiert die extrahierten Vorlagen dann
@@ -202,16 +202,17 @@ integriert, und zwar über die Option, Liedtexte (Wörter) unter Noten und
 'Griffsymbole' über Noten einzufügen. Gleiches gilt für die mehrzeilige Kadenz.
 
 Man sieht diesen Beispielen aber auch an, dass das Ergebnis optisch nicht
-optimal ist: Die Breite der Notensysteme wird automatisch auf die Seitenbreite
-gesetzt\footnote{Es soll jedoch die Möglichkeit geben, Parameter an das
-\textit{abcm2ps}-Tool aus dem Notencode heraus zu übergeben, mit dem solche
-Aspekte zu steuern wären. Unglücklicherweise ist es uns nicht gelungen, das zu
-aktivieren.}. \label{AppraisalABC}Wichtiger ist jedoch, dass man nicht in der
-Lage ist, die eingefügten Analysesymbole typographisch der Stufen- oder
-Funktionstheorie entsprechend zu gestalten: Weder können hoch- und tiefgestellte
-Kleinsymbole oder Sonderzeichen eingefügt werden, noch die Alterationszeichen
-$\sharp$, $\flat$ oder $\natural$ aus den Sonderzeichen - ganz zu schweigen von
-der Einbettung jener ausgefeilten Konstrukte, die das \textit{harmony}-Paket zur
+optimal ist: Sow wird die Breite der Notensysteme automatisch auf die Breite des
+Bruckbereiches gesetzt\footnote{Es soll jedoch die Möglichkeit geben, Parameter
+an das \textit{abcm2ps}-Tool aus dem Notencode heraus zu übergeben, mit dem
+solche Aspekte zu steuern wären. Unglücklicherweise ist es uns nicht gelungen,
+das zu aktivieren.}, was bei kürzeren Beispielen zu unschönen Dehnungen führt.
+\label{AppraisalABC}Wichtiger ist jedoch, dass man nicht in der Lage ist, die
+eingefügten Analysesymbole typographisch der Stufen- oder Funktionstheorie
+entsprechend zu gestalten: Weder können hoch- und tiefgestellte Kleinsymbole
+oder Sonderzeichen eingefügt werden, noch die Alterationszeichen $\sharp$,
+$\flat$ oder $\natural$ aus den Sonderzeichen - ganz zu schweigen von der
+Einbettung jener ausgefeilten Konstrukte, die das \textit{harmony}-Paket zur
 Verfügung stellt\footnote{Das kann ja auch nicht sein, weil die
 \textit{ABC-Notation} außerhalb von \LaTeX\ in ein Bild umgewandelt wird, sodass
 eventuell noch eingebettete \textit{(La)\TeX}-Konstrukte gar nicht mehr

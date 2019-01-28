@@ -56,20 +56,21 @@ beschrieben -- installiert.}. Alternativ bleibt nur, auf die nächste
 Distribution zu warten, die uns dieses Programm wieder ohne Eigenarbeit zur
 Verfügung stellt.
 
-\acc{Canorus} bietet keinen eigenen Notensatz im eigentlichen Sinne an. Dafür
-nutzt es \acc{LilyPond} als Backend. Oder anders gesagt: \acc{Canorus} fungiert
-als graphisches Frontend für die textuell arbeitenden \acc{LilyPond}. Das, was
-man mit \acc{Canorus} erarbeitet, speichert es in einem eigenen
-\acc{XML}-Format. Importieren kann man (gegenwärtig) nur \acc{MusicXML}- und
-\acc{Midi}-Dateien, exportieren auch Graphiken und \acc{LilyPond-}Dateien.
+Außer der Visualisierung am Bildschirm bietet \acc{Canorus} selbst keinen
+Notensatz. Für die anderen Zwecke nutzt es \acc{LilyPond} als Backend. Oder
+anders gesagt: \acc{Canorus} fungiert als graphisches Frontend für das textuell
+arbeitende \acc{LilyPond}. Das, was man mit \acc{Canorus} erarbeitet, speichert
+es in einem eigenen \acc{XML}-Format. Importieren kann man (gegenwärtig) 
+\acc{MusicXML}- und \acc{Midi}-Dateien, exportieren auch Graphiken und
+\acc{LilyPond-}Dateien.
 
 Die Arbeitsteilung zwischen \acc{Canorus} und \acc{LilyPond} hat zwei
 Konsequenzen: Zum einen reicht die Installation von \acc{Canorus} allein nicht
-aus, um arbeitsfähig zu werden. Auch  \acc{LilyPond} muss installiert werden.
-Und zum anderen ist das, was man am Bildschirm sieht, letztlich nicht das, was
-man als druckfertige PDF-Datei erhält. Hier zunächst unsere Referenzkadenz, wie
-Canorus sie als PDF generiert. Wie kaum anders zu erwarten, ähnelt sie sehr der
-'puren' \acc{LilyPond}-Ausgabe.
+aus, um arbeitsfähig zu werden. Auch  \acc{LilyPond} muss systemisch
+bereitgestellt werden. Und zum anderen ist das, was man am Bildschirm sieht,
+letztlich nicht das, was man als druckfertige PDF-Datei erhält. Hier zunächst
+unsere Referenzkadenz, wie Canorus sie als PDF generiert. Wie kaum anders zu
+erwarten, ähnelt sie sehr der 'puren' \acc{LilyPond}-Ausgabe:
 
 \begin{center}
 \includegraphics[width=0.8\textwidth]{frontends/canorus/cadenca2-pdf.png}
@@ -100,15 +101,13 @@ das Handbuch bei der manuelle Installation aus den Quellen heraus nicht mit
 kompiliert wird\footnote{\ldots und bis dato auch nicht im Netz zu finden ist}.
 
 Für die Eingabe von 'Liedtext' stellt \acc{Canorus} einen besonderen Modus
-bereit\footnote{der untere, grüne Bereich zwischen den Notenliniensystemen}, den
-man ebenfalls im linken Randbereich aktiviert und dann über Maus und Tastatur
-bedient.
+bereit (unten grün), den man ebenfalls im linken Randbereich aktiviert und dann
+über Maus und Tastatur bedient.
 
 Außer dem Textmodus möchte \acc{Canorus} auch noch einen Modus zur
-Harmonieanalyse\footnote{der obere, gelbe Bereich zwischen den
-Notenliniensystemen} bereitstellen. In diesem Modus kann man -- wie es unser
-Bild zeigt -- in der oberen Programmleiste Funktionssymbole auswählen und unter
-bestimmte Noten einfügen. Tatsächlich versucht \acc{Canorus} sogar, den
+Harmonieanalyse bereitstellen (oben, gelb). In diesem Modus kann man -- wie es
+unser Bild zeigt -- in der oberen Programmleiste Funktionssymbole auswählen und
+unter bestimmte Noten einfügen. Tatsächlich versucht \acc{Canorus} sogar, den
 entsprechenden Akkord zu analysieren.
 
 Damit verfolgt \acc{Canorus} einen vielversprechenden Ansatz, der über den
@@ -127,16 +126,18 @@ gut weiterverarbeitet werden. Er ist -- sofern man auf die eigene und die
 \acc{Canorus}-Harmonieanalyse verzichtet -- gut strukturiert, lesbar und
 reproduzierbar\footnote{$\rightarrow$ S.\pageref{ExportVerifikation}}
 korrekt\footnote{Aus Platzgründen verzichten wir auf den erneuten Abdruck des
-\acc{LilyPond}-Codes}. Ohne eine textuelle Nachbearbeitung wird er aber für den
-Musikwissenschaftler nur bedingt sinnvoll sein.
+\acc{LilyPond}-Codes}. Ohne eine textuelle Nachbearbeitung in Sachen
+Harmonieanalyse wird er aber für den Musikwissenschaftler nur bedingt sinnvoll
+sein.
 
 So geben wir dem Programm 3 von 5 Sternen: In Maßen kann es jetzt bereits als
-Frontend für \acc{LilyPond} verwendet werden, es ist vielversprechend, wird aktuell
-gepflegt und erfüllt die Basisanforderungen. Als $\beta$-Version ist es aber von
-der Funktionalität und von der Stabilität her ebenso noch begrenzt, wie vom Handling
-her. Praktisch wird \acc{Canorus} momentan allenfalls für den
-Musikwissenschaftler als \acc{LilyPond}-Frontend in Frage kommen, der bereits mit
-\acc{Canorus} vertraut ist.
+Frontend für \acc{LilyPond} verwendet werden, es ist vielversprechend, wird
+aktuell gepflegt und erfüllt die Basisanforderungen. Als $\beta$-Version ist es
+aber -- dem eigenen Anspruch gemäß -- von der Funktionalität und von der
+Stabilität her ebenso noch begrenzt, wie vom Handling her. Praktisch wird
+\acc{Canorus} momentan allenfalls für den Musikwissenschaftler als
+\acc{LilyPond}-Frontend in Frage kommen, der bereits mit \acc{Canorus} vertraut
+ist.
 
 
 % this is only inserted to eject fault messages in texlipse
