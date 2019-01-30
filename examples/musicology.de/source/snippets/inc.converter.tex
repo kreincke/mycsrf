@@ -55,15 +55,11 @@ dieses Format zu verarbeiten vermag\footcite[vgl.][\nopage wp]{MusicXML2018b}.
 
 Führt man diese Quellen zusammen, entsteht in etwa folgendes Bild:
 
-%\begin{table}
 \begin{center}
+\renewcommand{\arraystretch}{1.5}
 \begin{tabulary}{14cm}{C|R||C|C|C|C|}
 \hline
-\multirow{2}{*}{*} & \multirow{2}{*}{nach:} & \multirow{2}{*}{ABC} & 
-          \multirow{2}{*}{MusiX\TeX} & 
-          \multirow{2}{*}{PMX} & 
-          \multirow{2}{*}{LilyPond} \\
- & &  &  &  &   \\
+  & nach: & ABC & MusiX\TeX & PMX & LilyPond \\
 \hline
 \hline
 \multirow{5}{*}{\rotatebox{90}{von:}} 
@@ -79,15 +75,15 @@ Führt man diese Quellen zusammen, entsteht in etwa folgendes Bild:
 \hline 
 \hline
 \end{tabulary}
+\renewcommand{\arraystretch}{1}
 \end{center}
-%\end{table}
 
 Diese Tabelle ist wie folgt zu lesen:
 
 \begin{itemize}
   \item Dass es keine Konverter gibt, die ihren Input auf dasselbe Inputformat
   abbilden -- also etwa von \textit{ABC} nach \textit{ABC} oder von
-  \textit{MusiX\TeX} nach \textit{MusiX\TeX} --, liegt in der Natur der Sache.
+  \textit{MusiX\TeX} nach \textit{MusiX\-\TeX} --, liegt in der Natur der Sache.
   [$\rightarrow \times$] \item Dass es keinen Konverter von \textit{MusiX\TeX}
   nach \textit{PMX} zu geben scheint, überrascht nicht wirklich. Schließlich ist
   \textit{PMX} von vornherein als Präprozessor für \textit{MusiX\TeX} gedacht.
@@ -102,15 +98,16 @@ Diese Tabelle ist wie folgt zu lesen:
   RDL. 2019-01-17). [$\rightarrow$ \sout{durchstrichen}]
   \item Für einige Kombinationen haben wir (noch) keine Konverter gefunden,
   obwohl es prinzipiell sinnvoll wäre, wenn es solche gäbe. [$\rightarrow$
-  $\varnothing$] \item Die Konverter von \acc{LilyPond} nach \acc{ABC} resp. von
-  \acc{MusicXML} nach \acc{ABC} scheinen erst einmal nachrangig zu sein: Denn
-  wenn wir beispielsweise schon eine \textit{LilyPond}-Datei hätten, brächte
-  eine Umwandlung ins \textit{ABC}-Format per \texttt{ly2abc} keinen Gewinn
-  mehr, weil der Musikwissenschaftler im \textit{LilyPond}-Format mehr
-  auszudrücken vermag, als im \textit{ABC}-Format. Indirekt spielen diese
-  Konverter aber sehr wohl ein Rolle. Denn mit ihnen ließe sich eine
-  \textit{LilyPond}- resp. \textit{MusicXML}-Datei ins \acc{ABC}-Format und von
-  dort aus mittels des Konverters \acc{abc2mtex} ins Musix\TeX-Format transferieren.
+  $\varnothing$] 
+  \item Die Konverter von \acc{LilyPond} nach \acc{ABC} resp. von \acc{MusicXML}
+  nach \acc{ABC} scheinen auf den ersten Blick nachrangig zu sein: Denn wenn wir
+  beispielsweise schon eine \textit{LilyPond}-Datei hätten, brächte eine
+  Umwandlung ins \textit{ABC}-Format per \texttt{ly2abc} keinen Gewinn mehr,
+  weil der Musikwissenschaftler im \textit{LilyPond}-Format mehr auszudrücken
+  vermag, als im \textit{ABC}-Format. Indirekt spielen diese Konverter aber sehr
+  wohl ein Rolle. Denn mit ihnen ließe sich eine \textit{LilyPond}- resp.
+  \textit{MusicXML}-Datei ins \acc{ABC}-Format und von dort aus mittels des
+  Konverters \acc{abc2mtex} ins Musix\TeX-Format transferieren.
   [$\rightarrow$ \dashuline{unterstrichelt}]
 \end{itemize}
 

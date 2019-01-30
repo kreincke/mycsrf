@@ -1,0 +1,151 @@
+% mycsrf 'for beeing included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+
+%% use all entries of the bibliography
+
+\section{Kriterien}
+
+Wollen wir den besten Weg finden, brauchen wir Maßstäbe. Deshalb werden wir den
+Notensatzsystemen drei Referenzkadenzen vorlegen und erwarten, dass sie diese
+optisch ansprechend erfassen und wiedergeben können, und zwar einschließlich der
+zugehörigen Harmonieanalyse:
+
+Als erste und einfachste Aufgabe beziehen wir uns auf ein Beispiel aus der
+Harmonielehre von Grabner\footcite[vgl.][107]{Grabner1974a}:
+
+\begin{center}
+\begin{music}%
+  \largemusicsize%
+  % using defaults: \instrumentnumber{1}% + \setstaffs{1}{1}  
+  % + \setclef{1}{\treble}+ no bar type + \generalsignature{0}%
+  \nobarnumbers%
+  \startextract%
+  \setdoublebar%
+  \NOTEs\lcharnote{10}{(1) }\uptext{T}\zchar{-10}{I}\zw{ce}\wh{g}\en%
+  \NOTEs\uptext{S}\zchar{-10}{IV}\zw{fh}\wh{j}\en%
+  \NOTEs\uptext{D}\zchar{-10}{V}\zw{gi}\wh{k}\en%
+  \bar%
+  \NOTEs\lcharnote{10}{(2) }\uptext{T}\zchar{-10}{I}\zw{ac}\wh{e}\en% 
+  \NOTEs\uptext{S}\zchar{-10}{IV}\zw{df}\wh{h}\en%
+  \NOTEs\uptext{D}\zchar{-10}{{I}}\sh{g}\zw{eg}\wh{i}\en%
+  \setdoublebar%
+  \endextract%
+\end{music}%
+\cad{I}{Referenz}
+\end{center}
+
+Die zweite Referenzkadenz soll die Erfassung harmonisch komplexer Zusammenhänge
+abfordern:
+
+\begin{center}
+\begin{music}
+  \normalmusicsize
+  \parindent4em
+  \instrumentnumber{1}
+  \setstaffs{1}{2}
+  \setclef{2}{\treble}
+  \setclef{1}{\bass}
+  \setname{1}{Piano}
+  \generalsignature{2}% D-DUR
+  \generalmeter{\meterfrac42}
+  \startextract
+  \NOTes\zmidstaff{\HH.T.....}\zh{K}\hl{a}|\zh{f}\hu{k}\en%
+  \NOTes\zmidstaff{(\HH.D..7...)}\zh{I}\hl{a}|\zh{f}\sh{k}\hu{k}\en%
+  \NOTes\zmidstaff{\HH.Sp.7...7.}\zh{K}\hl{N}|\zh{i}\hu{l}\en%
+  \NOTes\zmidstaff{\HH.\Dohne.3.$\flat$9=$\sharp$8.7.5.}\zh{J}\hl{N}|\zh{i}\sh{l}\hu{l}\en%
+  \bar
+  \NOTes\zmidstaff{\HH.Tp.3....}\zh{K}\hl{M}|\zh{i}\hu{m}\en%  
+  \NOTes\zmidstaff{\HH.\DD.5...7.}\zh{I}\hl{K}|\zh{l}\sh{n}\hu{n}\en%  
+  \NOTes\zmidstaff{\HH.D....4-3.}
+    \zh{H}\isluru{0}{K}\qu{K}\tslur{0}{J}\qu{J}|
+    \zhl{l}\hl{o}\en%  
+  \NOTes\zmidstaff{\HH.T.....}\zh{D}\hl{K}|\zh{m}\hu{o}\en%  
+  \setdoublebar
+  \endextract
+\end{music}
+\cad{II}{Referenz}
+\end{center}
+
+Und die dritte Referenzkadenz soll das in einen schwierigeren
+rhythmish-metrischen Kontext einbetten:
+
+\begin{music}
+  \smallmusicsize
+  \parindent4em 
+  \instrumentnumber{2}
+  \setstaffs{2}{1}
+  \setstaffs{1}{1}
+  \setclef{2}{\treble}
+  \setclef{1}{\bass} 
+  \songtop{2} 
+  \songbottom{1} 
+  \setname1{Diskant}
+  \setname2{Bass}
+  \generalsignature{-2}
+  \generalmeter{\meterfrac58}
+  \startpiece
+    % Takt 1/1: B: 2 8tel (Kurzschreibweise) + D: 4tel AKK
+    \NOtes \zmidstaff{T} \Dqbl I b & \zq{ik}\qu{m}\en
+    % Takt 1/3: B: 2 8tel explizit  mit Vorzeichen + D: 4etl AKK
+    \NOtes \zmidstaff{\HH.D.3-3$\flat$.8.7..} 
+      \ibl{0}{a}{0}\qb{0}{a}\tbl{0}\fl{a}\qb{0}{a} & 
+      \zq{j}\rq{l}\qu{m} \en
+    % Takt 1/5: B: punktierte 16tel explizit mit Vorzeichen + D: 8tel AKK
+    \NOtes \zmidstaff{\HH.S.3-3$\flat$....} 
+      \ibbl{2}{N}{0}\qbp{2}{N}\roff{\tbbbl{2}\fl{N}\tqb{2}{N}} & 
+      \zq{il}\cu{p}\en
+  \bar % T2: 2*(B:2*8. + D:4. AKK) +  B:2*16. + D:8. AKK
+    \NOtes \zmidstaff{\HH.D.8-7.7...} 
+      \Dqbl M L &  \zq{jl}\qu{o} \en
+    \NOtes \zmidstaff{\HH.Dp.8-8$\flat$....} 
+      \ibl{1}{K}{0}\qbp{1}{K}\roff{\tbbl{1}\fl{K}\tqb{1}{K}} & 
+      \zq{hm}\qu{o}\en
+    \NOtes \zmidstaff{\HH.D.5-3.7...}
+      \ibbl{2}{J}{0}\qbp{2}{J}\roff{\tbbbl{2}\tqb{2}{H}} & 
+      \zq{j}\rq{l}\cu{m} \en
+  %\alaligne
+  \bar %T3 B:8. + D:8. P + B:8. P + D:8.AKK + B:8. + D:8.AKK + B:4. + D:4.AKK 
+    \notes \zmidstaff{T} \qa I & \ds \zq{fk}\cu{m}\en
+    \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
+    \notes \zmidstaff{T} \qa b & \zq{df}\qu{i}\en
+  \bar %T4: 8. P + (B:2*8. + D:4. AKK) + B:8. + D:8.AKK + 8. P 
+    \notes \ds & \ds \en
+    \notes \zmidstaff{\HH.D..7...} \ca{M J} & \zq{eh}\qu{j}\en
+    \notes \qa F & \zq{eh}\qu{j}\en  
+  \bar %T5: 8. P + 2*(B:8. + D:8. AKK) + 8. P +  B:8. + D:8.AKK  
+    \notes \ds & \ds \en
+    \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en
+    \notes \zmidstaff{\HH.D.3.7...} \ca H & \zq{j}\rq{l}\cu{m}\en
+    \notes \zmidstaff{T} \qa I & \zq{ik}\qu{m}\en  
+  \bar % T6: 3*(B:8.  + D:8. AKK) + B:4. + D:4. AKK
+    \notes \ds & \ds \en
+    \notes \zmidstaff{\HH.S..5.6..}  \ca L & \zq{g}\rq{i}\cu{j}\en
+    \notes \zmidstaff{\HH.D..7...} \ca M & \zq{eh}\cu{j}\en  
+    \notes \zmidstaff{T} \qa b & \zq{df}\qu{i}\en    
+  \Endpiece
+\end{music}
+\cad{III}{Referenz}
+
+Zuletzt werden wir ja, wie angekündigt, auch versuchen, gute Frontends für die
+\LaTeX-kompatiblen Notensatzsysteme zu finden. Von ihnen werden verlangen, dass
+sie die Referenzkadenz II erfassen und adäquat exportieren. Und von Konvertern
+werden wir dasselbe verlangen. Wie wir verifizieren, dass eine Refrenzkadenz
+adäquat exportiert bzw. konvertiert worden ist, werden wir später genauer
+erläutern\footnote{$\rightarrow$ S. \pageref{ExportVerifikation}}.
+
+% this is only inserted to eject fault messages in texlipse
+%\bibliography{../bib/literature}

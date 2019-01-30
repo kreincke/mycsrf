@@ -54,9 +54,10 @@ erfassen; tiefer strukturierte Symbole sind aber nicht darstellbar.
 \acc{NtEd} erlaubt den Export im Bild\footnote{PS, PNG, PDF, SVG},
 Ton\footnote{Midi}- und \acc{LilyPond}-Format. Der \acc{LilyPond}-Code ist --
 sofern man auf textuelle Auszeichnung verzichtet -- klar strukturiert, also zur
-Weiterverarbeitung geeignet. Unglücklicherweise scheitert die
-Exportverifikation\footnote{$\rightarrow$ S.\pageref{ExportVerifikation}} für
-die von NtEd generierte \acc{LilyPond}-Datei; sie enthält eine Klammer zu viel:
+Weiterverarbeitung geeignet. Unglücklicherweise scheitert die die
+Verifikation\footnote{$\rightarrow$ S.\pageref{ExportVerifikation}} der von NtEd
+exportierten \acc{LilyPond}-Datei. Um sie prozessierbar zu machen, sie enthält
+mussten wir eine Klammer auskommentieren:
 
 \begin{verbatim}
 StaffAVoiceA = \relative c' {

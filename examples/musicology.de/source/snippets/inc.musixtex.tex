@@ -17,7 +17,8 @@
 
 %% use all entries of the bibliography
 
-\subsection{MusiX\TeX: komplex, kompliziert und (letztlich) unabdingbar}
+\subsection{MusiX\TeX: komplex, kompliziert und unabdingbar
+($\bigstar\bigstar\bigstar\bigstar$)}
 
 Das MusiX\TeX-Tutorial erwähnt mehrfach, dass man Notentexte mit dieser
 Beschreibungssprache eher nicht 'händisch' erarbeiten wolle: Anfänger sollten -
@@ -66,16 +67,17 @@ einzubinden.
 
 $\RHD$ Schließlich müssen auch hier die \LaTeX-Durchgänge zur Erzeugung des PDFs
 modifiziert werden. MusiX\TeX\ verwendet etwas, was als \enquote{three pass
-system} bezeichnet wird: Beim ersten \LaTeX-Durchgang schreibt das
-MusiX\TeX-Paket Informationen über die benötigten Noten und ihre Kennzeichnungen
-in eine Datei, die wie das \TeX-Dokument heißt, für das der \LaTeX-Durchgang
-gestartet worden ist -- nur dass diese Auslagerungsdatei anstelle der Extension
-\textit{.tex} die Exzension \textit{.mx1} erhält. Danach muss für diese
-\textit{.mx1}-Auslagerungsdatei das Tool \textit{musicflx} aufgerufen werden.
-\textit{musicflx} optimiert die Darstellung und schreibt seine Berechnungen in
-eine 'namensgleiche' Datei mit der Extension \textit{mx2}. Und schließlich liest
-das MusiX\TeX-Paket beim nächsten \LaTeX-Durchgang die Optimierungsinformationen
-wieder ein und integriert sie in das endgültige Dokument\footnote{\cite[Vgl.
+system}\footcite[Vgl.][5]{VogSimRyc2018a} bezeichnet wird: Beim ersten
+\LaTeX-Durchgang schreibt das MusiX\TeX-Paket Informationen über die benötigten
+Noten und ihre Kennzeichnungen in eine Datei, die wie das \TeX-Dokument heißt,
+für das der \LaTeX-Durchgang gestartet worden ist -- nur dass diese
+Auslagerungsdatei anstelle der Extension \textit{.tex} die Exzension
+\textit{.mx1} erhält. Danach muss für diese \textit{.mx1}-Auslagerungsdatei das
+Tool \textit{musicflx} aufgerufen werden. \textit{musicflx} optimiert die
+Darstellung und schreibt seine Berechnungen in eine 'namensgleiche' Datei mit
+der Extension \textit{mx2}. Und schließlich liest das MusiX\TeX-Paket beim
+nächsten \LaTeX-Durchgang die Optimierungsinformationen wieder ein und
+integriert sie in das endgültige Dokument\footnote{\cite[Vgl.
 dazu][5]{VogSimRyc2018a}. Bei näherem Hinsehen 'verknäuelt'sich die Beziehung
 von \LaTeX\ und MusiX\TeX\ etwas und muss 'aufgeröselt' werden. Wenn es darum
 geht, welches Tool welche Datei erfolgreich auswertet, muss man sorgsam
@@ -274,7 +276,8 @@ kann.
 
 Bei der zweiten Methode wird jedem Instrument ein eigenes Notenliniensystem
 zugeordnet und die Stimmen für die Instrumente zu einer Partitur zusammengefügt.
-Dem entsprechend müssen die Noten anders verteilt werden.
+Dem entsprechend müssen die Noten anders verteilt werden\footnote{Aus
+Platzgründen belassen wir es hier symbolisch bei zwei 'Manualen'.}.
 
 Das folgende Beispiel soll außerdem demonstrieren, dass MusiX\TeX\ neben
 der zentrierten Darstellung über das Kommando

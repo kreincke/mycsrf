@@ -16,7 +16,7 @@
 
 
 %% use all entries of the bibliography
-\subsection{Graphiken}
+\subsection{Graphiken ($\bigstar\bigstar$)}
 \label{IncludeGraphics}
 
 Lässt man die bisher diskutierten Techniken Revue passieren, so fällt auf, dass
@@ -29,7 +29,7 @@ S. \pageref{PmxGraphics}} und \textit{LilyPond}\footnote{$\rightarrow$ S.
 muss, wenn man so vorgehen will:
 
 \begin{quote}\textit{\enquote{Wenn Sie in ein Dokument Grafiken Ihres
-Musiksatzes ein"ugen möchten, so können Sie genauso vorgehen, wie Sie andere
+Musiksatzes einfügen möchten, so können Sie genauso vorgehen, wie Sie andere
 Grafiken einfügen würden: Die Bilder werden getrennt vom Dokument im PostScript-
 oder PNG-Format erstellt und können dann in \LaTeX oder HTML eingefügt
 werden.}\footcite[vgl.][20]{LilyPond2018e} }\end{quote}
@@ -49,6 +49,23 @@ Und dabei geht es um eine sehr einfache \LaTeX-Technik:
   Graphiken als Export von Notensatzprogrammen entstehen, muss man sie in der
   Regel noch EPS konvertieren. Unter Linux dient dazu das Kommando \texttt{ps2eps}.}.
 \end{itemize}
+
+Wer diesen Weg geht, muss drei Tücken im Auge behalten:
+\begin{enumerate}
+  \item Die Bildgröße muss händisch auf die Druckbreite ausgelegt werden, sei es über
+  ein Graphikprogramm, sei es über Parametrisierung des Befehls
+  \texttt{\textbackslash{includegraphics}}.
+  \item Die Auflösung der Graphik muss groß genug angelegt werden. Die übliche
+  Auflösung von Bildern im Internet (72 dpi / pixel) ist nicht druckadäquat, es
+  müssen mindestens 300 dpi sein.
+  \item Der Zeilenumbruch muss manuell überwacht werden: zu lange Bilder werden
+  oft auf die nächste Seite verlegt und erzeugen so Leerraum\footnote{Die
+  Alternative wäre, die Graphik in eine floating Umgebung einzubetten. Dann
+  könnte sie aber auf einer anderen, nicht zum Text passenden Seite erscheinen
+  und müsste gesondert referenziert werden.}.
+\end{enumerate}
+
+
 
 So bleibt den Musikwissenschaftlern zuletzt immer noch der Ausweg, eine
 Notendatei mit irgendeinem externen Pogramm zu erstellen, in diese mit einem

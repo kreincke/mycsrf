@@ -27,11 +27,27 @@ Notensatzprogrammen listet die freien Frontends \textit{Aria Maestosa},
 \textit{Frescobaldi}, \textit{muX2d} und \textit{Elysium/Eclipse}.
 Für die \acc{ABC-Notationsmethode} stehen auch einige Opensource-Frontends zur
 Verfügung, etwa \acc{EasyABC} oder \acc{ABCJ}\footcite[vgl.][\nopage
-wp]{Abc2018b}. \textit{Aria Maestosa}, \textit{Brahms} und \textit{Rosegarden}
+wp]{Abc2018b}. Die wohl umfangreichste Sammlung von Musiksoftware liefert die
+Site \acc{MusicXML}\footcite[vgl.][\nopage wp]{MusicCML2018b}, einfach weil sie
+schlicht auflistet, welche Software MusicXML-Dateien liest, schreibt oder liest
+und schreibt. Diese Liste enthält mithin auch andere Programme als solche für
+den Notensatz. Und sie listet auch proprietäre Applikationen. Von den freien
+Notensatzprogrammen dieser Liste evaluieren wir noch \textit{Free Clef},
+\textit{MusEdit}, \textit{Audimus Notes}, \textit{Ptolemaic},
+ und \textit{Audoria}\footnote{Die Evaluation von Programmen, die dezidiert für
+ Android oder iOS oder Windows gedacht sind und die spezielle Zwecke verfolgen,
+ also etwa \acc{Finale Notepad}, \acc{Ossia Viewer}, \acc{Candezii},
+ \acc{Crescendo}, acc{Jniz} \acc{Notation Pad} \acc{Score Creator} etc.
+ überlassen wir mit einer gewissen Willkür einer späteren Version unseres Textes.}.
+
+
+\textit{Aria Maestosa}, \textit{Brahms} und \textit{Rosegarden}
 sind in erster Linie \textsf{Sequenzer}, \textit{Frescobaldi} und
 \textit{Elysium/Eclipse} bieten 'nur' eine textuelle Eingabeschnittstelle,
-machen das Ergebnis der Eingabe aber direkt als Bild sichtbar. Systematisch kann
-man die Lage so darstellen:
+machen das Ergebnis der Eingabe aber direkt als Bild sichtbar. Die anderen
+dürfen als visuelle Notensatzprogramme angesehen werden.
+
+Systematisch kann man die Lage so darstellen:
  
 \begin{center}\scriptsize
 \begin{tabulary}{15cm}{R||C|C|C|C|C|C||C|C||C|C|C|C|C|C|C|C|C|}
@@ -66,7 +82,22 @@ ABCJ &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
+ABC4J & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
+\hline
+Andoria & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
+\hline
 Aria Mae. & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
+\hline
+Audimus N. & 
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
@@ -96,12 +127,22 @@ Elysium &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
+Free Clef & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
+\hline
 Frescobaldi & 
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
 Laborejo & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
+\hline
+MusEdit & 
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
@@ -124,12 +165,17 @@ NtEd & $\neg$ & $\neg$ & \checkmark & \checkmark & $\neg$ & $\neg$ &
  \checkmark & $\neg$ &
   $\neg$ & \checkmark & \checkmark & $\neg$ & $\neg$ & $\neg$ & \checkmark & \checkmark  & \checkmark \\
 \hline
+Ptolemaic & 
+  1 & 2 & 3 & 4 & 5 & 6 &
+  7 & 8 & 
+  9 & A & B & C & D & E & F & G & H \\
+\hline
 \end{tabulary}
 \end{center}
   
 Eine solche Fülle von Möglichkeiten fordert geradezu dazu auf, praktisch zu
 überprüfen, welche den Anforderungen von Musikwissenschaftlern (am besten)
-gerecht werden. Deshalb werden wir überprüfen, wie diese Tools mit der Kadenz II
+gerecht werden. Deshalb werden wir testen, wie diese Tools mit der Referenzkadenz II
 umgehen können, in wie weit sie die Symbole der Harmonieanalyse aufzunehmen
 vermögen und ob sie diesen Inhalt in einem Format abspeichern
 können\footnote{Konkret werden wir unsere Referenzkadenz-II jeweils mit den

@@ -84,7 +84,7 @@
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{amssymb}
+
 
 \usepackage{chngcntr}
 
@@ -116,6 +116,8 @@
 \newcommand{\lnka}[1]{\href{#1}{\texttt{#1}}}
 \newcommand{\lnkb}[2]{\href{#1}{\texttt{#1} (RDL: #2)}}
 
+\usepackage{amssymb}
+
 \usepackage{wasysym}
 \usepackage{harmony}
 \usepackage{musicography}
@@ -124,6 +126,7 @@
 \usepackage{graphicx,color}
 \usepackage{tabulary}
 \usepackage{ulem}
+
 
 %\usepackage{bigfoot}
 \usepackage{verbatimbox}
@@ -163,8 +166,8 @@
 \titlehead{\textit{mycsrf} und Musik}
 \subject{Release \input{inc.rel.tex}}
 \title{Musikwissenschaft mit \LaTeX}
-\subtitle{Wie man Musikbeispiele (mit Open-Source-Tools) 
-in wissenschaftliche Texte integriert.\\
+\subtitle{Wie man Musikbeispiele mit Open-Source-Tools 
+in seine wissenschaftliche Texte integriert.\\
 {\small Eine selbstreferentielle Anleitung}}
 \author{Karsten Reincke\input{cfg/inc.license-fn.tex}}
 
@@ -181,19 +184,25 @@ in wissenschaftliche Texte integriert.\\
 
 \normalsize
 
-\input{snippets/inc.anleitung.tex}
+\input{snippets/inc.anliegen.tex}
+
+\input{snippets/inc.kriterien.tex}
 
 \section{Leichtgewichtige Teillösungen}
 
 Selbstverständlich wird sich zuletzt herausstellen, dass adäquate Systeme zur
-Erfassung von Musik i.d.R. eine gewisse Komplexität mitbringen. Das liegt in der
-Natur der Sache: Musik ist zweidimensional\footnote{Bei der Notation hatten wir
-zu bemerken, dass sie zweidiemensional oder eindimensional codiert sein kann.
-Musik selbst ist immer (mindestens) zweidimensional -- als Abfolge(sic!) von
-Klängen(sic!)}. Das hat einige Autoren nicht entmutigt, wenigstens für
+Erfassung von Musik eine gewisse Komplexität mitbringen. Das liegt in der Natur
+der Sache: Musik ist zweidimensional\footnote{Bei der Notation hatten wir zu
+bemerken, dass sie zweidimensional oder eindimensional codiert sein kann.
+Als Abfolge(sic!) von Klängen(sic!) ist Musik selbst immer (mindestens)
+zweidimensional.}. Das hat einige Autoren nicht entmutigt, wenigstens für
 Teilaufgaben einfachere Lösungen zu entwickeln. Diesen werden wir zuerst
-nachgehen. Behalten wir aber im Hinterkopf: Komplexität ist wie Wasser, man kann
-es nicht komprimieren.
+nachgehen. Behalten wir aber im Hinterkopf: \acc{Komplexität ist wie Wasser, man
+kann es nicht komprimieren}\footnote{Dieses wunderbare Bonmot stammt nicht von
+mir. Und bedauerlicherweise weiß ich auch nicht (mehr) von wem. Ich meine es
+etwa Anfang der 2010er Jahre in einer Keynote bei der Deutschen Telekom in
+Darmstadt gehört zu haben. Ich verbeuge mich also dankbar vor dem mir leider
+unbekannten Autor.}.
 
 
 \input{snippets/inc.sonderzeichen.tex}
@@ -204,7 +213,7 @@ es nicht komprimieren.
 
 \input{snippets/inc.harmony.tex}
 
-\section{Komplexe Notationssysteme.tex}
+\section{Komplexe Notationssysteme}
 
 \input{snippets/inc.texmuse.tex}
 
@@ -232,8 +241,11 @@ nicht Text.
 
 Damit darf man fragen, ob und wie man Opensource-Notensatzprogramme dazu nutzen
 kann, den zuletzt im \LaTeX-Dokument benötigten Code aus dem abzuleiten, was man
-in und mit diesen Programmen graphisch eingegeben hat. Diese Frage ist im
-Einzelfall -- und nicht nur für Opensourceprogramme -- einfach zu beantworten: 
+in und mit diesen Programmen mehr oder minder graphisch eingegeben
+hat\footnote{Ein graphisches Interface wird wesentlich mit der Maus bedient.
+Die meisten graphischen Notensatzprogramme verlangen oder erlauben auch Eingaben
+über die Tastatur.}. Diese Frage ist im Einzelfall -- und nicht nur für
+Opensourceprogramme -- einfach zu beantworten:
 
 \begin{itemize}
 \item Zum einen muss man überprüfen, ob es das Programm erlaubt, den Inhalt in
@@ -251,7 +263,7 @@ einlesen und in einem anderen wieder abspeichern.
 
 Sollte also ein Notensatzprogramm von sich aus das eine oder andere der in
 unserem Kontext benötigten Formate nicht oder nur unzureichend exportieren,
-bliebe immer noch die Möglichkeit, einen expliziten Konverter
+bliebe immer noch die Möglichkeit, einen eigenständigen Konverter
 zwischenzuschalten. Zu wissen, welche expliziten Konverter es (in welcher
 Qualität) gibt, könnte mithin die Anzahl der gut zu nutzenden Notensatzprogramme
 erhöhen\footnote{Wollte man diesem Gedanken in letzter Konsequenz nachgehen,

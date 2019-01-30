@@ -18,7 +18,7 @@
 %% use all entries of the bibliography
 
 
-\subsection{ABC: einfach und vielfach genutzt}
+\subsection{ABC: einfach und vielfach genutzt ($\bigstar\bigstar\bigstar$)}
 
 Das \textit{ABC}-Notationssystem ist eine ASCII basierte Methode zum Dokumentieren
 von Musik. Initial entworfen wurde sie, um die Lieder zu
@@ -60,34 +60,34 @@ wird genutzt, um die im  ersten Durchgang des PDF-Erzeugungsprozess aus der
 umzuwandeln, das dann bei der nächsten Runde -- automatisiert -- anstelle des
 \textit{ABC}-Codes in die \LaTeX-Datei eingesetzt wird.
   
-$\RHD$ Sofern es die \TeX-Distribution nicht eh schon mitliefert, muss das
-\acc{abc-}\LaTeX-Paket\footcite[vgl.][\nopage wp]{CtanAbc2018a} installiert
-werden\footnote{Bei Ubuntu 18.04 ist es im Paket \textit{texlive-music} enthalten.}.
+$\RHD$ Sofern es die \TeX-Distribution nicht eh schon mitliefert, ist es nötig,
+das \acc{abc-}\LaTeX-Paket\footcite[vgl.][\nopage wp]{CtanAbc2018a} manuell zu
+installieren\footnote{Bei Ubuntu 18.04 ist es im Paket \textit{texlive-music}
+enthalten.}.
   
 $\RHD$ Danach muss -- wie bei \LaTeX\ üblich -- dieses
 \acc{abc-}\LaTeX-Paket  mit dem entsprechenden Kommando in der Präambel
 eingebunden (\texttt{\textbackslash{usepackage}\{abc\}}).
   
-$\RHD$ Schließlich müssen die \LaTeX-Durchgänge zur Erzeugung des PDFs
-modifiziert werden: Um das Bild aus dem extrahierten Code generieren zu können,
-ist es notwendig, dass das generierende Programm \textit{pdflatex} hilfsweise auch
-externe Programme aufrufen darf\footnote{Dies ist normalerweise aus
-Sicherheitsgründen untersagt, denn sonst könnten die Computer, die die Dokumente
-erzeugen, aus 'Dokumenten' heraus manipuliert werden.}, also mit der Option
+$\RHD$ Schließlich bedürfen die \LaTeX-Durchgänge zur Erzeugung des PDFs einer
+Modifikation: Um das Bild aus dem extrahierten Code generieren zu können, muss
+das generierende Programm \textit{pdflatex} hilfsweise auch externe Programme
+aufrufen dürfenf\footnote{Dies ist normalerweise aus Sicherheitsgründen
+untersagt, denn sonst könnten die Computer, die die Dokumente erzeugen, aus
+'Dokumenten' heraus manipuliert werden.}, also mit der Option
 \texttt{--shell-escape} gestartet wird. Die entsprechende Passage aus einem
-Makefile könnte so aussehen:\footnote{Wissenschaftliche \LaTeX-Dokumente
-mit Fußnoten und bibliographischen Angaben werden eh schon über mehrere
-\LaTeX-Durchgänge hinweg erzeugt: Jeder einzelnen Durchgang lagert später
-benötigte Angaben in Hilfsdateien aus und liest die, die er selbst verwenden
-will, aus Dateien ein, die vorhergehende erzeugt haben.
-Verwendet man das \acc{abc-}\LaTeX-Paket generiert der erste Durchgang also
-nicht mehr nur die bibliographischen Hilfsdateien, sondern auch die
-korrespondierenden \textit{ABC}-Dateien, für die er anschließend das externe Tool
-\textit{abcm2ps} aufruft. Dies konvertiert die extrahierten Vorlagen dann
-seinerseits in Postscript- und PDF-Dateien. Und der nächste
-\LaTeX-Durchgang integriert dann diese erzeugten Dateien in das
-Gesamtwerk. Wie man das schlüssig automatisiert, zeigt das Makefile dieses
-Tutorials ($\rightarrow$
+Makefile könnte so aussehen:\footnote{Wissenschaftliche \LaTeX-Dokumente mit
+Fußnoten und bibliographischen Angaben werden eh schon über mehrere
+\LaTeX-Durchgänge hinweg erzeugt: Jeder einzelne Durchgang lagert später
+benötigte Angaben in Hilfsdateien aus und liest diejenigen, die er selbst
+verwenden will, aus Dateien ein, die vorhergehende erzeugt haben. Verwendet man
+das \acc{abc-}\LaTeX-Paket generiert der erste Durchgang also nicht mehr nur die
+bibliographischen Hilfsdateien, sondern auch die korrespondierenden
+\textit{ABC}-Dateien, für die er anschließend das externe Tool \textit{abcm2ps}
+aufruft. Dies konvertiert die extrahierten Vorlagen dann seinerseits in
+Postscript- und PDF-Dateien. Und der nächste \LaTeX-Durchgang integriert dann
+diese erzeugten Dateien in das Gesamtwerk. Wie man das schlüssig automatisiert,
+zeigt das Makefile dieses Tutorials ($\rightarrow$
 \lnka{http://github.com/kreincke/mycsrf/tree/master/examples/musicology.de}) } 
 
 \begin{small}
@@ -195,15 +195,15 @@ V: LH clef=bass stem=down
 \subsubsection{Bewertung}
 
 Offensichtlich kommt man mit der \textit{ABC}-Notationsmethode und \LaTeX\ dem
-realen oder intendierten 'Original' recht nahe, und zwar ohne großen
+(je intendierten) 'Original' recht nahe, und zwar ohne größeren
 Schreibaufwand: Die musikalische Notation ist (fast) intuitiv verständlich, Stufen-
 und Funktionssymbole werden als normale Schriftzeichen in das Notenbild
 integriert, und zwar über die Option, Liedtexte (Wörter) unter Noten und
 'Griffsymbole' über Noten einzufügen. Gleiches gilt für die mehrzeilige Kadenz.
 
 Man sieht diesen Beispielen aber auch an, dass das Ergebnis optisch nicht
-optimal ist: Sow wird die Breite der Notensysteme automatisch auf die Breite des
-Bruckbereiches gesetzt\footnote{Es soll jedoch die Möglichkeit geben, Parameter
+optimal ist: So wird die Breite der Notensysteme automatisch auf die Breite des
+Druckbereiches gesetzt\footnote{Es soll jedoch die Möglichkeit geben, Parameter
 an das \textit{abcm2ps}-Tool aus dem Notencode heraus zu übergeben, mit dem
 solche Aspekte zu steuern wären. Unglücklicherweise ist es uns nicht gelungen,
 das zu aktivieren.}, was bei kürzeren Beispielen zu unschönen Dehnungen führt.
@@ -216,7 +216,7 @@ Einbettung jener ausgefeilten Konstrukte, die das \textit{harmony}-Paket zur
 Verfügung stellt\footnote{Das kann ja auch nicht sein, weil die
 \textit{ABC-Notation} außerhalb von \LaTeX\ in ein Bild umgewandelt wird, sodass
 eventuell noch eingebettete \textit{(La)\TeX}-Konstrukte gar nicht mehr
-ausgewertet werden.}.
+ausgewertet würden.}.
 
 Außerdem muss man gelegentlich dort, wo man die Einfachheit der Notation
 erhalten will, kleine 'Hacks' verwenden und Unsauberkeiten in Kauf nehmen -- wie
@@ -236,21 +236,21 @@ positioniert. Deshalb unser Hack der 'Vorhaltsverdoppelung mit gleichem Ton'
 mehreren Stimmen, was die Mehrarbeit erträglich macht.
 }. Und das hätte das Handling deutlich kompliziert.
 
-Schließlich bliebe zu erwähnen, dass das ABC-Verfahren sozusagen auf einer
-kleinen, aber auch von anderen gern genutzten 'Mogelei' beruht: es wird der
-Notentext ja nicht in (La)\TeX-Code verwandelt, sondern in ein Bild, das dann in
-den (La)\TeX-Code eingebunden wird\footnote{Die Stufen des Prozesses spiegeln
-sich in den Dateien, die anhand des Namensparameters gebildet werden: eine
-\textit{.abs}-Datei, die korrespondierenden Postscriptdateien \textit{.ps} und
-\textit{.eps} und die finale \textit{.pdf}-Datei.}. Und wie immer kann die
-Einbindung von externen Graphiken ungünstigenfalls zu einigen Irritationen
-hinsichtlich des Seitenumbruchs führen\footnote{Diese Idee ist natürlich nicht
-ehrenrührig, im Gegenteil: wir werden noch sehen, dass andere Methoden sie auch
-verwenden: LilyPondBook wäre ein Beispiel dafür, die manuelle Verbindung von PMX
-und Musix\TeX\ die andere. Und man darf daraus sofort auch folgern, dass man
-selbst ebenso vorgehen kann, um den Output ganz anderer Notensatzprogramme in
-seine \LaTeX-Code einzubinden. Wir werden die Einbindung von Graphiken deshalb
-auch ganz generell beschreiben.
+Schließlich bliebe zu erwähnen, dass auch das ABC-Verfahren sozusagen auf einer
+kleinen beliebten 'Mogelei' beruht: es wird der Notentext ja nicht in
+(La)\TeX-Code verwandelt, sondern in ein Bild, das dann in den (La)\TeX-Code
+eingebunden wird\footnote{Die Stufen des Prozesses spiegeln sich in den Dateien,
+die anhand des Namensparameters gebildet werden: eine \textit{.abs}-Datei, die
+korrespondierenden Postscriptdateien \textit{.ps} und \textit{.eps} und die
+finale \textit{.pdf}-Datei.}. Und wie immer kann die Einbindung von externen
+Graphiken ungünstigenfalls zu Irritationen hinsichtlich des Seitenumbruchs
+führen\footnote{Dennoch ist diese Idee natürlich nicht ehrenrührig, im
+Gegenteil: wir werden noch sehen, dass andere Methoden sie auch verwenden:
+LilyPondBook wäre ein Beispiel dafür, die manuelle Verbindung von PMX und
+Musix\TeX\ die andere. Und man darf daraus sofort auch folgern, dass man selbst
+ebenso vorgehen kann, um den Output ganz anderer Notensatzprogramme in seine
+\LaTeX-Code einzubinden. Wir werden die Einbindung von Graphiken deshalb auch
+ganz generell beschreiben.
 ($\rightarrow$ S. \pageref{IncludeGraphics})}.\label{AbcGraphics}
 
 Trotzdem bietet die \textit{ABC}-Notationsmethode ein technisch ausgereiftes
