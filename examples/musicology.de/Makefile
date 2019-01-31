@@ -37,7 +37,8 @@ clear:
 	@if [ -e ${ISWD} ]; then rm -rf ${ISWD}; fi
 	@if [ -e pmx ]; then rm -rf pmx; fi
 
-
+clean:
+	@(cd source && make clean && make dclean)
 help:
 	@echo "komt noch"
 
