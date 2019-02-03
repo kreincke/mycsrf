@@ -1,0 +1,147 @@
+% mycsrf 'for beeing included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+
+
+
+\subsection{Exkurs: MIDI unter GNU/Linux resp. Ubuntu 18.04}
+
+Dieser Übersicht zufolge können einige der Frontends für Notensatzsysteme mit
+\acc{MIDI}-Dateien umgehen. Das impliziert oft die Möglichkeit, sich auch die
+Musik hinter den Noten 'über das Frontend' anzuhören. Manche Systeme bringen dazu
+bereits alles Nötige mit, andere erwarten eine darauf ausgelegte Umgebung. Und
+bei letzteren haben manche Distributoren die angeforderten Tools sauber mit
+paketiert, andere lassen Lücken.
+
+Wie man Noten hörbar macht, ist grundsätzlich nicht unser Thema. Allerdings
+spielt es -- sofern man nach dem besten Frontend für einen Musikwissenschaftler
+sucht -- durchaus eine Rolle, ob die Frontends der Notensatzsysteme wenigstens
+prinzipiell auch das Hören von Musik erlauben. Wir werden deshalb -- sehr kurz
+und kursorisch -- am Beispiel von Ubuntu 18.04 erläutern, was notwendig ist, um
+\acc{MIDI}-Datei mit freier Software über das System erklingen zu lassen. Dabei
+zielen wir weder auf Vollständigkeit noch Adäquanz im Detail. Das Prinzip
+allerdings sollte so weit klar werden, dass jeder mit der Hilfe von 'Dr. Google'
+sein eigenes System anpassen kann.
+
+\acc{MIDI} steht für \enquote{Musical Instrument Digital Interface}.
+\acc{MIDI}-Dateien sind mithin keine Audiodateien im 'normalen' Sinne. Sie
+bieten keine digitalisierten Akkustikdaten. Vielmehr enthalten sie
+klangunabhängige Beschreibungen von 'Stimmen', die -- sozusagen 'willkürlich' --
+einem Sound, einem Instrument zugeordnet werden. Sie sind \enquote{musikalische
+Steuerinformationen für elektronische Instrumente}\footcite[vgl. dazu][\nopage
+wp]{WpedMidi2019a}. Um \acc{MIDI}-Datei abzuspielen, braucht man also einen
+Player, der -- im Verbund mit dem Computersoundsystem -- nicht nur
+digitalisierte 'Analogdaten' in reale Analogdaten umwandelt\footnote{Die
+Widersprüchlichkeit dieses 'Wordings' lässt sich leicht auflösen:
+Musik ist zuletzt ein Strom sich überlagernder Frequenzen. Sie zu digitalisieren
+bedeutet, diesen Strom -- wie die Gurke für den Gurkensalat -- in Scheiben zu
+zerschneiden: Jede Scheibe wird ein Tupel von Zahlen, der die je zum
+Schnittzeitpunkt klingenden Frequenzen repräsentiert. Und wie beim Gurkensalat,
+so auch bei der Musik: je feiner die Scheiben, desto besser das sensorische
+Ergebnis, desto besser die \acc{digitalisierten Analogdaten}. Unabhängig davon
+kann Musik aber auch auf einer Metebene als System digital so beschrieben
+werden, dass man daraus -- wie bei \acc{MIDI} -- unter Rückgriff auf externe
+Zutaten wieder ein Strom \acc{digitalisierten Analogdaten} ableiten kann, die
+dann ihrerseits über das Computersoundsystem zu 'realen' Analog'daten' werden.},
+sondern der auch die soundunabhängige Beschreibung und eine Soundbibliothek
+zusammenbringt, um daraus die finalen analogen Musikdaten zu erzeugen.
+
+Unter GNU/Linux -- oder jedenfalls in all den Distributionen, die das
+\acc{gstreamer}-System als Interface nutzen\footnote{$\rightarrow$
+\href{https://gstreamer.freedesktop.org/}{https://gstreamer.freedesktop.org/}}
+-- bringt das Soundsystem -- unabhängig davon, ob es rein auf
+\acc{ALSA}\footnote{$\rightarrow$
+\href{https://de.wikipedia.org/wiki/Advanced{\_}Linux{\_}Sound{\_}Architecture}
+{https://de.wikipedia.org/wiki/Advanced{\_}Linux{\_}Sound{\_}Architecture}} oder
+im Verbund mit \acc{Pulse-Audio}\footnote{$\rightarrow$
+\href{https://www.freedesktop.org/wiki/Software/PulseAudio/}
+{https://www.freedesktop.org/wiki/Software/PulseAudio/}} als
+\enquote{Sound-Middleware}\footnote{$\rightarrow$
+\href{https://de.wikipedia.org/wiki/PulseAudio}
+{https://de.wikipedia.org/wiki/PulseAudio}} basiert\footnote{$\rightarrow$
+\href{https://wiki.ubuntuusers.de/Soundsystem/}{https://wiki.ubuntuusers.de/Soundsystem/}},
+-- nicht von sich aus die Fähigkeit mit, \acc{MIDI}-Dateien abzuspielen.
+Um das zu ermöglichen, kann man seinem Player --- wenn er es denn erlaubt -- ein
+zusätzliches \acc{MIDI}-Plugin spendieren. Oder man installiert einen generell
+nutzbaren \acc{MIDI}-Server. Für beides ein Beispiel:
+
+Der \acc{vlc}\footnote{$\rightarrow$
+\href{https://www.videolan.org/vlc/}{https://www.videolan.org/vlc/}} ist ein sehr
+vielseitiger Mediaplayer. Um ihn samt \acc{MIDI}-Player-Plugin zu installieren, 
+reicht ein Kommando. Außerdem sollte man das Soundsystem noch um eine
+bessere Soundbibliothek erweitern:
+
+\begin{verbatim}
+sudo apt-get install vlc vlc-plugin-fluidsynth
+sudo apt install fluid-soundfont-gm fluid-soundfont-gs
+\end{verbatim}
+
+Das reicht aber noch nicht aus, um in Zukunft alle \acc{MIDI}-Dateien
+automatisch vom \acc{vlc} abgespielt zu bekommen. Oft ist schon ein Player für
+alle Medien-Dateien zuständig erklärt worden. \acc{MIDI}-Dateien werden den
+Medien-Dateien zugerechnet, obwohl das Soundsystem -- wie wir gelernt haben --
+von sich aus ja gar keine \acc{MIDI}-Dateien versteht. Also ist es reiner
+Zufall, ob die voreingestellte Defaultapplikation \acc{MIDI} 'kann' oder nicht:
+es hängt nur davon ab, ob sie selbst ein \acc{MIDI}-Plugin hat und ob es auch
+installiert ist.
+
+Der Ausweg aus dem Dilemma ist einfach: man macht den \acc{vlc} zum Standardtool
+für \acc{MIDI}-Dateien: Dazu klickt man mit der 'Nicht'-Maustaste\footnote{bei
+Rechtshändern die linke und umgekehrt} auf eine \acc{MIDI}-Datei, geht im
+auftauchenden Dialog auf den Reiter \acc{Öffnen mit} und wählt aus der Liste der
+Applikationen den  \acc{vlc} aus. Danach werden auch alle anderen
+\acc{MIDI}-Dateien mit dem  \acc{vlc} 'geöffnet' -- und das heißt in diesem
+Fall: abgespielt.
+
+Will man \acc{MIDI}-Dateien dagegen über die Shell abspielen, benötigt man einen
+\acc{MIDI}-Server mit Playerfunktionalität, will sagen: einen \enquote{software
+synthesizer}\footnote{$\rightarrow$
+\href{https://wiki.ubuntuusers.de/TiMidity/}{https://wiki.ubuntuusers.de/TiMidity/}}.
+Dazu bietet sich \acc{timidity} an\footnote{$\rightarrow$
+\href{http://timidity.sourceforge.net/{\#}info}{http://timidity.sourceforge.net/{\#}info}}.
+Auch in diesem Fall sollte man die besseren Soundbibliotheken installieren. Dann
+muss man \acc{timidity} allerdings noch dazu 'überreden', diese auch zu nutzen:
+man konfiguriert \acc{timidity} entsprechend, im dem man in der
+Konfigurationsdatei \texttt{/etc/timidity/timidity.cfg} den Wert
+\texttt{freepats.cfg} durch den Namen der Soundbibliothek, hier
+\texttt{fluidr3\_gm.cfg} ersetzt. Ein entsprechendes Shellskript könnte so
+aussehen:
+
+\begin{verbatim}
+#!/bin/bash
+
+sudo apt-get install timidity
+sudo apt install fluid-soundfont-gm fluid-soundfont-gs
+sudo mv /etc/timidity/timidity.cfg /etc/timidity/timidity.cfg.save
+sudo cat /etc/timidity/timidity.cfg.save |\
+ sed "s/freepats.cfg/fluidr3_gm.cfg/g" > /etc/timidity/timidity.cfg
+# optional für ein Timidity eigenes Desktoptool
+sudo apt-get install timidity-interfaces-extra
+\end{verbatim}
+
+Danach sollte man in einer Shell über das Kommando \texttt{timidity
+MIDIDATEI.midi} seine \acc{MIDI}-Datei erfolreich abspielen können. Der
+Befehl \texttt{timidity -ig MIDIDATEI.midi} öffnet sogar ein graphisches
+Interface.
+
+Hat man all dies erledigt, kann man auch die Frontends der Notensatzsysteme zum
+Anhören nutzen, die zwar generell \acc{MIDI}-bereit sind, die selbst aber keine
+eigene oder nur eine unvollständige \acc{MIDI}-Umgebung mitbringen. Insbesondere
+sollten nun auch \acc{elysium}, \acc{frescobalid} und \acc{rosegarden} als
+\acc{MIDI}-'Player' funktionieren.
+
+% this is only inserted to eject fault messages in texlipse
+% \bibliography{../bib/literature}

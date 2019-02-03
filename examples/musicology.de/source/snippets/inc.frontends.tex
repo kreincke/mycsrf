@@ -17,7 +17,7 @@
 
 %% use all entries of the bibliography
 
-\subsection{Frontends}
+\subsection{Frontends I}
 
 Eine umfangreiche Sichtung\footcite[vgl.][\nopage wp]{WpedNotensatz2019a} von
 Notensatzprogrammen listet die freien Frontends \textit{Aria Maestosa},
@@ -51,14 +51,15 @@ dürfen als visuelle Notensatzprogramme angesehen werden.
 Systematisch kann man die Lage so darstellen:
  
 \begin{center}\scriptsize
-\begin{tabulary}{15cm}{R||C|C|C|C|C|C||C|C||C|C|C|C|C|C|C|C|C|}
+\begin{tabulary}{15cm}{R|C||C|C|C|C|C|C||C|C||C|C|C|C|C|C|C|C|C|}
 \hline
-Frontend & 
+Frontend & &
   \multicolumn{6}{c||}{Import} & 
   \multicolumn{2}{c||}{Change} & 
   \multicolumn{9}{c|}{Export} \\
 \hline
 Programm & 
+  \rotatebox{90}{Seite} & 
   \rotatebox{90}{ABC} & 
   \rotatebox{90}{LilyPond} & 
   \rotatebox{90}{Midi} & 
@@ -78,89 +79,88 @@ Programm &
 \\
 \hline
 \hline
-ABCJ & 
+ABCJ & &
+    &   & \checkmark &   &   &   &
+  \checkmark &   & 
+   &   & \checkmark &   &  &   &   &   &   \\
+\hline
+Aria Mae. & \pageref{AriaMaestosa} &
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
-Aria Mae. & 
-  1 & 2 & 3 & 4 & 5 & 6 &
-  7 & 8 & 
-  9 & A & B & C & D & E & F & G & H \\
-\hline
-Audimus N. & 
+Audimus N. & \pageref{Audimus} &
   & & \checkmark & \checkmark & & &
   \checkmark & 8 & 
    &  & \checkmark & \checkmark & & & & &  \\
 \hline
-Brahms & 
+Brahms & &
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
-Canorus & 
+Canorus & \pageref{Canorus} &
   &  & \checkmark & \checkmark & & & 
  \checkmark & & 
   & \checkmark & \checkmark & \checkmark & & & \checkmark & & \checkmark \\
 \hline
-Denemo & 
+Denemo & &
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
-EasyABC & 
+EasyABC & &
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
-Elysium & 
+Elysium & &
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
-Free Clef & 
+Free Clef & &
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
-Frescobaldi & 
+Frescobaldi & &
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
-Jniz & 
+Jniz & &
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
-Laborejo & 
+Laborejo & &
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
-MusEdit & 
+MusEdit & \pageref{MusEdit} &
+   &  &  &  &   &   &  &   & 
+   &   &   &   &   &   &   &   &   \\
+\hline
+MuseScore & &
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
-MuseScore & 
+muX2D & &
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
 \hline
-muX2D & 
-  1 & 2 & 3 & 4 & 5 & 6 &
-  7 & 8 & 
-  9 & A & B & C & D & E & F & G & H \\
-\hline
-NoteEdit &  & & & & & & & & 
+NoteEdit & \pageref{NoteEdit} & & & & & & & & & 
 & & & & & &  &  &  \\
 \hline 
-NtEd &  &  & \checkmark & \checkmark &  &  &
+NtEd & \pageref{NtEd} &  & & \checkmark & \checkmark &  &  &
  \checkmark &  &
    & \checkmark & \checkmark &  &  &  & \checkmark & \checkmark  & \checkmark \\
 \hline
-Ptolemaic & 
+Ptolemaic & &
   1 & 2 & 3 & 4 & 5 & 6 &
   7 & 8 & 
   9 & A & B & C & D & E & F & G & H \\
@@ -182,6 +182,7 @@ wie das Original. Stimmt also diese Datei mit den Erwartungen überein,
 betrachten wir den ursprünglichen Export als verifziert.\label{ExportVerifikation}
 Die anderen Exportformate werden wir entsprechend überprüfen. Einzelheiten dazu
 vermerken wir bei den entsprechenden Fällen.}.
+
 
 % this is only inserted to eject fault messages in texlipse
 %\bibliography{../bib/literature}
