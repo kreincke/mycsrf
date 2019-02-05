@@ -24,11 +24,11 @@
 elektronisches \enquote{Notensatzsystem} -- so das Entwicklungsteam -- wolle es
 \enquote{[\ldots] Notendruck in (bester) Qualität} ermöglichen, mithin
 \enquote{[\ldots] die Ästhetik handgestochenen traditionellen Notensatzes mit
-computergesetzten Noten [\ldots] erreichen}\footcite[vgl.][\nopage
-wp]{LilyPond2018a}. In einem besonderen Artikel haben die LilyPond-Entwickler
+computergesetzten Noten [\ldots] erreichen}.\footcite[vgl.][\nopage
+wp]{LilyPond2018a} In einem besonderen Artikel haben die LilyPond-Entwickler
 dargestellt, was das systemisch bedeutet\footcite[vgl.][5ff]{LilyPond2018d} und
 welchen Konsequenzen sich daraus für ein Notensatzprogramm
-ergeben\footcite[vgl.][8ff]{LilyPond2018d}. Der daraus erwachsende Anspruch ist
+ergeben.\footcite[vgl.][8ff]{LilyPond2018d} Der daraus erwachsende Anspruch ist
 hoch:
 
 \begin{quote}\textit{\enquote{LilyPond wurde geschaffen, um die Probleme zu
@@ -56,9 +56,9 @@ hier nicht auf die zu Beginn spezifizierte Tonart 'berufen', er muss trotzdem
 gewichtigen Vorteil: Lilypond kann bei Alterationen die nötigen Vorzeichen
 automatisch setzen. In \textit{g-moll} erhält die Note \textit{f} bei
 eingegebenem \texttt{fis} automatisch ein Kreuz, in D-Dur
-nicht\footnote{\cite[vgl.][21]{LilyPond2018b}. In der Konsequenz wird man sich
+nicht.\footnote{\cite[vgl.][21]{LilyPond2018b}. In der Konsequenz wird man sich
 allerdings auch an -- wenigstens für Deutsche -- überraschende 'Töne' wie
-\texttt{bes}, \texttt{beses} oder \texttt{bis} gewöhnen müssen}.
+\texttt{bes}, \texttt{beses} oder \texttt{bis} gewöhnen müssen.}
 
 Die augenfälligste Besonderheit dürfte jedoch sein, dass \textit{LilyPond} seine
 Elemente konsequent in einer 1:n-Beziehung anordnet: Das Notenheft besteht aus
@@ -68,7 +68,7 @@ Stimme kann solistisch oder akkordisch sein. Das Datenmodell ist mithin als
 Baum\footcite[vgl.][\nopage wp.]{WpedBaum2019a} ausgelegt. Und syntaktisch haben
 die Ebenen je eigene Markanten. Das macht das Lesen und Verstehen von
 \textit{LilyPond}-Code auf Dauer einfacher, es entsteht ein klarerer
-Sourcetext\footcite[vgl.][40ff]{LilyPond2018b}.
+Sourcetext.\footcite[vgl.][40ff]{LilyPond2018b}
 
 Systemisch gesehen hat LilyPond (heute) nichts (mehr) \LaTeX\ , MusiX\TeX\ oder
 \TeX\ zu tun: es nutzt seine eigene Eingabesprache und seine eigene Maschine zum
@@ -77,14 +77,14 @@ seien \textit{PDF}\footnote{Portable Document Format} und
 \textit{PS}\footnote{Postscript} gesetzt; außerdem könnten
 \textit{SVG\footnote{Scalable Vector Graphics}-}, \textit{EPS\footnote{Encapsulated
 PostScript}-} und \textit{PNG\footnote{Portable Network Graphics}-}Dateien erzeugt
-werden\footcite[vgl.][481]{LilyPond2018c}.
+werden.\footcite[vgl.][481]{LilyPond2018c}
 
 \subsubsection{Technische Voraussetzungen}
 
 \textit{LilyPond} sagt selbst, dass man Notenbeispiele in Form von Graphiken auch
 manuell in den \LaTeX-Text einfügen könne, einfach indem man -- zuerst und
 unabhängig von \LaTeX -- die Graphiken mit \texttt{lilypond} erzeuge und sie
-danach mit \LaTeX-Mitteln einbinde\footcite[vgl.][20]{LilyPond2018e}. Bei vielen
+danach mit \LaTeX-Mitteln einbinde.\footcite[vgl.][20]{LilyPond2018e} Bei vielen
 Notenbeispielen kann das allerdings aufwendig werden, insbesondere, wenn man
 manuell die Länge der Notenzeilen und die Graphikbreite auf die gewünschte
 Zeilenlänge des Dokumentes ausrichten muss.
@@ -97,7 +97,7 @@ indem es die \enquote{[\ldots] Musik-Schnipsel aus Ihrem Dokument (extrahiert),
 [\ldots] \texttt{lilypond} (aufruft) und [\ldots] die resultierenden Bilder in
 Ihr Dokument (einfügt)}, wobei es \enquote{[\ldots] die Länge der Zeilen und die
 Schriftgröße dabei [automatisch] (dem) Dokument
-(anpasst)}\footcite[vgl.][20]{LilyPond2018e}.
+(anpasst)}.\footcite[vgl.][20]{LilyPond2018e}
 
 Daraus folgt sofort, dass man auch hier einiges vorzubereiten hat, wenn man
 \textit{LilyPond} erfolgreich verwenden will:
@@ -201,16 +201,16 @@ integrieren:
 \begin{enumerate}
   \item Man darf 'Liedtext' unter ein Notensystem setzen, wobei als Text dort
   auch -- in einfacher Form  -- Analysesymbole erscheinen können.
-  können\footcite[vgl.][31ff]{LilyPond2018b}.
+  können.\footcite[vgl.][31ff]{LilyPond2018b}
   \item Man darf Makros mit Text an Noten anhängen, die dann -- je nach
   Vorzeichen '\texttt{\_}' oder '\texttt{\^}' über oder unter der Note
   erscheinen. Diese Makros gibt es in einer verkürzten und einer expliziten
   Version. Beide sind Sonderfälle einer generellen
-  Markupsprache\footcite[vgl.][211ff]{LilyPond2018c}.
+  Markupsprache.\footcite[vgl.][211ff]{LilyPond2018c}
   \item Man darf komplexer strukturierte Syntagmen der erwähnten generalisierten
   Markupsprache an Noten anhängen, mit denen es dann auch möglich wird, feinere
-  Texte differenziert zu gestalten\footcite[vgl.][218ff]{LilyPond2018c} und
-  einzufügen.
+  Texte differenziert zu gestalten und
+  einzufügen.\footcite[vgl.][218ff]{LilyPond2018c} 
 \end{enumerate}
 
 Dabei wird der Musikwissenschaftler nicht auf die \LaTeX-Sonderzeichen oder die
@@ -321,8 +321,8 @@ etwas tun müssen.
 \subsubsection{Kadenz II}
 
 \textit{LilyPond} ist nicht nur 'waschechte' \textit{Open-Source-Software}, sondern
-kommt zudem mit einer Erweiterungssprache daher\footcite[vgl. dazu][\nopage
-wp]{WpedGuile2019a}. Diese zu nutzen, um die Möglichkeiten vom \LaTeX-Paket
+kommt zudem mit einer Erweiterungssprache daher.\footcite[vgl. dazu][\nopage
+wp]{WpedGuile2019a} Diese zu nutzen, um die Möglichkeiten vom \LaTeX-Paket
 \textit{harmony} nachzubilden, artet jedoch in echte Programmierarbeit aus und
 dürfte einem Musikwissenschaftler kaum mehr zuzumuten sein - wohl aber denen,
 der in beiden Welten zuhause ist, also uns.
@@ -589,7 +589,7 @@ Vergleicht man das 'Druckbild' von Noten, die \textit{LilyPond} erzeugt, mit
 denen, die MusiX\TeX\ im Verbund mit \LaTeX\ generiert, fällt in der Tat auf,
 dass die \textit{LilyPond}-Noten irgendwie 'weicher', 'dichter' und lesbarer
 sind: \textit{LilyPond} wollte die Qualität des guten manuellen Notensatzes in
-den elektronische Notensatz einbringen\footcite[vgl.][8ff]{LilyPond2018d}.
+den elektronische Notensatz einbringen.\footcite[vgl.][8ff]{LilyPond2018d}
 Dieses selbstgesetzt Ziel hat es offensichtlich erreicht: auch wenn sich
 \textit{MusiX\TeX} und \textit{LilyPond} von der graphischen Erscheinung her
 nicht viel geben -- den Output eines der beiden nicht exzellent zu nennen, wäre
@@ -602,10 +602,6 @@ bietet \textit{LilyPond} mehr als MusiX\TeX. Wenn es allerdings um die Integrati
 von Symbolen der Harmonieanalyse in den Notentext geht, so liefert die
 Verbindung von \LaTeX, MusiX\TeX\ und das Paket \textit{harmony} \underline{noch} die
 saubereren Ergebnisse.
-
-
-
-% \footcite[vgl.][]{LilyPond2018a}.
 
 
 

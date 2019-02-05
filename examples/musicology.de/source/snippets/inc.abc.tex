@@ -22,31 +22,31 @@
 
 Das \textit{ABC}-Notationssystem ist eine ASCII basierte Methode zum Dokumentieren
 von Musik. Initial entworfen wurde sie, um die Lieder zu
-erfassen\footcite[vgl.][\nopage Subpage 'Intro']{Chambers2018a}. So bezeichnet
+erfassen.\footcite[vgl.][\nopage Subpage 'Intro']{Chambers2018a} So bezeichnet
 sich dieses Verfahren -- weil schon lange gepflegt und vielfach genutzt -- denn
 auch als \textit{das} textbasierte Musiknotationssystem und als \textit{den}
-Defacto-Standard für Volksmusik\footnote{\cite[vgl.][\nopage wp]{Abc2018a}. Im
+Defacto-Standard für Volksmusik.\footnote{\cite[vgl.][\nopage wp]{Abc2018a}. Im
 Original: \enquote{the text-based music notation system and the de facto
-standard for folk and traditional music}.}. Für dieses Verfahren gibt es eine
+standard for folk and traditional music}.} Für dieses Verfahren gibt es eine
 Fülle von Konvertern, die ganz verschiedene Nutzungsszenarien
-bedienen\footcite[vgl.][\nopage wp]{Abc2018b}. Und eines der
+bedienen.\footcite[vgl.][\nopage wp]{Abc2018b} Und eines der
 Verwertungsszenarios ist eben die Einbettung von \textit{ABC-Noten} in
 \LaTeX-Text, wie es von dem \acc{abc-}\LaTeX-Paket ermöglicht
-wird\footcite[vgl.][\nopage wp]{CtanAbc2018a}.
+wird.\footcite[vgl.][\nopage wp]{CtanAbc2018a}
 
 Die Art der Notation -- die natürlich für alle Verwertungsszenarios im
 Wesentlichen gleich ist -- kann per Online-Tutorials gelernt werden, etwa dem
 von Steve Mansfield\footcite[vgl.][\nopage wp]{Mansfield2016a} oder dem von
 John Chambers\footcite[vgl.][\nopage wp]{Chambers2018a}; die Besonderheiten im
 Rahmen der \LaTeX-Nutzung werden im Pakethandbuch
-erläutert\footcite[vgl.][\nopage wp]{Gregorio2016a}.
+erläutert.\footcite[vgl.][\nopage wp]{Gregorio2016a}
 
 Auch wenn die \textit{ABC-Notation} zunächst 'nur' Lieder erfassen sollte und
 Mehrstimmigkeit nicht unbedingt das Anliegen der initialen Programmierer gewesen
 ist, gibt es mit \textit{ABC-PLUS}\footcite[vgl.][\nopage wp]{Gonzato2018a}
 inzwischen auch für mehrsystemige Partituren eine Lösung, die gut dokumentiert
 ist\footcite[vgl.][XVff]{Gonzato2018b} und die Integration in
-\LaTeX-Texte ermöglicht\footcite[vgl.][134]{Gonzato2018b}.
+\LaTeX-Texte ermöglicht.\footcite[vgl.][134]{Gonzato2018b}
 
 \subsubsection{Technische Vorbereitung}
 
@@ -54,7 +54,7 @@ Trotz aller Einfachheit bedarf es zur erfolgreichen Nutzung der ABC-Notation
 in und mit einer \LaTeX-Datei einiger systemischen Vorbereitungen:
 
 $\RHD$ Zunächst muss -- ganz unabhängig von \LaTeX\ -- das Tool \textit{abcm2ps}
-installiert werden\footnote{Unter Ubuntu: \texttt{sudo apt-get abcm2ps}}. Es
+installiert werden.\footnote{Unter Ubuntu: \texttt{sudo apt-get abcm2ps}} Es
 wird genutzt, um die im  ersten Durchgang des PDF-Erzeugungsprozess aus der
 \LaTeX-Datei extrahierten \textit{ABC}-Daten in ein Postscriptbild
 umzuwandeln, das dann bei der nächsten Runde -- automatisiert -- anstelle des
@@ -62,8 +62,8 @@ umzuwandeln, das dann bei der nächsten Runde -- automatisiert -- anstelle des
   
 $\RHD$ Sofern es die \TeX-Distribution nicht eh schon mitliefert, ist es nötig,
 das \acc{abc-}\LaTeX-Paket\footcite[vgl.][\nopage wp]{CtanAbc2018a} manuell zu
-installieren\footnote{Bei Ubuntu 18.04 ist es im Paket \textit{texlive-music}
-enthalten.}.
+installieren.\footnote{Bei Ubuntu 18.04 ist es im Paket \textit{texlive-music}
+enthalten.}
   
 $\RHD$ Danach muss -- wie bei \LaTeX\ üblich -- dieses
 \acc{abc-}\LaTeX-Paket  mit dem entsprechenden Kommando in der Präambel
@@ -137,7 +137,7 @@ w: I IV V
 \end{center}
 
 Diese einzeilige Kadenz bildet das Beispiel 187 aus der Harmonielehre von Grabner
-nach\footcite[vgl.][107]{Grabner1974a}. Sie wird mit folgendem Code erzeugt:
+nach.\footcite[vgl.][107]{Grabner1974a} Sie wird mit folgendem Code erzeugt:
 
 \begin{verbatim}
 \begin{abc}[name=abc/cadenca1]
@@ -213,16 +213,16 @@ entsprechend zu gestalten: Weder können hoch- und tiefgestellte Kleinsymbole
 oder Sonderzeichen eingefügt werden, noch die Alterationszeichen $\sharp$,
 $\flat$ oder $\natural$ aus den Sonderzeichen - ganz zu schweigen von der
 Einbettung jener ausgefeilten Konstrukte, die das \textit{harmony}-Paket zur
-Verfügung stellt\footnote{Das kann ja auch nicht sein, weil die
+Verfügung stellt.\footnote{Das kann ja auch nicht sein, weil die
 \textit{ABC-Notation} außerhalb von \LaTeX\ in ein Bild umgewandelt wird, sodass
 eventuell noch eingebettete \textit{(La)\TeX}-Konstrukte gar nicht mehr
-ausgewertet würden.}.
+ausgewertet würden.}
 
 Außerdem muss man gelegentlich dort, wo man die Einfachheit der Notation
 erhalten will, kleine 'Hacks' verwenden und Unsauberkeiten in Kauf nehmen -- wie
 wir es etwa bei dem Vorhalt in der 2. Kadenz getan haben. Solche Stellen
 typographisch sauber zu gestalten, würde verlangen, die Notation in mehrere
-Stimmen aufzublähen\footnote{Tatsächlich bietet ABC Plus 'nur' die Option, die
+Stimmen aufzublähen.\footnote{Tatsächlich bietet ABC Plus 'nur' die Option, die
 Stimmen innerhalb eines Systems für das ganze Stück festzulegen, nicht aber
 taktweise (\cite[vgl.][49f]{Gonzato2018b}). Wir hätten also -- um dem Preis einer
 signifikanten Mehrarbeit -- die unschöne Halteklammer im Bass des zweiten Kadenz
@@ -234,24 +234,24 @@ positioniert. Deshalb unser Hack der 'Vorhaltsverdoppelung mit gleichem Ton'
 \textit{PMX} unter demselben Positionierungsproblem leidet ($\rightarrow$ S.
 \pageref{\cadlab{II}{PMX}}). Allerdings bietet es die taktweise Notation in
 mehreren Stimmen, was die Mehrarbeit erträglich macht.
-}. Und das hätte das Handling deutlich kompliziert.
+} Und das hätte das Handling deutlich kompliziert.
 
 Schließlich bliebe zu erwähnen, dass auch das ABC-Verfahren sozusagen auf einer
 kleinen beliebten 'Mogelei' beruht: es wird der Notentext ja nicht in
 (La)\TeX-Code verwandelt, sondern in ein Bild, das dann in den (La)\TeX-Code
-eingebunden wird\footnote{Die Stufen des Prozesses spiegeln sich in den Dateien,
+eingebunden wird.\footnote{Die Stufen des Prozesses spiegeln sich in den Dateien,
 die anhand des Namensparameters gebildet werden: eine \textit{.abs}-Datei, die
 korrespondierenden Postscriptdateien \textit{.ps} und \textit{.eps} und die
-finale \textit{.pdf}-Datei.}. Und wie immer kann die Einbindung von externen
+finale \textit{.pdf}-Datei.} Und wie immer kann die Einbindung von externen
 Graphiken ungünstigenfalls zu Irritationen hinsichtlich des Seitenumbruchs
-führen\footnote{Dennoch ist diese Idee natürlich nicht ehrenrührig, im
+führen.\footnote{Dennoch ist diese Idee natürlich nicht ehrenrührig, im
 Gegenteil: wir werden noch sehen, dass andere Methoden sie auch verwenden:
 LilyPondBook wäre ein Beispiel dafür, die manuelle Verbindung von PMX und
 Musix\TeX\ die andere. Und man darf daraus sofort auch folgern, dass man selbst
 ebenso vorgehen kann, um den Output ganz anderer Notensatzprogramme in seine
 \LaTeX-Code einzubinden. Wir werden die Einbindung von Graphiken deshalb auch
 ganz generell beschreiben.
-($\rightarrow$ S. \pageref{IncludeGraphics})}.\label{AbcGraphics}
+($\rightarrow$ S. \pageref{IncludeGraphics})}\label{AbcGraphics}
 
 Trotzdem bietet die \textit{ABC}-Notationsmethode ein technisch ausgereiftes
 Verfahren mit einer sehr steilen Lernkurve, das schnell ansprechende Ergebnisse
@@ -259,7 +259,7 @@ erzeugt. Wer sich für seine Verwendung entscheidet, nimmt gewisse optische und
 funktionelle Einschränkungen in Kauf, die allerdings gerade bei der
 theoretischen Musikwissenschaft nur bedingt akzeptabel sind.
 Dafür eignet man sich eine Technik an, die Dank der vielfältigen Konverter in
-vielen Szenarien verwendet werden kann\footnote{Pars pro toto
-\cite[vgl.][\nopage wp]{Rosen2018a}.}.
+vielen Szenarien verwendet werden kann.\footnote{Pars pro toto
+\cite[vgl.][\nopage wp]{Rosen2018a}.}
 % this is only inserted to eject fault messages in texlipse
 % \bibliography{../bib/literature}

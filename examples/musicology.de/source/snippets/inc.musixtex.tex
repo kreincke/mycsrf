@@ -22,13 +22,13 @@
 Das MusiX\TeX-Tutorial erwähnt mehrfach, dass man Notentexte mit dieser
 Beschreibungssprache eher nicht 'händisch' erarbeiten wolle: Anfänger sollten -
 wie es heißt - nicht mit mit MusiX\TeX\ beginnen, sondern lieber gleich
-\textit{PMX} lernen\footcite[vgl.][iii]{VogSimRyc2018a}. Zwar könne man
+\textit{PMX} lernen.\footcite[vgl.][iii]{VogSimRyc2018a} Zwar könne man
 MusiX\TeX-Befehle durchaus auch manuell in eine \LaTeX-Datei
 einfügen. Gleichwohl würden es die meisten weniger anstrengend finden, die dabei
 anstehenden Entscheidungen durch einen Präprozessor wie \textit{PMX} treffen zu
-lassen\footcite[vgl.][1]{VogSimRyc2018a}. Wolle man jedoch Fließtext und Musik
+lassen.\footcite[vgl.][1]{VogSimRyc2018a} Wolle man jedoch Fließtext und Musik
 in einem Dokument vereinen, dann sei die direkte Verwendung von MusiX\TeX\ 
-durchaus eine Alternative\footcite[vgl.][1]{VogSimRyc2018a}.
+durchaus eine Alternative.\footcite[vgl.][1]{VogSimRyc2018a}
 
 Wir teilen diese Einschätzung. Mehr noch: wir meinen, dass es Rahmen einer
 musikwissenschaftlichen Arbeit deutlich produktiver ist, seine MusiX\TeX\ 
@@ -42,11 +42,12 @@ Bilder seiner Notenseiten\footnote{z.B. im Format \textit{EPS} = Encapsulated
 Postscript} -- und zwar unabhängig von \LaTeX\ -- und binde diese Bilder
 dann mit \LaTeX-Standardmitteln -- unabhängig von MusiX\TeX\ -- in
 seinen Code ein. Oder man schreibe seinen MusiX\TeX-Code direkt als
-Bestandteil seines \LaTeX-Quellcodes\footcite[vgl.][114]{VogSimRyc2018a}.
+Bestandteil seines \LaTeX-Quellcodes.\footcite[vgl.][114]{VogSimRyc2018a}
 Beides habe Vor- und Nachteile, ganz zuletzt aber gelte dann doch:
+
 \begin{quote}\textit{\enquote{On balance, the direct method (of embedding
-musical excerpts in \LaTeX documents) is probably to be preferred}\footcite[vgl.
-dazu][114]{VogSimRyc2018a}.}
+musical excerpts in \LaTeX documents) is probably to be preferred.}\footcite[vgl.
+dazu][114]{VogSimRyc2018a}}
 \end{quote}
 
 
@@ -58,7 +59,7 @@ und verwandter Software \cite[vgl. auch][\nopage wp]{Tennent2018a}}:
 
 $\RHD$ Sofern es die \textit{(La)\TeX}-Distribution nicht eh schon mitliefert, muss das
 MusiX\TeX-Paket\footcite[vgl.][\nopage wp]{CtanMusixTex2018a} installiert
-werden\footnote{Bei Ubuntu 18.04 ist es im Paket \textit{texlive-music} enthalten.}.
+werden.\footnote{Bei Ubuntu 18.04 ist es im Paket \textit{texlive-music} enthalten.}
 
 $\RHD$ Wie bei \LaTeX\ üblich, gilt es danach, das MusiX\TeX-Paket mit dem
 Kommando \texttt{\textbackslash{usepackage}\{musixtex\}} in die Präambel
@@ -76,7 +77,7 @@ Tool \textit{musicflx} aufgerufen werden. \textit{musicflx} optimiert die
 Darstellung und schreibt seine Berechnungen in eine 'namensgleiche' Datei mit
 der Extension \textit{mx2}. Und schließlich liest das MusiX\TeX-Paket beim
 nächsten \LaTeX-Durchgang die Optimierungsinformationen wieder ein und
-integriert sie in das endgültige Dokument\footnote{\cite[Vgl.
+integriert sie in das endgültige Dokument.\footnote{\cite[Vgl.
 dazu][5]{VogSimRyc2018a}. Bei näherem Hinsehen 'verknäuelt'sich die Beziehung
 von \LaTeX\ und MusiX\TeX\ etwas und muss 'aufgeröselt' werden. Wenn es darum
 geht, welches Tool welche Datei erfolgreich auswertet, muss man sorgsam
@@ -97,7 +98,7 @@ Tools \textit{pdflatex} und \textit{musixtex}. Beide erzeugen direkt pdf-Dateien
 \textit{pdflatex} aus einer reinen \LaTeX-Datei, \textit{musixtex} aus einer reinen
 MusiX\TeX-Datei. In unserem Fall erzeugen wir jedoch \LaTeX-Dateien mit
 MusiX\TeX-Anteilen. Deshalb müssen wir -- sozusagen händisch -- den Aufruf von
-\textit{musixflx} selbst organisieren.}. Der Algorithmus ist also einfach: Findet
+\textit{musixflx} selbst organisieren.} Der Algorithmus ist also einfach: Findet
 das MusiX\TeX-Paket als Teil des \LaTeX-Durchgangs (noch) keine
 \textit{.mx2}-Auslagerungsdatei, schreibt es die \textit{.mx1}-Auslagerungsdatei,
 ansonsten verarbeitet es die gefunden \textit{.mx2}-Auslagerungsdatei. Dies kann
@@ -275,8 +276,8 @@ kann.
 
 Bei der zweiten Methode wird jedem Instrument ein eigenes Notenliniensystem
 zugeordnet und die Stimmen für die Instrumente zu einer Partitur zusammengefügt.
-Dem entsprechend müssen die Noten anders verteilt werden\footnote{Aus
-Platzgründen belassen wir es hier symbolisch bei zwei 'Manualen'.}.
+Dem entsprechend müssen die Noten anders verteilt werden.\footnote{Aus
+Platzgründen belassen wir es hier symbolisch bei zwei 'Manualen'.}
 
 Das folgende Beispiel soll außerdem demonstrieren, dass MusiX\TeX\ neben
 der zentrierten Darstellung über das Kommando

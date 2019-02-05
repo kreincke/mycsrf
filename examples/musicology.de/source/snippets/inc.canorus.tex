@@ -21,28 +21,28 @@
 
 \label{Canorus}\acc{Canorus} ist ein Notensatzprogramm\footcite[vgl.][\nopage
 wp]{Canorus2019a}, das gelegentlich auch als Nachgolger von \acc{NoteEdit}
-gehandelt wird\footcite[vgl.][\nopage wp]{WpedCanorus2019a}. Die vorletzte
+gehandelt wird.\footcite[vgl.][\nopage wp]{WpedCanorus2019a} Die vorletzte
 Version (0.7.2) aus dem Jahr 2015 wurde noch als \enquote{leichtgewichtige
 Alternative} zu umfangreicheren Notensatzprogrammen
-bezeichnet\footcite[vgl.][\nopage wp]{Kreussel2015a}. Der letzte Releasekandidat
-(0.7.3) stammt vom Juni 2018\footcite[vgl.][\nopage wp]{Canorus2019b}. Reviews
-der neueren Version stehen noch aus\footnote{Stand 01/2019}.
+bezeichnet.\footcite[vgl.][\nopage wp]{Kreussel2015a} Der letzte Releasekandidat
+(0.7.3) stammt vom Juni 2018.\footcite[vgl.][\nopage wp]{Canorus2019b} Reviews
+der neueren Version stehen noch aus.\footnote{Stand 01/2019}
 
 Die Homepage von \acc{Canorus} ist die
-Sourceforge-Projektseite\footcite[vgl.][\nopage wp]{Canorus2019a}. Aktuell wird
+Sourceforge-Projektseite.\footcite[vgl.][\nopage wp]{Canorus2019a} Aktuell wird
 das Programm nicht in allen Distributionen angeboten\footnote{so nicht in Ubuntu
 18.04}; externe Pakete gibt es eher für ältere
-Programmsammlungen\footcite[vgl.][\nopage wp]{RepoCanorus2019a}. Dies dürfte
+Programmsammlungen.\footcite[vgl.][\nopage wp]{RepoCanorus2019a} Dies dürfte
 einen einfachen Grund haben: Der -- von 2019 aus gesehene -- vorletzte
 veröffentlichte Release-Candidat 0.7.2 stammte aus dem Jahr 2015, der letzte aus
-2018\footcite[vgl.][\nopage wp]{Canorus2019b}. Über drei Jahre tat sich -- von
+2018.\footcite[vgl.][\nopage wp]{Canorus2019b} Über drei Jahre tat sich -- von
 außen gesehen - in Sachen Weiterentwicklung also wenig. In der Opensourcewelt
 ist das üblicherweise ein Zeichen dafür, dass das Projekt 'eingeschlafen'
-ist\footnote{Auch vor 2015 soll es schon Unterbrechungen bei der Entwicklung
-gegeben haben \cite[vgl.][\nopage wp]{UbuntuCanorus2014a}}. Die Veröffentlichung
-vom Juni 2018 kam dann zu spät für z.B. die Ubuntu-LTS-Distribution
-18.04\footnote{Long-Term-Service-Distributionen erscheinen seltener (bei Ubuntu
-alle 2 Jahre), werden dafür aber länger mit Updates versorgt.}.
+ist.\footnote{Auch vor 2015 soll es schon Unterbrechungen bei der Entwicklung
+gegeben haben \cite[vgl.][\nopage wp]{UbuntuCanorus2014a}} Die Veröffentlichung
+vom Juni 2018 kam dann zu spät für z.B. die Ubuntu 18.04, der
+LTS-Distribution.\footnote{Long-Term-Service-Distributionen erscheinen seltener
+(bei Ubuntu alle 2 Jahre), werden dafür aber länger mit Updates versorgt.}
 Gleichwohl sind wir sicher, dass das Programm in kommenden Distributionen wieder
 aufgenommen wird.
 
@@ -50,9 +50,9 @@ So bleibt Anfang 2019 im Wesentlichen nur die Installation aus den Quellen,
 falls man \acc{Canorus} nutzen will. Das sollte allerdings Programmierer und
 Systemkenner nicht sehr herausfordern. Das Softwarepaket liefert eine
 Readme-Datei mit, die für verschiedene Umgebungen die nötigen Befehle
-auflistet\footnote{Für Ubuntu 18.04 konnten wir verifizieren, dass die
+auflistet.\footnote{Für Ubuntu 18.04 konnten wir verifizieren, dass die
 Kompilation einfach druchläuft, wenn man die geforderten Zusatzpakete -- wie
-beschrieben -- installiert.}. Alternativ bleibt nur, auf die nächste
+beschrieben -- installiert.} Alternativ bleibt nur, auf die nächste
 Distribution zu warten, die uns dieses Programm wieder ohne Eigenarbeit zur
 Verfügung stellt.
 
@@ -72,10 +72,9 @@ letztlich nicht das, was man als druckfertige PDF-Datei erhält. Hier zunächst
 unsere Referenzkadenz, wie Canorus sie als PDF generiert. Wie kaum anders zu
 erwarten, ähnelt sie sehr der 'puren' \acc{LilyPond}-Ausgabe:
 
-\begin{center}
-\includegraphics[width=0.8\textwidth]{frontends/canorus/cadenca2-pdf.png}
-\end{center}
-
+\begin{wrapfigure}{l}{6cm}
+\includegraphics[width=6cm]{frontends/canorus/cadenca2-pdf-300dpi.png}
+\end{wrapfigure}
 Allerdings konnte der 4$\rightarrow$3 Vorhalt mit einer \Halb\ gegen zwei
 gebundene \Vier\ im Bass offensichtlich nicht umgesetzt werden. Die
 Funktionssymbole sind dagegen erkennbar -- ganz wie bei der Kadenz-I in der
@@ -87,10 +86,9 @@ gilt: ohne unsere kleine Zusatzbibliothek\footnote{$\rightarrow$ S.
 
 Dieser Ausgabe steht graphisch eine leicht anders gestaltete Eingabe gegenüber:
 
-\begin{center}
-\includegraphics[width=0.8\textwidth]{frontends/canorus/cadenca2-canorus}
-\end{center}
-
+\begin{wrapfigure}{r}{6cm}
+\includegraphics[width=5.5cm]{frontends/canorus/cadenca2-canorus}
+\end{wrapfigure}
 Man erkennt auf der linken Seite die Konzexte, die für Spezialeingaben zu
 aktivieren sind. Der Modus zur Eingabe von Noten wird über das Menu aktiviert.
 Oben in der Liste erscheinen die konkreten Ausformungen. Letztlich klickt man
@@ -98,7 +96,7 @@ mit der Maus dort in das Notensystem, wo die gewünschte Note erscheinen soll;
 Vorzeichen werden zuvor mit \texttt{+} oder \texttt{-} aktiviert. \acc{Canorus}
 ist also recht intuitiv zu bedienen. Darum fällt es nur bedingt ins Gewicht, dass
 das Handbuch bei der manuelle Installation aus den Quellen heraus nicht mit
-kompiliert wird\footnote{\ldots und bis dato auch nicht im Netz zu finden ist}.
+kompiliert wird.\footnote{\ldots und bis dato auch nicht im Netz zu finden ist}
 
 Für die Eingabe von 'Liedtext' stellt \acc{Canorus} einen besonderen Modus
 bereit (unten grün), den man ebenfalls im linken Randbereich aktiviert und dann
@@ -116,8 +114,8 @@ Gründen noch nicht produktiv nutzbar: Zum ersten werden \acc{Canorus} eigenen
 Analysesymbole nicht mit gedruckt und exportiert. Zum zweiten löst die Nutzung
 dieses Modus noch viele Pro\-gramm\-ab\-stürze aus. Und drittens kann man in diesem
 Modus noch keine Funktionsparallelen, keine Gegenklänge und keine
-Doppeldominaten ausdrücken\footnote{Die angebotene Alternative der
-Zwischendominante funktioniert nicht zuverlässig.}. Darum ist dieses sehr
+Doppeldominaten ausdrücken.\footnote{Die angebotene Alternative der
+Zwischendominante funktioniert nicht zuverlässig.} Darum ist dieses sehr
 innovative Verfahren für den heutigen Musikwissenschaftler praktisch nicht
 verwendbar.
 
@@ -125,8 +123,8 @@ Der \acc{LilyPond}-Code, den \acc{Canorus} exportiert, kann dagegen schon heute
 gut weiterverarbeitet werden. Er ist -- sofern man auf die eigene und die
 \acc{Canorus}-Harmonieanalyse verzichtet -- gut strukturiert, lesbar und
 reproduzierbar\footnote{$\rightarrow$ S.\pageref{ExportVerifikation}}
-korrekt\footnote{Aus Platzgründen verzichten wir auf den erneuten Abdruck des
-\acc{LilyPond}-Codes}. Ohne eine textuelle Nachbearbeitung in Sachen
+korrekt.\footnote{Aus Platzgründen verzichten wir auf den erneuten Abdruck des
+\acc{LilyPond}-Codes} Ohne eine textuelle Nachbearbeitung in Sachen
 Harmonieanalyse wird er aber für den Musikwissenschaftler nur bedingt sinnvoll
 sein.
 
