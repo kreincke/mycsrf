@@ -152,7 +152,7 @@
 \newcommand{\pnotes}[1]{\notes}
 
 \newcommand{\acc}[0]{\textit}
-
+\newcommand{\ra}[0]{$\rightarrow$}
 
 
 
@@ -177,12 +177,14 @@ in seine wissenschaftliche Texte integriert.\\
 \maketitle
 %%-- end(titlepage)
 
-\input{snippets/inc.vorwort.tex}
+\input{snippets/inc.abstract.tex}
 
 \footnotesize
 \tableofcontents
 
 \normalsize
+
+\input{snippets/inc.anlass.tex}
 
 \input{snippets/inc.anliegen.tex}
 
@@ -213,7 +215,7 @@ unbekannten Autor.}
 
 \input{snippets/inc.harmony.tex}
 
-\section{Komplexe Notationssysteme}
+\section{Backends: Komplexe Notationssysteme}
 
 \input{snippets/inc.abc.tex}
 
@@ -228,15 +230,30 @@ unbekannten Autor.}
 \input{snippets/inc.mup.tex} 
 \input{snippets/inc.texmuse.tex}
 
-\section{Tools}
+\section{Frontends: die (graphische) Eingabe}
 
 Abgesehen von der letzten Variante, werden bei den hier diskutierten Methoden
 die Noten zuletzt textbasiert codiert: um zu komponieren oder zu arrangieren
-benötigt man einen Texteditor. Das ist nicht das, was man unter einer
-musikerfreundlichen Umgebung verstehen würde. Die Sprache der Musiker sind
-Noten, keine mehr oder minder kryptischen Syntagmen. Und so gibt es denn auch
-eine Reihe von graphischen Programmen, bei denen der Musiker Noten schreibt,
-nicht Text.
+benötigt man einen Texteditor. Dessen Output wird \acc{ABC}, \acc{LilyPond}, 
+\acc{MusiX\TeX}\ oder \acc{PMX} als die Backendsysteme übergeben, die daraus
+den eigentlichen Notentext erzeugen.
+
+Die Arbeit mit reinen Texteditoren ist nicht das, was man unter einer
+musikerfreundlichen Arbeitsumgebung verstehen würde. Die Sprache der Musiker
+sind Noten, keine mehr oder minder kryptischen Syntagmen. Und so gibt es denn
+auch eine Reihe von graphischen Programmen, bei denen der Musiker entwder
+wirklich Noten 'schreibt', nicht Text, oder bei denen er wenigstens ein direktes
+Feedback in Form von visualisierten Noten erhält, ohne zuvor selbst das Backend
+aufrufen zu müssen. Diese Software bezeichnen wir als Editoren.\footnote{Für den
+unbedarften Nutzer sieht es manchmal so aus, als sei die Erzeugung des Notentextes
+integrierter Bestandteil des Frontends. Dann wäre der Begriff 'Editor' irgendwie
+ungerecht. Tatsächlich verküpfen solch integrierte Gesamtsysteme meist aber den
+Editor 'nur' sehr geschickt mit der eigentlichen 'Notengenerierungsmaschine',
+dem Backend. Deshalb ist es in unserem Kontext sehr wohl sinnvoll, von
+Backends und Frontends zu sprechen und unter letzteren im wesentlichen Editoren
+zu verstehen, die die eingebenen Daten in verschiedenen Formaten abzuspeichern
+vermögen, -- selbst wenn sie sich selbst eher als IDE, als Integrated Development
+Environment verstehen.} 
 
 Damit darf man fragen, ob und wie man Opensource-Notensatzprogramme dazu nutzen
 kann, den zuletzt im \LaTeX-Dokument benötigten Code aus dem abzuleiten, was man
@@ -282,7 +299,7 @@ sichten.}.
 
 \input{snippets/inc.exkurs-midi.tex}
 
-\subsection{Frontends II}
+\subsection{Editoren II}
 
 \input{snippets/inc.abcj.tex} 
 
@@ -319,13 +336,13 @@ sichten.}.
  
 \subsubsection{Zwischenfazit}
 
-\subsection{Konverter II}
+%\subsection{Konverter II}
 
 \subsection{Kombinationsarchitektur}
 
 \section{Fazit}
 
-\input{snippets/inc.appendices.tex}
+%\input{snippets/inc.appendices.tex}
 % insert the nomenclature here
 
 \input{bib/ncl.abbreviations.tex}

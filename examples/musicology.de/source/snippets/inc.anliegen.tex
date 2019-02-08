@@ -17,7 +17,7 @@
 
 %% use all entries of the bibliography
 
-\section{Das Anliegen}
+\subsection{Anliegen}
 
 Es gibt 'zweieinhalb' Dinge, die man erreichen möchte, wenn man am Computer
 Notentexte 'schreibt':
@@ -48,7 +48,7 @@ oder \textit{Dominante} samt Subspezifikatoren in den entsprechenden Notentext
 eingebunden werden.}
 
 Die beste Methode, wissenschaftliche Texte zu schreiben, bietet \LaTeX\ -- vom
-Druckbild her, vom Grad der Automatisierbarkeit und vom Aufwand, den (ei\-ge\-nen)
+Druckbild her, vom Grad der Automatisierung und vom Aufwand, den (ei\-ge\-nen)
 Wissenschaftsvorgaben konsistent gerecht zu werden. Darum geht es hier --
 vereinfacht gesagt -- um \LaTeX\ und Musik. Ein Blick auf CTAN-Liste mit
 entsprechenden Tools\footnote{$\rightarrow$
@@ -61,30 +61,35 @@ Artikel und auf die bekannten Tools \textit{MusiX\TeX} und \textit{LilyPond}.
 Zusammen führt auch das den unbedarften Anfänger nicht weiter. Es fehlt einfach
 eine qualifizierte Sichtung und Anleitung, die sagt und zeigt, wie man das beste
 Ergebnis mit geringstem Aufwand erreicht. Diese Lücke wollen wir mit einem
-selbstreferentiellen Dokument schließen: Was immer hier erläutert und vorgeführt
-wird, soll anhand des eigenen \LaTeX-Quelltexts reproduzierbar sein. Und wenn es
-uns gelingt, den einen oder anderen davon abgehalten zu haben, auf's falsche
-Pferd zu setzen, dann wollen wir zufrieden sein.
+selbstreferentiellen Dokument schließen: Es sichtet, was es gibt, zeigt, wie
+geht, und beleuchtet, was warum nicht funktioniert. Dabei soll alles, was es
+vorgeführt, anhand des eigenen \LaTeX-Quelltexts reproduzierbar sein. Und wenn
+es uns damit gelingt, den einen oder anderen davon abgehalten zu haben, auf's
+falsche Pferd zu setzen, dann wollen wir zufrieden sein.
 
 Den wissenschaftlichen Text unseres 'Demos' erzeugen wir mit
-\textit{mycsrf}\footcite[vgl.][\nopage wp]{Reincke2018a}, einem Bibliographie- und
-Zitierstil für \LaTeX, der sich eng an die altphilologische Arbeitsweise
-anlehnt, deren Notwendigkeit aber mit modernen Anforderungen an eine
-geisteswissenschaftliche Arbeit zu begründen ist.\footnote{Zentrale Bedingung der
-Wissenschaftlichkeit ist die Überprüfbarkeit und Reproduzierbarkeit. Das meint
-bei geisteswissenschaftlichen Arbeiten, dass Argumentationen logisch aufgebaut
-und Zitate ohne großen Aufwand in den Originalen nachgesehen werden können.
-Warum das wie in \textit{mycsrf} realisiert wird, habe ich in einem anderen
-selbstreferentiellen Text diskutiert und dokumentiert. (\cite[Vgl.
-dazu][1ff]{Reincke2018b})} Dieses 'Framework' zu kennen oder gar zu nutzen,
-wird jedoch nicht vorausgesetzt, weder technisch noch ideell\footnote{Allerdings
+\textit{mycsrf}\footcite[vgl.][\nopage wp]{Reincke2018a}, einem Bibliographie-
+und Zitierstil\footnote{Genau genommen handelt es sich dabei nicht um einen
+eigenständigen Zitierstil, der in das \LaTeX-System zu installieren wäre,
+sondern um eine Konfiguration und Erweiterung von \acc{Jurabib}, die in einen
+ganzes Framework zur Erarbeitung geisteswissenschaftlicher Texte eingebunden
+sind.} für \LaTeX, der sich eng an die altphilologische Arbeitsweise anlehnt,
+deren Notwendigkeit aber mit modernen Anforderungen an eine
+geisteswissenschaftliche Arbeit zu begründen ist.\footnote{Zentrale Bedingung
+der Wissenschaftlichkeit ist die Überprüfbarkeit und Reproduzierbarkeit. Das
+meint bei geisteswissenschaftlichen Arbeiten, dass Argumentationen logisch
+aufgebaut und Zitate ohne großen Aufwand in den Originalen nachgesehen werden
+können. Warum das wie in \textit{mycsrf} realisiert wird, habe ich in einem
+anderen selbstreferentiellen Text diskutiert und dokumentiert. (\cite[Vgl.
+dazu][1ff]{Reincke2018b})} Dieses 'Framework' zu kennen oder gar zu nutzen, wird
+jedoch nicht vorausgesetzt, weder technisch noch ideell\footnote{Allerdings
 können Sie dieses Dokument unter GNU/Linux aus den Quellen heraus selbst
 erzeugen. Und Sie dürfen den \LaTeX-Quelltext im Rahmen der Lizenzierung
 (\texttt{CC BY-SA 4.0}) weiterverarbeiten. Sie finden die Soucen unter
 ~/examples/musicology.de im \textit{mycsrf}-Paket (\cite[Vgl. dazu][\nopage
-wp]{Reincke2019a})}: was wir hier zur Integration von
-Musikbeispielen sagen, kann ohne Umschweife auf andere, in und mit \LaTeX\
-verwirklichte Zitierstile übertragen werden.
+wp]{Reincke2019a})}: was wir hier zur Integration von Musikbeispielen sagen,
+kann ohne Umschweife auf andere, in und mit \LaTeX\ verwirklichte Zitierstile
+übertragen werden.
 
 Ebenso einfach darf man das, was wir hier anhand von Linuxbeispielen erläutern,
 auf die Windowswelt übertragen: Wer dort mit \LaTeX\ arbeitet, wird unsere
@@ -101,8 +106,8 @@ die notwendigen Schritte zur Integration spricht die Arbeit nicht, ebenso wenig
 der Text zuletzt bietet. Nichtsdestotrotz bietet er einen praktikablen
 'Crashkurs' in Sachen \LaTeX-Kodierung.} -- dankenswerterweise bereits Martin
 Thoma analysiert.\footcite[vgl.][\nopage wp]{Thoma2018a} Erster bietet eine
-Einführung in \LaTeX, die das Thema Musik eher kursorisch behandelt. Letzterer
-bietet einen weiteren Überblick, allerdings in Form einer HTML-Webseite:
+Einführung in \LaTeX, die das Thema Musik eher kursorisch behandelt, letzterer
+einen Überblick über \LaTeX\ und Musik, allerdings in Form einer HTML-Webseite:
 diese kann von ihrer Natur her beschreiben, nicht aber zeigen. Wir hingegen
 wollen ja einen Text erstellen, der aus sich heraus und an sich reproduzierbar
 zeigt, was geht, wie es geht und welche Klippen man wie umschifft.
@@ -140,11 +145,11 @@ Damit stellen sich sofort einige Fragen:
   erzielen?
 \end{itemize}
 
-Diesen Fragen nach möglichen Editoren oder Frontends und Konvertern gehen wir am
-Ende unseres Textes nach. Allerdings werden wir uns dabei auf die
+Diese Fragen zielen auf mögliche Editoren, Frontends und Konverter. Dem gehen
+wir am Ende unseres Textes nach. Allerdings werden wir uns dabei auf die
 Open-Source-Welt konzentrieren. Mehr oder minder konstenintensive proprietäre
 Programme mögen beliebt sein, notwendig sind sie nicht. Es ist auch für den
-Musiker besser, nicht in die 'Vendorenfalle' zu geraten und sein Arbeiten von
+Musiker besser, nicht in die 'Vendorenfalle' zu geraten und seine Arbeiten von
 den Produkten einer Firma abhängig zu machen. Deshalb konzentrieren wir uns hier
 auf die Umsetzung mit freier Software.\footnote{Wer als Musiker proprietäre
 Programme nutzt, macht sich erpressbar: Auf der einen Seite investiert er Zeit
@@ -170,7 +175,7 @@ Kunden zuletzt doch wieder an sich zu binden und ihm den Wechsel zur Alternative
 zu erschweren. (\cite[Zur Lizenzierung von MusicXML vgl. auch][\nopage
 wp.]{WpedMusicXML2018a})}
 
-Und noch einige Worte zu den Grenzen dieses Textes:
+Dazu noch einige abgrenzende Worte:
 \begin{itemize}
   \item Damit Sie einen guten Gewinn von der Lektüre haben, sollten Sie mit der
   Nutzung von \LaTeX\ unter Ihrem Betriebssystem vertraut sein.

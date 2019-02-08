@@ -17,7 +17,7 @@
 
 %% use all entries of the bibliography
 
-\subsection{Konverter I}
+\subsection{Konverter}
 
 Wer nach Konvertierungssoftware sucht, findet drei wichtige Anlaufstellen:
 
@@ -55,11 +55,12 @@ Programmiertechniken wiederverwenden könnte.}. In diesem Sinne listet die
 \textit{MusicXML}-Homepage denn auch selbst eine Fülle von Software auf, die
 dieses Format zu verarbeiten vermag\footcite[vgl.][\nopage wp]{MusicXML2018b}.
 
-Führt man diese Quellen zusammen, entsteht in etwa folgendes Bild:
+Führt man diese Quellen zusammen, entsteht in etwa folgendes Bild von
+Konvertierungsvarianten:
 
 \begin{center}
 \renewcommand{\arraystretch}{1.5}
-\begin{tabulary}{14cm}{C|R||C|C|C|C|}
+\begin{tabulary}{14cm}{|C|R||C|C|C|C|}
 \hline
   & nach: & ABC & MusiX\TeX & PMX & LilyPond \\
 \hline
@@ -113,9 +114,37 @@ Diese Tabelle ist wie folgt zu lesen:
   [$\rightarrow$ \dashuline{unterstrichelt}]
 \end{itemize}
 
-Damit ergeben sich recht einfache Seiteneffekte für die Analyse freier
-graphischer Notensatzsysteme\footnote{Zur Erinnerung: Bei der Auswahl der
-Programme folgen wir der Definition für freie Software. (\cite[Vgl.
+So ergeben sich -- ganz prinzipiell -- direkte und indirekte Wege,
+Dateien in das Format eines unserer Backendsystem \acc{ABC}, \acc{LilyPond}, 
+\acc{PMX} oder \acc{MusiX\TeX} zu überführen:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabulary}{14cm}{|C|C C C C C C C|C|}
+\hline
+ VON  & \ra & VIA &  & & & & \ra & NACH \\
+\hline
+\hline
+ .ly  & \ra & ly2abc &  & & & & \ra & .abc \\
+ .xml & \ra & xml2abc mxml2abc & & &  &  & \ra & .abc \\
+\hline
+ .abc & \ra & abc2ly & & &  &  & \ra & .ly \\
+ .xml & \ra & xml2ly musicxml2ly & & &  &  & \ra & .ly \\
+\hline
+ .xml & \ra & xml2pmx & & &  &  & \ra & .pmx \\
+\hline
+ .abc & \ra & abc2mtex & & &  &  & \ra & .tex \\
+ .ly  & \ra & ly2abc & \ra &  .abc & \ra & abc2mtex & \ra & .tex \\
+ .pmx & \ra & pmxab & & &  &  & \ra & .tex \\
+ .xml & \ra & { xml2abc, mxml2abc} & \ra & .abc & \ra & abc2mtex & \ra & .tex \\
+\hline
+\end{tabulary}
+\renewcommand{\arraystretch}{1}
+\end{center}
+
+Und daraus folgen -- wiederum ganz prinzipiell -- einfache Seiteneffekte für die
+Analyse freier graphischer Notensatzsysteme\footnote{Zur Erinnerung: Bei der
+Auswahl der Programme folgen wir der Definition für freie Software. (\cite[Vgl.
 dazu][\nopage wp]{FSF2018a})} für Musikwissenschaftler:
 
 \begin{itemize}
@@ -133,7 +162,8 @@ dazu][\nopage wp]{FSF2018a})} für Musikwissenschaftler:
   funktionieren, indirekt auch als Frontend für \textit{MusiX\TeX} nutzen.
 \end{itemize}
 
-Wir werden diese Möglichkeiten im Kontext der Frontendanalyse verifizieren.
+Ob diese Möglichkeiten auch praktisch existieren und ob sie Grenzen unterliegen,
+werden wir später verifizieren.
 
  
 

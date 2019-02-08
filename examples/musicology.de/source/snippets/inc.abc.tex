@@ -18,7 +18,7 @@
 %% use all entries of the bibliography
 
 
-\subsection{ABC: einfach und vielfach genutzt}
+\subsection{ABC: einfach und vielfach genutzt ($\bigstar\bigstar\bigstar$)}
 
 Das \textit{ABC}-Notationssystem ist eine ASCII basierte Methode zum Dokumentieren
 von Musik. Initial entworfen wurde sie, um die Lieder zu
@@ -43,10 +43,12 @@ erläutert.\footcite[vgl.][\nopage wp]{Gregorio2016a}
 
 Auch wenn die \textit{ABC-Notation} zunächst 'nur' Lieder erfassen sollte und
 Mehrstimmigkeit nicht unbedingt das Anliegen der initialen Programmierer gewesen
-ist, gibt es mit \textit{ABC-PLUS}\footcite[vgl.][\nopage wp]{Gonzato2018a}
-inzwischen auch für mehrsystemige Partituren eine Lösung, die gut dokumentiert
-ist\footcite[vgl.][XVff]{Gonzato2018b} und die Integration in
-\LaTeX-Texte ermöglicht.\footcite[vgl.][134]{Gonzato2018b}
+ist, gibt es mit \textit{ABC-PLUS}\footnote{\cite[vgl.][\nopage
+wp]{Gonzato2018a}. Mittlerweile scheint der Name von \acc{ABC-PLUS} in
+\acc{ABC-2} abgeändert worden zu sein.} inzwischen auch für mehrsystemige
+Partituren eine Lösung, die gut dokumentiert
+ist\footcite[vgl.][XVff]{Gonzato2018b} und die Integration in \LaTeX-Texte
+ermöglicht.\footcite[vgl.][134]{Gonzato2018b}
 
 \subsubsection{Technische Vorbereitung}
 
@@ -65,9 +67,8 @@ das \acc{abc-}\LaTeX-Paket\footcite[vgl.][\nopage wp]{CtanAbc2018a} manuell zu
 installieren.\footnote{Bei Ubuntu 18.04 ist es im Paket \textit{texlive-music}
 enthalten.}
   
-$\RHD$ Danach muss -- wie bei \LaTeX\ üblich -- dieses
-\acc{abc-}\LaTeX-Paket  mit dem entsprechenden Kommando in der Präambel
-eingebunden (\texttt{\textbackslash{usepackage}\{abc\}}).
+$\RHD$ Danach muss das Paket -- wie bei \LaTeX\ üblich -- mit einem Kommando
+(\texttt{\textbackslash{usepackage}\{abc\}}) in die Präambel eingebunden werden.
   
 $\RHD$ Schließlich bedürfen die \LaTeX-Durchgänge zur Erzeugung des PDFs einer
 Modifikation: Um das Bild aus dem extrahierten Code generieren zu können, muss
@@ -238,7 +239,7 @@ mehreren Stimmen, was die Mehrarbeit erträglich macht.
 
 Schließlich bliebe zu erwähnen, dass auch das ABC-Verfahren sozusagen auf einer
 kleinen beliebten 'Mogelei' beruht: es wird der Notentext ja nicht in
-(La)\TeX-Code verwandelt, sondern in ein Bild, das dann in den (La)\TeX-Code
+\LaTeX-Code verwandelt, sondern in ein Bild, das dann in den \LaTeX-Code
 eingebunden wird.\footnote{Die Stufen des Prozesses spiegeln sich in den Dateien,
 die anhand des Namensparameters gebildet werden: eine \textit{.abs}-Datei, die
 korrespondierenden Postscriptdateien \textit{.ps} und \textit{.eps} und die
@@ -258,8 +259,8 @@ Verfahren mit einer sehr steilen Lernkurve, das schnell ansprechende Ergebnisse
 erzeugt. Wer sich für seine Verwendung entscheidet, nimmt gewisse optische und
 funktionelle Einschränkungen in Kauf, die allerdings gerade bei der
 theoretischen Musikwissenschaft nur bedingt akzeptabel sind.
-Dafür eignet man sich eine Technik an, die Dank der vielfältigen Konverter in
-vielen Szenarien verwendet werden kann.\footnote{Pars pro toto
-\cite[vgl.][\nopage wp]{Rosen2018a}.}
+Allerdings eignet man sich mit der \acc{ABC}-Notationsweise eine Technik an, die
+Dank der vielfältigen Konverter in vielen Szenarien verwendet werden
+kann.\footnote{Pars pro toto \cite[vgl.][\nopage wp]{Rosen2018a}.}
 % this is only inserted to eject fault messages in texlipse
 % \bibliography{../bib/literature}

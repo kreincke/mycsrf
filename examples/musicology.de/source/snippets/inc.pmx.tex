@@ -16,12 +16,18 @@
 
 
 %% use all entries of the bibliography
-\subsection{PMX (und M-TX): die Nicht-Vereinfachung}
+\subsection{PMX (und M-TX): die Nicht-Vereinfachung ($\bigstar\bigstar$)}
 
 \subsubsection{Das große Versprechen: Kadenz I und III}
 
-Als nächstes geht es um \textit{PMX}\footcite[vgl.][\nopage wp]{CtanPmx2018a},
-will sagen: um einen Präprozessor für MusiX\TeX.\footcite[Vgl.][4ff]{CtanPmx2018a}
+Wer MusiX\TeX\ nutzt, dem drängt sich immer wieder einmal der Gedanke auf, dass
+das doch auch einfacher gehen müsste. Und in der Tat: Legt man für die vielen
+Kleinigkeiten, mit denen man bei MusiX\TeX jeden Einzelfall gestalten darf, ein
+paar Standards fest, sollte man eine einfachere Sprache 'erfinden' können. Mit
+der würde man seine Notentexte formulieren. Und das Ergebnis würde zuletzt
+maschinell wieder in MusiX\TeX-Code übersetzt werden. Genau das ist der Grundgedanke
+von \textit{PMX}\footcite[vgl.][\nopage wp]{CtanPmx2018a}, einem Präprozessor
+für MusiX\TeX.\footcite[Vgl.][4ff]{CtanPmx2018a}
 
 Ein \textit{PMX}-Tutorial nennt MusiX\TeX\ eines der besten Programme für den
 elektronischen Notensatz.\footcite[vgl][2]{Noack2013a} Allerdings habe es ein
@@ -143,16 +149,16 @@ weggelassen.} sich zum schlichteren
 \subsubsection{\ldots der Wermutstropfen \ldots}
 
 Trotz der so euphorisch kolportierten Vorteile wächst sich \textit{PMX} bei
-näherem Hinsehen für den Musikwissenschaftler jedoch zu einer Enttäuschung aus.
+näherem Hinsehen für den Musikwissenschaftler zu einer Enttäuschung aus.
 Gehen wir die Punkte der Reihe nach durch:
 
 \paragraph{\small Inkompatibilitäten}$\;$ \\
 
 Zunächst müssen wir 'gestehen', dass wir in diesem Kapitel unseres
-'selbstreferentiellen' Dokumentes die Gegenüberstellung von Notentext und
-generierendem Code nur scheinbar verwirklicht haben: Es gibt überhaupt keine
-Möglichkeit, PMX-Code in \LaTeX-Code einzubetten und daraus dann -- sozusagen in
-einem Rutsch -- eine PDF-Datei zu erzeugen.
+'selbstreferentiellen' Dokumentes bei der Gegenüberstellung von Notentext und
+generierendem Code 'geschummelt' haben: Es gibt überhaupt keine Möglichkeit,
+PMX-Code in \LaTeX-Code einzubetten und daraus dann -- sozusagen in einem Rutsch
+-- eine PDF-Datei zu erzeugen.
 Das liegt in erster Linie an der Arbeitsweise von \textit{PMX}\footnote{In zweiter
 Linie liegt es an den Entwicklern von \textit{PMX}. Sie haben schlicht (noch) kein
 korrespondierendes \LaTeX-Paket geschaffen. Technisch mag das herausfordernd
@@ -211,9 +217,10 @@ dazu auch][94]{Noack2013a}:
 Diese Umstände müssen -- wenigstens den Musikwissenschaftler -- enttäuschen:
 Wenn man zuletzt doch eine Graphik einbindet, die man mit einem externen Tool
 erstellt hat, warum sollte man sich dann die Mühe antun, zwecks Erstellung einer
-Graphik zuerst \textit{PMX} zu lernen, wo es doch so viele gute Notenprogramme
-gibt, die ihre Daten auch als Postscript- oder PDF-Datei
-exportieren?\footnote{Zu Erinnerung: \textit{ABC} geht implizit genauso vor.
+Graphik zuerst \textit{PMX} zu lernen, wo es doch so viele gute
+Notensatzprogramme gibt, die ihre Daten -- auch ohne Umweg über Shellkommandos
+-- als Postscript- oder PDF-Datei exportieren?\footnote{Zu Erinnerung:
+\textit{ABC} geht implizit genauso vor.
 Insofern träfe dieses Argument eben auch \textit{ABC}. Allerdings punktet
 \textit{ABC} durch seine vielen Konverter und Tools und durch seine lange
 Tradition.} Das könnte doch nur dann sinnvoll sein, wenn man wenigstens auf die
@@ -221,12 +228,12 @@ gestalterischen Vorzüge und Freiheiten von MusiX\TeX\ zugreifen könnte. Aber
 nicht einmal das ist ja der Fall -- wie wir gleich sehen werden.
 
 Zunächst müssen wir aber der Wahrheit Genüge tun und darauf hinweisen, dass der
-Autor des \textit{PMX}-Tutorials sehr wohl um die Irritationen in Sachen
-\textit{PMX / MusiX\TeX}\ und \textit{\LaTeX}\ weiß, ja mehr noch, dass er sie
-auch anspricht: Beide Ansätze würden  -- obwohl sie auf \TeX\ beruhen --
-konkurrierend und überschneidend das Layout gestalten und viel Spezialbefehle
-zueinander inkompatibel definieren.\footcite[vgl.][93]{Noack2013a} Und so kommt
-er zu dem Schluss:
+Autor des \textit{PMX}-Tutorials die Irritationen in Sachen \textit{PMX /
+MusiX\TeX}\ und \textit{\LaTeX}\ kennt und auch anspricht: Seinem eigenen
+Bekunden nach würde beide Ansätze konkurrierend und überschneidend das Layout
+gestalten und viel Spezialbefehle zueinander inkompatibel definieren, unabhängig
+davon, dass sie bei auf \TeX\ aufsetzen.\footcite[vgl.][93]{Noack2013a} Und so
+kommt er zu dem Schluss:
 
 \begin{quote}\textit{\enquote{While with modern implementations of ressources
 are no longer a serious problem, the incompatibility problems are, and their
@@ -239,6 +246,8 @@ Notenblätter zu erzeugen. Und für diesen Zweck ist die Lösung \textit{PMX
 / MusiX\TeX} sehr wohl geeignet. Nur ist die Gestaltung solcher Blätter meist nicht
 Aufgabe von Musikwissenschaftlern.}
 }\end{quote}
+
+Verwendet man \acc{PMX} trotzdem, bleiben zuletzt doch noch Wünche offen:
 
 \paragraph{\small Unzulänglichkeiten}$\;$ \\
 

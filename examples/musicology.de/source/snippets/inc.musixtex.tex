@@ -17,7 +17,7 @@
 
 %% use all entries of the bibliography
 
-\subsection{MusiX\TeX: komplex, kompliziert und doch unabdingbar}
+\subsection{MusiX\TeX: komplex, kompliziert und doch unabdingbar ($\bigstar\bigstar\bigstar\bigstar$)}
 
 Das MusiX\TeX-Tutorial erwähnt mehrfach, dass man Notentexte mit dieser
 Beschreibungssprache eher nicht 'händisch' erarbeiten wolle: Anfänger sollten -
@@ -276,18 +276,18 @@ kann.
 
 Bei der zweiten Methode wird jedem Instrument ein eigenes Notenliniensystem
 zugeordnet und die Stimmen für die Instrumente zu einer Partitur zusammengefügt.
-Dem entsprechend müssen die Noten anders verteilt werden.\footnote{Aus
-Platzgründen belassen wir es hier symbolisch bei zwei 'Manualen'.}
+Die einzelnen Stimmen der Instrumente können selbst auch Akkorde enthalten.
+Dem entsprechend müssen die Noten verteilt werden.\footnote{Aus Platzgründen
+belassen wir es hier symbolisch bei zwei 'Manualen'.}
 
-Das folgende Beispiel soll außerdem demonstrieren, dass MusiX\TeX\ neben
-der zentrierten Darstellung über das Kommando
-\texttt{\textbackslash{startextract}} auch eine linksorientierte Darstellung per
-\texttt{\textbackslash{startpiece}} zur Verfügung stellt, um ganze Passagen in
-den eigene Text einzufügen\footnote{Bei längeren Notentexten gelingt es
-\textit{musicflx} gut, ein ausgewogenes Bild zu erzeugen. Bei kürzeren muss man
-gelegentlich über den Parameter \texttt{\textbackslash{hsize=XYZmm}} oder über
-den erzwungenen Zeilenumbruch \texttt{\textbackslash{alaligne}} in die
-Verteilung eingreifen.}:
+Das folgende Beispiel demonstriert zudem, dass MusiX\TeX\ neben der zentrierten
+Darstellung über das Kommando \texttt{\textbackslash{startextract}} auch eine
+linksorientierte Darstellung per \texttt{\textbackslash{startpiece}} zur
+Verfügung stellt, um ganze Passagen in den eigene Text einzufügen\footnote{Bei
+längeren Notentexten gelingt es \textit{musicflx} gut, ein ausgewogenes Bild zu
+erzeugen. Bei kürzeren muss man gelegentlich über den Parameter
+\texttt{\textbackslash{hsize=XYZmm}} oder über den erzwungenen Zeilenumbruch
+\texttt{\textbackslash{alaligne}} in die Verteilung eingreifen.}:
 
 \begin{music}
   \smallmusicsize
@@ -299,8 +299,8 @@ Verteilung eingreifen.}:
   \setclef{1}{\bass} 
   \songtop{2} 
   \songbottom{1} 
-  \setname1{Diskant}
-  \setname2{Bass}
+  \setname1{Bass}
+  \setname2{Diskant}
   \generalsignature{-2}
   \generalmeter{\meterfrac58}
   \startpiece
@@ -408,20 +408,19 @@ Der entsprechende MusiX\TeX-Code sieht so aus:\begin{small}
 
 \subsubsection{Einschätzung}
 
-Die optische Qualität, die mit MusiX\TeX\ erzeugt werden kann, ist bestechend.
-Graphische Feinheiten sind bis ins Letzte hinein darstellbar und beeinflussbar.
-Externe Analyse- und Theoriesymbole können problemlos als \LaTeX-Konstrukte in
-den Quellcode der Noten eingebettet werden. \LaTeX\ und die
-musikwissenschaftlichen Methodik kann einfach mit MusiX\TeX\ verknüpft
-werden: Sie stehen sich nicht gegenseitig im Weg. Und typographische Abstriche
-aufgrund von Unzulänglichkeiten oder Eigenarten der gewählten Tools braucht man
-bei dieser Konstellation nicht zu machen.
+Die mit MusiX\TeX\ erreichbare optische Qualität ist bestechend. Graphische
+Feinheiten sind bis ins Letzte hinein darstellbar. Externe Analyse- und
+Theoriesymbole vermag man problemlos als \LaTeX-Konstrukte in den Quellcode
+einzubetten. \LaTeX, musikwissenschaftlichen Methodik und MusiX\TeX\ können also
+einfach verknüpft werden; sie stehen sich nicht gegenseitig im Weg. Und
+typographische Abstriche aufgrund von Unzulänglichkeiten oder Eigenarten der
+gewählten Tools braucht man bei dieser Konstellation nicht zu machen.
 
 Diese Freiheit und Qualität wird mit einer aufwendigen und nicht eben intuitiven
 Syntax der Auszeichnungssprache MusiX\TeX\ erkauft: Die Verknüpfung von
-Achtelnoten unter einem Stamm mag als Beleg dafür gelten. Wer MusiX\TeX\ 
-nutzt, wird sich nicht nur das Handbuch aufwendig aneignen müssen, er wird auch
-später immer wieder darauf zurückkommen.
+Achtelnoten unter einem Stamm mag als Beleg dafür gelten. Wer MusiX\TeX\ nutzt,
+wird nicht nur das Handbuch wirklich verstanden haben müssen, er wird für die
+Details auch immer wieder darauf zurückkommen.
 
 Der Gewinn für einen musikwissenschaftlichen Text ist allerdings groß:
 typographisch ist alles erreichbar. Eine saubere, zeilenorientierte
