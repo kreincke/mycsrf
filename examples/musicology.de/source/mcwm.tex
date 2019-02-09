@@ -241,47 +241,45 @@ den eigentlichen Notentext erzeugen.
 Die Arbeit mit reinen Texteditoren ist nicht das, was man unter einer
 musikerfreundlichen Arbeitsumgebung verstehen würde. Die Sprache der Musiker
 sind Noten, keine mehr oder minder kryptischen Syntagmen. Und so gibt es denn
-auch eine Reihe von graphischen Programmen, bei denen der Musiker entwder
-wirklich Noten 'schreibt', nicht Text, oder bei denen er wenigstens ein direktes
-Feedback in Form von visualisierten Noten erhält, ohne zuvor selbst das Backend
-aufrufen zu müssen. Diese Software bezeichnen wir als Editoren.\footnote{Für den
-unbedarften Nutzer sieht es manchmal so aus, als sei die Erzeugung des Notentextes
-integrierter Bestandteil des Frontends. Dann wäre der Begriff 'Editor' irgendwie
-ungerecht. Tatsächlich verküpfen solch integrierte Gesamtsysteme meist aber den
-Editor 'nur' sehr geschickt mit der eigentlichen 'Notengenerierungsmaschine',
-dem Backend. Deshalb ist es in unserem Kontext sehr wohl sinnvoll, von
-Backends und Frontends zu sprechen und unter letzteren im wesentlichen Editoren
-zu verstehen, die die eingebenen Daten in verschiedenen Formaten abzuspeichern
-vermögen, -- selbst wenn sie sich selbst eher als IDE, als Integrated Development
-Environment verstehen.} 
+auch eine Reihe von graphischen Programmen, bei denen der Musiker entweder Noten
+'schreibt', nicht Text, oder bei denen seine Texteingaben wenigstens unmittelbar
+visualisiert werden, ohne dass er zuvor selbst das Backend aufrufen müssten.
+Erstere bezeichnen wir als graphische oder visuelle Editoren, letztere als
+semi-graphische.\footnote{Für den unbedarften Nutzer sieht es manchmal so aus,
+als sei die Erzeugung des Notentextes integrierter Bestandteil des Frontends.
+Wäre dem so, schiene der Begriff 'Editor' irgendwie ungerecht. Tatsächlich
+verküpfen solche 'integrierten Entwicklungsumgebungen' meist aber den Editor
+'nur' sehr geschickt mit der eigentlichen 'Notengenerierungsmaschine', dem
+Backend. Deshalb ist es in unserem Kontext sehr wohl sinnvoll, von Backends und
+Frontends zu sprechen und unter letzteren im Wesentlichen Editoren zu verstehen,
+die die eingebenen Daten in verschiedenen Formaten abzuspeichern vermögen, --
+selbst wenn sie sich selbst eher als IDE, als \acc{Integrated Development
+Environment} verstehen.}
 
 Damit darf man fragen, ob und wie man Opensource-Notensatzprogramme dazu nutzen
 kann, den zuletzt im \LaTeX-Dokument benötigten Code aus dem abzuleiten, was man
-in und mit diesen Programmen mehr oder minder graphisch eingegeben
-hat\footnote{Ein graphisches Interface wird wesentlich mit der Maus bedient.
-Die meisten graphischen Notensatzprogramme verlangen oder erlauben auch Eingaben
-über die Tastatur.}. Diese Frage ist im Einzelfall -- und nicht nur für
-Opensourceprogramme -- einfach zu beantworten:
+in und mit diesen Editoren eingegeben. Diese Frage ist im Einzelfall -- und
+nicht nur für Opensourceprogramme -- einfach zu beantworten:
 
 \begin{itemize}
-\item Zum einen muss man überprüfen, ob es das Programm erlaubt, den Inhalt in
+\item Zum einen muss man überprüfen, ob es der Editor erlaubt, den Inhalt in
 einem der benötigten Formate zu speichern.
-\item Und zum anderen muss man testen, ob das Programm den Inhalt auch
+\item Und zum anderen muss man testen, ob der Editor den Inhalt auch
 hinreichend 'verlustfrei' exportiert.
 \end{itemize}
 
 Dem werden wir nachgehen. Allerdings wollen wir noch etwas vorausschicken:
 
-Notensatzprogramme nutzen meist ein natives Dateiformat und exportieren ihren
-Inhalt ggfls. in Fremdformate. Sie agieren implizit als Konverter. Daneben gibt es
-noch eine Reihe von expliziten Konvertern, die eine Datei in dem einen Format
-einlesen und in einem anderen wieder abspeichern. 
+Frontends von Notensatzsystemen nutzen meist ein natives Dateiformat und
+exportieren ihren Inhalt ggfls. in Fremdformate. Sie agieren implizit als
+Konverter. Daneben gibt es noch eine Reihe von expliziten Konvertern, die eine
+Datei in dem einen Format einlesen und in einem anderen wieder abspeichern.
 
 Sollte also ein Notensatzprogramm von sich aus das eine oder andere der in
 unserem Kontext benötigten Formate nicht oder nur unzureichend exportieren,
 bliebe immer noch die Möglichkeit, einen eigenständigen Konverter
 zwischenzuschalten. Zu wissen, welche expliziten Konverter es (in welcher
-Qualität) gibt, könnte mithin die Anzahl der gut zu nutzenden Notensatzprogramme
+Qualität) gibt, könnte mithin die Anzahl der gut zu nutzenden Notensatzsysteme
 erhöhen\footnote{Wollte man diesem Gedanken in letzter Konsequenz nachgehen,
 müsste man zunächst eine Liste aller Notationsformate erstellen und dann nach
 Konvertern suchen, die diese 'anderen' auf die Formate \textit{ABC},
@@ -295,7 +293,7 @@ sichten.}.
 
 \input{snippets/inc.converter.tex}
 
-\input{snippets/inc.frontends.tex}
+\input{snippets/inc.editoren.tex}
 
 \input{snippets/inc.exkurs-midi.tex}
 
@@ -334,11 +332,11 @@ sichten.}.
 \input{snippets/inc.rosegarden.tex} 
 
  
-\subsubsection{Zwischenfazit}
+\subsection{Zwischenfazit}
 
 %\subsection{Konverter II}
 
-\subsection{Kombinationsarchitektur}
+\section{Kombination: die Frage nach dem optimalen System}
 
 \section{Fazit}
 
