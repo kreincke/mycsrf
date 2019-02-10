@@ -19,22 +19,22 @@
 
 \subsubsection{Elysium ($\bigstar\bigstar\bigstar\bigstar$)}
 
-\acc{Elysium} fungiert als Frontend für \acc{LilyPond}, ist aber kein
-eigenständiger Editor, sondern wird zusammen mit \acc{Eclipse} genutzt:
-\acc{Eclipse} ist eine integrierte Entwicklungsumgebung, deren Funktionalität
-über die Integration von Plugins entsteht. Es wird von der \acc{Eclipse
-Foundation} gepflegt, die allerdings weit mehr sein will, als der bloße
-\acc{Eclipse}-Distributor.\footcite[vgl.][\nopage wp]{Eclipse2018a} Es gibt die
-verschiedensten vorkonfigurierten Pakete für die unterschiedlichsten
-(Programmier-)Zwecke, vorbereitet für die gängigen Betriebssysteme. In unserem
-Fall reicht das einfache Standardpaket \enquote{Eclipse IDE for Java
+\label{Elysium}\acc{Elysium} fungiert als Frontend für \acc{LilyPond}, ohne ein
+eigenständiger Editor zu sein. Es wird vielmehr zusammen mit \acc{Eclipse}
+genutzt, einer integrierten Entwicklungsumgebung, deren Funktionalität erst über
+die Integration von Plugins entsteht. Entwickelt und gepflegt wird diese
+IDE\footnote{Integratet Development Environment} von der \acc{Eclipse
+Foundation}.\footcite[vgl.][\nopage wp]{Eclipse2018a} Sie bietet die
+verschiedensten vorkonfigurierten Pakete an, zusammengestellt für die
+unterschiedlichsten Zwecke und ausgelegt auf die gängigsten Betriebssysteme. In
+unserem Fall reicht das einfache Standardpaket \enquote{Eclipse IDE for Java
 Developers}.\footcite[vgl.][\nopage wp]{Eclipse2018b}
 
-Ein Kandidat für die Erweiterung von deren Funktionalität wäre  in unserem
-Kontext z.B. \acc{{\TeX}lipse}. Es macht \acc{Eclipse} zu einem exezellenten 'Editor'
-für \LaTeX-Texte.\footcite[vgl.][\nopage wp]{TeXlipse2019a}
+Ein Plugin, das zu installieren in unserem Kontext lohnt, wäre z.B.
+\acc{{\TeX}lipse}: es macht \acc{Eclipse} zu einem exezellenten 'Editor' für
+\LaTeX-Texte.\footcite[vgl.][\nopage wp]{TeXlipse2019a}
 
-Das für uns entscheidene Plugin allerdings heißt \acc{Elysium} und wird aus
+Das für unsere Zwecke entscheidende Plugin ist \acc{Elysium}. Es wird aus
 Eclipse heraus vom \enquote{Eclipse-Marketplace} heruntergeladen und
 installiert.\footcite[vgl.][\nopage wp]{Harmath2019a} Sein Schöpfer -- Dénes
 Harmath -- nennt seine Erweiterung die \enquote{LilyPond IDE für
@@ -55,14 +55,55 @@ nicht schon mit sich bringe, installiere man zuerst auf die gewohnte Weise
 bei uns problemlos durch.
 
 Von seinen Eigenschaften her ist \acc{Elysium} ein semi-graphischer Editor: man
-gäbe -- Editor gestützt -- den gewünschten \acc{LilyPond}-Code ein und bei jeder
-Sicherung der Quelldatei würden die entsprechende MIDI- und die zugrhörige
-PDF-Datei kompiliert und angezeigt.\footcite[vgl.][\nopage wp]{Harmath2019e}
-Unsere Referenzkadenz II kann \acc{Elysium} problemlos erfassen und sogar
-hörbar machen:
+gibt -- Editor gestützt -- den gewünschten \acc{LilyPond}-Code ein und bei jeder
+Sicherung der Quelldatei werden die entsprechende MIDI- und die zugehörige
+PDF-Datei kompiliert und angezeigt.\footcite[vgl.][\nopage wp]{Harmath2019e} Auf
+diese Weise kann \acc{Elysium} auch mit unser Referenzkadenz II problemlos
+umgehen, als \acc{LilyPond}-Frontend sogar inklusive unser kleinen
+Zusatzbibliothek:
 
+\begin{center}
+\includegraphics[width=0.9\textwidth]{frontends/elysium/elysium-cadenca2-300dpi.png}
+\end{center}
 
+Die \acc{LilyPond}-Perspektive, die das \acc{Elysium}-Plugin mitbringt, enthält
+in der oberen Mitte den eigentlichen \acc{LilyPond}-Editor. Er nutzt
+Syntaxhighlighting und bietet-- über die Eclipse-Menues -- den bei \acc{Eclipse}
+gewohnten Programmiersupport. Links davon findet sich -- entsprechenend -- eine
+Liste der Projekte und ihrer Dateien. Und darunter wird die Struktur der Datei
+abgebildet, die gerade editiert wird. Auf der rechten oberen Seite erscheint
+dann nach jeder Sicherung des eingegebenen Codes der Notentext, der daraus
+erzeugt werden kann. Und der rechte untere Bereich bietet einen MIDI-Player, mit
+dem man sich seine generierte Musik anhören kann.
 
+Zwei Kleinigkeiten können bei der Nutzung verwirren: 
+
+Zum ersten muss man das 'Noten'-Fenster und das \acc{MIDI}-Player-Fenster an
+eine geöffnete Datei 'binden', wenn man den Notentext sehen und hören möchte.
+Dazu nutzt man die gelben Pfeile.
+
+Außerdem erwartet \acc{Elysium}, dass in der Projektspalte des Eclipsemenues die
+Option 'build automatically' aktiviert ist. Nur dann nämlich generiert
+\acc{Elysium} unter Rückgriff auf das installierte \acc{LilyPond}-Backend
+automatisch die zurghörige PDF-Datei und -- sofern im Code mit \texttt{MIDI\{\}}
+aktiviert -- die entsprechendene MIDI-Datei, die dann im rechten oberen und
+unteren Bereich dargestellt werden.
+
+Nun gibt es durchaus Gründe, nicht alle Projekte immer automatisch bilden zu
+lassen\footnote{So schreiben wir z.B. den Text, den Sie gerade lesen, mit
+\acc{Elcipse} und \acc{Texlipse}. Gemeinsam wissen wir aber bereits, dass unser
+Text nicht standardmäßig prozessiert werden darf, weil ja \texttt{lilypond-book}
+immer zuerst ausgeführt werden muss und den eigentlichen \LaTeX-Text erst
+generiert.} Will man solche Projekte mit manuellem Anstoß und die
+Lilypond-Projekte, die die automatische Abarbeitung fordern, gemeinsam offen
+halten, wird man Auto-Build-Funktionen je nach Bedarf an und abschalten müssen
+und die Fehlermeldungen souverän ignorieren, von denen man weiß, daß sie
+'natürlich' sind. Alternativ kann man natürlich eine weitere Eclipse-Instanz mit
+anderem Workspace starten.
+
+Insgesamt erhält man mit \acc{Elysium} eine verlässlich solide Umgebung zur
+Entwicklung von \acc{LilyPond} basierten Noten, die insbesondere denjenigen ans
+Herz wachsen wird, die eh schon mit \acc{Eclipse} arbeiten.
 
 % this is only inserted to eject fault messages in texlipse
-%\bibliography{../bib/literature}
+% \bibliography{../bib/literature}

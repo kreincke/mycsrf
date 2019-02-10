@@ -59,20 +59,17 @@ dann ihrerseits über das Computersoundsystem zu 'realen' Analog'daten' werden.}
 sondern der auch die soundunabhängige Beschreibung und eine Soundbibliothek
 zusammenbringt, um daraus die finalen analogen Musikdaten zu erzeugen.
 
-Unter GNU/Linux -- oder jedenfalls in all den Distributionen, die das
-\acc{gstreamer}-System als Interface nutzen\footnote{$\rightarrow$
-\href{https://gstreamer.freedesktop.org/}{https://gstreamer.freedesktop.org/}}
--- bringt das Soundsystem -- unabhängig davon, ob es rein auf
-\acc{ALSA}\footnote{$\rightarrow$
+Unter GNU/Linux bringt das Soundsystem -- unabhängig davon, ob es rein auf
+\acc{ALSA} basiert\footnote{$\rightarrow$
 \href{https://de.wikipedia.org/wiki/Advanced{\_}Linux{\_}Sound{\_}Architecture}
 {https://de.wikipedia.org/wiki/Advanced{\_}Linux{\_}Sound{\_}Architecture}} oder
-im Verbund mit \acc{Pulse-Audio}\footnote{$\rightarrow$
+dieses im Verbund mit \acc{Pulse-Audio}\footnote{$\rightarrow$
 \href{https://www.freedesktop.org/wiki/Software/PulseAudio/}
 {https://www.freedesktop.org/wiki/Software/PulseAudio/}} als
 \enquote{Sound-Middleware}\footnote{$\rightarrow$
 \href{https://de.wikipedia.org/wiki/PulseAudio}
-{https://de.wikipedia.org/wiki/PulseAudio}} basiert\footnote{$\rightarrow$
-\href{https://wiki.ubuntuusers.de/Soundsystem/}{https://wiki.ubuntuusers.de/Soundsystem/}},
+{https://de.wikipedia.org/wiki/PulseAudio}} bereitstellt\footnote{$\rightarrow$
+\href{https://wiki.ubuntuusers.de/Soundsystem/}{https://wiki.ubuntuusers.de/Soundsystem/}}
 -- nicht von sich aus die Fähigkeit mit, \acc{MIDI}-Dateien abzuspielen.
 Um das zu ermöglichen, kann man seinem Player --- wenn er es denn erlaubt -- ein
 zusätzliches \acc{MIDI}-Plugin spendieren. Oder man installiert einen generell
@@ -142,6 +139,25 @@ Anhören nutzen, die zwar generell \acc{MIDI}-bereit sind, die selbst aber keine
 eigene oder nur eine unvollständige \acc{MIDI}-Umgebung mitbringen. Insbesondere
 sollten nun auch \acc{elysium}, \acc{frescobalid} und \acc{rosegarden} als
 \acc{MIDI}-'Player' funktionieren.
+
+Bliebe noch zu erwähnen, dass bestimmte Distributionen das
+\acc{gstreamer}-System als Audio- und Videointerface
+nutzen.\footnote{$\rightarrow$
+\href{https://gstreamer.freedesktop.org/}{https://gstreamer.freedesktop.org/}}
+Seine Fähigkeiten erwibt dieser Layer über Plugins. Hat man also kein
+gstreamer-\acc{MIDI}-Plugin
+ installiert, kann keines der Programme, die diesen Audiolayer nutzen,
+ \acc{MIDI}-Dateien abspielen. Unglücklicher weise werden
+ gstreamer-\acc{MIDI}-Plugins nur über die
+ \acc{gstreamer-plugins-\textbf{bad}}-Serie angeboten, nicht über die
+ \acc{gstreamer-plugins-\textbf{good}-Serie}\footnote{$\rightarrow$
+ \href{https://gstreamer.freedesktop.org/documentation/plugins.html}
+ {https://gstreamer.freedesktop.org/documentation/plugins.html}}. Mithin wird
+ zumindest der Purist auch dann noch Programme finden, die \acc{MIDI}-Dateien
+ nicht abspielen können, wenn er sein System auf der tieferen
+ \acc{ALSA}/\acc{PulseAudio}-Ebene längst schon\acc{MIDI}-fähig gemacht
+ hat.\footnote{Für tiefer gehende MIDI-Aspekt unter Linux \cite[vgl.][\nopage
+ wp]{Felix2018a}.}
 
 % this is only inserted to eject fault messages in texlipse
 % \bibliography{../bib/literature}
