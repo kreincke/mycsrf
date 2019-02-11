@@ -130,9 +130,20 @@ sudo apt-get install timidity-interfaces-extra
 \end{verbatim}
 
 Danach sollte man in einer Shell über das Kommando \texttt{timidity
-MIDIDATEI.midi} seine \acc{MIDI}-Datei erfolreich abspielen können. Der
-Befehl \texttt{timidity -ig MIDIDATEI.midi} öffnet sogar ein graphisches
-Interface.
+MIDIDATEI.midi} seine \acc{MIDI}-Datei erfolreich abspielen können. Der Befehl
+\texttt{timidity -ig MIDIDATEI.midi} öffnet sogar ein graphisches Interface.
+Gelegentlich erwartet das eine oder andere Frontend, dass es seine Daten an
+einen MIDI-Server übergeben kann. Auch dafür kann man \acc{timidity} benutzen.
+Man startet ihn von der Shell oder im Bootprozess mit der Option {iA} und erhält
+als Output eine Liste von Ports, auf denen \acc{timidity} als Server lauscht.
+Konkret kann das so aussehen:
+\begin{verbatim}
+> timidity -iA
+TiMidity starting in ALSA server mode
+Opening sequencer port: 129:0 129:1 129:2 129:3
+\end{verbatim}
+Die Programme, die ihre Midi-Musidaten an einen solchen Server übergeben wollen,
+muss man dann nur noch entsprechend konfigurieren.
 
 Hat man all dies erledigt, kann man auch die Frontends der Notensatzsysteme zum
 Anhören nutzen, die zwar generell \acc{MIDI}-bereit sind, die selbst aber keine
