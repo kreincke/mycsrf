@@ -79,8 +79,8 @@ der Extension \textit{mx2}. Und schließlich liest das MusiX\TeX-Paket beim
 nächsten \LaTeX-Durchgang die Optimierungsinformationen wieder ein und
 integriert sie in das endgültige Dokument.\footnote{\cite[Vgl.
 dazu][5]{VogSimRyc2018a}. Bei näherem Hinsehen 'verknäuelt'sich die Beziehung
-von \LaTeX\ und MusiX\TeX\ etwas und muss 'aufgeröselt' werden. Wenn es darum
-geht, welches Tool welche Datei erfolgreich auswertet, muss man sorgsam
+von \LaTeX\ und MusiX\TeX\ etwas und muss 'aufgedröselt' werden. Wenn es darum
+geht, welches Tool welche Datei erfolgreich auswertet, gilt es zu
 unterscheiden:
 \begin{itemize}
 \item MusiX\TeX: (1) \texttt{etex mutx-file.tex} $\rightarrow$
@@ -100,16 +100,18 @@ MusiX\TeX-Datei. In unserem Fall erzeugen wir jedoch \LaTeX-Dateien mit
 MusiX\TeX-Anteilen. Deshalb müssen wir -- sozusagen händisch -- den Aufruf von
 \textit{musixflx} selbst organisieren.} Der Algorithmus ist also einfach: Findet
 das MusiX\TeX-Paket als Teil des \LaTeX-Durchgangs (noch) keine
-\textit{.mx2}-Auslagerungsdatei, schreibt es die \textit{.mx1}-Auslagerungsdatei,
-ansonsten verarbeitet es die gefunden \textit{.mx2}-Auslagerungsdatei. Dies kann
-automatisiert werden. Die entsprechende Passage aus einem Makefile könnte so
-aussehen:\footnote{Wiederum gilt:
-Wissenschaftliche \LaTeX-Dokumente mit Fußnoten und bibliographischen Angaben
-werden eh schon über mehrere \LaTeX-Durchgänge hinweg erzeugt: Jeder einzelnen
-Durchgang lagert später benötigte Angaben in Hilfsdateien aus und liest die, die
-er selbst verwenden will, aus Dateien ein, die vorhergehende erzeugt haben. Wie
-man beides schlüssig automatisiert, kann im Makefile dieses Tutorials eingesehen
-werden ($\rightarrow$
+\textit{.mx2}-Auslagerungsdatei, schreibt es die
+\textit{.mx1}-Auslagerungsdatei, ansonsten verarbeitet es die gefunden
+\textit{.mx2}-Auslagerungsdatei. Dies kann automatisiert werden. Das Schwierige
+daran ist, dass man selbst den Aufruf seiner Tools entsprechend organisieren
+muss. Von alleine passiert das eben nicht. Die entsprechende Passage aus einem
+Makefile könnte so aussehen:\footnote{Wiederum gilt: Wissenschaftliche
+\LaTeX-Dokumente mit Fußnoten und bibliographischen Angaben werden eh schon über
+mehrere \LaTeX-Durchgänge hinweg erzeugt: Jeder einzelnen Durchgang lagert
+später benötigte Angaben in Hilfsdateien aus und liest die, die er selbst
+verwenden will, aus Dateien ein, die vorhergehende erzeugt haben. Wie man beides
+schlüssig automatisiert, kann im Makefile dieses Tutorials eingesehen werden
+($\rightarrow$
 \lnka{http://github.com/kreincke/mycsrf/tree/master/examples/musicology.de}) } 
 
 
@@ -424,8 +426,8 @@ Details auch immer wieder darauf zurückkommen.
 
 Der Gewinn für einen musikwissenschaftlichen Text ist allerdings groß:
 typographisch ist alles erreichbar. Eine saubere, zeilenorientierte
-Programmierung\footnote{wie wir sie bei unserem dritten Kadenzbeispiel aus
-Platzgründen leider nicht haben vollständig einhalten können} erleichtert dabei
+Programmierung\footnote{-- wie wir sie bei unserem dritten Kadenzbeispiel aus
+Platzgründen leider nicht haben vollständig einhalten können --} erleichtert dabei
 -- wie immer -- das Arbeiten. Und nach einiger Zeit wird man per Copy\&Paste
 gewiss auch flüssiger vorankommen.
 

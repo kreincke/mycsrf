@@ -139,20 +139,20 @@ alle Materialien ein, die es für eine \LaTeX-compilierbare Version benötigt.
 Unglücklicherweise muss man \texttt{lilypond-book} dabei ein wenig unter die Arme
 greifen:
 
-Tatsächlich evaluiert und bearbeitet \texttt{lilypond-book} zwar sehr
-erfolgreich alle Dateien mit der Extension \textit{.tex}, insbesondere auch die,
-die per \textit{input}-Befehl in die Hauptdatei eingebunden worden sind. Die
-Aufteilung eines LaTeX-Textes in mehrere Snippets bedeutet für
-\texttt{lilypond-book} kein Problem. Und \texttt{lilypond-book} kopiert auch
-alle gefundenen Daten -- ggfls. überarbeitet -- korrekt in den Arbeitsordner,
-den man dem Tool auf der Kommandozeile mit gegeben hat, und zwar unter
-Beibehaltung der Ordnerstrukturen, sodass die include-Referenzen in den
-kopierten Dateien nicht ins Leere zeigen. Gleichwohl gibt es Dateien, die nicht
-in den Blick von \texttt{lilypond-book} geraten und die es darum auch nicht mit
-in den Arbeitsordner übernimmt. Trotzdem werden natürlich auch diese Dateien
-innerhalb des Arbeitsordners benötigt, wenn man dort erfolgreich einen
-\LaTeX-Lauf starten will. Prominentestes Beispiel für solche Dateien sind die
-\textit{bib-Files} und ausgelagerte Konfigurationsdateien.
+Tatsächlich evaluiert und bearbeitet \texttt{lilypond-book} erfolgreich alle
+Dateien mit der Extension \textit{.tex}, insbesondere auch die, die per
+\textit{input}-Befehl in die Hauptdatei eingebunden worden sind. Die Aufteilung
+eines LaTeX-Textes in mehrere Snippets bedeutet für \texttt{lilypond-book} kein
+Problem. Und \texttt{lilypond-book} kopiert auch alle gefundenen Daten -- ggfls.
+überarbeitet -- korrekt in den Arbeitsordner, den man dem Tool auf der
+Kommandozeile mit gegeben hat, und zwar unter Beibehaltung der Ordnerstrukturen,
+sodass die include-Referenzen in den kopierten Dateien nicht ins Leere zeigen.
+Gleichwohl gibt es Dateien, die nicht in den Blick von \texttt{lilypond-book}
+geraten und die es darum auch nicht mit in den Arbeitsordner übernimmt. Trotzdem
+werden natürlich auch diese Dateien benötigt, wenn man innerhalb des
+Arbeitsordners erfolgreich einen \LaTeX-Lauf starten will. Prominentestes
+Beispiel für solche Dateien sind die \textit{bib-Files} und ausgelagerte
+Konfigurationsdateien.
 
 Deshalb muss der \LaTeX-User als Nutzer von \texttt{lilypond-book} -- sozusagen
 manuell -- die fehlenden Dateien in den von \texttt{lilypond-book} erzeugten
@@ -585,12 +585,12 @@ Für diese ist folgender Quellcode zuständig:
 
 \subsubsection{Bewertung}
 
-Vergleicht man das 'Druckbild' von Noten, die \textit{LilyPond} erzeugt, mit
-denen, die MusiX\TeX\ im Verbund mit \LaTeX\ generiert, fällt in der Tat auf,
-dass die \textit{LilyPond}-Noten irgendwie 'weicher', 'dichter' und lesbarer
-sind: \textit{LilyPond} wollte die Qualität des guten manuellen Notensatzes in
-den elektronische Notensatz einbringen.\footcite[vgl.][8ff]{LilyPond2018d} Das
-ist gelungen: auch wenn sich \textit{MusiX\TeX} und \textit{LilyPond} von der
+Vergleicht man das 'Druckbild', das \textit{LilyPond} erzeugt, mit den Noten,
+die MusiX\TeX\ im Verbund mit \LaTeX\ generiert, fällt in der Tat auf, dass die
+\textit{LilyPond}-Noten irgendwie 'weicher', 'dichter' und lesbarer sind:
+\textit{LilyPond} wollte die Qualität des guten manuellen Notensatzes in den
+elektronische Notensatz einbringen.\footcite[vgl.][8ff]{LilyPond2018d} Das ist
+gelungen: auch wenn sich \textit{MusiX\TeX} und \textit{LilyPond} von der
 graphischen Erscheinung her nicht viel geben -- den Output eines der beiden
 nicht exzellent zu nennen, wäre unangebracht --, so kommt doch das Druckbild von
 \textit{LilyPond} einen Tick augenfreundlicher daher.

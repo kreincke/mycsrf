@@ -45,9 +45,16 @@ Und dabei geht es um eine sehr einfache \LaTeX-Technik:
   \texttt{\textbackslash{includegraphics}\{PATH-To-YOUR-PICTURE\}} einzugeben.
   Wichtig ist dabei, dass man die Extension der Graphik nicht an die Graphik
   anzuhängen braucht: liegen an der stelle verschiedene Typen derselben Graphik
-  (PNG, EPS oder PDF), verwendet \LaTeX\ eines davon.\footnote{Wenn die Postscript
-  Graphiken als Export von Notensatzprogrammen entstehen, muss man sie in der
-  Regel noch EPS konvertieren. Unter Linux dient dazu das Kommando \texttt{ps2eps}.}
+  (PNG, EPS oder PDF), verwendet \LaTeX\ eines davon.\footnote{Dazu noch zwei
+  kleine Hinweise: (a) Wenn die Notensatzprogramme Postscriptgraphiken
+  exportieren, muss man das Ergebnis in der Regel noch in EPS-Dateien
+  konvertieren, um sie git in eine \LaTeX-Dokument einbinden zu können. Unter
+  Linux dient dazu das Kommando \texttt{ps2eps}. (b) Wenn verschiedene
+  Versionen eines Bildes als Dateien mit gleichem Hauptnamen und divergierender
+  Formatextension im Ordner liegen, sollte man sehr wohl die gewünschte
+  Dateiendung angeben. Andernfalls sucht sich \LaTeX\ nämlich irgendeines
+  heraus, was unangenehme Seiteneffekte haben kann, nach deren Ursache man
+  dann länger sucht.}
 \end{itemize}
 
 Wer diesen Weg geht, muss drei Tücken im Auge behalten:
