@@ -146,39 +146,65 @@ Damit stellen sich sofort einige Fragen:
   erzielen?
 \end{itemize}
 
-Diese Fragen zielen auf mögliche Editoren, Frontends und Konverter und auf
+Diese Punkte zielen auf mögliche Editoren, Frontends und Konverter und auf
 deren Zusammenspiel mit den eigentlichen Notensatzsystemen, den Backends. 
 
-% \TODO{Grobe Architekturskizze Frontends Konverter Backends}
+% TODO Grobe Architekturskizze Frontends Konverter Backends
 
-Diesen Aspekten gehen wir am Ende unseres Textes nach. Allerdings werden wir uns
-dabei auf die Open-Source-Welt konzentrieren. Mehr oder minder konstenintensive
-proprietäre Programme mögen beliebt sein, notwendig sind sie nicht. Es ist auch
-für den Musiker besser, nicht in die 'Vendorenfalle' zu geraten und seine
-Arbeiten von den Produkten einer Firma abhängig zu machen. Deshalb konzentrieren
-wir uns hier auf die Umsetzung mit freier Software.\footnote{Wer als Musiker
-proprietäre Programme nutzt, macht sich erpressbar: Auf der einen Seite
-investiert er Zeit und Mühen in die Erstellung von Notentexten, die er (darum)
-auch später noch weiterverarbeiten oder wiederverwenden will. Auf der anderen
-Seite muss er fürchten, die hinter dem eigenen Programm stehende Firma werde
-beim nächsten Versionswechsel die Lizenzgebühren so stark erhöhen, dass sie sein
-Budget sprengen. Und selbst ohne diese finale Katastrophe wird der Wechsel zu
-einem anderen Anbieter mit der Zeit durch die schon investierte Arbeit so
-aufwendig, dass man lieber bei dem bisherigen Programm bleibt, auch wenn es
-teuerer oder schlechter ist als die Alternativen. Damit ist man in die
-\textit{Vendorenfalle} getappt. Mit freier Software kann das nicht geschehen,
-weil es zum Wesen freier Software gehört, dass man ohne pekuniären Aufwand an
-den Quellcode und an die Nutzungsrechte der Programme herankommt - auch an die
-neuerer und besserer Versionen. (\cite[vgl. dazu][\nopage wp]{FSF2018a}.) Für
-Musiker hat sich die Lage mit der Etablierung von \textit{MusicXML} allerdings
-etwas entspannt: Durch die Standardisierung des Dateiformates wird der Wechsel
-zu einem anderen, besseren Programme erleichtert. Hier muss man 'nur' noch
-fürchten, dass das bisher die jeweiligen Programme vorab (noch) nicht
-standardisierte Features benutzen oder den Standard nicht ganz konform
-implementiert haben. Allerdings sind solche 'Eigenarten' ein beliebtes Mittel
-der Entwickler, den zahlenden Kunden zuletzt doch wieder an sich zu binden und
-ihm den Wechsel zur Alternative zu erschweren. (\cite[Zur Lizenzierung von
-MusicXML vgl. auch][\nopage wp.]{WpedMusicXML2018a})}
+Die verschiedenen Aufgaben solcher Systeme auseinanderzuhalten, ist bei der
+Begutachtung von Lösungen essentiell. So attestiert z.B. eine ältere Sichtung
+von Notensatzprogrammen der \enquote{Open Source Welt}, sie habe
+\enquote{[\ldots] noch immer Schwierigkeiten, ein [\ldots] Nischenprodukt wie
+ein Notensatzprogramm zu entwickeln}. Und sie begründet ihr Urteil damit, dass
+\enquote{[\ldots] eine neue Mark-up-Sprache zu erlernen und in dieser grafische
+Vorstellungskraft zu entwickeln [\ldots] nicht jedermanns Sache (sei)}, auch
+wenn die Ergebnisse -- wie im Falle von \acc{Frescobaldi} und \acc{LilyPond} --
+\enquote{[\ldots] äußerst professionell anmuten
+(mögen)}.\footcite[vgl.][51]{Albrecht2009a} Wenn man, wie hier geschehen,
+(graphische) Editoren und eigentliche Notensatzprogramme implizit 'gleichsetzt',
+dann beraubt man sich der Möglichkeit zu einem differenzierteren und
+pragmatischen Urteil: Wer integrierte Gesamtsysteme erwartet, bewertet komplexe
+Architekturen mit verteilten Teilsystem eben dieser Verteilung wegen schlechter
+-- und verkennt, das sehr viel komplexere Systeme nach diesem Prinzip aufgebaut
+sind und erfolgreich betrieben werden, wie etwa \acc{Unix} resp.
+\acc{GNU/Linux}.
+
+Wir jedenfalls werden diesen Aspekten gesondert nachgehen: Zuerst analysieren
+wir mögliche Backends und deren Methoden, 'Noten' in \LaTeX-Texte einzubinden.
+Danach betrachten wir graphische und semi-graphische Editoren und Konverter,
+über die jene Dateien erzeugt werden, die den Backendsystemen als Input dienen.
+Und ganz am Ende werden wir sehen, dass uns gerade diese Aufteilung eine
+besondere Flexibilität bietet, Notenbeispiele in (musik)wissenschaftliche
+Arbeiten einzubetten.
+
+Allerdings werden wir uns bei unser Betrachtung auf die Open-Source-Welt
+konzentrieren. Mehr oder minder konstenintensive proprietäre Programme mögen
+beliebt sein, notwendig sind sie nicht. Es ist auch für den Musiker besser,
+nicht in die 'Vendorenfalle' zu geraten und seine Arbeiten von den Produkten
+einer Firma abhängig zu machen. Deshalb fokussieren wir uns hier auf die
+Umsetzung mit freier Software.\footnote{Wer als Musiker proprietäre Programme
+nutzt, macht sich erpressbar: Auf der einen Seite investiert er Zeit und Mühen
+in die Erstellung von Notentexten, die er (darum) auch später noch
+weiterverarbeiten oder wiederverwenden will. Auf der anderen Seite muss er
+fürchten, die hinter dem eigenen Programm stehende Firma werde beim nächsten
+Versionswechsel die Lizenzgebühren so stark erhöhen, dass sie sein Budget
+sprengen. Und selbst ohne diese finale Katastrophe wird der Wechsel zu einem
+anderen Anbieter mit der Zeit durch die schon investierte Arbeit so aufwendig,
+dass man lieber bei dem bisherigen Programm bleibt, auch wenn es teuerer oder
+schlechter ist als die Alternativen. Damit ist man in die \textit{Vendorenfalle}
+getappt. Mit freier Software kann das nicht geschehen, weil es zum Wesen freier
+Software gehört, dass man ohne pekuniären Aufwand an den Quellcode und an die
+Nutzungsrechte der Programme herankommt - auch an die neuerer und besserer
+Versionen. (\cite[vgl. dazu][\nopage wp]{FSF2018a}.) Für Musiker hat sich die
+Lage mit der Etablierung von \textit{MusicXML} allerdings etwas entspannt: Durch
+die Standardisierung des Dateiformates wird der Wechsel zu einem anderen,
+besseren Programme erleichtert. Hier muss man 'nur' noch fürchten, dass das
+bisher die jeweiligen Programme vorab (noch) nicht standardisierte Features
+benutzen oder den Standard nicht ganz konform implementiert haben. Allerdings
+sind solche 'Eigenarten' ein beliebtes Mittel der Entwickler, den zahlenden
+Kunden zuletzt doch wieder an sich zu binden und ihm den Wechsel zur Alternative
+zu erschweren. (\cite[Zur Lizenzierung von MusicXML vgl. auch][\nopage
+wp.]{WpedMusicXML2018a})}
 
 Dazu noch einige abgrenzende Worte:
 \begin{itemize}
