@@ -102,7 +102,7 @@ Audimus N. & \pageref{Audimus} &
   & & \checkmark & \checkmark & & &  \\
 \hline
 Brahms & \pageref{Brahms} &
-   & & & & & & ? & ? &  & & & & & & \\
+   & & & & & & \multicolumn{2}{c||}{?} &  & & & & & & \\
 \hline
 Canorus & \pageref{Canorus} &
   &  & \checkmark & \checkmark & & & 
@@ -112,7 +112,7 @@ Canorus & \pageref{Canorus} &
 Denemo & \pageref{Denemo} &
    & \checkmark & \checkmark & \checkmark &  &  &
    & \checkmark & 
-   & \checkmark & \checkmark & \checkmark & D  & \checkmark & \checkmark \\
+   & \checkmark & \checkmark & \checkmark &  & \checkmark & \checkmark \\
 \hline
 EasyABC & \pageref{EasyABC} &
    \checkmark  &  & \checkmark & \checkmark &  &  & & \checkmark  & 
@@ -123,7 +123,7 @@ Elysium & \pageref{Elysium} &
    & \checkmark & & & & \checkmark & \checkmark  \\
 \hline
 Free Clef & \pageref{FreeClef} &
-    &  & & \checkmark & & & ? & ? & 
+    &  & & \checkmark & & & \multicolumn{2}{c||}{?} & 
    &  &  & \checkmark & & & \\
 \hline
 Frescobaldi & \pageref{Frescobaldi} &
@@ -137,11 +137,11 @@ Jniz & \pageref{Jniz} &
 \hline
 Laborejo & \pageref{Laborejo} & 
   & & & & &
-  \checkmark & \checkmark & 
-   & \checkmark & \checkmark &  &  &  &  \checkmark &  \\
+  & \checkmark & \checkmark & 
+   & \checkmark & \checkmark &  &  &  \checkmark &  \\
 \hline
 MusEdit & \pageref{MusEdit} &
-   &  &  & \checkmark &   &   & ? &  ? & 
+   &  &  & \checkmark &   &   & \multicolumn{2}{c||}{?} & 
     &   &   & \checkmark  &   &   &   \\
 \hline
 MuseScore & \pageref{MuseScore} &
@@ -150,10 +150,10 @@ MuseScore & \pageref{MuseScore} &
  & & \checkmark & \checkmark & & \checkmark & \checkmark \\
 \hline
 muX2D & \pageref{MuX2d} &
-  & & & \checkmark & & & ? & ? & 
+  & & & \checkmark & & & \multicolumn{2}{c||}{?} & 
   & & & \checkmark & & & \\
 \hline
-NoteEdit & \pageref{NoteEdit} & & & & & & & ? & ? & 
+NoteEdit & \pageref{NoteEdit} & & & & & & & \multicolumn{2}{c||}{?} & 
 & & & & & & \\
 \hline 
 NtEd & \pageref{NtEd} &  & & \checkmark & \checkmark &  &  &
@@ -175,7 +175,7 @@ Eine solche Fülle von Möglichkeiten fordert geradezu dazu auf, praktisch zu
 gerecht werden. Deshalb werden wir testen, wie diese Tools mit der Referenzkadenz II
 umgehen können, in wie weit sie die Symbole der Harmonieanalyse aufzunehmen
 vermögen und ob sie diesen Inhalt in einem Format abspeichern
-können\footnote{Konkret werden wir unsere Referenzkadenz-II jeweils mit den
+können.\footnote{Konkret werden wir unsere Referenzkadenz-II jeweils mit den
 \acc{LilyPond}-kompatiblen Frontends erfassen, das Result von dort aus als
 \acc{LilyPond}-Datei exportieren und diese wiederum vom Eclipse-Plugin
 \acc{Elysium} einlesen lassen. \acc{Elysium} leitet aus dieser ursprünglich
@@ -183,8 +183,14 @@ exportierten Datei automatisch eine PDF-Datei ab, die genauso aussehen sollte,
 wie das Original. Stimmt also diese Datei mit den Erwartungen überein,
 betrachten wir den ursprünglichen Export als verifziert.\label{ExportVerifikation}
 Die anderen Exportformate werden wir entsprechend überprüfen. Einzelheiten dazu
-vermerken wir bei den entsprechenden Fällen.}.
+vermerken wir bei den entsprechenden Fällen.}
 
+Schon an dieser Tabelle fällt natürlich sofort ins Auge, dass es keine Editoren
+(mehr) gibt, die \acc{MusiX\TeX}- \acc{PMX}-Dateien öffnen oder schreiben.
+Angesichts der Qualität und Komplexität von \acc{MusiX\TeX}\ ist das ein
+Desiderat. Wir werden deshalb nach der Sichtung der Editoren noch überprüfen, ob
+und in wie weit für andere Format und Zwecke gedachte Editoren über die
+Einschaltungen von Konvertern mittelbar dazu 'überredet' werden können.
 
 % this is only inserted to eject fault messages in texlipse
 %\bibliography{../bib/literature}
