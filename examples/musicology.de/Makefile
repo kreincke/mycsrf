@@ -24,6 +24,7 @@ prod:	clear
 	@ cp -rd ${SRCD}/bib/* ${ISWD}/bib/
 	@ cp -rd ${SRCD}/cfg/* ${ISWD}/cfg/
 	@ cp -rd ${SRCD}/frontends/ ${ISWD}/
+	@ cp -rd ${SRCD}/logos/ ${ISWD}/
 	@ cp ${SRCD}/inc.rel.tex ${ISWD}/
 	@ cp ${SRCD}/Makefile ${ISWD}/
 	( cd ${ISWD} && make mcwm.pdf && mv *.pdf ../ )

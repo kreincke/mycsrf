@@ -19,16 +19,21 @@
 
 \subsubsection{Canorus ($\bigstar\bigstar\bigstar$)}
 
+\parpic(0.6cm,0.6cm)[r][t]{\includegraphics[width=0.5cm]{logos/canorus-300dpi.png}}
 \label{Canorus}\acc{Canorus} ist ein Notensatzprogramm\footcite[vgl.][\nopage
 wp]{Canorus2019a}, das gelegentlich auch als Nachgolger von \acc{NoteEdit}
 gehandelt wird.\footcite[vgl.][\nopage wp]{WpedCanorus2019a} Die vorletzte
 Version (0.7.2) aus dem Jahr 2015 wurde noch als \enquote{leichtgewichtige
 Alternative} zu umfangreicheren Notensatzprogrammen
 bezeichnet.\footcite[vgl.][\nopage wp]{Kreussel2015a} Der letzte Releasekandidat
-(0.7.3) stammt vom Juni 2018.\footcite[vgl.][\nopage wp]{Canorus2019b} Reviews
-der neueren Version stehen noch aus.\footnote{Stand 01/2019} Vom Typ her gehört
-\acc{Canorus} zu den graphischen Editoren: es erlaubt die Bearbeitung von Noten,
-ohne Text 'programmieren' zu müssen.
+(0.7.3) stammt vom Juni 2018.\footnote{\cite[vgl.][\nopage wp]{Canorus2019b}.
+Dem Download beigelegt ist der Text der GPL-3.0. Das Programm wird also unter
+einer anerkannten Open-Source-Lizenz distribuiert ($\rightarrow$
+\href{https://opensource.org/licenses/alphabetical}
+{https://opensource.org/licenses/alphabetical}). } Reviews der neueren Version
+stehen noch aus.\footnote{Stand 01/2019} Vom Typ her gehört \acc{Canorus} zu den
+graphischen Editoren: es erlaubt die Bearbeitung von Noten, ohne Text
+'programmieren' zu müssen.
 
 Die Homepage von \acc{Canorus} ist die
 Sourceforge-Projektseite.\footcite[vgl.][\nopage wp]{Canorus2019a} Aktuell wird
@@ -62,9 +67,12 @@ Außer der Visualisierung am Bildschirm bietet \acc{Canorus} selbst keinen
 Notensatz. Für die anderen Zwecke nutzt es \acc{LilyPond} als Backend. Oder
 anders gesagt: \acc{Canorus} fungiert als graphisches Frontend für das textuell
 arbeitende \acc{LilyPond}. Das, was man mit \acc{Canorus} erarbeitet, speichert
-es in einem eigenen \acc{XML}-Format. Importieren kann man (gegenwärtig) 
+es in einem eigenen \acc{XML}-Format. Importieren kann man (gegenwärtig)
 \acc{MusicXML}- und \acc{Midi}-Dateien, exportieren auch Graphiken und
-\acc{LilyPond-}Dateien.
+\acc{LilyPond-}Dateien\footnote{Laut Homepage gäbe es auch einen Im- und/oder
+Export für \acc{ABC}- oder \acc{MusiX\TeX}-Notate (cite[vgl.][\nopage
+wp]{Canorus2019a}). Der von uns getestete Releasekandidat 0.7.3 bot diese Option
+(noch) nicht (mehr).}.
 
 Die Arbeitsteilung zwischen \acc{Canorus} und \acc{LilyPond} hat zwei
 Konsequenzen: Zum einen reicht die Installation von \acc{Canorus} allein nicht
@@ -74,9 +82,9 @@ letztlich nicht das, was man als druckfertige PDF-Datei erhält. Hier zunächst
 unsere Referenzkadenz, wie Canorus sie als PDF generiert. Wie kaum anders zu
 erwarten, ähnelt sie sehr der 'puren' \acc{LilyPond}-Ausgabe:
 
-\begin{wrapfigure}{l}{6cm}
-\includegraphics[width=6cm]{frontends/canorus/cadenca2-pdf-300dpi.png}
-\end{wrapfigure}
+
+\parpic(6cm,2.4cm)[l][t]{\includegraphics[width=6cm]{frontends/canorus/cadenca2-pdf-300dpi.png}}
+
 Allerdings konnte der 4$\rightarrow$3 Vorhalt mit einer \Halb\ gegen zwei
 gebundene \Vier\ im Bass offensichtlich nicht umgesetzt werden. Die
 Funktionssymbole sind dagegen erkennbar -- ganz wie bei der Kadenz-I in der

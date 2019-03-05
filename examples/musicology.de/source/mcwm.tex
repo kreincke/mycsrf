@@ -127,6 +127,7 @@
 \usepackage{tabulary}
 \usepackage{ulem}
 \usepackage{wrapfig}
+\usepackage{picins}
 
 %\usepackage{bigfoot}
 \usepackage{verbatimbox}
@@ -198,13 +199,39 @@ der Sache: Musik ist zweidimensional.\footnote{Bei der Notation hatten wir zu
 bemerken, dass sie zweidimensional oder eindimensional codiert sein kann.
 Als Abfolge(sic!) von Klängen(sic!) ist Musik selbst immer (mindestens)
 zweidimensional.} Das hat einige Autoren nicht entmutigt, wenigstens für
-Teilaufgaben einfachere Lösungen zu entwickeln. Diesen werden wir zuerst
-nachgehen. Behalten wir aber im Hinterkopf: \acc{Komplexität ist wie Wasser, man
-kann es nicht komprimieren.}\footnote{Dieses wunderbare Bonmot stammt nicht von
-mir. Und bedauerlicherweise weiß ich auch nicht (mehr) von wem. Ich meine es
-etwa Anfang der 2010er Jahre in einer Keynote bei der Deutschen Telekom in
-Darmstadt gehört zu haben. Ich verbeuge mich also dankbar vor dem mir leider
-unbekannten Autor.}
+Teilaufgaben einfachere Lösungen zu entwickeln, die im freien Textsatzsystem
+\LaTeX\footnote{Bzgl. der Zusammenhänge von \TeX, \LaTeX, pdf\LaTeX\ und
+Lua\LaTeX\ vlg. etwa \cite[][7ff]{Voss2018a} oder \cite[][8ff]{Voss2012a}.
+Daraus ergibt sich mittelbar auch der Open-Source-Status von \LaTeX: \TeX\ und
+\LaTeX\ sind zunächst einmal 'nur' eine Metasprache. Um aus Dateien, die in
+dieser Auszeichnungssprache formuliert sind, typographisch gestaltete \acc{DVI}-
+oder \acc{PDF}-Dateien zu erzeugen, bedarf des bestimmter Programme, nämlich
+\texttt{pdflatex}, \texttt{lualatex}\ etc. Außerdem hat sich um \LaTeX\ herum ein
+Biotop von Paketen entwickelt. Das sind fertig vorbereitete \TeX- oder
+\LaTeX-Dateien, die man in seine eigenen Dokumente einbindet und also mitnutzt.
+Solche Pakete stehen -- mit den Kernprogrammen gebündelt -- als komplette
+\TeX-Distributionen bereit. Für den europäischen Raum existieren z.Zt. zwei
+wesentliche Distributionen, \acc{{\TeX}live} und \acc{MiK{\TeX}}. Diese findet
+man im \acc{Comprehensive TeX Archive Network} ($\rightarrow$
+\href{https://ctan.org/}{https://ctan.org/}). Der unbedarfte Anwender tut aber
+gut daran, sich vorbereitete Installationspakete von sekundären Distributoren zu
+holen. \acc{Linux}-Distributionen liefern diese i.d.R. mit. Ob man sein
+\LaTeX-System lizenzkonform nutzt, entscheidet also die Lizensierung der
+Kernprogramme und die Lizenzen der eingebundenen Pakete. Diese müssen nicht
+unter derselben Lizenz veröffentlicht sein. Glücklicherweise werden beide -- die
+Kernprogramme und die Erweiterungen -- als \acc{CTAN}-Pakete gehostet und unnter
+den Bedingungen verschiedener FOSS-Lizenzen zum Download angeboten. So ist etwa
+pdf\LaTeX\ unter der GPL lizenzisiert ($\rightarrow$
+\href{https://ctan.org/pkg/pdftex} {https://ctan.org/pkg/pdftex}). Ganz
+allgemein gesagt, darf man alles, was zu \LaTeX\ gehört, als freie Software
+nutzen. Wir werden bei den Paketen jedoch kurz angeben, unter welcher Lizenz sie
+genau stehen.} genutzt werden können.
+Diesen werden wir zuerst nachgehen. Behalten wir aber im Hinterkopf:
+\acc{Komplexität ist wie Wasser, man kann es nicht
+komprimieren.}\footnote{Dieses wunderbare Bonmot stammt nicht von mir. Und
+bedauerlicherweise weiß ich auch nicht (mehr) von wem. Ich meine es etwa Anfang
+der 2010er Jahre in einer Keynote bei der Deutschen Telekom in Darmstadt gehört
+zu haben. Ich verbeuge mich also dankbar vor dem mir leider unbekannten Autor.}
 
 
 \input{snippets/inc.sonderzeichen.tex}
@@ -337,12 +364,7 @@ sichten.}
 
 \input{snippets/inc.rosegarden.tex} 
 
- 
-\subsection{Zwischenfazit}
-
-%\subsection{Konverter II}
-
-\section{Kombination: die Frage nach dem optimalen System}
+\section{Vom Frontend in den \LaTeX-Text: die Toolkombination}
 
 \section{Fazit}
 
