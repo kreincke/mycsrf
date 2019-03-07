@@ -15,9 +15,9 @@
 \documentclass[
   DIV=calc,
   BCOR=5mm,
-  11pt,
+  12pt,
   headings=small,
-  oneside,
+  twoside,
   abstract=true,
   toc=bib,
   english,ngerman]{scrartcl}
@@ -80,7 +80,6 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary{decorations.text}
 \usetikzlibrary{trees}
-\usetikzlibrary{matrix}
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -126,8 +125,12 @@
 \usepackage{graphicx,color}
 \usepackage{tabulary}
 \usepackage{ulem}
-\usepackage{wrapfig}
 \usepackage{picins}
+
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
 
 %\usepackage{bigfoot}
 \usepackage{verbatimbox}
@@ -365,6 +368,8 @@ sichten.}
 \input{snippets/inc.rosegarden.tex} 
 
 \section{Vom Frontend in den \LaTeX-Text: die Toolkombination}
+
+\input{snippets/inc.fluss.tex} 
 
 \section{Fazit}
 

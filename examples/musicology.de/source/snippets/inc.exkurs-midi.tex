@@ -39,8 +39,8 @@ sein eigenes System anpassen kann.
 bieten keine digitalisierten Akkustikdaten. Vielmehr enthalten sie
 klangunabhängige Beschreibungen von 'Stimmen', die -- sozusagen 'willkürlich' --
 einem Sound, einem Instrument zugeordnet werden. Sie sind \enquote{musikalische
-Steuerinformationen für elektronische Instrumente}\footcite[vgl. dazu][\nopage
-wp]{WpedMidi2019a}. Um \acc{MIDI}-Datei abzuspielen, braucht man also einen
+Steuerinformationen für elektronische Instrumente}.\footcite[vgl. dazu][\nopage
+wp]{WpedMidi2019a} Um \acc{MIDI}-Datei abzuspielen, braucht man also einen
 Player, der -- im Verbund mit dem Computersoundsystem -- nicht nur
 digitalisierte 'Analogdaten' in reale Analogdaten umwandelt\footnote{Die
 Widersprüchlichkeit dieses 'Wordings' lässt sich leicht auflösen:
@@ -73,11 +73,10 @@ Um das zu ermöglichen, kann man seinem Player --- wenn er es denn erlaubt -- ei
 zusätzliches \acc{MIDI}-Plugin spendieren. Oder man installiert einen generell
 nutzbaren \acc{MIDI}-Server. Für beides ein Beispiel:
 
-Der \acc{vlc}\footnote{$\rightarrow$
-\href{https://www.videolan.org/vlc/}{https://www.videolan.org/vlc/}} ist ein sehr
-vielseitiger Mediaplayer. Um ihn samt \acc{MIDI}-Player-Plugin zu installieren, 
-gesnügt ein Kommando. Außerdem sollte man das Soundsystem noch um eine
-bessere Soundbibliothek erweitern:
+Der \acc{vlc} ist ein sehr vielseitiger Mediaplayer.\footnote{$\rightarrow$
+\href{https://www.videolan.org/vlc/}{https://www.videolan.org/vlc/}} Um ihn samt
+\acc{MIDI}-Player-Plugin zu installieren, gesnügt ein Kommando. Außerdem sollte
+man das Soundsystem noch um eine bessere Soundbibliothek erweitern:
 
 \begin{verbatim}
 sudo apt-get install vlc vlc-plugin-fluidsynth
@@ -103,10 +102,10 @@ Fall: abgespielt.
 
 Will man \acc{MIDI}-Dateien dagegen über die Shell abspielen, benötigt man einen
 \acc{MIDI}-Server mit Playerfunktionalität, will sagen: einen \enquote{software
-synthesizer}\footnote{$\rightarrow$
+synthesizer}.\footnote{$\rightarrow$
 \href{https://wiki.ubuntuusers.de/TiMidity/}{https://wiki.ubuntuusers.de/TiMidity/}}.
 Dazu bietet sich \acc{timidity} an\footnote{$\rightarrow$
-\href{http://timidity.sourceforge.net/{\#}info}{http://timidity.sourceforge.net/{\#}info}}.
+\href{http://timidity.sourceforge.net/{\#}info}{http://timidity.sourceforge.net/{\#}info}}
 Auch in diesem Fall sollte man die besseren Soundbibliotheken installieren. Dann
 muss man \acc{timidity} allerdings noch dazu 'überreden', diese auch zu nutzen:
 man konfiguriert \acc{timidity} entsprechend, im dem man in der
@@ -162,9 +161,9 @@ gstreamer-\acc{MIDI}-Plugin
  \acc{MIDI}-Dateien abspielen. Unglücklicher weise werden
  gstreamer-\acc{MIDI}-Plugins nur über die
  \acc{gstreamer-plugins-\textbf{bad}}-Serie angeboten, nicht über die
- \acc{gstreamer-plugins-\textbf{good}-Serie}\footnote{$\rightarrow$
+ \acc{gstreamer-plugins-\textbf{good}-Serie}.\footnote{$\rightarrow$
  \href{https://gstreamer.freedesktop.org/documentation/plugins.html}
- {https://gstreamer.freedesktop.org/documentation/plugins.html}}. Mithin wird
+ {https://gstreamer.freedesktop.org/documentation/plugins.html}} Mithin wird
  zumindest der Purist auch dann noch Programme finden, die \acc{MIDI}-Dateien
  nicht abspielen können, wenn er sein System auf der tieferen
  \acc{ALSA}/\acc{PulseAudio}-Ebene längst schon\acc{MIDI}-fähig gemacht
