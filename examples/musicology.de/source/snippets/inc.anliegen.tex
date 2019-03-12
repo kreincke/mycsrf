@@ -101,7 +101,7 @@ einbaut, hat -- neben Michael Enzenhofer\footnote{Diese Arbeit liefert jedoch
 Hinweisen zur Einbindungen von Graphiken im Allgemeinen und zur Nutzung von
 \acc{LilyPond} im Besonderen (\cite[vgl. dazu][4ff, 31ff u.
 21ff]{Enzenhofer2016a}). Über die Arbeitsweise von \acc{LilyPond} und damit über
-die notwendigen Schritte zur Integration spricht die Arbeit nicht, ebenso wenig
+die notwendigen Schritte zur Integration spricht die Arbeit kaum, ebenso wenig
 über Alternativen zu \acc{LilyPond}. Insofern signalisiert der Titel mehr, als
 der Text zuletzt bietet. Nichtsdestotrotz bleibt er ein praktikabler 'Crashkurs'
 in Sachen \LaTeX-Kodierung.} -- dankenswerterweise bereits Martin Thoma
@@ -172,12 +172,12 @@ sind und erfolgreich betrieben werden, wie etwa \acc{Unix} resp.
 Wir jedenfalls werden diesen Aspekten gesondert nachgehen: Zuerst analysieren
 wir mögliche 'Backends' und deren Methoden, 'Noten' in \LaTeX-Texte einzubinden.
 Sie sind insofern \acc{Backends}, als sie textuellen Input verarbeiten, der auch
-über vorgelagerte, eher graphische Programme erzeugt werden könnte. Sie bilden
-das 'Frontend' für den Arrangeur, Komponisten oder Musikwissenschaftlicher.
-Solche graphischen und semi-graphische Editoren und Konverter werden wir nach
-den Backends analysieren. Und ganz am Ende werden wir sehen, dass uns gerade
-diese Aufteilung eine besondere Flexibilität bietet, Notenbeispiele in
-(musik)wissenschaftliche Arbeiten einzubetten.
+über vorgelagerte, eher graphische Programme erzeugt werden könnte. Diese bilden
+das 'Frontend' für den Arrangeur, Komponisten oder Musikwissenschafter. Solche
+graphischen und semi-graphische Editoren und Konverter werden wir anlysieren,
+nachdem die Backends begutachtet haben. Und ganz am Ende werden wir sehen, dass
+uns gerade diese Aufteilung eine besondere Flexibilität bietet, Notenbeispiele
+in (musik)wissenschaftliche Arbeiten einzubetten.
 
 Allerdings werden wir uns bei unser Betrachtung auf die Open-Source-Welt
 konzentrieren. Mehr oder minder konstenintensive proprietäre Programme mögen
@@ -196,33 +196,33 @@ dass man lieber bei dem bisherigen Programm bleibt, auch wenn es teuerer oder
 schlechter ist als die Alternativen. Damit ist man in die \textit{Vendorenfalle}
 getappt. Mit freier Software kann das nicht geschehen, weil es zum Wesen freier
 Software gehört, dass man ohne pekuniären Aufwand an den Quellcode und an die
-Nutzungsrechte der Programme herankommt - auch an die neuerer und besserer
-Versionen. (\cite[vgl. dazu][\nopage wp]{FSF2018a}.) Für Musiker hat sich die
-Lage mit der Etablierung von \textit{MusicXML} allerdings etwas entspannt: Durch
-die Standardisierung des Dateiformates wird der Wechsel zu einem anderen,
-besseren Programme erleichtert. Hier muss man 'nur' noch fürchten, dass das
-bisher die jeweiligen Programme vorab (noch) nicht standardisierte Features
-benutzen oder den Standard nicht ganz konform implementiert haben. Allerdings
-sind solche 'Eigenarten' ein beliebtes Mittel der Entwickler, den zahlenden
-Kunden zuletzt doch wieder an sich zu binden und ihm den Wechsel zur Alternative
-zu erschweren. (\cite[Zur Lizenzierung von MusicXML vgl. auch][\nopage
-wp.]{WpedMusicXML2018a}) Dieser Kontext gibt uns auch die Gelegenheit, auf
-die Lizenzproblematik einzugehen: Wir werden bei den Tools jeweils kurz
-nachweisen, dass es es sich tatsächlich um freie Software bzw. Open Source
-Software handelt. Dass dem so ist, ist uns wichtig. Denn aus einem solchen
-Nachweis ergibt sich, dass man die Software ohne Einschränkungen und
-unentgeltlich nutzen darf. Allerdings folgt Open Source Software dem Prinzip
+Nutzungsrechte der ablauffähigen Programme herankommt - auch an die neuerer und
+besserer Versionen. (\cite[vgl. dazu][\nopage wp]{FSF2018a}.) Für Musiker hat
+sich die Lage mit der Etablierung von \textit{MusicXML} allerdings etwas
+entspannt: Durch die Standardisierung des Dateiformates wird der Wechsel zu
+einem anderen, besseren Programme erleichtert. Hier muss man 'nur' noch
+fürchten, dass das bisher die jeweiligen Programme vorab (noch) nicht
+standardisierte Features benutzen oder den Standard nicht ganz konform
+implementiert haben. Allerdings sind solche 'Eigenarten' ein beliebtes Mittel
+der Entwickler, den zahlenden Kunden zuletzt doch wieder an sich zu binden und
+ihm den Wechsel zur Alternative zu erschweren. (\cite[Zur Lizenzierung von
+MusicXML vgl. auch][\nopage wp.]{WpedMusicXML2018a}) Dieser Kontext gibt uns
+auch die Gelegenheit, auf die Lizenzproblematik einzugehen: Wir werden bei den
+Tools jeweils kurz nachweisen, dass es es sich tatsächlich um freie Software
+bzw. Open Source Software handelt. Dass dem so ist, ist uns wichtig. Denn aus
+einem solchen Nachweis ergibt sich, dass man die Software ohne Einschränkungen
+und unentgeltlich nutzen darf. Allerdings folgt Open Source Software dem Prinzip
 'Paying by Doing'. Anstatt -- wie sonst üblich -- die Nutzungsrechte zu kaufen,
-'erwirbt' man diese hier, indem das aktiv tut, was die Lizenzen dem Nutzer
-auftragen. Zu wissen, was das ist, ist kein Hexenwerk, kann in selten
-Einzelfällen aber tricky werden. Diese rechtlichen Rahmenbedingungen sind nicht
-unser Thema. Wir gehen deshalb davon aus, dass Sie sich selbst darum kümmern
-werden, wenn es angesagt ist. Unser Erfahrung nach gibt es dafür eine gute
-Daumenregel: Sie dürfen die Frage, ob und wie sie die Software lizenzkonformen
-nutzen, solange aufschieben, bis Sie sich entscheiden, die Software selbst an
-andere weiterzugeben. Oder anders gesagt: Solange Sie selbst diese Software
-'nur' von irgendwoher downgeloaded oder installiert haben und anwenden, solange
-dürfen Sie die Beachtung der Compliance auch gefahrlos auf später verschieben.}
+'erwirbt' man diese, indem man das aktiv tut, was die Lizenzen dem Nutzer
+auftragen. Zu wissen, was das ist, ist kein Hexenwerk, kann in Einzelfällen aber
+'tricky' werden. Diese rechtlichen Rahmenbedingungen sind nicht unser Thema. Wir
+gehen deshalb davon aus, dass Sie sich selbst darum kümmern werden, wenn es
+angesagt ist. Unser Erfahrung nach gibt es dafür eine gute Daumenregel: Sie
+dürfen die Frage, ob und wie sie die Software lizenzkonformen nutzen, solange
+aufschieben, bis Sie sich entscheiden, die Software an andere weiterzugeben.
+Oder anders gesagt: Solange Sie selbst diese Software 'nur' von irgendwoher
+downgeloaded oder installiert haben und anwenden, solange dürfen Sie die
+Beachtung der Compliance auch 'gefahrlos' auf später verschieben.}
 
 Dazu noch einige abgrenzende Worte:
 \begin{itemize}

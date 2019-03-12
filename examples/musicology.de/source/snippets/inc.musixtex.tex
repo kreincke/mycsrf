@@ -46,7 +46,7 @@ Bestandteil seines \LaTeX-Quellcodes.\footcite[vgl.][114]{VogSimRyc2018a}
 Beides habe Vor- und Nachteile, ganz zuletzt aber gelte dann doch:
 
 \begin{quote}\textit{\enquote{On balance, the direct method (of embedding
-musical excerpts in \LaTeX documents) is probably to be preferred.}\footcite[vgl.
+musical excerpts in \LaTeX\ documents) is probably to be preferred.}\footcite[vgl.
 dazu][114]{VogSimRyc2018a}}
 \end{quote}
 
@@ -126,7 +126,8 @@ schlüssig automatisiert, kann im Makefile dieses Tutorials eingesehen werden
   @ pdflatex $<
 # (B) create the help files for the literature        
   @ bibtex `basename $< .tex`
-  @ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist -o `basename $< .tex`.nls
+  @ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist \\
+     -o `basename $< .tex`.nls
 # (C) create the mx2 file
   @ musixflx $<
 # (D) create the final document 
@@ -429,11 +430,11 @@ wird nicht nur das Handbuch wirklich verstanden haben müssen, er wird für die
 Details auch immer wieder darauf zurückkommen.
 
 Der Gewinn für einen musikwissenschaftlichen Text ist allerdings groß:
-typographisch ist alles erreichbar. Dabei erleichter -- wie üblich -- eine
-saubere, zeilenorientierte Programmierung erleichtert dabei das
-Arbeiten.\footnote{Wir selbst habe diese bei unserem dritten Kadenzbeispiel aus
-Platzgründen leider nichtollständigumsetzen können.} Und nach
-einiger Zeit wird man per Copy\&Paste gewiss auch flüssiger vorankommen.
+typographisch ist alles erreichbar. Dabei erleichtert -- wie üblich -- eine
+saubere, zeilenorientierte Programmierung das Arbeiten.\footnote{Wir selbst
+haben diese bei unserem dritten Kadenzbeispiel aus Platzgründen leider nicht
+vollständig umsetzen können.} Und nach einiger Zeit wird man per Copy\&Paste
+gewiss auch flüssiger vorankommen.
 
 % this is only inserted to eject fault messages in texlipse
 %\bibliography{../bib/literature}
