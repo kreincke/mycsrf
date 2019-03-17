@@ -106,7 +106,8 @@ zeigt das Makefile dieses Tutorials ($\rightarrow$
   @ pdflatex $<
 # (C) create the help files for the literature        
   @ bibtex `basename $< .tex`
-  @ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist -o `basename $< .tex`.nls
+  @ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist \\
+    -o `basename $< .tex`.nls
 # (D) generate the abc pictures by calling the external program abcm2ps
   @ pdflatex --shell-escape $<
 # (E) mv the results into the tmpdir to enable the next pass to find them

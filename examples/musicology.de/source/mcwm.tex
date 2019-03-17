@@ -20,6 +20,7 @@
   twoside,
   abstract=true,
   toc=bib,
+  xcolor=dvipsnames,
   english,ngerman]{scrartcl}
   
 %%% (1) general configurations %%%
@@ -74,13 +75,6 @@
 \usepackage{shadow}
 \usepackage{fancybox}
 
-\usepackage{tikz}
-\usetikzlibrary{arrows}
-\usetikzlibrary{shapes,snakes}
-\usetikzlibrary{positioning}
-\usetikzlibrary{decorations.text}
-\usetikzlibrary{trees}
-
 \usepackage{amsmath}
 \usepackage{amsfonts}
 
@@ -96,8 +90,7 @@
 % \counterwithout{footnote}{chapter}
 %- end(footnote-configuration)
 
-% package for macking tables with broken lines
-\usepackage{multirow}
+
 
 %for using label as nameref
 \usepackage{nameref}
@@ -124,13 +117,16 @@
 \usepackage{musixtex}
 \usepackage{graphicx,color}
 \usepackage{tabulary}
+% package for macking tables with broken lines
+\usepackage{multirow}
 \usepackage{ulem}
 \usepackage{picins}
 
-
+\usepackage[dvipsnames,table,xcdraw]{xcolor}
 \usepackage{pgf}
 \usepackage{tikz}
-\usetikzlibrary{arrows,automata}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes,snakes}
 
 %\usepackage{bigfoot}
 \usepackage{verbatimbox}
@@ -159,6 +155,68 @@
 \newcommand{\ra}[0]{$\rightarrow$}
 
 
+% -- Basic Colors ---
+% LilyPond colors:
+\newcommand{\lyColor}[0]{RoyalBlue}
+\newcommand{\lyBgColor}[0]{RoyalBlue!10}
+% MusicXML colors:
+\newcommand{\mxmlColor}[0]{OliveGreen}
+\newcommand{\mxmlBgColor}[0]{OliveGreen!10}
+% ABC colors:
+\newcommand{\abcColor}[0]{Plum}
+\newcommand{\abcBgColor}[0]{Plum!10}
+
+% PMX colors:
+\newcommand{\pmxColor}[0]{Orange}
+\newcommand{\pmxBgColor}[0]{Orange!10}
+
+% MusiXTeX colors:
+\newcommand{\mtexColor}[0]{Magenta}
+\newcommand{\mtexBgColor}[0]{Magenta!10}
+
+% Xtra colors
+\newcommand{\multiBgColor}[0]{Black!10}
+\newcommand{\pdfBgColor}[0]{Gray!10}
+\newcommand{\backendBgColor}[0]{Yellow!10}
+
+% -- IO Colors ---
+
+\newcommand{\abcInColor}[0]{\abcBgColor}
+\newcommand{\abcOutColor}[0]{\abcColor}
+
+\newcommand{\mxmlInColor}[0]{\mxmlBgColor}
+\newcommand{\mxmlOutColor}[0]{\mxmlColor}
+
+\newcommand{\lyInColor}[0]{\lyBgColor}
+\newcommand{\lyOutColor}[0]{\lyColor}
+
+\newcommand{\pmxInColor}[0]{\pmxBgColor}
+\newcommand{\pmxOutColor}[0]{\pmxColor}
+
+\newcommand{\mtexInColor}[0]{\mtexBgColor}
+\newcommand{\mtexOutColor}[0]{\mtexColor}
+
+% -- Node types---
+
+\newcommand{\converter}[6]{
+  \node[trapezium stretches body, 
+  fill=#1, text=#2] (#3) at (#4,#5) { \textbf{\sffamily{#6}} };
+}
+
+\newcommand{\backend}[6]{
+  \node[trapezium stretches body, minimum height=0.75cm,
+  fill=#1, text=#2] (#3) at (#4,#5) { \textbf{#6} };
+}
+
+\newcommand{\file}[6]{ 
+  \node[rectangle,draw,text width=1cm, 
+  fill=#1, text=#2] (#3) at (#4,#5) {\centering{\textbf{\ttfamily{#6}}}};
+}
+
+\newcommand{\frontend}[6]{
+  \node[rectangle, rounded corners, minimum height=0.75cm,
+  fill=#1, text=#2] (#3) at (#4,#5) { \textbf{#6} };
+}
 
 
 \begin{document}
@@ -334,7 +392,7 @@ sichten.}
 \input{snippets/inc.aria.tex} 
 
 \input{snippets/inc.audimus.tex}
-
+\newpage
 \input{snippets/inc.brahms.tex} 
 
 \input{snippets/inc.canorus.tex} 
@@ -367,9 +425,8 @@ sichten.}
 
 \input{snippets/inc.rosegarden.tex} 
 
-\section{Vom Frontend in den \LaTeX-Text: die Toolkombination}
 
-\input{snippets/inc.fluss.tex} 
+\input{snippets/inc.toolchain.tex} 
 
 \section{Fazit}
 

@@ -68,13 +68,13 @@ Konvertierungsvarianten:
 \multirow{5}{*}{\rotatebox{90}{von:}} 
   & ABC & $\times$ & abc2mtex & $\varnothing$ & abc2ly \\
 \cline{2-6}
-  & MusiX\TeX & $\varnothing$ & $\times$ & ($\varnothing$) &  $\varnothing$ \\
+  & \mbox{MusiX\TeX} & $\varnothing$ & $\times$ & ($\varnothing$) &  $\varnothing$ \\
 \cline{2-6}
   & PMX & $\varnothing$  & (pmxab) & $\times$ & \sout{pmx2ly} \\
 \cline{2-6}
-  & LilyPond & \dashuline{ly2abc} & $\varnothing$ & $\varnothing$ & $\times$  \\
+  & \mbox{LilyPond} & \dashuline{ly2abc} & $\varnothing$ & $\varnothing$ & $\times$  \\
 \cline{2-6}
-  & MusicXML &   \dashuline{xml2abc},   \dashuline{mxml2abc} & $\varnothing$ & xml2pmx & xml2ly musicxml2ly \\
+  & \mbox{MusicXML} &   \dashuline{xml2abc},   \dashuline{mxml2abc} & $\varnothing$ & xml2pmx & xml2ly musicxml2ly \\
 \hline 
 \hline
 \end{tabulary}
@@ -149,22 +149,17 @@ Auswahl der Programme folgen wir der Definition für freie Software. (\cite[Vgl.
 dazu][\nopage wp]{FSF2018a})} für Musikwissenschaftler:
 
 \begin{itemize}
-  \item Gäbe es ein sehr gutes Frontend mit \textit{ABC}-Export, dann ließe sich dieses,
-  sofern \texttt{abc2mtex} gut funktioniert, indirekt auch als Frontend für
-  \textit{MusiX\TeX} nutzen.
-  \item Gäbe es ein sehr gutes Frontend mit \textit{ABC}-Export, dann ließe sich dieses,
-  sofern \texttt{abc2ly} gut funktioniert, indirekt auch als Frontend für
-  \textit{LiliPond} nutzen.
-  \item  Gäbe es ein sehr gutes Frontend mit \textit{MusicXML}-Export, dann ließe sich dieses,
-  sofern \texttt{xml2pmx} gut funktioniert, indirekt auch als Frontend für
-  \textit{MusiX\TeX} nutzen.
-  \item Gäbe es ein sehr gutes Frontend mit \textit{MusicXML}-Export, dann ließe
-  sich dieses, sofern \texttt{xml2ly} oder \texttt{musicxml2ly} gut
-  funktionieren, indirekt auch als Frontend für \textit{MusiX\TeX} nutzen.
+  \item Gäbe es ein sehr gutes Frontend mit \textit{ABC}-Export, dann ließe sich
+  dieses, sofern \texttt{abc2mtex} resp. \texttt{abc2ly} gut funktionieren,
+  indirekt auch als Frontend für \textit{MusiX\TeX} resp. \textit{LiliPond}
+  nutzen.
+  \item  Gäbe es ein sehr gutes Frontend mit \textit{MusicXML}-Export, dann
+  ließe sich dieses, sofern \texttt{xml2pmx} resp. \texttt{xml2ly} oder
+  \texttt{musicxml2ly} gut funktionieren, indirekt auch als Frontend für
+  \textit{MusiX\TeX} resp. \textit{LilyPond}  nutzen.
 \end{itemize}
 
-Ob diese Möglichkeiten auch praktisch existieren und ob sie Grenzen unterliegen,
-werden wir später verifizieren.
+In welchen Grenzen diese Möglichkeiten existieren, werden wir später verifizieren.
 
  
 

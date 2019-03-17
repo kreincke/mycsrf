@@ -128,7 +128,7 @@ haben, z.B. \textit{MusicXML}\footcite[vgl.][\nopage wp]{MusicXML2018a},
 \textit{MusiX\TeX}\footcite[vgl.][\nopage wp]{CtanMusixTex2018a},
 \textit{PMX}\footcite[vgl.][\nopage wp]{CtanPmx2018a} oder
 \textit{LilyPond}.\footcite[vgl.][\nopage wp]{LilyPond2018a} Trotzdem schreiben
-echte Musiker lieber echte Musik, also zweidimensionale Notentexte.
+echte Musiker lieber echte Musik, also zweidimensionale Notentexte. 
 
 Damit stellen sich sofort einige Fragen:
 
@@ -141,15 +141,48 @@ Damit stellen sich sofort einige Fragen:
   Auszeichnungssprachen vereinfachen?
   \item Und wenn man schon mit mehreren Tools arbeiten muss, um zuletzt den
   einen gewünschten Text zu erhalten, wie sieht dann eine gute Architektur der
-  kooperierenden Komponenten aus, wie ihre Übergabepunkte? Oder anders gewendet:
-  Was muss man wie 'zusammenstöpseln', um mit wenig Aufwand gute Ergebnisse zu
-  erzielen?
+  kooperierenden Komponenten aus, wie ihre Übergabepunkte? Wie sollte man das
+  Ganze idealerweise 'zusammenstöpseln'?
 \end{itemize}
 
 Diese Punkte zielen auf mögliche Editoren, Frontends, Konverter und deren
 Kooperation mit den eigentlichen Notensatzsystemen, den Backends. 
 
-% TODO Grobe Architekturskizze Frontends Konverter Backends
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+
+\tikzstyle{every node}=[trapezium, draw, minimum width=1cm,trapezium left angle=70, trapezium right angle=110]
+
+% BOTTOM UP DESCRIPTION of the component IO structure:
+% THE FINALLY GENERATED PDF OUTPOUT ->
+\file{\pdfBgColor}{Black}{PDF}{0}{0}{.pdf}
+% -> CREATED BY THE LATEX IDEs ->
+\backend{\backendBgColor}{\mtexColor}{BACKEND}{0}{1}{Backend Generator (\LaTeX\ \& X)}
+% -> which takes the ouput ->
+\file{\mtexBgColor}{\mtexColor}{BIN}{0}{2}{.in}
+
+\converter{\multiBgColor}{\mtexColor}{CONVERTER}{0}{3}{out2in}
+
+\file{\multiBgColor}{Black}{FOUT}{0}{4}{.out}
+
+% created by the frontend ->
+\frontend{\multiBgColor}{Black}{FRONTEND}{0}{5}{Frontend (Editor)};
+% which are used by the Composer:
+\node[circle,draw=none] (Composer) at (0,7) 
+{ \includegraphics{./logos/decider-220x320.eps}};
+  
+% TOP DOWN linkings of the component IO structure:  
+\draw[->,Gray] (Composer) to [out=270,in=90] (FRONTEND);
+\draw[->,Gray] (FRONTEND) to [out=270,in=90] (FOUT);
+\draw[->,Gray] (FOUT) to [out=270,in=90] (CONVERTER);
+\draw[->,\mtexColor] (CONVERTER) to [out=270,in=90] (BIN);
+
+\draw[->,\mtexColor] (BIN) to [out=270,in=90] (BACKEND);
+\draw[->,Gray] (BACKEND) to [out=270,in=90] (PDF);
+
+\end{tikzpicture}
+\end{center}
 
 Die verschiedenen Aufgaben solcher Systeme auseinanderzuhalten, ist bei der
 Begutachtung von Lösungen essentiell. So attestiert z.B. eine ältere Sichtung
