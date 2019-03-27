@@ -117,6 +117,7 @@
 \usepackage{musixtex}
 \usepackage{graphicx,color}
 \usepackage{tabulary}
+\usepackage{longtable}
 % package for macking tables with broken lines
 \usepackage{multirow}
 \usepackage{ulem}
@@ -204,8 +205,8 @@
 }
 
 \newcommand{\backend}[6]{
-  \node[trapezium stretches body, minimum height=0.75cm,
-  fill=#1, text=#2] (#3) at (#4,#5) { \textbf{#6} };
+  \node[trapezium stretches body, align=center, minimum height=0.75cm,
+  fill=\backendBgColor, text=#2] (#3) at (#4,#5) { \textbf{#6}\\#1};
 }
 
 \newcommand{\file}[6]{ 
@@ -213,9 +214,9 @@
   fill=#1, text=#2] (#3) at (#4,#5) {\centering{\textbf{\ttfamily{#6}}}};
 }
 
-\newcommand{\frontend}[6]{
-  \node[rectangle, rounded corners, minimum height=0.75cm,
-  fill=#1, text=#2] (#3) at (#4,#5) { \textbf{#6} };
+\newcommand{\frontend}[7]{
+  \node[rectangle, align=center, rounded corners, minimum height=0.75cm,
+  fill=#1, text=#2] (#3) at (#4,#5) { \textbf{#6}\\#7 };
 }
 
 

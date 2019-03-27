@@ -31,9 +31,9 @@ gewinnen wir folgende Übersicht:
 \file{\pdfBgColor}{black}{PDF}{5.5}{0}{.pdf}
 
 % -> CREATED BY THE LATEX IDEs ->
-\backend{\backendBgColor}{\abcColor}{LTXABC}{1}{2}{\LaTeX \& ABC}
-\backend{\backendBgColor}{\mtexColor}{LTXMTEX}{5.5}{2}{\LaTeX \& MusiX\TeX}
-\backend{\backendBgColor}{\lyColor}{LTXLIPO}{10.4}{2}{\LaTeX \& LilyPond}
+\backend{$\star\star\star$}{\abcColor}{LTXABC}{1}{2}{\LaTeX\,\&\,ABC}
+\backend{$\star\star\star\star$}{\mtexColor}{LTXMTEX}{5.5}{2}{\LaTeX\,\&\,MusiX\TeX}
+\backend{$\star\star\star\star\star$}{\lyColor}{LTXLIPO}{10.4}{2}{\LaTeX\,\&\,LilyPond}
 
 % -> which take the CONVERTER OUTPUT ->
 \file{\abcBgColor}{\abcColor}{CO-ABC}{1}{3}{.abc}
@@ -58,20 +58,20 @@ gewinnen wir folgende Übersicht:
 
 \file{\abcBgColor}{\abcColor}{FO-ABC}{0}{15}{.abc}
 \file{\mxmlBgColor}{\mxmlColor}{FO-MXML}{1.5}{15}{.mxml}
-\file{\pmxBgColor}{Brown}{FO-PMX}{5.5}{5.5}{.pmx}
+\file{\pmxBgColor}{Brown}{FO-PMX}{5.5}{5.6}{.pmx}
 \file{\lyBgColor}{Blue}{FO-LY}{7.2}{11}{.ly}
 
 % created by the FRONTENDS ->
 
-\frontend{\abcBgColor}{Black}{EASYABC}{0}{17.5}{EasyABC};
-\frontend{\lyBgColor}{Black}{ROSEGARDEN}{2.2}{18.5}{Rosegarden};
-\frontend{\multiBgColor}{Black}{MUSESCORE}{4.5}{18.5}{MuseScore};
-\frontend{\lyBgColor}{Black}{DENEMO}{6.5}{18.5}{Denemo};
-\frontend{\lyBgColor}{Black}{CANORUS}{8.3}{18.5}{Canorus};
+\frontend{\abcBgColor}{Black}{EASYABC}{0}{17.5}{EasyABC}{$\star\star\star\star$};
+\frontend{\lyBgColor}{Black}{ROSEGARDEN}{2.2}{18.5}{Rosegarden}{$\star\star\star$};
+\frontend{\multiBgColor}{Black}{MUSESCORE}{4.5}{18.5}{MuseScore}{$\star\star\star\star\star$};
+\frontend{\lyBgColor}{Black}{DENEMO}{6.5}{18.5}{Denemo}{$\star\star\star$};
+\frontend{\lyBgColor}{Black}{CANORUS}{8.3}{18.5}{Canorus}{$\star\star\star$};
 
-\frontend{\multiBgColor}{Black}{EDITOR}{7.7}{7}{Text-Editor};
-\frontend{\lyBgColor}{Black}{ELYSIUM}{9.8}{8}{Elysium};
-\frontend{\lyBgColor}{Black}{FRESCOBALDI}{11.9}{8}{Frescobaldi};
+\frontend{\multiBgColor}{Black}{EDITOR}{7.7}{7.2}{Text-Editor}{$\star$};
+\frontend{\lyBgColor}{Black}{ELYSIUM}{9.8}{8}{Elysium}{$\star\star\star\star$};
+\frontend{\lyBgColor}{Black}{FRESCOBALDI}{11.9}{8}{Frescobaldi}{$\star\star\star\star\star$};
 
 % which are used by the Composer:
 
@@ -108,7 +108,7 @@ gewinnen wir folgende Übersicht:
 \draw[->,\lyColor] (DENEMO) to [out=270,in=90] (FO-LY); 
 
 
-\draw[->,\abcColor] (EDITOR) to [out=270,in=90] (CO-ABC);
+\draw[->,\abcColor] (EDITOR) to [out=270,in=80] (CO-ABC);
 \draw[->,\mtexColor] (EDITOR) to [out=270,in=0] (CO-MTEX);
 \draw[->,\pmxColor] (EDITOR) to [out=270,in=90] (FO-PMX);
 
@@ -128,7 +128,7 @@ gewinnen wir folgende Übersicht:
 \draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (MXML2PMX);
 
 \draw[->,\lyColor] (FO-LY) to [out=270,in=90] (LY2ABC); 
-\draw[->,\lyColor] (FO-LY) to [out=270,in=90] (EDITOR); 
+%\draw[->,\lyColor] (FO-LY) to [out=270,in=90] (EDITOR); 
 \draw[->,\lyColor] (FO-LY) to [out=270,in=90] (ELYSIUM); 
 \draw[->,\lyColor] (FO-LY) to [out=270,in=90] (FRESCOBALDI); 
 
@@ -167,46 +167,81 @@ Wir kennen demnach vier echte graphische Frontends -- \acc{Rosegarden},
 \acc{MuseScore}, \acc{Denemo} und \acc{Canorus} --, drei semi-graphische
 Frontends -- \acc{EasyABC}, \acc{Elysium} und \acc{Frescobaldi} --, sowie eine
 Reihe von Konvertern. Unglücklicherweise haben wir lernen müssen, dass es keinen
-graphischen oder semi-graphischen Editor für das \acc{MusiX\TeX}-System gibt,
-weshalb wir nicht umhinkommen, sogar den reinen Texteditor zu berücksichtigen.
-Außerdem haben wir festgestellt, dass keines der rein graphischen Frontends eine
-adäquate Dokumentation der Harmonieanalyse erlaubt. Und schließlich hatte sich
-schon vorher ergeben, dass das \LaTeX-ABC-Backend nur die Integration begrenzt
+graphischen oder semi-graphischen Editor für das \acc{MusiX\TeX}-System gibt.
+Deshalb müssen wir sogar den reinen Texteditor berücksichtigen. Außerdem haben
+wir festgestellt, dass keines der echten graphischen Frontends eine optimale
+Dokumentation der Harmonieanalyse bietet. Und schließlich hatte sich schon
+vorher ergeben, dass das \LaTeX-ABC-Backend nur die Integration begrenzt
 komplexer Analysesymbole anbietet, während die Kombinationen von \LaTeX\ und
 MusiX\TeX\ bzw. \LaTeX und LilyPond jeweils gut mit strukturell adäquaten
 Analysesymbolen umgehen können. Allerdings sind diese Kennzeichnungen bei der
 \LaTeX-MusiX\TeX-Variante aktuell visuell noch ansprechender, als bei der
 \LaTeX-LilyPond-Variante.
 
-Entscheidend ist nun, welche der möglichen Wege wirklich funktionieren. Das
-gälte es, zu evaluieren. Denn es nutzt der formal beste Weg ja nichts, wenn er
-praktisch nicht oder nur begrenzt gangbar ist. Gleichwohl wäre das stumpfe
-Abklappern aller Varianten nicht wirklich hilfreich. Besser wäre es, man
-hätte ein Verfahren, das die Kandidaten nach ihrem Potential ordnet. Denn dann
-könnte man diese vielversprechendsten zuerst evaluieren und bräuchte, wenn man
-gute praktische Wege gefunden hätte, den schlechteren gar nicht mehr
-nachzugehen.
+Unsere 'Landkarte' ist noch eine bloß theoretische Skizze: die Wege ergaben sich
+rein aus dem 'Versprechen' der Tools, bestimmte Formate zu schreiben und zu
+lesen. Über die Praxis sagt das nichts. Die werden wir Weg für Weg evaluieren
+müssen. Allerdings sollten wir die Güte eines Weges dann auch systematisch
+vergleichbar in einer Zahl repräsentieren können. Glücklicherweise bietet sich
+dafür unmittelbar ein Bewertungsverfahren an:
 
-Glücklicherweise bietet sich so ein Bewertungsverfahren unmittelbar an:
-
-\begin{itemize}
+\begin{enumerate}
   \item Wir haben die Frontends und die Backends bereits bereits gemäß ihrer
-  immanenten Fähigkeiten mittels Sternen klassifiziert. Und jeder Weg beginnt
-  mit einem Frontend und endet an einem Backend. Also sollte die Summe der
-  Sterne etwas über die Qualität des Weges ausssagen.
+  immanenten Fähigkeiten klassifiziert. Und jeder Weg beginnt mit einem Frontend
+  und endet an einem Backend. Also sollte die Summe der Frontend- und
+  Backend-Sterne etwas über die Qualität des Weges ausssagen.
   \item Allerdings ist eine erhöhte Komplexität des Weges ein Nachteil: je mehr
   Konvertierungsschritte nötig sind, desto größer ist der Aufwand für den
-  Musikwissenschaftler. Es ist also angemssen, wenn wir von der Summe der Sterne
-  die Anzahl der Konvertierungsschritte wieder abzuziehen: je direkter der Weg,
-  desto besser.
-  \item Da aber zwischen einem Frontend und einem Backend immer mindestens ein
-  Konvertierungsschritt liegt, der sich in der geschriebenen Outputdatei des
-  Frontends manifestiert, die zum Input des Backends wird, brauchen wir
-  letztlich von Summer der Sterne nur die jeweiligen Konvertierungsschritte - 1
-  zu subtrahieren.
-\end{itemize}
+  Musikwissenschaftler. Es ist also angemessen, wenn wir von der Summe der
+  Sterne die Anzahl der Konvertierungsschritte wieder abzuziehen: je direkter
+  der Weg, desto besser.\footnote{Da aber zwischen einem Frontend und einem
+  Backend immer mindestens ein Konvertierungsschritt liegt, der sich in der
+  geschriebenen Outputdatei des Frontends manifestiert, die zum Input des
+  Backends wird, brauchen wir letztlich von Summer der Sterne nur die jeweiligen
+  Konvertierungsschritte - 1 zu subtrahieren.}
+  \item In den Bewertung der Alternativen muss außerdem die Qualität des
+  Ergebnisses (exzellent, akzeptabel, grenzwertig, inakzeptabel) eingerechnet
+  werden.
+  \item Ferner wird nicht nur die Anzahl der Konvertierungsschritte die
+  (gefühlte) Nutzbarkeit eines Weges beeinflusses, sondern auch die technische
+  Umsetzbarkeit (problemlos, stolpernd, beschränkt, unmöglich): Was vom Format
+  her -- sozusagen auf dem Papier -- problemlos verknüpfbar ist, kann
+  immer noch in technische Probleme laufen, die ungünstigenfalls die Nutzung
+  gänzlich unmöglich machen.
+\end{enumerate}
+ 
+Die Qualität des Ergebnisses (\ra 3) und die technische Ausführbarkeit (\ra 4)
+können in einen Faktor zusammengerechnet werden, mit dem das 'Sterne-Ergebnis'
+(\ra 1 - \ra 2) gewichtet wird. Dieser Faktor ergibt sich geradezu natürlich:
+Die Qualität eines Weges, der problemlos ein exzellentes Ergebnis erzeugt, wird
+mit 1 multipliziert: er ist ohne Abstriche so gut, wie die Qualität der
+beteiligten Frontends abzgl. der Komplexität. Wege, die inakzeptable Ergebnisse
+bringen oder nicht umsetzbar sind, werden mit 0 gewichtet: sie sind nutzlos.
+Und dazwischen entstehen folgende Abstufungen:
 
-Danach ergibt sich vorderhand folgendes Ranking der Wege.
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabulary}{14cm}{|C|R||C|C|C|C||}
+\cline{3-6}
+ \multicolumn{2}{c||}{\ } & \multicolumn{4}{c||}{Technische Ausführbarkeit} \\
+\cline{3-6}
+ \multicolumn{2}{c||}{\ } & problemlos & stolpernd & beschränkt & unmöglich \\
+\hline
+\multirow{4}{*}{\rotatebox{90}{Ergebnis}} & exzel\-lent & \centering{1} & 0.8 & 0.6 & 0 \\
+\cline{2-6}
+ & akzep\-tabel & 0.8 & 0.6 & 0.4 & 0 \\
+\cline{2-6}
+ & grenz\-wertig & 0.6 & 0.4 & 0.2 & 0 \\
+\cline{2-6}
+ & inakzep\-tabel & 0 & 0 & 0 & 0 \\
+\hline
+\hline
+\end{tabulary}
+\renewcommand{\arraystretch}{1}
+\end{center}
+
+
+Bringt man dies zusammen, ergibt sich folgender erster Eindruck:
 
 \begin{center}
 \renewcommand{\arraystretch}{1.5}
@@ -214,7 +249,7 @@ Danach ergibt sich vorderhand folgendes Ranking der Wege.
 \hline
  VON & V & \ra & VIA &  & & & & \ra & NACH \\
  \hline
- Frontend & Stars & \ra & VIA &  & & & & \ra & NACH \\
+ Frontend & $\bigstar$ & \ra & VIA &  & & & & \ra & NACH \\
 \hline
 \hline
 \hline
@@ -235,39 +270,75 @@ Danach ergibt sich vorderhand folgendes Ranking der Wege.
 \renewcommand{\arraystretch}{1}
 \end{center}
 
+\begin{small}
+\begin{longtable}{|c|c|c|c|c|c||c||c||}
 
-Leider kann das noch nicht als finales Ergebnis genommen werden. Es muss auch
-noch die technische Qualität des Weges als Ganzes in die Wertung eingehen. Denn
-Selbst wenn Frontend und Backend jeweils 5 Sterne haben und direkt verknüpfbar
-sind, kann es immer noch sein, dass das Backend nicht -- oder nur mit Nachhilfe
--- 'versteht', was das Frontend ihm vorlegt. Dieser Aspekt der Systemqualität
-möge nach folgende Gewichtungstabelle in das Ergebnis einfließen:
-
-
-\begin{center}
-\renewcommand{\arraystretch}{1.5}
-\begin{tabulary}{14cm}{|C|R||C|C|C|C||}
-\cline{3-6}
- \multicolumn{2}{c||}{\ } & \multicolumn{4}{c||}{Technische Ausführbarkeit} \\
-\cline{3-6}
- \multicolumn{2}{c||}{\ } & direkt möglich & mit leichten Eingriffen
-    & mit starken Eingriffen & nicht gegeben \\
+% was soll am Anfang oben scheinen:
 \hline
-\multirow{4}{*}{\rotatebox{90}{Ergebnis}} & exzellent & \centering{1} & 0.8 & 0.6 & 0 \\
-\cline{2-6}
- & akzep\-tabel & 0.8 & 0.6 & 0.4 & 0 \\
-\cline{2-6}
- & grenz\-wertig & 0.6 & 0.4 & 0.2 & 0 \\
-\cline{2-6}
- & inakzep\-tabel & 0 & 0 & 0 & 0 \\
+  \multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & 
+  \multicolumn{2}{|c||}{NACH} & \multicolumn{2}{c||}{WERTUNG} \\
+\hline
+  Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ \& & $\bigstar$ & 
+  Güte\footnote{Die Güte wird in den folgenden Kapiteln empirisch ermittelt.} & 
+  Rang\footnote{Der Rang ergibt sich über (stars(FE)+stars(BE)-num(Schritte))*Güte.}\\
 \hline
 \hline
-\end{tabulary}
-\renewcommand{\arraystretch}{1}
-\end{center}
+\endfirsthead
+
+% was soll bei jedem Seitenumnruch oben scheinen:
+\multicolumn{4}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & \multicolumn{2}{|c||}{NACH} & \multicolumn{2}{c||}{WERTUNG} \\
+\hline
+  Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ \& & $\bigstar$ & 
+  Güte\footnote{Die Güte wird in den folgenden Kapiteln empirisch ermittelt.} & 
+  Rang\footnote{Der Rang ergibt sich über (stars(FE)+stars(BE)-num(Schritte))*Güte.}\\
+\hline
+\hline
+\endfirsthead
+
+% was soll bei jedem Seitenumnruch unter scheinen:
+\hline \multicolumn{4}{r}{\textit{Continued on next page}} \\
+\endfoot
+
+% was am Ende erscheinen:
+\hline
+\endlastfoot
+
+ Easy\-ABC & 4 & \ra\ & 0 &  ABC & 3 & 1 & (4+3-0)*1 = 7 \\
+\hline
+ Easy\-ABC & 4 & \ra\ abc2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 0.5 &  1\\
+\hline
+ Rose\-garden & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & 0.5 & 1,5\\
+\hline 
+Rose\-garden & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 0.5 &  1\\
+\hline
+Rose\-garden & 3 & \ra xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 0.5 &  1\\
+\hline
+ Muse\-Score & 5 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & 0.5 & 1,5\\
+\hline
+ Muse\-Score & 5 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 0.5 &  1\\
+\hline
+ Muse\-Score & 5 & \ra xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 0.5 &  1\\
+\hline
+ Denemo & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & 0.5 & 1,5\\
+\hline
+ Denemo & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 0.5 &  1\\
+\hline
+ Denemo & 3 & \ra xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 0.5 &  1\\
+\hline
+ Canorus & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & 0.5 & 1,5\\
+\hline
+ Canorus & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 0.5 &  1\\
+\hline
+ Canorus & 3 & \ra xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 0.5 &  1\\
+
+\end{longtable}
+\end{small}
 
 
-
+% TODO nicht gegutachtete Wege: Fresco/ etc. nach Easyabc, da deaysy abc auch ein Texteditor
 
 
 % this is only inserted to eject fault messages in texlipse
