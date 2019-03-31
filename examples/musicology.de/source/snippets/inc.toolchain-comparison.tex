@@ -1,0 +1,150 @@
+% mycsrf 'for beeing included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+\subsection{Gesamtverleich: And the OSCAR goes to \ldots}
+
+
+
+\begin{small}
+
+\begin{ThreePartTable}
+\begin{TableNotes}
+\item[a] Die Prozessgüte PG wird gemäß obiger Tabelle in den folgenden Kapiteln emiprisch ermittelt.
+\item[b] Die normierte Prozessreife entsteht wie definiert (\ra \pageref{ProzessReife}).
+\end{TableNotes}
+\begin{longtable}{|c|c|c|c|c|c||c||c||}
+
+% was soll am Anfang oben scheinen:
+\hline
+  \multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & 
+  \multicolumn{2}{|c||}{NACH} & \multicolumn{2}{c||}{WERTUNG} \\
+\hline
+  Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ + & $\bigstar$ & 
+  PG\tnote{a} & NPR\tnote{b}\\
+\hline
+\hline
+\endfirsthead
+
+% was soll bei jedem Seitenumnruch oben scheinen:
+\multicolumn{4}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & \multicolumn{2}{|c||}{NACH} & \multicolumn{2}{c||}{WERTUNG} \\
+\hline
+  Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ + & $\bigstar$ & 
+  PG\tnote{a} & NPR\tnote{b}\\
+\hline
+\hline
+\endfirsthead
+
+% was soll bei jedem Seitenumnruch unter scheinen:
+\hline \multicolumn{4}{r}{\textit{Continued on next page}} \\
+\endfoot
+
+% was am Ende erscheinen:
+\hline
+\insertTableNotes
+\endlastfoot
+
+ Easy\-ABC & 4 & \ra\ & 0 &  ABC & 3 & 1 & 7 \\
+\hline
+ Easy\-ABC & 4 & \ra\ xml2abc \ra\  & 1 &  ABC & 3 & 1 & 6 \\
+\hline
+ Easy\-ABC & 4 & \ra\ mxml2abc \ra\  & 1 &  ABC & 3 & 1 & 6 \\
+\hline
+ Easy\-ABC & 4 & \ra\ abc2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 5 \\
+\hline
+ Rose\-garden & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & 1 & 5 \\
+\hline 
+Rose\-garden & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 &  4 \\
+\hline
+Rose\-garden & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 4 \\
+\hline
+ Muse\-Score & 5 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & 1 & 7 \\
+\hline
+ Muse\-Score & 5 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 6 \\
+\hline
+ Muse\-Score & 5 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 6 \\
+\hline
+ Denemo & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & 1 & 5 \\
+\hline
+ Denemo & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 4 \\
+\hline
+ Denemo & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 &  4 \\
+\hline
+ Canorus & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & 1 & 5 \\
+\hline
+ Canorus & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 4 \\
+\hline
+ Canorus & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 4 \\
+\hline
+ Texteditor & 1 & \ra\ & 0 &  ABC & 3 & 1 & 4 \\
+\hline
+\hline
+EasyABC & 4 & \ra\ abc2mtex \ra\ & 1 &  Musix\TeX\ & 4 & 1 & 7 \\
+\hline
+EasyABC & 4 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 & 1 & 6 \\
+\hline
+Rosegarden & 3 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 & 1 & 5 \\
+\hline
+MuseScore & 5 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 & 1 & 7 \\
+\hline
+Denemo & 3 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 & 1 & 5 \\
+\hline
+Canorus & 3 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 & 1 & 5 \\
+\hline
+Texteditor & 1 & \ra\ & 0 &  Musix\TeX\ & 4 & 1 & 5 \\
+\hline
+Texteditor & 1 & \ra\ pmxab \ra\ & 1 &  Musix\TeX\ & 4 & 0.6 & 4 \\
+\hline
+\hline
+ Easy\-ABC & 4 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & 1 & 7 \\
+\hline
+ Easy\-ABC & 4 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & 1 & 7 \\
+\hline
+ Rosegarden & 3 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & 1 & 6 \\
+\hline
+ Rosegarden & 3 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & 1 & 6 \\
+\hline
+ MuseScore & 5 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & 1 & 8 \\
+\hline
+ MuseScore & 5 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & 1 & 8 \\
+\hline
+Denemo & 3 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & 1 & 6 \\
+\hline
+Denemo & 3 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & 1 & 6 \\
+\hline
+Canorus & 3 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & 1 & 6 \\
+\hline
+Canorus & 3 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & 1 & 6 \\
+\hline
+\hline
+ Text-Editor & 1 & \ra\ & 0 &  LilyPond & 5 & 1 & 6 \\
+\hline
+ Elysium & 4 & \ra\ & 0 &  LilyPond & 5 & 1 & 9 \\
+\hline
+ Frescobaldi & 5 & \ra\ & 0 &  LilyPond & 5 & 1 & 10 \\
+\hline
+\hline
+\end{longtable}
+\end{ThreePartTable}
+\end{small}
+
+% TODO nicht gegutachtete Wege: Fresco/ etc. nach Easyabc, da deaysy abc auch ein Texteditor
+
+
+% this is only inserted to eject fault messages in texlipse
+%\bibliography{../bib/literature}

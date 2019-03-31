@@ -1,0 +1,451 @@
+% mycsrf 'for beeing included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+
+Wenn wir nun einen Schritt zurücktreten und uns auf die
+Tools konzentrieren, denen wir drei oder mehr Sterne gegeben haben, dann
+gewinnen wir folgende Übersicht:
+
+
+\begin{tikzpicture}
+\footnotesize
+
+\tikzstyle{every node}=[trapezium, draw, minimum width=1cm,trapezium left angle=70, trapezium right angle=110]
+
+% BOTTOM UP DESCRIPTION of the component IO structure:
+% THE FINALLY GENERATED PDF OUTPOUT ->
+\file{\pdfBgColor}{black}{PDF}{5.5}{0}{.pdf}
+
+% -> CREATED BY THE LATEX IDEs ->
+\backend{$\star\star\star$}{\abcColor}{LTXABC}{1}{2}{\LaTeX\,+\,ABC}
+\backend{$\star\star\star\star$}{\mtexColor}{LTXMTEX}{5.5}{2}{\LaTeX\,+\,MusiX\TeX}
+\backend{$\star\star\star\star\star$}{\lyColor}{LTXLIPO}{10.4}{2}{\LaTeX\,+\,LilyPond}
+
+% -> which take the CONVERTER OUTPUT ->
+\file{\abcBgColor}{\abcColor}{CO-ABC}{1}{3}{.abc}
+\file{\mtexBgColor}{\mtexColor}{CO-MTEX}{5.5}{3}{.mtex}
+\file{\lyBgColor}{Blue}{CO-LY}{10.4}{3}{.ly}
+
+% written by the CONVERTERs.
+\converter{\mxmlInColor}{\abcOutColor}{XML2ABC}{0}{7}{xml2abc}
+\converter{\mxmlInColor}{\abcOutColor}{MXML2ABC}{1.5}{6}{mxml2abc}
+\converter{\mxmlInColor}{\pmxOutColor}{MXML2PMX}{3.6}{8}{mxml2pmx}
+\converter{\mxmlInColor}{\lyOutColor}{XML2LY}{4}{11}{xml2ly}
+\converter{\mxmlInColor}{\lyOutColor}{MXML2LY}{4.5}{14}{mxml2ly}
+
+\converter{\abcInColor}{\mtexOutColor}{ABC2MTEX}{3}{4}{abc2mtex}
+\converter{\abcInColor}{\lyOutColor}{ABC2LY}{5}{12}{abc2ly}
+
+\converter{\lyInColor}{\abcOutColor}{LY2ABC}{5.8}{8}{ly2abc}
+\converter{\pmxInColor}{\mtexOutColor}{PMXAB}{5.5}{4}{pmxab}
+
+
+% These converters takte the FRONTEND OUTPUT ->
+
+\file{\abcBgColor}{\abcColor}{FO-ABC}{0}{15}{.abc}
+\file{\mxmlBgColor}{\mxmlColor}{FO-MXML}{1.5}{15}{.mxml}
+\file{\pmxBgColor}{Brown}{FO-PMX}{5.5}{5.6}{.pmx}
+\file{\lyBgColor}{Blue}{FO-LY}{7.2}{11}{.ly}
+
+% created by the FRONTENDS ->
+
+\frontend{\abcBgColor}{Black}{EASYABC}{0}{17.5}{EasyABC}{$\star\star\star\star$};
+\frontend{\lyBgColor}{Black}{ROSEGARDEN}{2.2}{18.5}{Rosegarden}{$\star\star\star$};
+\frontend{\multiBgColor}{Black}{MUSESCORE}{4.5}{18.5}{MuseScore}{$\star\star\star\star\star$};
+\frontend{\lyBgColor}{Black}{DENEMO}{6.5}{18.5}{Denemo}{$\star\star\star$};
+\frontend{\lyBgColor}{Black}{CANORUS}{8.3}{18.5}{Canorus}{$\star\star\star$};
+
+\frontend{\multiBgColor}{Black}{EDITOR}{7.7}{7.2}{Text-Editor}{$\star$};
+\frontend{\lyBgColor}{Black}{ELYSIUM}{9.8}{8}{Elysium}{$\star\star\star\star$};
+\frontend{\lyBgColor}{Black}{FRESCOBALDI}{11.9}{8}{Frescobaldi}{$\star\star\star\star\star$};
+
+% which are used by the Composer:
+
+\node[circle,draw=none] (Composer) at (6.5,21) 
+{ \includegraphics{./logos/decider-220x320.eps}};
+  
+% TOP DOWN linkings of the component IO structure:  
+  
+% (1) The composer uses the frontends.
+\draw[->] (Composer) to [out=180,in=90] (EASYABC);  
+\draw[->] (Composer) to [out=180,in=90] (ROSEGARDEN); 
+\draw[->] (Composer) to [out=270,in=90] (MUSESCORE);  
+\draw[->] (Composer) to [out=270,in=90] (DENEMO);  
+\draw[->] (Composer) to [out=270,in=90] (CANORUS);  
+\draw[->] (Composer) to [out=0,in=90] (ELYSIUM);  
+\draw[->] (Composer) to [out=0,in=90] (FRESCOBALDI);  
+\draw[->] (Composer) to [out=0,in=90] (EDITOR);  
+
+ 
+% (2.A) The frontends write the frontend output  
+\draw[->,\abcColor] (EASYABC) to [out=270,in=90] (FO-ABC); 
+\draw[->,\abcColor] (EASYABC) to [out=240,in=140] (CO-ABC); 
+\draw[->,\mxmlColor] (EASYABC) to [out=300,in=90] (FO-MXML); 
+
+\draw[->,\lyColor] (ROSEGARDEN) to [out=300,in=90] (FO-LY); 
+\draw[->,\mxmlColor] (ROSEGARDEN) to [out=240,in=90] (FO-MXML);
+
+\draw[->,\mxmlColor] (MUSESCORE) to [out=240,in=90] (FO-MXML); 
+
+\draw[->,\mxmlColor] (CANORUS) to [out=240,in=90] (FO-MXML); 
+\draw[->,\lyColor] (CANORUS) to [out=270,in=90] (FO-LY); 
+
+\draw[->,\mxmlColor] (DENEMO) to [out=240,in=90] (FO-MXML); 
+\draw[->,\lyColor] (DENEMO) to [out=270,in=90] (FO-LY); 
+
+
+\draw[->,\abcColor] (EDITOR) to [out=270,in=80] (CO-ABC);
+\draw[->,\mtexColor] (EDITOR) to [out=270,in=0] (CO-MTEX);
+\draw[->,\pmxColor] (EDITOR) to [out=270,in=90] (FO-PMX);
+
+\draw[->,\lyColor] (EDITOR) to [out=270,in=90] (CO-LY);
+\draw[->,\lyColor] (ELYSIUM) to [out=270,in=90] (CO-LY); 
+\draw[->,\lyColor] (FRESCOBALDI) to [out=270,in=90] (CO-LY); 
+
+% (3) The frontend output becomes input of the converter
+
+\draw[->,\abcColor] (FO-ABC) to [out=270,in=90] (ABC2MTEX);
+\draw[->,\abcColor] (FO-ABC) to [out=270,in=90] (ABC2LY);
+
+\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (XML2ABC);
+\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (MXML2ABC);
+\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (XML2LY);
+\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (MXML2LY);
+\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (MXML2PMX);
+
+\draw[->,\lyColor] (FO-LY) to [out=270,in=90] (LY2ABC); 
+%\draw[->,\lyColor] (FO-LY) to [out=270,in=90] (EDITOR); 
+\draw[->,\lyColor] (FO-LY) to [out=270,in=90] (ELYSIUM); 
+\draw[->,\lyColor] (FO-LY) to [out=270,in=90] (FRESCOBALDI); 
+
+% (3) The converters (re)write their output
+% (3.A) as input for the textual frontends
+\draw[->,\lyColor] (ABC2LY) to [out=270,in=90] (FO-LY);
+\draw[->,\lyColor] (MXML2LY) to [out=270,in=90] (FO-LY); 
+\draw[->,\lyColor] (XML2LY) to [out=270,in=90] (FO-LY); 
+
+% (3.B) as input for the backends
+
+\draw[->,\abcColor] (LY2ABC) to [out=270,in=90] (CO-ABC);
+\draw[->,\abcColor] (XML2ABC) to [out=270,in=90] (CO-ABC);
+\draw[->,\abcColor] (MXML2ABC) to [out=270,in=90] (CO-ABC);
+
+\draw[->,\pmxColor] (MXML2PMX) to [out=270,in=90] (FO-PMX);
+\draw[->,\mtexColor] (ABC2MTEX) to [out=270,in=180] (CO-MTEX);
+
+% special case MusiXTeX
+\draw[->,\pmxColor] (FO-PMX) to [out=270,in=90] (PMXAB);
+\draw[->,\mtexColor] (PMXAB) to [out=270,in=90] (CO-MTEX);
+
+% 4) The backends take the (converter) output as input
+\draw[->,\abcColor] (CO-ABC) to [out=270,in=90] (LTXABC);
+\draw[->,\mtexColor] (CO-MTEX) to [out=270,in=90] (LTXMTEX);
+\draw[->,\lyColor] (CO-LY) to [out=270,in=90] (LTXLIPO);
+
+% 5) end write the final PDF
+
+\draw[->,Black] (LTXABC) to [out=270,in=90] (PDF);
+\draw[->,Black] (LTXMTEX) to [out=270,in=90] (PDF);
+\draw[->,Black] (LTXLIPO) to [out=270,in=90] (PDF);
+\end{tikzpicture}
+
+Wir kennen demnach vier echte graphische Frontends -- \acc{Rosegarden},
+\acc{MuseScore}, \acc{Denemo} und \acc{Canorus} --, drei semi-graphische
+Frontends -- \acc{EasyABC}, \acc{Elysium} und \acc{Frescobaldi} --,  drei
+Backendsysteme -- \acc{\LaTeX\,+\,ABC}, \acc{\LaTeX\,+\,MusiX\TeX} und
+\acc{\LaTeX\,+\,LilyPond} -- und eine Reihe von Konvertern. Unglücklicherweise
+haben wir lernen müssen, dass es momentan keinen graphischen oder
+semi-graphischen Editor für \acc{MusiX\TeX} gibt. Deshalb müssen wir ersatzweise
+den reinen Texteditor in unsere Kollektion von Frontends
+aufnehmen.\footnote{Aufgrund seines per definitionem geringen Supports für den
+Nutzer geben wir ihm einen Stern.} Außerdem haben wir festgestellt, dass keines
+der echten graphischen Frontends eine optimale Dokumentation der Harmonieanalyse
+bietet. Und schließlich hatte sich schon vorher ergeben, dass das
+\acc{\LaTeX-ABC-Backend} nur die Integration begrenzt komplexer Analysesymbole
+anbietet, während die Kombinationen von \LaTeX\ und MusiX\TeX\ bzw. \LaTeX und
+LilyPond jeweils gut mit strukturell adäquaten Analysesymbolen umgehen können.
+Allerdings sind diese Kennzeichnungen bei der \LaTeX-MusiX\TeX-Variante z.Zt.
+visuell ansprechender, als bei der \LaTeX-LilyPond-Variante.
+
+Noch ist unsere 'Landkarte' allerdings bloß eine theoretische Skizze: die Wege
+ergaben sich rein aus dem 'Versprechen' der Tools, bestimmte Formate zu
+schreiben und zu lesen. Über die Praxis sagt das nichts. Die werden wir Weg für
+Weg evaluieren müssen. Gleichwohl sollten wir die Güte eines Weges dann auch
+systematisch vergleichbar in einer Zahl repräsentieren können. Glücklicherweise
+bietet sich dafür unmittelbar ein Bewertungsverfahren an:
+
+\begin{enumerate}
+  \item Wir haben die Frontend- und Backendsysteme bereits gemäß ihrer immanenten
+  Fähigkeiten klassifiziert. Und jeder 'Weg' beginnt mit einem Frontend und endet
+  an einem Backend. Also sollte die Summe der Frontend- und Backend-Sterne etwas
+  über die Qualität des Gesamtsystems aussagen.
+  \item Eine erhöhte Komplexität des Weges bildet jedoch einen Nachteil: je mehr
+  Konvertierungsschritte nötig sind, desto größer ist der Aufwand für den
+  Musikwissenschaftler. Es ist also angemessen, wenn wir von der Summe der
+  Sterne die Anzahl der Konvertierungsschritte wieder abzuziehen: je direkter
+  der Weg, desto besser.\footnote{Da aber zwischen einem Frontend und einem
+  Backend immer mindestens ein Konvertierungsschritt liegt, der sich in der
+  geschriebenen Outputdatei des Frontends manifestiert, die zum Input des
+  Backends wird, brauchen wir letztlich von Summer der Sterne nur die jeweiligen
+  Konvertierungsschritte - 1 zu subtrahieren.}
+  \item In den Bewertung der Alternativen muss außerdem die Qualität des
+  generierten Ergebnisses eingerechnet werden. Wir wollen sagen, dass es
+  \acc{exzellent}, \acc{akzeptabel}, \acc{grenzwertig} oder \acc{inakzeptabel}
+  sein kann.
+  \item Ferner wird nicht nur die Anzahl der Konvertierungsschritte die
+  Nutzbarkeit eines Weges beeinflusses, sondern auch die technische
+  Umsetzbarkeit: Was vom Format her -- sozusagen auf dem Papier --
+  \acc{problemlos} verknüpfbar ist, kann immer noch in technische Probleme
+  laufen, die das Verfahren \acc{stolpern} lassen (und leichte manuelle
+  Eingegriffe nötig machen), es \acc{beschränken} (und starke manuelle Eingriffe
+  erfordern) oder gar \acc{unmöglich} machen.
+\end{enumerate}
+ 
+Die Qualität des Ergebnisses und die Nutzbarkeit des Weges werden zuletzt
+empirisch zu ermitteln sein. Wir werden die beiden Werte allerdings nach einem
+festen Schema in einen einzigen Wert der \acc{Prozessgüte} verrechnen: Die Qualität
+eines 'Weges', der problemlos ein exzellentes Ergebnis erzeugt, ist so gut, wie
+die Qualität des beteiligten Frontends und Backends abzgl. der Komplexität des
+Weges. Das wird mit einer gewichtenden Prozessgüte von 1 erreicht. Umgekehrt
+sind die Wege nutzlos, die inakzeptable Ergebnisse erzeugen oder nicht umsetzbar
+sind. Dem entspricht dann eine faktorelle Prozessgüte von 0. Alle anderen
+Abstufungen ergeben sich aus folgender Tabelle:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabulary}{14cm}{|C|R||C|C|C|C||}
+\cline{3-6}
+ \multicolumn{2}{c||}{\ } & \multicolumn{4}{c||}{Technische Ausführbarkeit} \\
+\cline{3-6}
+ \multicolumn{2}{c||}{\ } & problemlos & stolpernd & beschränkt & unmöglich \\
+\hline
+\multirow{4}{*}{\rotatebox{90}{Ergebnis}} & exzel\-lent & \centering{1} & 0.8 & 0.6 & 0 \\
+\cline{2-6}
+ & akzep\-tabel & 0.8 & 0.6 & 0.4 & 0 \\
+\cline{2-6}
+ & grenz\-wertig & 0.6 & 0.4 & 0.2 & 0 \\
+\cline{2-6}
+ & inakzep\-tabel & 0 & 0 & 0 & 0 \\
+\hline
+\hline
+\end{tabulary}
+\renewcommand{\arraystretch}{1}
+\end{center}
+
+Damit lässt sich die Qualität eines Weges nach einer einfachen Methode
+rechnerisch vergleichen: 
+
+\label{ProzessReife}
+\begin{description}
+  \item[D0] Sei PG die nach obiger Tabelle empirisch ermitteltete Prozessgüte.
+  \item[D1] Seien $stars(BE)$ und $stars(FE)$ die Anzahl der bis zu maximal 5
+  Sterne, mit denen wir die Frontends und Backends klassifiziert haben.
+  \item[D2] Sei $\Sigma$ die Anzahl der notwendigen Konvertierungensschritte,
+  um den Output des Frontends dem Backend als Input vorlegen zu können.
+  \item[D3] Sei $PR$ die Prozessreife, die nach der Formel $(stars(FE) +
+  stars(BE) - \Sigma) * PG$ berechnet wird.
+  \item[L1] Die maximale Prozessreife ist 10. Beweis: Frontends und Backends
+  haben maximal 5 Sterne (\ra D1). Der direkte Weg hat 0 Konvertierungsschritte
+  (\ra D2). Und die beste Prozessgüte hat den Wert 1 (\ra D1). Also gilt
+  $max(PR) = (5 + 5 - 0) * 1 = 10$
+  \item[D4] Sei $NPR$ die normierte Prozessreife, berechnet gemäß der Formel
+  $PR/max(PR)$.
+\end{description}
+
+Umgangssprachlich würde man sagen, dass die Systemqualität eines Weges in \% der
+maximal möglichen Prozessreife angegeben wird. 
+
+Bei einigen 'Wegen' resp. Gesamtsystemen können wir die Prozessgüte direkt
+angeben: Wir wissen bereits, dass \acc{Frescobaldi} und \acc{Elysium} zur
+Visualisierung des Inputs das \acc{LilyPond-Backend} benutzen. Und wir haben
+diese Komponenten bereits -- zusammen mit unser kleinen Zusatzbibliothek --
+erfolgreich bei unser Evaluierung der Backendsystem benutzt. Wir dürfen hier
+also direkt eine Prozessgüte von 1 ansetzen. Dasselbe gilt für den -- sozusagen
+nachträglich eingeführten -- Texteditor: Wir haben den Input zur Evaluierung des
+\acc{\LaTeX-ABC-Backends} ebenso manuell mit dem \acc{Eclipse-Editor}
+geschrieben, wie den für das \acc{\LaTeX-MusiX\TeX-Backend} und den für das
+\acc{\LaTeX-LilyPond-Backend}. Mithin ergibt sich auch hier Prozessgüte von 1.
+Und wir hatten die Schwierigkeiten bei der Verwendung von \acc{PMX} mit
+\acc{\LaTeX\ + MusiX\TeX} ausführlich dokumentiert: Hier konnte zuletzt zwar ein
+exzellentes Ergebnis erzeugt werden, allerdings nur um den Preis starker
+manueller Eingriffe. Das ergibt per Definitionem eine Prozessgüte von $0.6$.
+
+Für diese soeben aufgezählten Varianten können wir mithin auch die normierte
+Prozessreife direkt berechnen. Die Prozessgüte der anderen Wegen werden wir
+schrittweise evaluieren müssen, um danach die entsprechende Prozessreife
+berechnen zu können.
+
+Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
+
+\begin{footnotesize}
+
+\begin{longtable}{c|c|c|c|c|c|c||c||c||}
+
+% was soll am Anfang oben scheinen:
+\hline
+  - & \multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & 
+  \multicolumn{2}{|c||}{NACH} & \multicolumn{2}{c||}{WERTUNG} \\
+\hline
+ -& Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ + & $\bigstar$ & 
+  PG\tnote{a} & NPR\tnote{b}\\
+\hline
+\hline
+\endfirsthead
+
+% was soll bei jedem Seitenumnruch oben scheinen:
+\multicolumn{4}{c}%
+{\tablename\ \thetable\ } \\
+\hline
+ - & \multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & 
+  \multicolumn{2}{|c||}{NACH} & \multicolumn{2}{c||}{WERTUNG} \\
+\hline
+ -& Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ + & $\bigstar$ & 
+  PG\tnote{a} & NPR\tnote{b}\\
+\hline
+\hline
+\endfirsthead
+
+% was soll bei jedem Seitenumnruch unter scheinen:
+\hline \multicolumn{4}{r}{\textit{Continued on next page}} \\
+\endfoot
+
+% was am Ende erscheinen:
+\hline
+\endlastfoot
+
+01 & Easy\-ABC & 4 & \ra\ & 0 &  ABC & 3 & &  \\
+\hline
+02 &  Easy\-ABC & 4 & \ra\ xml2abc \ra\  & 1 &  ABC & 3 & & \\
+\hline
+03 &  Easy\-ABC & 4 & \ra mxml2abc \ra\  & 1 &  ABC & 3 & & \\
+\hline
+04 &  Easy\-ABC & 4 & \ra\ abc2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & & \\
+\hline
+05 &  Easy\-ABC & 4 & \ra mxml2ly \ra\  ly2abc \ra\ & 2 &  ABC & 3 & & \\
+\hline
+06 &  Easy\-ABC & 4 & \ra xml2ly \ra\  ly2abc \ra\ & 2 &  ABC & 3 & & \\
+\hline
+07 &  Rose\-garden & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & &  \\
+\hline 
+08 &  Rose\-garden & 3 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 & &  \\
+\hline 
+09 & Rose\-garden & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
+\hline
+10 & Rose\-garden & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
+\hline
+11 &  Muse\-Score & 5 & \ra\ xml2abc \ra\ & 1 & ABC & 3 &  &  \\
+\hline
+12 &  Muse\-Score & 5 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 &  &  \\
+\hline
+13 &  Muse\-Score & 5 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
+\hline
+14 &  Muse\-Score & 5 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
+\hline
+15 &  Denemo & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 &  &  \\
+\hline
+16 &  Denemo & 3 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 &  &  \\
+\hline
+17 &  Denemo & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
+\hline
+18 &  Denemo & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
+\hline
+19 &  Canorus & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 &  &  \\
+\hline
+20 &  Canorus & 3 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 &  &  \\
+\hline
+21 &  Canorus & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
+\hline
+22 &  Canorus & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
+\hline
+23 &  Texteditor & 1 & \ra\ & 0 &  ABC & 3 & 1.0 & 4.0 \\
+\hline
+\hline
+24 & EasyABC & 4 & \ra\ abc2mtex \ra\ & 1 &  Musix\TeX\ & 4 &  &  \\
+\hline
+25 & EasyABC & 4 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 & &  \\
+\hline
+26 & Rosegarden & 3 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 &  & \\
+\hline
+27 & MuseScore & 5 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 &  & \\
+\hline
+28 & Denemo & 3 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 &  &  \\
+\hline
+29 & Canorus & 3 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 &  &  \\
+\hline
+30 & Texteditor & 1 & \ra\ & 0 &  Musix\TeX\ & 4 & 1.0 & 5.0 \\
+\hline
+31 & Texteditor & 1 & \ra\ pmxab \ra\ & 1 &  Musix\TeX\ & 4 & 0.6 & 2.4 \\
+\hline
+\hline
+32 &  Easy\-ABC & 4 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+33 &  Easy\-ABC & 4 & \ra mxml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+34 &  Easy\-ABC & 4 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+35 &  Easy\-ABC & 4 & \ra mxml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+36 &  Rosegarden & 3 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & & \\
+\hline
+37 &  Rosegarden & 3 & \ra mxml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & & \\
+\hline
+38 &  Rosegarden & 3 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & & \\
+\hline
+39 &  Rosegarden & 3 & \ra mxml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & & \\
+\hline
+40 &  MuseScore & 5 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & & \\
+\hline
+41 &  MuseScore & 5 & \ra mxml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & & \\
+\hline
+42 &  MuseScore & 5 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+43 &  MuseScore & 5 & \ra mxml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+44 & Denemo & 3 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+45 & Denemo & 3 & \ra mxml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+46 & Denemo & 3 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  & \\
+\hline
+47 & Denemo & 3 & \ra mxml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  & \\
+\hline
+48 & Canorus & 3 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+49 & Canorus & 3 & \ra mxml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+50 & Canorus & 3 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+51 & Canorus & 3 & \ra mxml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+\hline
+52 &  Text-Editor & 1 & \ra\ & 0 &  LilyPond & 5 & 1 & 6.0 \\
+\hline
+53 &  Elysium & 4 & \ra\ & 0 &  LilyPond & 5 & 1 & 9.0 \\
+\hline
+54 &  Frescobaldi & 5 & \ra\ & 0 &  LilyPond & 5 & 1 & 10.0 \\
+\hline
+\hline
+\end{longtable}
+
+\end{footnotesize}
+
+
+
+% TODO nicht gegutachtete Wege: Fresco/ etc. nach Easyabc, da deaysy abc auch ein Texteditor
+
+
+% this is only inserted to eject fault messages in texlipse
+%\bibliography{../bib/literature}

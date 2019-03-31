@@ -21,7 +21,8 @@
   abstract=true,
   toc=bib,
   xcolor=dvipsnames,
-  english,ngerman]{scrartcl}
+  openany,
+  english,ngerman]{scrbook}
   
 %%% (1) general configurations %%%
 \usepackage[utf8]{inputenc}
@@ -118,6 +119,8 @@
 \usepackage{graphicx,color}
 \usepackage{tabulary}
 \usepackage{longtable}
+\usepackage{threeparttablex}
+
 % package for macking tables with broken lines
 \usepackage{multirow}
 \usepackage{ulem}
@@ -232,7 +235,7 @@
 \subtitle{Wie man Musikbeispiele mit Open-Source-Tools 
 in seine wissenschaftliche Texte integriert.\\
 {\small Eine selbstreferentielle Anleitung}}
-\author{Karsten Reincke\input{cfg/inc.license-fn.tex}}
+\author{Karsten Reincke}
 
 %thanks entry cannot be combined with license footnote
 %\thanks{den Autoren von KOMA-Script und denen von Jurabib}
@@ -240,20 +243,29 @@ in seine wissenschaftliche Texte integriert.\\
 \maketitle
 %%-- end(titlepage)
 
-\input{snippets/inc.abstract.tex}
+\textit{Dieses Tutorial erläutert, wie man musikalische Beispiele mit
+Open-Source-Mitteln in \LaTeX-Texte einbettet. Dazu sichtet es Notensatzsysteme,
+Editoren, Konverter und Tools, die Notentexte erzeugen, verändern und in den
+\LaTeX-Text integrieren. Und es skizziert, wie man ganze 'Produktionsketten' aus
+Frontendsystemen, Konvertern und Backendsystemen 'zusammenstöpselt'. Zuletzt
+entsteht so eine 'Landkarte' verschiedener Wege.\input{cfg/inc.license-fn.tex}
+}
+
+\addchap{Vorwort}
+\input{snippets/inc.vorwort.tex}
 
 \footnotesize
 \tableofcontents
 
 \normalsize
-
-\input{snippets/inc.anlass.tex}
+\setcounter{chapter}{-1}
+\chapter{Der Kontext}
 
 \input{snippets/inc.anliegen.tex}
 
 \input{snippets/inc.kriterien.tex}
 
-\section{Leichtgewichtige Teillösungen}
+\chapter{Leichtgewichtige Teillösungen}
 
 Selbstverständlich wird sich zuletzt herausstellen, dass adäquate Systeme zur
 Erfassung von Musik eine gewisse Komplexität mitbringen. Das liegt in der Natur
@@ -304,7 +316,7 @@ zu haben. Ich verbeuge mich also dankbar vor dem mir leider unbekannten Autor.}
 
 \input{snippets/inc.harmony.tex}
 
-\section{Backends: Komplexe Notationssysteme}
+\chapter{Backends: Komplexe Notationssysteme}
 
 \input{snippets/inc.abc.tex}
 
@@ -319,7 +331,7 @@ zu haben. Ich verbeuge mich also dankbar vor dem mir leider unbekannten Autor.}
 \input{snippets/inc.mup.tex} 
 \input{snippets/inc.texmuse.tex}
 
-\section{Frontends: die (graphische) Eingabe}
+\chapter{Frontends: die (graphische) Eingabe}
 
 Abgesehen von der letzten Variante, werden bei den hier diskutierten Methoden
 die Noten zuletzt textbasiert codiert: um zu komponieren oder zu arrangieren
@@ -426,10 +438,12 @@ sichten.}
 
 \input{snippets/inc.rosegarden.tex} 
 
+\chapter{Vom Frontend nach \LaTeX: die Toolketten}
+\input{snippets/inc.toolchain-survey.tex} 
+\input{snippets/inc.toolchain-evaluation.tex} 
+\input{snippets/inc.toolchain-comparison.tex} 
 
-\input{snippets/inc.toolchain.tex} 
-
-\section{Fazit}
+\chapter{Fazit}
 
 %\input{snippets/inc.appendices.tex}
 % insert the nomenclature here
