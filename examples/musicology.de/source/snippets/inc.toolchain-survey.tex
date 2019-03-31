@@ -15,9 +15,7 @@
 %
 
 
-Wenn wir nun einen Schritt zurücktreten und uns auf die
-Tools konzentrieren, denen wir drei oder mehr Sterne gegeben haben, dann
-gewinnen wir folgende Übersicht:
+Wenn wir nun die bisher gewonnenen Informationen verknüpfen, gewinnen wir folgende Übersicht:
 
 
 \begin{tikzpicture}
@@ -42,48 +40,49 @@ gewinnen wir folgende Übersicht:
 % written by the CONVERTERs.
 \converter{\mxmlInColor}{\abcOutColor}{XML2ABC}{0}{7}{xml2abc}
 \converter{\mxmlInColor}{\abcOutColor}{MXML2ABC}{1.5}{6}{mxml2abc}
-\converter{\mxmlInColor}{\pmxOutColor}{MXML2PMX}{3.6}{8}{mxml2pmx}
-\converter{\mxmlInColor}{\lyOutColor}{XML2LY}{4}{11}{xml2ly}
-\converter{\mxmlInColor}{\lyOutColor}{MXML2LY}{4.5}{14}{mxml2ly}
+\converter{\mxmlInColor}{\pmxOutColor}{MXML2PMX}{3.6}{8.2}{mxml2pmx}
+\converter{\mxmlInColor}{\lyOutColor}{XML2LY}{5}{10.5}{xml2ly}
+\converter{\mxmlInColor}{\lyOutColor}{MXML2LY}{5}{12}{mxml2ly}
 
 \converter{\abcInColor}{\mtexOutColor}{ABC2MTEX}{3}{4}{abc2mtex}
-\converter{\abcInColor}{\lyOutColor}{ABC2LY}{5}{12}{abc2ly}
+\converter{\abcInColor}{\lyOutColor}{ABC2LY}{5}{11.2}{abc2ly}
 
-\converter{\lyInColor}{\abcOutColor}{LY2ABC}{5.8}{8}{ly2abc}
+\converter{\lyInColor}{\abcOutColor}{LY2ABC}{5.6}{8}{ly2abc}
 \converter{\pmxInColor}{\mtexOutColor}{PMXAB}{5.5}{4}{pmxab}
 
 
 % These converters takte the FRONTEND OUTPUT ->
 
-\file{\abcBgColor}{\abcColor}{FO-ABC}{0}{15}{.abc}
-\file{\mxmlBgColor}{\mxmlColor}{FO-MXML}{1.5}{15}{.mxml}
+\file{\abcBgColor}{\abcColor}{FO-ABC}{0}{12}{.abc}
+\file{\mxmlBgColor}{\mxmlColor}{FO-MXML}{1.5}{12}{.mxml}
 \file{\pmxBgColor}{Brown}{FO-PMX}{5.5}{5.6}{.pmx}
-\file{\lyBgColor}{Blue}{FO-LY}{7.2}{11}{.ly}
+\file{\lyBgColor}{Blue}{FO-LY}{7.2}{10.5}{.ly}
 
 % created by the FRONTENDS ->
 
-\frontend{\abcBgColor}{Black}{EASYABC}{0}{17.5}{EasyABC}{$\star\star\star\star$};
-\frontend{\lyBgColor}{Black}{ROSEGARDEN}{2.2}{18.5}{Rosegarden}{$\star\star\star$};
-\frontend{\multiBgColor}{Black}{MUSESCORE}{4.5}{18.5}{MuseScore}{$\star\star\star\star\star$};
-\frontend{\lyBgColor}{Black}{DENEMO}{6.5}{18.5}{Denemo}{$\star\star\star$};
-\frontend{\lyBgColor}{Black}{CANORUS}{8.3}{18.5}{Canorus}{$\star\star\star$};
+\frontend{\abcBgColor}{Black}{EASYABC}{0}{13.8}{EasyABC}{$\star\star\star\star$};
+\frontend{\lyBgColor}{Black}{ROSEGARDEN}{2.2}{14.8}{Rosegarden}{$\star\star\star$};
+\frontend{\multiBgColor}{Black}{MUSESCORE}{4.5}{14.8}{MuseScore}{$\star\star\star\star\star$};
+\frontend{\lyBgColor}{Black}{DENEMO}{6.5}{14.8}{Denemo}{$\star\star\star$};
+\frontend{\lyBgColor}{Black}{CANORUS}{8.3}{14.8}{Canorus}{$\star\star\star$};
 
 \frontend{\multiBgColor}{Black}{EDITOR}{7.7}{7.2}{Text-Editor}{$\star$};
-\frontend{\lyBgColor}{Black}{ELYSIUM}{9.8}{8}{Elysium}{$\star\star\star\star$};
+\frontend{\lyBgColor}{Black}{ELYSIUM}{9.8}{7.6}{Elysium}{$\star\star\star\star$};
 \frontend{\lyBgColor}{Black}{FRESCOBALDI}{11.9}{8}{Frescobaldi}{$\star\star\star\star\star$};
 
 % which are used by the Composer:
 
-\node[circle,draw=none] (Composer) at (6.5,21) 
-{ \includegraphics{./logos/decider-220x320.eps}};
+%
+\node[rectangle, draw=none, inner sep=0pt] (Composer) at (8.3,16.5) 
+{\includegraphics{./logos/decider-220x320.eps}};
   
 % TOP DOWN linkings of the component IO structure:  
   
 % (1) The composer uses the frontends.
-\draw[->] (Composer) to [out=180,in=90] (EASYABC);  
-\draw[->] (Composer) to [out=180,in=90] (ROSEGARDEN); 
-\draw[->] (Composer) to [out=270,in=90] (MUSESCORE);  
-\draw[->] (Composer) to [out=270,in=90] (DENEMO);  
+\draw[->] (Composer) to [out=180,in=70] (EASYABC);  
+\draw[->] (Composer) to [out=180,in=50] (ROSEGARDEN); 
+\draw[->] (Composer) to [out=180,in=70] (MUSESCORE);  
+\draw[->] (Composer) to [out=180,in=80] (DENEMO);  
 \draw[->] (Composer) to [out=270,in=90] (CANORUS);  
 \draw[->] (Composer) to [out=0,in=90] (ELYSIUM);  
 \draw[->] (Composer) to [out=0,in=90] (FRESCOBALDI);  
@@ -100,7 +99,7 @@ gewinnen wir folgende Übersicht:
 
 \draw[->,\mxmlColor] (MUSESCORE) to [out=240,in=90] (FO-MXML); 
 
-\draw[->,\mxmlColor] (CANORUS) to [out=240,in=90] (FO-MXML); 
+\draw[->,\mxmlColor] (CANORUS) to [out=230,in=70] (FO-MXML); 
 \draw[->,\lyColor] (CANORUS) to [out=270,in=90] (FO-LY); 
 
 \draw[->,\mxmlColor] (DENEMO) to [out=240,in=90] (FO-MXML); 
@@ -118,12 +117,12 @@ gewinnen wir folgende Übersicht:
 % (3) The frontend output becomes input of the converter
 
 \draw[->,\abcColor] (FO-ABC) to [out=270,in=90] (ABC2MTEX);
-\draw[->,\abcColor] (FO-ABC) to [out=270,in=90] (ABC2LY);
+\draw[->,\abcColor] (FO-ABC) to [out=270,in=180] (ABC2LY);
 
 \draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (XML2ABC);
 \draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (MXML2ABC);
-\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (XML2LY);
-\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (MXML2LY);
+\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=180] (XML2LY);
+\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=180] (MXML2LY);
 \draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (MXML2PMX);
 
 \draw[->,\lyColor] (FO-LY) to [out=270,in=90] (LY2ABC); 
@@ -133,9 +132,9 @@ gewinnen wir folgende Übersicht:
 
 % (3) The converters (re)write their output
 % (3.A) as input for the textual frontends
-\draw[->,\lyColor] (ABC2LY) to [out=270,in=90] (FO-LY);
-\draw[->,\lyColor] (MXML2LY) to [out=270,in=90] (FO-LY); 
-\draw[->,\lyColor] (XML2LY) to [out=270,in=90] (FO-LY); 
+\draw[->,\lyColor] (ABC2LY) to [out=0,in=90] (FO-LY);
+\draw[->,\lyColor] (MXML2LY) to [out=0,in=90] (FO-LY); 
+\draw[->,\lyColor] (XML2LY) to [out=0,in=180] (FO-LY); 
 
 % (3.B) as input for the backends
 
@@ -169,11 +168,11 @@ Backendsysteme -- \acc{\LaTeX\,+\,ABC}, \acc{\LaTeX\,+\,MusiX\TeX} und
 \acc{\LaTeX\,+\,LilyPond} -- und eine Reihe von Konvertern. Unglücklicherweise
 haben wir lernen müssen, dass es momentan keinen graphischen oder
 semi-graphischen Editor für \acc{MusiX\TeX} gibt. Deshalb müssen wir ersatzweise
-den reinen Texteditor in unsere Kollektion von Frontends
-aufnehmen.\footnote{Aufgrund seines per definitionem geringen Supports für den
-Nutzer geben wir ihm einen Stern.} Außerdem haben wir festgestellt, dass keines
-der echten graphischen Frontends eine optimale Dokumentation der Harmonieanalyse
-bietet. Und schließlich hatte sich schon vorher ergeben, dass das
+den reinen Texteditor in unsere Kollektion von Frontends aufnehmen.\footnote{Um
+die Analyse nicht zu verfälschen, geben wir dem Text-Edtor nur einen Stern.}
+Außerdem haben wir festgestellt, dass keines der echten graphischen Frontends
+eine optimale Dokumentation der Harmonieanalyse bietet.
+Und schließlich hatte sich schon vorher ergeben, dass das
 \acc{\LaTeX-ABC-Backend} nur die Integration begrenzt komplexer Analysesymbole
 anbietet, während die Kombinationen von \LaTeX\ und MusiX\TeX\ bzw. \LaTeX und
 LilyPond jeweils gut mit strukturell adäquaten Analysesymbolen umgehen können.
