@@ -252,7 +252,7 @@ rechnerisch vergleichen:
   \item[D0] Sei PG die nach obiger Tabelle empirisch ermitteltete Prozessgüte.
   \item[D1] Seien $stars(BE)$ und $stars(FE)$ die Anzahl der bis zu maximal 5
   Sterne, mit denen wir die Frontends und Backends klassifiziert haben.
-  \item[D2] Sei $\Sigma$ die Anzahl der notwendigen Konvertierungensschritte,
+  \item[D2] Sei $\Sigma$ die Anzahl der zwischenzuschaltenden Konverter,
   um den Output des Frontends dem Backend als Input vorlegen zu können.
   \item[D3] Sei $PR$ die Prozessreife, die nach der Formel $(stars(FE) +
   stars(BE) - \Sigma) * PG$ berechnet wird.
@@ -264,7 +264,7 @@ rechnerisch vergleichen:
   $PR/max(PR)$.
 \end{description}
 
-Umgangssprachlich würde man sagen, dass die Systemqualität eines Weges in \% der
+Umgangssprachlich würde man sagen, dass die Systemqualität eines 'Weges' in \% der
 maximal möglichen Prozessreife angegeben wird. 
 
 Bei einigen 'Wegen' resp. Gesamtsystemen können wir die Prozessgüte direkt
@@ -291,14 +291,14 @@ Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
 
 \begin{footnotesize}
 
-\begin{longtable}{c|c|c|c|c|c|c||c||c||}
+\begin{longtable}{|c||c|c|c|c|c|c||c||c||}
 
 % was soll am Anfang oben scheinen:
 \hline
-  - & \multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & 
+  \multirow{2}{*}{\rotatebox{90}{Weg}} & \multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & 
   \multicolumn{2}{|c||}{NACH} & \multicolumn{2}{c||}{WERTUNG} \\
-\hline
- -& Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ + & $\bigstar$ & 
+\cline{2-9}
+ & Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ + & $\bigstar$ & 
   PG\tnote{a} & NPR\tnote{b}\\
 \hline
 \hline
@@ -308,10 +308,10 @@ Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
 \multicolumn{4}{c}%
 {\tablename\ \thetable\ } \\
 \hline
- - & \multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & 
+ \multirow{2}{*}{\rotatebox{90}{Weg}} & \multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & 
   \multicolumn{2}{|c||}{NACH} & \multicolumn{2}{c||}{WERTUNG} \\
-\hline
- -& Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ + & $\bigstar$ & 
+\cline{2-9}
+  & Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ + & $\bigstar$ & 
   PG\tnote{a} & NPR\tnote{b}\\
 \hline
 \hline
@@ -369,7 +369,7 @@ Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
 \hline
 22 &  Canorus & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
-23 &  Texteditor & 1 & \ra\ & 0 &  ABC & 3 & 1.0 & 4.0 \\
+23 &  Texteditor & 1 & \ra\ & 0 &  ABC & 3 & 1.0 & 0.4 \\
 \hline
 \hline
 24 & EasyABC & 4 & \ra\ abc2mtex \ra\ & 1 &  Musix\TeX\ & 4 &  &  \\
@@ -384,9 +384,9 @@ Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
 \hline
 29 & Canorus & 3 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 &  &  \\
 \hline
-30 & Texteditor & 1 & \ra\ & 0 &  Musix\TeX\ & 4 & 1.0 & 5.0 \\
+30 & Texteditor & 1 & \ra\ & 0 &  Musix\TeX\ & 4 & 1.0 & 0.5 \\
 \hline
-31 & Texteditor & 1 & \ra\ pmxab \ra\ & 1 &  Musix\TeX\ & 4 & 0.6 & 2.4 \\
+31 & Texteditor & 1 & \ra\ pmxab \ra\ & 1 &  Musix\TeX\ & 4 & 0.6 & 0.24 \\
 \hline
 \hline
 32 &  Easy\-ABC & 4 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 &  &  \\
@@ -430,11 +430,11 @@ Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
 51 & Canorus & 3 & \ra mxml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
 \hline
 \hline
-52 &  Text-Editor & 1 & \ra\ & 0 &  LilyPond & 5 & 1 & 6.0 \\
+52 &  Text-Editor & 1 & \ra\ & 0 &  LilyPond & 5 & 1 & 0.6 \\
 \hline
-53 &  Elysium & 4 & \ra\ & 0 &  LilyPond & 5 & 1 & 9.0 \\
+53 &  Elysium & 4 & \ra\ & 0 &  LilyPond & 5 & 1 & 0.9 \\
 \hline
-54 &  Frescobaldi & 5 & \ra\ & 0 &  LilyPond & 5 & 1 & 10.0 \\
+54 &  Frescobaldi & 5 & \ra\ & 0 &  LilyPond & 5 & 1 & 1.0 \\
 \hline
 \hline
 \end{longtable}

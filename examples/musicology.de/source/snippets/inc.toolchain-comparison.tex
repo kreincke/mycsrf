@@ -16,23 +16,16 @@
 
 \section{Gesamtverleich: And the OSCAR goes to \ldots}
 
+\begin{footnotesize}
 
-
-\begin{small}
-
-\begin{ThreePartTable}
-\begin{TableNotes}
-\item[a] Die Prozessgüte PG wird gemäß obiger Tabelle in den folgenden Kapiteln emiprisch ermittelt.
-\item[b] Die normierte Prozessreife entsteht wie definiert (\ra \pageref{ProzessReife}).
-\end{TableNotes}
-\begin{longtable}{|c|c|c|c|c|c||c||c||}
+\begin{longtable}{|c||c|c|c|c|c|c||c||c||}
 
 % was soll am Anfang oben scheinen:
 \hline
-  \multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & 
+  \multirow{2}{*}{\rotatebox{90}{Weg}} & \multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & 
   \multicolumn{2}{|c||}{NACH} & \multicolumn{2}{c||}{WERTUNG} \\
-\hline
-  Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ + & $\bigstar$ & 
+\cline{2-9}
+ & Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ + & $\bigstar$ & 
   PG\tnote{a} & NPR\tnote{b}\\
 \hline
 \hline
@@ -40,11 +33,12 @@
 
 % was soll bei jedem Seitenumnruch oben scheinen:
 \multicolumn{4}{c}%
-{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+{\tablename\ \thetable\ } \\
 \hline
-\multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & \multicolumn{2}{|c||}{NACH} & \multicolumn{2}{c||}{WERTUNG} \\
-\hline
-  Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ + & $\bigstar$ & 
+ \multirow{2}{*}{\rotatebox{90}{Weg}} & \multicolumn{2}{|c}{VON} & \multicolumn{2}{|c}{ÜBER} & 
+  \multicolumn{2}{|c||}{NACH} & \multicolumn{2}{c||}{WERTUNG} \\
+\cline{2-9}
+  & Frontend & $\bigstar$ & Konvertierung & $\Sigma$  & \LaTeX\ + & $\bigstar$ & 
   PG\tnote{a} & NPR\tnote{b}\\
 \hline
 \hline
@@ -56,95 +50,123 @@
 
 % was am Ende erscheinen:
 \hline
-\insertTableNotes
 \endlastfoot
 
- Easy\-ABC & 4 & \ra\ & 0 &  ABC & 3 & 1 & 7 \\
+01 & Easy\-ABC & 4 & \ra\ & 0 &  ABC & 3 & & 0.56 \\
 \hline
- Easy\-ABC & 4 & \ra\ xml2abc \ra\  & 1 &  ABC & 3 & 1 & 6 \\
+02 &  Easy\-ABC & 4 & \ra\ xml2abc \ra\  & 1 &  ABC & 3 & & \\
 \hline
- Easy\-ABC & 4 & \ra\ mxml2abc \ra\  & 1 &  ABC & 3 & 1 & 6 \\
+03 &  Easy\-ABC & 4 & \ra mxml2abc \ra\  & 1 &  ABC & 3 & & \\
 \hline
- Easy\-ABC & 4 & \ra\ abc2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 5 \\
+04 &  Easy\-ABC & 4 & \ra\ abc2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & & \\
 \hline
- Rose\-garden & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & 1 & 5 \\
+05 &  Easy\-ABC & 4 & \ra mxml2ly \ra\  ly2abc \ra\ & 2 &  ABC & 3 & & \\
+\hline
+06 &  Easy\-ABC & 4 & \ra xml2ly \ra\  ly2abc \ra\ & 2 &  ABC & 3 & & \\
+\hline
+07 &  Rose\-garden & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & &  \\
 \hline 
-Rose\-garden & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 &  4 \\
+08 &  Rose\-garden & 3 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 & &  \\
+\hline 
+09 & Rose\-garden & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
-Rose\-garden & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 4 \\
+10 & Rose\-garden & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
- Muse\-Score & 5 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & 1 & 7 \\
+11 &  Muse\-Score & 5 & \ra\ xml2abc \ra\ & 1 & ABC & 3 &  &  \\
 \hline
- Muse\-Score & 5 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 6 \\
+12 &  Muse\-Score & 5 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 &  &  \\
 \hline
- Muse\-Score & 5 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 6 \\
+13 &  Muse\-Score & 5 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
- Denemo & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & 1 & 5 \\
+14 &  Muse\-Score & 5 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
- Denemo & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 4 \\
+15 &  Denemo & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 &  &  \\
 \hline
- Denemo & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 &  4 \\
+16 &  Denemo & 3 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 &  &  \\
 \hline
- Canorus & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & 1 & 5 \\
+17 &  Denemo & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
- Canorus & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 4 \\
+18 &  Denemo & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
- Canorus & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & 1 & 4 \\
+19 &  Canorus & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 &  &  \\
 \hline
- Texteditor & 1 & \ra\ & 0 &  ABC & 3 & 1 & 4 \\
+20 &  Canorus & 3 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 &  &  \\
 \hline
+21 &  Canorus & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
-EasyABC & 4 & \ra\ abc2mtex \ra\ & 1 &  Musix\TeX\ & 4 & 1 & 7 \\
+22 &  Canorus & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
-EasyABC & 4 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 & 1 & 6 \\
-\hline
-Rosegarden & 3 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 & 1 & 5 \\
-\hline
-MuseScore & 5 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 & 1 & 7 \\
-\hline
-Denemo & 3 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 & 1 & 5 \\
-\hline
-Canorus & 3 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 & 1 & 5 \\
-\hline
-Texteditor & 1 & \ra\ & 0 &  Musix\TeX\ & 4 & 1 & 5 \\
-\hline
-Texteditor & 1 & \ra\ pmxab \ra\ & 1 &  Musix\TeX\ & 4 & 0.6 & 4 \\
+23 &  Texteditor & 1 & \ra\ & 0 &  ABC & 3 & 1.0 & 0.4 \\
 \hline
 \hline
- Easy\-ABC & 4 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & 1 & 7 \\
+24 & EasyABC & 4 & \ra\ abc2mtex \ra\ & 1 &  Musix\TeX\ & 4 &  &  \\
 \hline
- Easy\-ABC & 4 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & 1 & 7 \\
+25 & EasyABC & 4 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 & &  \\
 \hline
- Rosegarden & 3 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & 1 & 6 \\
+26 & Rosegarden & 3 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 &  & \\
 \hline
- Rosegarden & 3 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & 1 & 6 \\
+27 & MuseScore & 5 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 &  & \\
 \hline
- MuseScore & 5 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & 1 & 8 \\
+28 & Denemo & 3 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 &  &  \\
 \hline
- MuseScore & 5 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & 1 & 8 \\
+29 & Canorus & 3 & \ra\ mxml2pmx \ra\ pmxab \ra\ & 2 &  Musix\TeX\ & 4 &  &  \\
 \hline
-Denemo & 3 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & 1 & 6 \\
+30 & Texteditor & 1 & \ra\ & 0 &  Musix\TeX\ & 4 & 1.0 & 0.5 \\
 \hline
-Denemo & 3 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & 1 & 6 \\
-\hline
-Canorus & 3 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & 1 & 6 \\
-\hline
-Canorus & 3 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & 1 & 6 \\
+31 & Texteditor & 1 & \ra\ pmxab \ra\ & 1 &  Musix\TeX\ & 4 & 0.6 & 0.24 \\
 \hline
 \hline
- Text-Editor & 1 & \ra\ & 0 &  LilyPond & 5 & 1 & 6 \\
+32 &  Easy\-ABC & 4 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 &  &  \\
 \hline
- Elysium & 4 & \ra\ & 0 &  LilyPond & 5 & 1 & 9 \\
+33 &  Easy\-ABC & 4 & \ra mxml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 &  &  \\
 \hline
- Frescobaldi & 5 & \ra\ & 0 &  LilyPond & 5 & 1 & 10 \\
+34 &  Easy\-ABC & 4 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+35 &  Easy\-ABC & 4 & \ra mxml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+36 &  Rosegarden & 3 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & & \\
+\hline
+37 &  Rosegarden & 3 & \ra mxml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & & \\
+\hline
+38 &  Rosegarden & 3 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & & \\
+\hline
+39 &  Rosegarden & 3 & \ra mxml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 & & \\
+\hline
+40 &  MuseScore & 5 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & & \\
+\hline
+41 &  MuseScore & 5 & \ra mxml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 & & \\
+\hline
+42 &  MuseScore & 5 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+43 &  MuseScore & 5 & \ra mxml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+44 & Denemo & 3 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+45 & Denemo & 3 & \ra mxml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+46 & Denemo & 3 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  & \\
+\hline
+47 & Denemo & 3 & \ra mxml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  & \\
+\hline
+48 & Canorus & 3 & \ra xml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+49 & Canorus & 3 & \ra mxml2ly \ra\ Elysium \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+50 & Canorus & 3 & \ra xml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+51 & Canorus & 3 & \ra mxml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
+\hline
+\hline
+52 &  Text-Editor & 1 & \ra\ & 0 &  LilyPond & 5 & 1 & 0.6 \\
+\hline
+53 &  Elysium & 4 & \ra\ & 0 &  LilyPond & 5 & 1 & 0.9 \\
+\hline
+54 &  Frescobaldi & 5 & \ra\ & 0 &  LilyPond & 5 & 1 & 1.0 \\
 \hline
 \hline
 \end{longtable}
-\end{ThreePartTable}
-\end{small}
 
-% TODO nicht gegutachtete Wege: Fresco/ etc. nach Easyabc, da deaysy abc auch ein Texteditor
-
+\end{footnotesize}
 
 % this is only inserted to eject fault messages in texlipse
 %\bibliography{../bib/literature}
