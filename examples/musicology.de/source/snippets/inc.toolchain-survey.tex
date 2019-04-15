@@ -39,7 +39,6 @@ Wenn wir nun die bisher gewonnenen Informationen verknüpfen, gewinnen wir folge
 
 % written by the CONVERTERs.
 \converter{\mxmlInColor}{\abcOutColor}{XML2ABC}{0}{7}{xml2abc}
-\converter{\mxmlInColor}{\abcOutColor}{MXML2ABC}{1.5}{6}{mxml2abc}
 \converter{\mxmlInColor}{\pmxOutColor}{MXML2PMX}{3.6}{8.2}{mxml2pmx}
 \converter{\mxmlInColor}{\lyOutColor}{XML2LY}{5}{10.5}{xml2ly}
 \converter{\mxmlInColor}{\lyOutColor}{MXML2LY}{5}{12}{mxml2ly}
@@ -119,8 +118,7 @@ Wenn wir nun die bisher gewonnenen Informationen verknüpfen, gewinnen wir folge
 \draw[->,\abcColor] (FO-ABC) to [out=270,in=90] (ABC2MTEX);
 \draw[->,\abcColor] (FO-ABC) to [out=270,in=180] (ABC2LY);
 
-\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (XML2ABC);
-\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (MXML2ABC);
+\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (XML2ABC);;
 \draw[->,\mxmlColor] (FO-MXML) to [out=270,in=180] (XML2LY);
 \draw[->,\mxmlColor] (FO-MXML) to [out=270,in=180] (MXML2LY);
 \draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (MXML2PMX);
@@ -140,7 +138,6 @@ Wenn wir nun die bisher gewonnenen Informationen verknüpfen, gewinnen wir folge
 
 \draw[->,\abcColor] (LY2ABC) to [out=270,in=90] (CO-ABC);
 \draw[->,\abcColor] (XML2ABC) to [out=270,in=90] (CO-ABC);
-\draw[->,\abcColor] (MXML2ABC) to [out=270,in=90] (CO-ABC);
 
 \draw[->,\pmxColor] (MXML2PMX) to [out=270,in=90] (FO-PMX);
 \draw[->,\mtexColor] (ABC2MTEX) to [out=270,in=180] (CO-MTEX);
@@ -329,8 +326,6 @@ Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
 \hline
 02 &  Easy\-ABC & 4 & \ra\ xml2abc \ra\  & 1 &  ABC & 3 & & \\
 \hline
-03 &  Easy\-ABC & 4 & \ra mxml2abc \ra\  & 1 &  ABC & 3 & & \\
-\hline
 04 &  Easy\-ABC & 4 & \ra\ abc2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & & \\
 \hline
 05 &  Easy\-ABC & 4 & \ra mxml2ly \ra\  ly2abc \ra\ & 2 &  ABC & 3 & & \\
@@ -339,15 +334,11 @@ Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
 \hline
 07 &  Rose\-garden & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & &  \\
 \hline 
-08 &  Rose\-garden & 3 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 & &  \\
-\hline 
 09 & Rose\-garden & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
 10 & Rose\-garden & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
 11 &  Muse\-Score & 5 & \ra\ xml2abc \ra\ & 1 & ABC & 3 &  &  \\
-\hline
-12 &  Muse\-Score & 5 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 &  &  \\
 \hline
 13 &  Muse\-Score & 5 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
@@ -355,15 +346,11 @@ Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
 \hline
 15 &  Denemo & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 &  &  \\
 \hline
-16 &  Denemo & 3 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 &  &  \\
-\hline
 17 &  Denemo & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
 18 &  Denemo & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
 19 &  Canorus & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 &  &  \\
-\hline
-20 &  Canorus & 3 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 &  &  \\
 \hline
 21 &  Canorus & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
@@ -430,11 +417,11 @@ Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
 51 & Canorus & 3 & \ra mxml2ly \ra\ Frescobaldi \ra\ & 2 & LilyPond & 5 &  &  \\
 \hline
 \hline
-52 &  Text-Editor & 1 & \ra\ & 0 &  LilyPond & 5 & 1 & 0.6 \\
+52 &  Text-Editor & 1 & \ra\ & 0 &  LilyPond & 5 & 1.0 & 0.6 \\
 \hline
-53 &  Elysium & 4 & \ra\ & 0 &  LilyPond & 5 & 1 & 0.9 \\
+53 &  Elysium & 4 & \ra\ & 0 &  LilyPond & 5 & 1.0 & 0.9 \\
 \hline
-54 &  Frescobaldi & 5 & \ra\ & 0 &  LilyPond & 5 & 1 & 1.0 \\
+54 &  Frescobaldi & 5 & \ra\ & 0 &  LilyPond & 5 & 1.1 & 1.0 \\
 \hline
 \hline
 \end{longtable}

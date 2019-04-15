@@ -4,7 +4,7 @@ SRCD=source
 LPWD=lily
 
 prod:	clear
-	# (1) create a lilypond working directory and call the liypond pre operations 
+	# (1) create a lilypond working directory and call the lilypond pre operations 
 	@ cp -rd ${SRCD} ${LPWD}
 	@ ( cd ${LPWD} && lilypond-book --out ../${ISWD} ${ISNM}.tex )
 	# (2) now lilypond has created & collected all sources it needs into the final working dir

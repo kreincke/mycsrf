@@ -17,7 +17,7 @@
 
 %% use all entries of the bibliography
 
-\section{Konverter}
+\section{Konverter I}
 
 Wer nach Konvertierungssoftware sucht, findet drei wichtige Anlaufstellen:
 
@@ -74,7 +74,7 @@ Konvertierungsvarianten:
 \cline{2-6}
   & \mbox{LilyPond} & \dashuline{ly2abc} & $\varnothing$ & $\varnothing$ & $\times$  \\
 \cline{2-6}
-  & \mbox{MusicXML} &   \dashuline{xml2abc},   \dashuline{mxml2abc} & $\varnothing$ & xml2pmx & xml2ly musicxml2ly \\
+  & \mbox{MusicXML} &   \dashuline{xml2abc},   \sout{mxml2abc} & $\varnothing$ & xml2pmx & xml2ly musicxml2ly \\
 \hline 
 \hline
 \end{tabulary}
@@ -96,13 +96,30 @@ Diese Tabelle ist wie folgt zu lesen:
   (eingeklammert)]
   \item Der Konverter \textit{pmy2ly} wird heute nicht mehr mit Lilypond
   ausgeliefert; es gibt Stimmen im Netz, die sagen, dass er nicht mehr weiter
-  gepflegt werde und deshalb aus dem Bestand genommen worden sei\footnote{$\rightarrow$
+  gepflegt werde und deshalb aus dem Bestand genommen worden sei.\footnote{$\rightarrow$
   \href{https://lists.gnu.org/archive/html/lilypond-user/2008-08/msg00056.html}{
   \texttt{https://lists.gnu.org/archive/html/lilypond-user/2008-08/msg00056.html}}
-  RDL. 2019-01-17}. [$\rightarrow$ \sout{durchstrichen}]
+  RDL 2019-01-17} [$\rightarrow$ \sout{durchstrichen}]
+
+  \item Der Konverter \textit{mxml2abc} war als unabhängiges Projekt angelegt;
+  das Tool sollte ein Java-Programm sein. Im Netz wird heute noch darüber
+  berichtet.\footnote{\ra\
+  \href{http://freshmeat.sourceforge.net/projects/mxml2abc}
+  {http://freshmeat.sourceforge.net/projects/mxml2abc} RDL 2019-04-11} Alte
+  Updateankündigungen werden noch angezeigt\footnote{\ra\ 
+  \href{https://musescore.org/en/node/15698}
+  {https://musescore.org/en/node/15698} RDL 2019-04-11}. Allerdings ist die
+  Homepage selbst nicht mehr
+  erreichbar\footnote{\ra\ \href{https://code.google.com/p/mxml2abc/}
+  {https://code.google.com/p/mxml2abc/} RDL 2019-04-11}.
+  Und als Programm wird \textit{mxml2abc} wenigstens in unser
+  Referenzdistribution nicht mehr bereitgestellt. Insofern werden wir diesem
+  Konverter praktisch nicht mehr nachgehen können. [$\rightarrow$
+  \sout{durchstrichen}]
+
   \item Für einige Kombinationen haben wir (noch) keine Konverter gefunden,
   obwohl es prinzipiell sinnvoll wäre, wenn es solche gäbe. [$\rightarrow$
-  $\varnothing$] 
+  $\varnothing$]  
   \item Die Konverter von \acc{LilyPond} nach \acc{ABC} resp. von \acc{MusicXML}
   nach \acc{ABC} scheinen auf den ersten Blick nachrangig zu sein: Denn wenn wir
   beispielsweise schon eine \textit{LilyPond}-Datei hätten, brächte eine

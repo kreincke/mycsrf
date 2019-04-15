@@ -42,29 +42,61 @@
 %%-- end(titlepage)
 
 \begin{center}
-\begin{abc}[name=abc/cadenca3]
-
-X:3
-T:Title
-%%score 1 2
-L:1/8
-Q:1/4=45
-M:5/8
-I:linebreak $
-K:Bb
-V:1 treble nm="Diskant"
-V:2 bass nm="Bass"
-V:1
-[Bdf]2 [cef]2 [Beb] | [cea]2 [Afa]2 [cef] | z [Fdf] [EAc] [DFB]2 | z [EAc]2 [EAc]2 | 
-z [EAc] [cef] [Bdf]2 |$ z [GBc] [EAc] [DFB]2 | 
-V:2
-"CT" B,,B,"D7" A,_A,"CS" G,/>_G,/ |"D7" F,E,"Dother" D,>_D,"D7" C,/>A,,/ |"CT" B,,2"D" F,"CT" B,2 | 
-z"D7" F, C, F,,2 | z"D7" F,"D7" A,,"CT" B,,2 |$ z"CS+6" E,"D7" F,"CT" B,2 | 
 
 
+\begin{lilypond}
 
+\version "2.7.40"
+\header {
+  crossRefNumber = "3"
+  footnotes = ""
+  tagline = "Lily was here 2.18.2 -- automatically converted from ABC"
+  title = "Title"
+}
+voiceB =  {
+\set Score.defaultBarType = ""
 
-\end{abc}
+<<   bes'8    d''8    f''8   >>     r8 <<   ees'8    a'8    c''8   >> <<   c''8 
+   ees''8    f''8   >> <<   bes'8    d''8    f''8   >>   
+}
+voiceC =  {
+\set Score.defaultBarType = ""
+
+    bes,8 ^"CT"   bes8    a8 ^"D7"   aes8    g16. ^"CS"   ges32    \bar "|"   
+f8 ^"D7"   ees8    d8. ^"Dother"   des16    c16. ^"D7"   a,32    \bar "|"   
+bes,4 ^"CT"   f8 ^"D"   bes4 ^"CT"   \bar "|"     r8   f8 ^"D7"   c8    f,4    
+\bar "|"   r8   f8 ^"D7"   a,8 ^"D7"   bes,4 ^"CT"   \bar "|"   
+}
+voicedefault =  {
+\set Score.defaultBarType = ""
+
+% %score 1 2
+ \tempo  4=45
+ \time 5/8 \key bes \major 
+}
+
+\score{
+    <<
+
+  \context Staff="1"
+  {
+      \voicedefault
+      \voiceB 
+  }
+
+  \context Staff="2"
+  {
+      \voicedefault
+      \voiceC 
+  }
+
+    >>
+  \layout {
+  }
+  \midi {}
+}
+
+\end{lilypond}
 \end{center}
 
 

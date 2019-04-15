@@ -55,224 +55,266 @@ summarisch protokollieren. Trotzdem ist die Reproduzierbarkeit und
 
 Mit diesen Materialien haben wir die folgenden Ergebnisse erzeugt.
 
-\subsection{W01: Easy\-ABC \ra\ \LaTeX+ABC (0.8/0.56)}
+\subsection{w01: Easy\-ABC \ra\ \LaTeX+ABC (0.8/0.56)}\label{w01}
 
-Die aus Easy\-ABC als \acc{abc}-Code exportierte Referenzkadenz III kann
-technisch direkt in das \LaTeX-Backend eingefügt werden. Das Ergebnis ist
-graphisch perfekt. Allerdings wird die vorgegebene Tempoangabe \texttt{\Acht=90}
-während des Exports/Imports in \texttt{\Vier=45} umgewandelt. Das ist bei einem
-\texttt{5/8}-Takt nicht sinnvoll und muss manuell korrigiert werden. Damit
-ergibt sich eine Prozessgüte von \texttt{0.8} und eine normierte Prozessreife von
+Die aus Easy\-ABC als \acc{abc}-Code exportierte Referenzkadenz III kann manuell
+in das \LaTeX-Backend kopiert werden, was daraus -- technisch gesehen --
+reibungslos die korrespondierende PDF-Datei erzeugt. Den Output des Frontends
+separat zu halten und mit \LaTeX-Mitteln per \texttt{input} automatisiert zu
+integrieren, scheitert jedoch. Die freie Verwendung des Zeichen \texttt{\$} im
+importierten Code verwirrt zudem das Syntaxhighlighting von wenigstens einigen
+Editoren. Schließlich wird die vorgegebene Tempoangabe \texttt{\Acht=90} während
+des Exports/Imports in \texttt{\Vier=45} umgewandelt. Das ist bei einem
+\texttt{5/8}-Takt nicht sinnvoll und muss manuell korrigiert werden. Das
+schließlich erzeugbare Ergebnis ist allerdings graphisch perfekt.
+
+Man muss also konstatieren, dass die Konvertierung als Prozess zwar
+\acc{stolpert}, aber \acc{exzellente} Ergebnisse erzeugt. Damit ergibt sich
+eine Prozessgüte von \texttt{0.8} und eine normierte Prozessreife von
 \texttt{((4+3-0)*0.8)/10=0.56}.
 
-\subsection{W02: Easy\-ABC \ra\ xml2abc \ra\ \LaTeX+ABC: (1.0)}
+\subsection{w02: Easy\-ABC \ra\ xml2abc \ra\ \LaTeX+ABC: (0.8/0.48)}\label{w02}
 
-2
+Der Konverter \acc{xml2ab} wird mit \acc{EasyABC} mitgeliefert.\footnote{Im
+Sourcecode-Ordner zu starten mit \texttt{python xml2abc}} Er nimmt die aus
+Easy\-ABC als \acc{xml}-Code exportierte Referenzkadenz III und konvertiert sie
+in \acc{abc}-Code. Dieser kann seinerseits manuell in das \LaTeX-Backend kopiert
+werden, damit es -- technisch gesehen -- reibungslos die korrespondierende,
+graphisch \acc{exzellente} PDF-Datei erzeugt.\footnote{Materialien dazu unter
+\ra\
+\texttt{mycsrf/examples/musicology.de/chain-evaluation/from-EasyABC-to/w02}}
 
-\subsection{W03: Easy\-ABC \ra mxml2abc \ra\ \LaTeX+ABC: (1.0)}
+Dabei treten jedoch die gleichen Irritation auf, wie bei der direkten Nutzung
+der aus dem Frontend gesicherten \acc{abc}-Datei:\footnote{\ra\ S.\pageref{w01}}
+Die \acc{ABC}-Outputdatei kann nicht mit \LaTeX-Mitteln inkludiert werden, die
+freie Verwendung von \texttt{\$} verwirrt manche Editoren, und die Tempoangabe
+muss manuell auf \texttt{\Acht=90} zurückgesetzt werden.
 
-3
+Auch hier ist also festzuhalten, dass die Konvertierung als Prozess zwar
+\acc{stolpert}, aber nichtsdestotrotz \acc{exzellente} Ergebnisse erzeugt. Damit
+ergibt sich eine Prozessgüte von \texttt{0.8} und eine normierte Prozessreife
+von \texttt{((4+3-1)*0.8)/10=0.48}.
 
-\subsection{W04: Easy\-ABC \ra\ abc2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)}
+\subsection{w04: Easy\-ABC \ra\ abc2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)}\label{w04}
 
-4
+\acc{abc2ly} wird von \acc{Lilypond} als Tool mitgeliefert und über die
+Kommandozeile aufgerufen.\footnote{\ra\
+\href{http://lilypond.org/doc/v2.19/Documentation/usage/invoking-abc2ly.de.html}
+{http://lilypond.org/doc/v2.19/Documentation/usage/invoking-abc2ly.de.html}} Das
+Kommando \texttt{abc2ly cadenca3-from-easyabc.abc} nimmt die \acc{abc}-Datei
+und erzeugt die korrespondierende Lilypond-Datei \texttt{cadenca3-from-easyabc.ly}.
 
-\subsection{W05: Easy\-ABC \ra mxml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)}
+Unglücklicherweise meldet die Konvertierung selbst schon mit den Worten
+\acc{Huh? Don't understand}, dass etwas nicht korrekt läuft. Die generierte
+\acc{LilyPond}-Datei kann zwar noch problemlos in die \LaTeX-Datei eingebunden
+werden und mit dem LilyPond adäquate Makefile in eine PDF-Datei umgewandelt 
+werden. Das Ergebnis ist aber kaum noch als eine 'Varianten' der
+Referenzkadenz III zu erkennen. Dasselbe Bild zeigt sich, wenn man das Ergebnis
+der Konversion mit dem \acc{LilyPond}-Editor \acc{Frescobaldi} öffnet. erst
+auf den 3. Blick erkennt man  noch Zusammenhänge.
+
+Hier also läuft der Konvertierungsprozess zwar technisch reibungslos, dass Ergebnis
+aber ist \acc{inakzeptabel}. Damit
+ergibt sich eine Prozessgüte von \texttt{0} und eine normierte Prozessreife
+von \texttt{((4+3-2)*0)/10=0.0}.
+
+
+\subsection{w05: Easy\-ABC \ra mxml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)}
 
 5
 
-\subsection{W06: Easy\-ABC \ra xml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)}
+\subsection{w06: Easy\-ABC \ra xml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)}
 
 6
 
-\subsection{W07: Rose\-garden \ra\ xml2abc \ra\ \LaTeX+ABC: (1.0)} 
+\subsection{w07: Rose\-garden \ra\ xml2abc \ra\ \LaTeX+ABC: (1.0)} 
 
 7
 
-\subsection{W08: Rose\-garden \ra\ mxml2abc \ra\ \LaTeX+ABC: (1.0)} 
+\subsection{w08: Rose\-garden \ra\ mxml2abc \ra\ \LaTeX+ABC: (1.0)} 
 
 8
 
-\subsection{W09: Rose\-garden \ra\ mxml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0/1.0)} 
+\subsection{w09: Rose\-garden \ra\ mxml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0/1.0)} 
 
 9
 
-\subsection{W10: Rose\-garden \ra\ xml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)} 
+\subsection{w10: Rose\-garden \ra\ xml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)} 
 
 10
 
-\subsection{W11: Muse\-Score \ra\ xml2abc \ra\ \LaTeX+ABC: (1.0)} 
+\subsection{w11: Muse\-Score \ra\ xml2abc \ra\ \LaTeX+ABC: (1.0)} 
 
 11
 
-\subsection{W12: Muse\-Score \ra\ mxml2abc \ra\ \LaTeX+ABC: (1.0)}
+\subsection{w12: Muse\-Score \ra\ mxml2abc \ra\ \LaTeX+ABC: (1.0)}
 
 12
 
-\subsection{W13: Muse\-Score \ra\ mxml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)} 
+\subsection{w13: Muse\-Score \ra\ mxml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)} 
 
 13
 
-\subsection{W14: Muse\-Score \ra\ xml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)}
+\subsection{w14: Muse\-Score \ra\ xml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)}
 
 14
 
-\subsection{W15: Denemo \ra\ xml2abc \ra\ \LaTeX+ABC: (1.0)}
+\subsection{w15: Denemo \ra\ xml2abc \ra\ \LaTeX+ABC: (1.0)}
 
 15
 
-\subsection{W16: Denemo \ra\ mxml2abc \ra\ \LaTeX+ABC: (1.0)} 
+\subsection{w16: Denemo \ra\ mxml2abc \ra\ \LaTeX+ABC: (1.0)} 
 
 16
 
-\subsection{W17: Denemo \ra\ mxml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)} 
+\subsection{w17: Denemo \ra\ mxml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)} 
 
 17
 
-\subsection{W18: Denemo \ra\ xml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)} 
+\subsection{w18: Denemo \ra\ xml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)} 
 
 18
 
-\subsection{W19: Canorus \ra\ xml2abc \ra\ \LaTeX+ABC: (1.0)} 
+\subsection{w19: Canorus \ra\ xml2abc \ra\ \LaTeX+ABC: (1.0)} 
 
 19
 
-\subsection{W20: Canorus \ra\ mxml2abc \ra\ \LaTeX+ABC: (1.0)} 
+\subsection{w20: Canorus \ra\ mxml2abc \ra\ \LaTeX+ABC: (1.0)} 
 
 20
 
-\subsection{W21: Canorus \ra\ mxml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)} 
+\subsection{w21: Canorus \ra\ mxml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)} 
 
 21
 
-\subsection{W22: Canorus \ra\ xml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)} 
+\subsection{w22: Canorus \ra\ xml2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)} 
 
 22
 
-\subsection{W23: Texteditor \ra\ \LaTeX+ABC: (1.0)}
+\subsection{w23: Texteditor \ra\ \LaTeX+ABC: (1.0)}
 
 23
 
-\subsection{W24: EasyABC \ra\ abc2mtex \ra\ \LaTeX+Musix\TeX: (1.0)} 
+\subsection{w24: EasyABC \ra\ abc2mtex \ra\ \LaTeX+Musix\TeX: (1.0)} 
 
 24
 
-\subsection{W25: EasyABC \ra\ mxml2pmx \ra\ pmxab \ra\ \LaTeX+Musix\TeX: (1.0)} 
+\subsection{w25: EasyABC \ra\ mxml2pmx \ra\ pmxab \ra\ \LaTeX+Musix\TeX: (1.0)} 
 
 25
 
-\subsection{W26: Rosegarden \ra\ mxml2pmx \ra\ pmxab \ra\ \LaTeX+Musix\TeX: (1.0)}
+\subsection{w26: Rosegarden \ra\ mxml2pmx \ra\ pmxab \ra\ \LaTeX+Musix\TeX: (1.0)}
 
 26
 
-\subsection{W27: MuseScore \ra\ mxml2pmx \ra\ pmxab \ra\ \LaTeX+Musix\TeX: (1.0)}
+\subsection{w27: MuseScore \ra\ mxml2pmx \ra\ pmxab \ra\ \LaTeX+Musix\TeX: (1.0)}
 
 27
 
-\subsection{W28: Denemo \ra\ mxml2pmx \ra\ pmxab \ra\ \LaTeX+Musix\TeX: (1.0)} 
+\subsection{w28: Denemo \ra\ mxml2pmx \ra\ pmxab \ra\ \LaTeX+Musix\TeX: (1.0)} 
 
 28
 
-\subsection{W29: Canorus \ra\ mxml2pmx \ra\ pmxab \ra\ \LaTeX+Musix\TeX: (1.0)} 
+\subsection{w29: Canorus \ra\ mxml2pmx \ra\ pmxab \ra\ \LaTeX+Musix\TeX: (1.0)} 
 
 29
 
-\subsection{W30: Texteditor \ra\ \LaTeX+Musix\TeX: (1.0)}
+\subsection{w30: Texteditor \ra\ \LaTeX+Musix\TeX: (1.0)}
 
 30
 
-\subsection{W31: Texteditor \ra\ pmxab \ra\ \LaTeX+Musix\TeX: (1.0)}
+\subsection{w31: Texteditor \ra\ pmxab \ra\ \LaTeX+Musix\TeX: (1.0)}
 
 31
 
-\subsection{W32: Easy\-ABC \ra xml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)} 
+\subsection{w32: Easy\-ABC \ra xml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)} 
 
 32
 
-\subsection{W33: Easy\-ABC \ra mxml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)} 
+\subsection{w33: Easy\-ABC \ra mxml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)} 
 
 33
 
-\subsection{W34: Easy\-ABC \ra xml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w34: Easy\-ABC \ra xml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
 
 34
 
-\subsection{W35: Easy\-ABC \ra mxml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)} 
+\subsection{w35: Easy\-ABC \ra mxml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)} 
 
 35
 
-\subsection{W36: Rosegarden \ra xml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w36: Rosegarden \ra xml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)}
 
 36
 
-\subsection{W37: Rosegarden \ra mxml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w37: Rosegarden \ra mxml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)}
 
 37
 
-\subsection{W38: Rosegarden \ra xml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w38: Rosegarden \ra xml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
 
 38
 
-\subsection{W39: Rosegarden \ra mxml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w39: Rosegarden \ra mxml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
 
 39
 
-\subsection{W40: MuseScore \ra xml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w40: MuseScore \ra xml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)}
 
 40
 
-\subsection{W41: MuseScore \ra mxml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w41: MuseScore \ra mxml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)}
 
 41
 
-\subsection{W42: MuseScore \ra xml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)} 
+\subsection{w42: MuseScore \ra xml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)} 
 
 42
 
-\subsection{W43: MuseScore \ra mxml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)} 
+\subsection{w43: MuseScore \ra mxml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)} 
 
 43
 
-\subsection{W44: Denemo \ra xml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)} 
+\subsection{w44: Denemo \ra xml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)} 
 
 44
 
-\subsection{W45: Denemo \ra mxml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)} 
+\subsection{w45: Denemo \ra mxml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)} 
 
 45
 
-\subsection{W46: Denemo \ra xml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w46: Denemo \ra xml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
 
 46
 
-\subsection{W47: Denemo \ra mxml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w47: Denemo \ra mxml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
 
 47
 
-\subsection{W48: Canorus \ra xml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w48: Canorus \ra xml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)}
 
 48
 
-\subsection{W49: Canorus \ra mxml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w49: Canorus \ra mxml2ly \ra\ Elysium \ra\ \LaTeX+LilyPond: (1.0)}
 
 49
 
-\subsection{W50: Canorus \ra xml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w50: Canorus \ra xml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
 
 50
 
-\subsection{W51: Canorus \ra mxml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w51: Canorus \ra mxml2ly \ra\ Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
 
 51
 
-\subsection{W52: Text-Editor \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w52: Text-Editor \ra\ \LaTeX+LilyPond: (1.0)}
 
 52
 
-\subsection{W53: Elysium \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w53: Elysium \ra\ \LaTeX+LilyPond: (1.0)}
 
 53
-\subsection{W54: Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
+\subsection{w54: Frescobaldi \ra\ \LaTeX+LilyPond: (1.0)}
 
 54
 
