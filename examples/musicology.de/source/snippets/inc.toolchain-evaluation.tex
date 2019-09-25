@@ -16,9 +16,9 @@
 
 \section{Prozessgüte und Prozessreife einzelner Ketten}
 
-Wir werden in den folgenden Abschnitten die Ergebnisse unserer Tests nur
-summarisch protokollieren. Trotzdem ist die Reproduzierbarkeit und
-Überprüfbarkeit auf folgende Weise gewährleistet:
+Wir werden in den folgenden Abschnitten die Ergebnisse unserer Tests summarisch
+protokollieren. Die Reproduzierbarkeit ist im einzelnen auf folgende Weise
+gewährleistet:
 
 \begin{itemize}
   \item In den Quellen zu diesem Text\footcite[vgl.][\nopage wp]{Reincke2019a}
@@ -39,7 +39,7 @@ summarisch protokollieren. Trotzdem ist die Reproduzierbarkeit und
   bei MusiX\TeX\ durch \acc{harmony}-Konstrukte und bei LilyPond durch die unser
   kleinen Zusatzbibliothek.
   \item Danach haben wir in jedem Fronted alle möglichen Exporte angestoßen und
-  die Ergebnisse in einem Ordner \texttt{from-frontend-to} abgelegt.
+  die Ergebnisse in einem Ordner \texttt{mat-from-[Denemo|EasyABC|MuseScore|Rosegarden]} abgelegt.
   \item Für jeden Weg, der vom Fontend aus gegangen werden kann, gibt es im
   Frontendordner einen Ordner mit der entsprechenden Nummer.
   \item Wird der Output des Frontends gemäß der Wegdefinition direkt als Input für
@@ -57,16 +57,13 @@ Mit diesen Materialien haben wir die folgenden Ergebnisse erzeugt.
 
 \subsection{w01: Easy\-ABC \ra\ \LaTeX+ABC (0.8/0.56)}\label{w01}
 
-Die aus Easy\-ABC als \acc{abc}-Code exportierte Referenzkadenz III kann manuell
-in das \LaTeX-Backend kopiert werden, was daraus -- technisch gesehen --
-reibungslos die korrespondierende PDF-Datei erzeugt. Den Output des Frontends
-separat zu halten und mit \LaTeX-Mitteln per \texttt{input} automatisiert zu
-integrieren, scheitert jedoch. Die freie Verwendung des Zeichen \texttt{\$} im
-importierten Code verwirrt zudem das Syntaxhighlighting von wenigstens einigen
-Editoren. Schließlich wird die vorgegebene Tempoangabe \texttt{\Acht=90} während
-des Exports/Imports in \texttt{\Vier=45} umgewandelt. Das ist bei einem
-\texttt{5/8}-Takt nicht sinnvoll und muss manuell korrigiert werden. Das
-schließlich erzeugbare Ergebnis ist allerdings graphisch perfekt.
+Man kann in Easy\-ABC die Refrenzkadenz III gut mit den vereinfachten
+Harmoniesymbolen notieren und als ABC-Datei speichern. Das Ergebnis direkt per
+\texttt{input} in eine \LaTeX-Datei zu importieren. Es stören
+\texttt{\$}-Zeichen im ABC-Code, die wahrscheinlich einen Zeilenumbruch für die
+Darstellung in Easy-ABC markieren sollen. Entfernt man diese Zeichen und kopiert
+den ABC-Code manuell in die \LaTeX-Datei, lässt sich daraus über das
+\LaTeX-ABC-Backend problemlos die graphisch perfekte PDF-Datei generieren.
 
 Man muss also konstatieren, dass die Konvertierung als Prozess zwar
 \acc{stolpert}, aber \acc{exzellente} Ergebnisse erzeugt. Damit ergibt sich
@@ -94,6 +91,9 @@ Auch hier ist also festzuhalten, dass die Konvertierung als Prozess zwar
 \acc{stolpert}, aber nichtsdestotrotz \acc{exzellente} Ergebnisse erzeugt. Damit
 ergibt sich eine Prozessgüte von \texttt{0.8} und eine normierte Prozessreife
 von \texttt{((4+3-1)*0.8)/10=0.48}.
+
+
+\subsection{w03: Easy\-ABC \ra\ mxml2abc \ra\ \LaTeX+ABC: (?/?)}\label{w03}
 
 \subsection{w04: Easy\-ABC \ra\ abc2ly \ra\ ly2abc \ra\ \LaTeX+ABC: (1.0)}\label{w04}
 

@@ -6,7 +6,7 @@
     <encoding>
       <encoder>abc2xml version 69</encoder>
       <supports attribute="new-system" element="print" type="yes" value="yes" />
-      <encoding-date>2019-04-07</encoding-date>
+      <encoding-date>2019-09-01</encoding-date>
     </encoding>
   </identification>
   <part-list>
@@ -22,8 +22,8 @@
       <direction placement="above">
         <direction-type>
           <metronome>
-            <beat-unit>quarter</beat-unit>
-            <per-minute>45.00</per-minute>
+            <beat-unit>eighth</beat-unit>
+            <per-minute>90.00</per-minute>
           </metronome>
         </direction-type>
         <sound tempo="45.00" />
@@ -609,7 +609,7 @@
       </attributes>
       <direction placement="above">
         <direction-type>
-          <words>CT</words>
+          <words>T</words>
         </direction-type>
       </direction>
       <note>
@@ -664,7 +664,7 @@
       </note>
       <direction placement="above">
         <direction-type>
-          <words>CS</words>
+          <words>S</words>
         </direction-type>
       </direction>
       <note>
@@ -721,7 +721,7 @@
       </note>
       <direction placement="above">
         <direction-type>
-          <words>Dother</words>
+          <words>Dp</words>
         </direction-type>
       </direction>
       <note>
@@ -778,7 +778,7 @@
     <measure number="3">
       <direction placement="above">
         <direction-type>
-          <words>CT</words>
+          <words>T</words>
         </direction-type>
       </direction>
       <note>
@@ -808,7 +808,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words>CT</words>
+          <words>T</words>
         </direction-type>
       </direction>
       <note>
@@ -902,7 +902,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words>CT</words>
+          <words>T</words>
         </direction-type>
       </direction>
       <note>
@@ -926,7 +926,7 @@
       </note>
       <direction placement="above">
         <direction-type>
-          <words>CS+6</words>
+          <words>S+6</words>
         </direction-type>
       </direction>
       <note>
@@ -956,7 +956,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words>CT</words>
+          <words>T</words>
         </direction-type>
       </direction>
       <note>

@@ -38,7 +38,8 @@ Wenn wir nun die bisher gewonnenen Informationen verknüpfen, gewinnen wir folge
 \file{\lyBgColor}{Blue}{CO-LY}{10.4}{3}{.ly}
 
 % written by the CONVERTERs.
-\converter{\mxmlInColor}{\abcOutColor}{XML2ABC}{0}{7}{xml2abc}
+\converter{\mxmlInColor}{\abcOutColor}{XML2ABC}{1.5}{6}{xml2abc}
+\converter{\mxmlInColor}{\abcOutColor}{MXML2ABC}{0}{7}{mxml2abc}
 \converter{\mxmlInColor}{\pmxOutColor}{MXML2PMX}{3.6}{8.2}{mxml2pmx}
 \converter{\mxmlInColor}{\lyOutColor}{XML2LY}{5}{10.5}{xml2ly}
 \converter{\mxmlInColor}{\lyOutColor}{MXML2LY}{5}{12}{mxml2ly}
@@ -118,7 +119,8 @@ Wenn wir nun die bisher gewonnenen Informationen verknüpfen, gewinnen wir folge
 \draw[->,\abcColor] (FO-ABC) to [out=270,in=90] (ABC2MTEX);
 \draw[->,\abcColor] (FO-ABC) to [out=270,in=180] (ABC2LY);
 
-\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (XML2ABC);;
+\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (XML2ABC);
+\draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (MXML2ABC);
 \draw[->,\mxmlColor] (FO-MXML) to [out=270,in=180] (XML2LY);
 \draw[->,\mxmlColor] (FO-MXML) to [out=270,in=180] (MXML2LY);
 \draw[->,\mxmlColor] (FO-MXML) to [out=270,in=90] (MXML2PMX);
@@ -138,6 +140,7 @@ Wenn wir nun die bisher gewonnenen Informationen verknüpfen, gewinnen wir folge
 
 \draw[->,\abcColor] (LY2ABC) to [out=270,in=90] (CO-ABC);
 \draw[->,\abcColor] (XML2ABC) to [out=270,in=90] (CO-ABC);
+\draw[->,\abcColor] (MXML2ABC) to [out=270,in=90] (CO-ABC);
 
 \draw[->,\pmxColor] (MXML2PMX) to [out=270,in=90] (FO-PMX);
 \draw[->,\mtexColor] (ABC2MTEX) to [out=270,in=180] (CO-MTEX);
@@ -163,18 +166,18 @@ Wir kennen demnach vier echte graphische Frontends -- \acc{Rosegarden},
 Frontends -- \acc{EasyABC}, \acc{Elysium} und \acc{Frescobaldi} --,  drei
 Backendsysteme -- \acc{\LaTeX\,+\,ABC}, \acc{\LaTeX\,+\,MusiX\TeX} und
 \acc{\LaTeX\,+\,LilyPond} -- und eine Reihe von Konvertern. Unglücklicherweise
-haben wir lernen müssen, dass es momentan keinen graphischen oder
-semi-graphischen Editor für \acc{MusiX\TeX} gibt. Deshalb müssen wir ersatzweise
-den reinen Texteditor in unsere Kollektion von Frontends aufnehmen.\footnote{Um
-die Analyse nicht zu verfälschen, geben wir dem Text-Edtor nur einen Stern.}
+haben wir lernen müssen, dass es z.Zt. keinen graphischen oder semi-graphischen
+Editor für \acc{MusiX\TeX} gibt. Deshalb haben wir ersatzweise den reinen
+Texteditor in unsere Kollektion von Frontends aufgenommen.\footnote{Um die
+Analyse nicht zu verfälschen, geben wir dem Text-Edtor nur einen Stern.}
 Außerdem haben wir festgestellt, dass keines der echten graphischen Frontends
-eine optimale Dokumentation der Harmonieanalyse bietet.
-Und schließlich hatte sich schon vorher ergeben, dass das
-\acc{\LaTeX-ABC-Backend} nur die Integration begrenzt komplexer Analysesymbole
-anbietet, während die Kombinationen von \LaTeX\ und MusiX\TeX\ bzw. \LaTeX und
-LilyPond jeweils gut mit strukturell adäquaten Analysesymbolen umgehen können.
-Allerdings sind diese Kennzeichnungen bei der \LaTeX-MusiX\TeX-Variante z.Zt.
-visuell ansprechender, als bei der \LaTeX-LilyPond-Variante.
+eine optimale Dokumentation der Harmonieanalyse bietet. Und schließlich hatte
+sich schon vorher ergeben, dass das \acc{\LaTeX-ABC-Backend} nur die Integration
+begrenzt komplexer Analysesymbole anbietet, während die Kombinationen von
+\LaTeX\ und MusiX\TeX\ bzw. \LaTeX und LilyPond jeweils gut mit strukturell
+adäquaten Analysesymbolen umgehen können. Allerdings sind diese Kennzeichnungen
+bei der \LaTeX-MusiX\TeX-Variante (bisher) visuell ansprechender, als bei der
+\LaTeX-LilyPond-Variante.
 
 Noch ist unsere 'Landkarte' allerdings bloß eine theoretische Skizze: die Wege
 ergaben sich rein aus dem 'Versprechen' der Tools, bestimmte Formate zu
@@ -210,15 +213,11 @@ bietet sich dafür unmittelbar ein Bewertungsverfahren an:
   erfordern) oder gar \acc{unmöglich} machen.
 \end{enumerate}
  
-Die Qualität des Ergebnisses und die Nutzbarkeit des Weges werden zuletzt
-empirisch zu ermitteln sein. Wir werden die beiden Werte allerdings nach einem
-festen Schema in einen einzigen Wert der \acc{Prozessgüte} verrechnen: Die Qualität
-eines 'Weges', der problemlos ein exzellentes Ergebnis erzeugt, ist so gut, wie
-die Qualität des beteiligten Frontends und Backends abzgl. der Komplexität des
-Weges. Das wird mit einer gewichtenden Prozessgüte von 1 erreicht. Umgekehrt
-sind die Wege nutzlos, die inakzeptable Ergebnisse erzeugen oder nicht umsetzbar
-sind. Dem entspricht dann eine faktorelle Prozessgüte von 0. Alle anderen
-Abstufungen ergeben sich aus folgender Tabelle:
+Die ersten beiden Aspekte können wir direkt aus den schon bekannten
+Informationen ableiten. Die letzte beiden - die \acc{Qualität des Ergebnisses}
+und die \acc{Nutzbarkeit des Weges} müssen wir noch empirisch ermitteln. Wir
+wollen sie anschlißend nach einem festen Schema in einem einzigen Wert der
+\acc{Prozessgüte} zusammenfassen:
 
 \begin{center}
 \renewcommand{\arraystretch}{1.5}
@@ -241,8 +240,15 @@ Abstufungen ergeben sich aus folgender Tabelle:
 \renewcommand{\arraystretch}{1}
 \end{center}
 
-Damit lässt sich die Qualität eines Weges nach einer einfachen Methode
-rechnerisch vergleichen: 
+Die Werte der Prozessgüte sind so zu lesen: Die Qualität eines 'Weges', der
+problemlos ein exzellentes Ergebnis erzeugt, ist so gut, wie die Qualität des
+beteiligten Frontends und Backends abzgl. der Komplexität des Weges. Das wird
+mit einer gewichtenden Prozessgüte von 1 erreicht. Umgekehrt sind die Wege
+nutzlos, die inakzeptable Ergebnisse erzeugen oder nicht umsetzbar sind. Dem
+entspricht dann eine faktorelle Prozessgüte von 0. Die anderen Abstufungen
+repräsentieren Teilwerte.
+
+Damit lässt sich die Qualität eines Weges rechnerisch so erfassen: 
 
 \label{ProzessReife}
 \begin{description}
@@ -326,6 +332,8 @@ Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
 \hline
 02 &  Easy\-ABC & 4 & \ra\ xml2abc \ra\  & 1 &  ABC & 3 & & \\
 \hline
+03 &  Easy\-ABC & 4 & \ra\ mxml2abc \ra\  & 1 &  ABC & 3 & & \\
+\hline
 04 &  Easy\-ABC & 4 & \ra\ abc2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 & & \\
 \hline
 05 &  Easy\-ABC & 4 & \ra mxml2ly \ra\  ly2abc \ra\ & 2 &  ABC & 3 & & \\
@@ -334,11 +342,15 @@ Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
 \hline
 07 &  Rose\-garden & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 & &  \\
 \hline 
+08 &  Rose\-garden & 3 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 & &  \\
+\hline 
 09 & Rose\-garden & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
 10 & Rose\-garden & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
 11 &  Muse\-Score & 5 & \ra\ xml2abc \ra\ & 1 & ABC & 3 &  &  \\
+\hline
+12 &  Muse\-Score & 5 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 &  &  \\
 \hline
 13 &  Muse\-Score & 5 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
@@ -346,11 +358,15 @@ Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
 \hline
 15 &  Denemo & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 &  &  \\
 \hline
+16 &  Denemo & 3 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 &  &  \\
+\hline
 17 &  Denemo & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
 18 &  Denemo & 3 & \ra\ xml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
 19 &  Canorus & 3 & \ra\ xml2abc \ra\ & 1 & ABC & 3 &  &  \\
+\hline
+20 &  Canorus & 3 & \ra\ mxml2abc \ra\ & 1 & ABC & 3 &  &  \\
 \hline
 21 &  Canorus & 3 & \ra\ mxml2ly \ra\ ly2abc \ra\ & 2 &  ABC & 3 &  &  \\
 \hline
@@ -421,7 +437,7 @@ Bringt man all dies zusammen, ergibt sich folgendes vorläufiges Bild:
 \hline
 53 &  Elysium & 4 & \ra\ & 0 &  LilyPond & 5 & 1.0 & 0.9 \\
 \hline
-54 &  Frescobaldi & 5 & \ra\ & 0 &  LilyPond & 5 & 1.1 & 1.0 \\
+54 &  Frescobaldi & 5 & \ra\ & 0 &  LilyPond & 5 & 1.0 & 1.0 \\
 \hline
 \hline
 \end{longtable}
