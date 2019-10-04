@@ -1,0 +1,19 @@
+
+X:3
+T:Title
+%%score 1 2
+L:1/8
+Q:1/8=90
+M:5/8
+I:linebreak $
+K:Bb
+V:1 treble nm="Diskant"
+V:2 bass nm="Bass"
+V:1
+[Bdf]2 [cef]2 [Beb] | [cea]2 [Afa]2 [cef] | z [Fdf] [EAc] [DFB]2 | z [EAc]2 [EAc]2 | 
+z [EAc] [cef] [Bdf]2 | z [GBc] [EAc] [DFB]2 | 
+V:2
+"T" B,,B,"D7" A,_A,"S" G,/>_G,/ |"D7" F,E,"Dp" D,>_D,"D7" C,/>A,,/ |"T" B,,2"D" F,"T" B,2 | 
+z"D7" F, C, F,,2 | z"D7" F,"D7" A,,"T" B,,2 |$ z"S6" E,"D7" F,"T" B,2 | 
+
+

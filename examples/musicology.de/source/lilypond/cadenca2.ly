@@ -2,7 +2,7 @@
 
 \header { tagline = "" }
 
-\include "inc.hanalysis.ly"
+\include "inc.harmonyli.ly"
   
 \score {
   \new StaffGroup {

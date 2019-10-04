@@ -25,7 +25,7 @@ elektronisches \enquote{Notensatzsystem} -- so das Entwicklungsteam -- wolle es
 \enquote{[\ldots] Notendruck in (bester) Qualität} ermöglichen, mithin
 \enquote{[\ldots] die Ästhetik handgestochenen traditionellen Notensatzes mit
 computergesetzten Noten [\ldots] erreichen}.\footnote{\cite[vgl.][\nopage
-wp]{LilyPond2018a}. Lizensiert ist \acc{LiyPond} unter der GPL $\rightarrow$
+wp.]{LilyPond2018a}. Lizensiert ist \acc{LiyPond} unter der GPL $\rightarrow$
 \href{http://lilypond.org/gpl.html}{http://lilypond.org/gpl.html}, einer
 anerkannten Open-Source-Lizenz ($\rightarrow$
 \href{https://opensource.org/licenses/GPL-2.0}
@@ -325,7 +325,7 @@ etwas tun müssen.
 
 \textit{LilyPond} ist nicht nur 'waschechte' \textit{Open-Source-Software}, sondern
 kommt zudem mit einer Erweiterungssprache daher.\footcite[vgl. dazu][\nopage
-wp]{WpedGuile2019a} Diese zu nutzen, um die Möglichkeiten vom \LaTeX-Paket
+wp.]{WpedGuile2019a} Diese zu nutzen, um die Möglichkeiten vom \LaTeX-Paket
 \textit{harmony} nachzubilden, artet jedoch in echte Programmierarbeit aus und
 dürfte einem Musikwissenschaftler kaum mehr zuzumuten sein - wohl aber denen,
 der in beiden Welten zuhause ist, also uns.
@@ -333,11 +333,15 @@ der in beiden Welten zuhause ist, also uns.
 \label{LilyPondFuncTheory}Wir haben deshalb begonnen, eine kleine
 \textit{LilyPond}-Library zu entwickeln, die man einfach in seine
 \textit{LilyPond}-Datei mit dem Befehl \texttt{\textbackslash{include}}
-hinzulädt. Danach kann man die entsprechende Symbole der Harmonieanalyse in
-seinen Notentext hinzufügen. Unsere aktuelle stabile Version liefert folgendes
--- sicher noch nicht ganz optimales -- Ergebnis\footnote{Die Einschränkungen
-werden aber nicht so bleiben! Z.Zt.
-benötigen wir noch \ldots
+hinzulädt. Sie soll im wesentlichen dieselbe Funktionalität für \acc{LilyPond}
+bereitstellen, die man via \acc{Harmony} in \LaTeX\ und Musix\TeX\ verwenden
+kann.\footnote{\ra\ S.\pageref{Harmony}} Aus Respekt vor der Vorlage soll diese
+kleine Zusatzbibliothek \acc{Harmonyli} heißen, was als \acc{LilyPond}-Datei --
+nicht ganz unabsichtlich -- zu dem Namen \texttt{harmonyli.ly} führt.
+Hat man diese Bibliothek eingebunden, kann man die entsprechende Symbole der
+Harmonieanalyse in seinen Notentext hinzufügen. Unsere aktuelle stabile Version
+liefert folgendes -- sicher noch nicht ganz optimales -- Ergebnis:\footnote{Die
+Einschränkungen werden aber nicht so bleiben! Z.Zt. benötigen wir noch \ldots
 \begin{itemize}
   \item die Möglichkeit, innerhalb des \textit{LilyPond}-Markups Zeichen
   übereinander zu schreiben, um Symbole für die Doppeldominante, die
@@ -355,14 +359,14 @@ benötigen wir noch \ldots
   \item die \textit{Guile-} resp. \textit{LilyPond}-Techniken zum Refactoring,
   sodass derselbe Code nicht mehrfach in der Bibliothek auftauchen muss, sondern
   einmal programmiert und ansonsten wiederverwendet wird.
-\end{itemize}}:
+\end{itemize}}
 
 
 \begin{center}
 \begin{lilypond}
 \version "2.18.2"
 \header { tagline = "" }
-\include "lilypond/inc.hanalysis.ly"
+\include "lilypond/inc.harmonyli.ly"
 \score {
   \new StaffGroup {
     \time 4/2
@@ -419,7 +423,7 @@ Mit Rückgriff auf diese kleine Zusatzbibliothek sähe der entsprechende
 \begin{lilypond}
 \version "2.18.2"
 \header { tagline = "" }
-\include "lilypond/inc.hanalysis.ly"
+\include "lilypond/inc.harmonyli.ly"
 \score {
   \new StaffGroup {
     \time 4/2
@@ -478,7 +482,7 @@ noch mit leichten Einschränkungen -- erzeugen kann:
 \begin{lilypond}
 \version "2.18.2"
 \header { tagline = "" }
-\include "lilypond/inc.hanalysis.ly"
+\include "lilypond/inc.harmonyli.ly"
 \score {
   \new StaffGroup {
     \time 5/8
@@ -532,7 +536,7 @@ Für diese ist folgender Quellcode zuständig:
 \begin{lilypond}
 \version "2.18.2"
 \header { tagline = "" }
-\include "lilypond/inc.hanalysis.ly"
+\include "lilypond/inc.harmonyli.ly"
 \score {
   \new StaffGroup {
     \time 5/8

@@ -1,6 +1,6 @@
 \version "2.18.2"
 \header { tagline = "" }
-\include "inc.hanalysis.ly"
+\include "inc.harmonyli.ly"
 \score {
   \new StaffGroup {
     \time 5/8
