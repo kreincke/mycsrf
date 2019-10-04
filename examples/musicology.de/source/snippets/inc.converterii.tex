@@ -1,0 +1,117 @@
+% mycsrf 'for beeing included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+\section{Konverter II}
+
+Vor der großen Verknüpfung vom Backend und Frontend müssen wir nun noch 
+eruieren, welche der üblicherweise genannt Konverter wir wirklich woher beziehen können:
+
+\subsection{abc2ly}
+
+\acc{abc2ly} wird von \acc{Lilypond} im Paket als Tool mitgeliefert und kann
+nach dessen Installation über die Kommandozeile aufgerufen werden.\footnote{\ra\
+\href{http://lilypond.org/doc/v2.18/Documentation/usage/invoking-abc2ly}
+{http://lilypond.org/doc/v2.18/Documentation/usage/invoking-abc2ly}}
+
+\subsection{abc2mtex}
+
+\acc{abc2mtex} ist 'nur' noch als CTAN-Paket
+erhältlich\footcite[vgl.][\nopage wp.]{abc2mtex2019a}. Der auf der Paketseite
+integrierte Link auf die eigentliche Homepage ist nicht mehr aktuell, anders der
+Link auf die Quellen und der Link auf das Handbuch: Folgt man ersterem, erhält
+man Zugriff auf das \acc{tar.gz-Quellpaket}; letzterer macht den \acc{Userguide}
+zugänglich. Ein Binärpaket gibt es allerdings nicht (mehr). Das downloadbare
+Quellenpaket enthält jedoch ein Makefile, über das das eigentliche Program in
+Verbindung mit \acc{gcc} und \acc{make} umstandslos erzeugt werden kann.
+
+
+\subsection{ly2abc}
+
+Der Konverter \acc{ly2abc} wird als Github-Projekt entwickelt und distribuiert.
+Auf der entsprechenden Homepage wird allerdings gesagt, es werde daran noch
+stark gearbeitet und es sei kein Support für Mehrstimmigkeit
+geplant.\footcite[vgl.][\nopage wp.]{ly2abc2019a} Damit darf dieser Konverter
+getrost ignoriert werden: Zur Verwendung von Harmonieanalysen in und mit \LaTeX\
+kann er -- unabhängig von seiner sonstigen Relevanz -- nichts beitragen.
+
+\subsection{musicxml2ly}
+
+\acc{musicxml2ly} wird von \acc{Lilypond} im Paket als Tool mitgeliefert und kann
+nach dessen Installation über die Kommandozeile aufgerufen werden.\footnote{\ra\
+\href{http://lilypond.org/doc/v2.18/Documentation/usage/invoking-musicxml2ly}
+{http://lilypond.org/doc/v2.18/Documentation/usage/invoking-musicxml2ly}}
+
+\subsection{mxml2abc}
+
+Sucht man nach \acc{mxml2abc}, führt das Netz einen zunächst in Sackgassen. Es
+sagt, der Konverter \textit{mxml2abc} sei als unabhängiges Projekt angelegt; das
+Tool solle ein Java-Programm sein.\footnote{\ra\
+\href{http://freshmeat.sourceforge.net/projects/mxml2abc}
+{http://freshmeat.sourceforge.net/projects/mxml2abc} RDL 2019-04-11} Und es
+zeigt noch alte Updateankündigungen an.\footnote{\ra\
+\href{https://musescore.org/en/node/15698} {https://musescore.org/en/node/15698}
+RDL 2019-04-11} Allerdings ist die angegebene Homepage von \acc{mxml2abc},
+selbst nicht mehr erreichbar.\footnote{\ra\
+\href{https://code.google.com/p/mxml2abc/}
+{https://code.google.com/p/mxml2abc/} RDL 2019-04-11}
+  
+Schließlich führt es den hartnäckigen Sucher aber auch zu dem Konverter
+\acc{mxml2abc} von Stephen Merrony\footnote{\ra\
+\href{https://www.softpaz.com/software/download-mxml2abc-windows-42792.htm}
+{https://www.softpaz.com/software/download-mxml2abc-windows-42792.htm}}. Das
+dort angebotene Java-Programm kann per \texttt{java -jar
+mxml2abc-stephen-merrony.jar musicxml.xml} aufgerufen werden und schreibt den
+konvertierten Inhalt der Datei \acc{musicxml.xml} auf die Konsole zurück.
+
+\subsection{xml2abc}
+
+Der Konverter \acc{xml2ab} wird mit \acc{EasyABC} mitgeliefert. Zu starten ist
+er im Sourcecode-Ordner per \texttt{python xml2abc musicxml.xml}, nimmt dann die
+auf der Kommandozeile übergegebe MusicXML-Datei und konvertiert deren Inhalt 
+in \acc{abc}-Code.
+
+\subsection{xml2ly}
+
+Der Konverter \acc{xml2ly} wird gesondert bereitgestellt, und zwar in Form einer
+\acc{xsl}-Datei.\footcite[vgl.][\nopage wp.]{xml2ly2019a} Um die als Konverter zu
+nutzen, muss man einen zusätzlichen xslt-Prozessor installiert haben.
+Unglücklicherweise verweist der Link auf der Homepage, der in den
+Downloadbereich führen soll, in einen leeren Raum. Auch der Link, der das
+ausgewiesene Downloadpaket direkt zugänglich zugänglich machen soll,
+funktioniert nicht. Hier scheint einiges veraltet zu sein. Das passt zum
+Erscheinungsjahr (2002) und zur Releasenummer (0.0.34) der 'letzten'
+Veröffentlichung.\footnote{Allerdings scheint der xml2ly-Code -- der Idee von
+Opensource-Software entsprechend -- später in einer Bibliothek weiterverndet
+worden sein. \ra\
+\href{https://github.com/grame-cncm/libmusicxml/releases}{https://github.com/grame-cncm/libmusicxml/releases
+}}
+
+Damit kann dieser Konverter nicht ausprobiert und also nicht wirklich als Option
+in Rechnung gestellt werden. 
+
+\subsection{xml2pmx}
+
+Der Konverter \acc{xml2pmx} wird als Paket über das Icking-Music-Archive
+bereitgestellt\footcite[vgl.][\nopage wp.]{xml2pmx2019a}, das auch auf seiner
+Softwareseite selbst auf den Konverter verweist.\footnote{\ra\
+\href{https://icking-music-archive.org/software/htdocs/index.html}
+{https://icking-music-archive.org/software/htdocs/index.html}} Dieser kann als
+Windows- oder Linuxpaket heruntergeladen werden. Es enthält dann die
+entsprechende Binärversion und eine Aufrufskript, das ein Beispiel konvertiert.
+Die eigenen Umformungen können dann entsprechend umgesetzt werden.
+
+% this is only inserted to eject fault messages in texlipse
+%\bibliography{../bib/literature}

@@ -1,0 +1,95 @@
+% mycsrf 'for beeing included' snippet template
+%
+% (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
+%
+% This text is licensed under the Creative Commons Attribution 3.0 Germany
+% License (http://creativecommons.org/licenses/by/3.0/de/): Feel free to share
+% (to copy, distribute and transmit) or to remix (to adapt) it, if you respect
+% how you must attribute the work in the manner specified by the author(s):
+% \newline
+% In an internet based reuse please link the reused parts to mycsrf.fodina.de
+% and mention the original author Karsten Reincke in a suitable manner. In a
+% paper-like reuse please insert a short hint to mycsrf.fodina.de and to the
+% original author, Karsten Reincke, into your preface. For normal quotations
+% please use the scientific standard to cite
+%
+
+
+
+
+\chapter{Fazit}
+
+Damit haben wir das Ende unser Untersuchung erreicht. Fassen wir das Unterfangen
+zusammen:
+
+Aus Anlass einer anstehenden, größeren musikwissenschaftlichen Arbeit mussten
+wir in \LaTeX-Texte Notenbeispiele einbetten können, und zwar insbesondere der
+ausgefeilten Symbolkomplexe, wie sie in der funktionalen Harmonieanalyse üblich
+sind. Eine einfache Anleitung dazu gab und gibt es dazu bisher nicht. Die Suche
+im Netz verweist stattdessen auf eine Fülle von Tools und Techniken, deren
+Nutzen und Nutzbarkeit und Kombinierbarkeit recht unklar bleibt. So haben wir
+dieses Feld ausgeleuchtet, um den von der Qualität besten und von der
+Handlichkeit einfachsten Weg zu finden:
+
+Notenbeispiele können auf verschiedenen Wegen in \LaTeX-Texten eingebettet
+werden. Wir haben drei Backendsystem gefunden, nämlich
+\acc{\LaTeX\,+\,ABC}, \acc{\LaTeX\,+\,MusiX\TeX} und
+\acc{\LaTeX\,+\,LilyPond}.
+
+Nur \acc{\LaTeX\,+\,MusiX\TeX} bieten im Verbund mit dem \LaTeX-Tool
+\acc{harmony} von sich aus die Option, hinreichend ausdrucksstarke
+Harmonieanalysesymbole in die Notenbeispiele zu integrieren. Das Druckergebnis
+ist exzellent.
+
+Der Nachteil dieses Ansatzes liegt in der Komplexität und Unhandlichkeit der
+Auszeichnungssprache \acc{MusiX\TeX}. Leider gibt es kein graphisches oder
+semi-graphisches Frontend für dieses Backend. Die Idee, ein existierendes
+Frontend über einen Konverter dafür nutzbar zu machen, scheitert entweder daran,
+dass es keinen entsprechenden Konverter gibt (\acc{ly2musictex}) oder dass die
+existierenden Konverter nicht adäquat arbeiten (\acc{abc2ly} resp. \acc{abc2mtex}).
+
+Bei \acc{\LaTeX\,+\,LilyPond} kann man hinreichend ausdrucksstarke
+Harmonieanalysesymbole über eine -- allerdings noch unfertige --
+Zusatzbibliothek namens \acc{Harmonyli} in den \acc{LilyPond}-Notentext integrieren.
+Dieses Verfahren hat drei Vorteile:
+
+\begin{itemize}
+  \item Zum ersten steht mit \acc{LilyPond} eine im Vergleich zu \acc{Musix\TeX}
+  deutlich einfachere Auszeichnungssprache zur Verfügung.
+  \item Zum zweiten können diese Harmonieanalysesymbole
+  damit auch über den \acc{LilyPond}-spezifischen semi-graphischen Editor
+  \acc{Frescobaldi} eingegeben werden.
+  \item Und schließlich kann man für \acc{LilyPond} auch den graphischen Editor
+  \acc{Muse\-Score} als Frontend verwenden, sofern man in Kauf nimmt, vor der
+  eigentlichen Arbeit auf \acc{\LaTeX-LilyPond}-Ebene den Konverter
+  \acc{musicxml2ly} auf den \acc{MuseScore}-XML-Export anzuwenden, das Ergebnis
+  in \acc{Frescobaldi} zu laden und dort die Harmonieanalysesymbole in einem
+  zweiten Schritt einzugeben.
+\end{itemize}
+
+Allerdings hat auch dieses Verfahren Nachteile:
+
+\begin{itemize}
+  \item Zum einen werden die Notenbeispiele so nicht nativ in den \LaTeX-Text
+  eingebettet, sondern 'nur' als Graphik. Damit muss man die Skalierungsfragen
+  besonders bedenken.
+  \item Zum anderen muss die Bibliothek \acc{Harmonyli} noch optimiert werden,
+  insbesondere im Hinblick auf das graphische Ergebnis.
+\end{itemize}
+
+Fragt sich also zuletzt, welche Methode wir selbst anwenden werden? 
+
+Nun, wir werden versuchen, die Bibliothek \acc{Harmonyli} zusammen mit der
+\acc{LilyPond} Community zu verbessern, bis das graphische Ergebnis der
+unfraglichen Qualität von \acc{Music\TeX\ \& Harmony} gleichkommt. Kurzfristig
+werden wir auf \acc{Musix\TeX \& Harmony} zugreifen,allerdings nur dann, wenn
+es wirklich notwendig ist.
+
+Insgesamt sind wir aber sehr froh, dass wir den Djungel der Möglichkeiten, der
+sich nach der Internetrecherche abzeichnet, gelichtet und die beiden wirklich
+gangbaren Wege gefunden haben.
+
+
+
+% this is only inserted to eject fault messages in texlipse
+%\bibliography{../bib/literature}
