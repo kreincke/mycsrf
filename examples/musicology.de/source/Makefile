@@ -42,7 +42,7 @@ all:
 # (H) create the final document	
 	@ $(LATEX) --shell-escape $< 
 # (I) mv the recreated results also into the temporary directory for a better cleansing
-	mv *.ps abc/
+#	mv *.ps abc/
 ifneq ($(LATEX),pdflatex)
 	@ echo "### converting DVI to PostScript"
 	@ dvips $<

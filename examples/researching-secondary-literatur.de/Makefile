@@ -12,8 +12,7 @@ T=CH
 
 
 all:
-	make README.pdf
-	@ mv README-`cat inc.rel.tex`.pdf README.pdf
+	make search.pdf
 
 	
 .SUFFIXES: .tex .dvi .ps .pdf .rtf 

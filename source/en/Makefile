@@ -12,8 +12,7 @@ T=CH
 
 
 all:
-	make README.pdf
-	@ mv README-`cat inc.rel.tex`.pdf README.pdf
+	echo "insert the name of the main tex file into the Make file"
 
 	
 .SUFFIXES: .tex .dvi .ps .pdf .rtf 

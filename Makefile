@@ -40,6 +40,9 @@ instance:
 	cp source/${LG}/inc.* $(PRJ)/cfg/
 	cp source/${LG}/jabref.* $(PRJ)/cfg/
 
+clean:	
+	rm -rf $(PRJ)
+
 help:
 	@echo "make [prj|PRJ]='your-prj' [lang|LANG]='[de|en]'"
 
