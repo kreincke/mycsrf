@@ -1,4 +1,4 @@
-ISNM=mcwm
+ISNM=mcwltx
 ISWD=${ISNM}
 SRCD=source
 LPWD=lily
@@ -28,7 +28,7 @@ prod:	clear
 	@ cp ${SRCD}/inc.rel.tex ${ISWD}/
 	@ cp ${SRCD}/picins.sty ${ISWD}/
 	@ cp ${SRCD}/Makefile ${ISWD}/
-	( cd ${ISWD} && make mcwm.pdf && mv *.pdf ../ )
+	( cd ${ISWD} && make ${ISNM}.pdf && mv *.pdf ../ )
 	rm -rf ${LPWD}
 	rm -rf ${ISWD}
 
@@ -41,6 +41,7 @@ clear:
 
 clean:
 	@(cd source && make clean && make dclean)
+	@rm *.pdf
 help:
 	@echo "komt noch"
 
