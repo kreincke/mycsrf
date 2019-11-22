@@ -1,4 +1,4 @@
-ISNM=mcwm
+ISNM=latex-musicology
 ISWD=${ISNM}
 SRCD=source
 LPWD=lily
@@ -28,11 +28,13 @@ prod:	clear
 	@ cp ${SRCD}/inc.rel.tex ${ISWD}/
 	@ cp ${SRCD}/picins.sty ${ISWD}/
 	@ cp ${SRCD}/Makefile ${ISWD}/
-	( cd ${ISWD} && make mcwm.pdf && mv *.pdf ../ )
+	( cd ${ISWD} && make ${ISNM}.pdf && mv *.pdf ../ )
 	rm -rf ${LPWD}
 	rm -rf ${ISWD}
 
 
+inst:	prod
+	cp ${ISNM}*.pdf ../../pdfs/${ISNM}.pdf
 
 clear:
 	@if [ -e ${LPWD} ]; then rm -rf ${LPWD}; fi
