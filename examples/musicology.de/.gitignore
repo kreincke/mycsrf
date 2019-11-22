@@ -1,4 +1,4 @@
-/mcwm.out
-/mcwm.ilg
-/mcwm.pdf
-/mcwm.synctex.gz
+*.out
+*.ilg
+*.gz
+/source/

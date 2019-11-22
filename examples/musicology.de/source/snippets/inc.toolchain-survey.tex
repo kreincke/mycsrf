@@ -176,12 +176,14 @@ Als Musikwissenschaftler möchten wir Harmonieanalysen in der vollen Komplexitä
 der Funktionstheorie in unsere Notentexte und mit diesen in unsere \LaTeX-Texte
 einbetten. Das war und ist das leitende Interesse unserer Untersuchung. Und die
 Möglichkeit zu solch einer Darstellung bieten uns nur
-\acc{\LaTeX\,+\,MusiX\TeX\,+\,harmony} und \acc{\LaTeX\,+\,LilyPond,+\,harmonyli}.
+\acc{\LaTeX\,+\,MusiX\TeX\,+\,harmony} und \acc{\LaTeX\,+\,LilyPond,+\,harmonyli.ly}.
 
-Für \acc{LilyPond,+\,harmonyli} steht uns \acc{Frescobaldi} als bester
-semi-graphischer Editor zur Verfügung. Den Weg hatten wir bereits erfolgreich
-getestet. \acc{\LaTeX\,+\,MusiX\TeX\,+\,harmony} konnten wir bisher nur mit
-einem traditionellen Texteditor verknüpfen.
+Für \acc{LilyPond,+\,harmonyli.ly} steht uns \acc{Frescobaldi} als bester
+semi-graphischer Editor zur Verfügung. Daneben gibt es das gleichermaßen
+nutzbare Eclipseplugin \acc{Elysium}. Den Weg von \acc{Frescobaldi} nach
+\acc{LilyPond} hatten wir implizit bereits erfolgreich getestet, als wir
+\acc{Frescobald} vorgestellt haben, nutzt er doch -- wie \acc{Elysium} auch --
+direkt das Backend \acc{LilyPond}, um die Eingaben zu visualisieren.
 
 Wollten wir \acc{LilyPond} stattdessen 'mit' einem graphischen Editor benutzen,
 müssten wir überprüfen, ob der MusicXML-Export von \acc{MuseScore} mittels des
@@ -194,9 +196,10 @@ einzubetten (etwa über \texttt{Add/Text/ChordSymbol} oder
 gestellten Zahlen.}
 
 Für \acc{MusiX\TeX\,+harmony} stehen uns genuin nur (\LaTeX)-Editoren zur
-Verfügung. Wollten wir dieses Backendsystem 'mit' einem (semi-)graphischen
-Editor knüpfen, müssten wir testen, ob der Output von EasyABC über den Konverter
-\acc{abcmtex} zu \LaTeX-kompatiblen \acc{MusiX\TeX}-Code wird.
+Verfügung. Wollten wir also dieses Backendsystem 'mit' einem (semi-)graphischen
+Editor knüpfen, zeigt uns die Wegekarte, dass nur \acc{EasyABC} als Frontend in
+Frage käme und dass wir testen müssten, ob der Output von EasyABC über den
+Konverter \acc{abcmtex} zu \LaTeX-kompatiblen \acc{MusiX\TeX}-Code wird.
 
 Mithin brauchen wir nur wenige 'Wege' (neu) zu evaluieren:
 

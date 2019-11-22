@@ -16,8 +16,9 @@
 
 \section{w01: Easy\-ABC \ra\ abc2mtex \ra\ \LaTeX+Musix\TeX}\label{w01}
 
-In Ordner \texttt{[\ldots]/musicology/chain-evaluation/} haben wir den
-weg-spezifischen Subordner \texttt{w01-easyabc-abc2mtex} generiert.
+Im Ordner \texttt{[\ldots]/musicology.de/chain-evaluation/} in den Quellen zu
+diesem Dokument\footcite[vgl.][\nopage wp]{Reincke2019a} haben wir
+den weg-spezifischen Subordner \texttt{w01-easyabc-abc2mtex} generiert.
 Er enthält zunächst einen Subordner \texttt{tools}, in dem das Frontend
 \acc{EasyABC} und die Quellen des Konverters \acc{abc2mtex} als Paket abgelegt
 sind. Entpackt man das Paket \texttt{abc2mtex1.6.1.tar.gz}, kann man --
@@ -38,7 +39,7 @@ Leider bricht das Programm mit einer Fehlermeldung ab:
 field not allowed in tune body }\end{quote}
 
 Das ist 'leicht' erklärbar: Das ABC-Format war ursprünglich ein
-Notationsverfahren für einstimmige 'Lieder'.\footnote{\ra S. \pageref{ABCMethod}}
+Notationsverfahren für einstimmige 'Lieder'.\footnote{\ra\ S. \pageref{ABCMethod}}
 Es ist erst später zu einem 'patitur-fähigen' Format erweitert worden. Der
 Konverter \acc{abc2mtex} versteht nun offensichtlich nur das alte Format.
  
@@ -102,9 +103,14 @@ Einzig sind einige Harmoniesymbole unter den Tisch gefallen, die eh durch die
 äquivalenten Ausdrücke über unser Zusatzbibliothek \acc{harmonyli} ersetzt
 werden sollen.
 
-Damit dürfen wir sagen, dass man \acc{LilyPond} auch mit einem echten graphischen
-Frontend verwenden kann, nämlich mit \acc{MuseScore}, sofern man auch den den von \acc{LilyPond}
-gepflegten Konverter \acc{musicxml2ly} verwendet.
+Damit dürfen wir sagen, dass man \acc{LilyPond} auch mit einem echten
+graphischen Frontend verwenden kann, nämlich mit \acc{MuseScore}, sofern man
+auch den von \acc{LilyPond} gepflegten Konverter \acc{musicxml2ly}
+verwendet. Dass das Frontend \acc{MuseScore} von sich aus keine adäquaten
+Harmonieanalysesymbole mitbringt, ist kein Nachteil: man lässt sie ja eh
+weg, um später über die semi-graphische Editoren \acc{Frescobaldi} oder
+\acc{Elysium} die Syntagmen nachzutragen, die die Bibliothek \acc{harmonyli.ly}
+in die Gesatltung einbringt.
 
 
 \section{Vergleich in Tabellenform}
