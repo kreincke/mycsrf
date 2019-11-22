@@ -64,14 +64,14 @@ nicht.\footnote{\cite[vgl.][21]{LilyPond2018b}. In der Konsequenz wird man sich
 allerdings auch an -- wenigstens für Deutsche -- überraschende 'Töne' wie
 \texttt{bes}, \texttt{beses} oder \texttt{bis} gewöhnen müssen.}
 
-Die augenfälligste Besonderheit dürfte jedoch sein, dass \textit{LilyPond} seine
-Elemente konsequent in einer 1:n-Beziehung anordnet: Das Notenheft besteht aus
-einem oder mehreren Stücken, das Stück besteht aus einem oder mehreren
-Notensystemen, ein Notensystem besteht aus einer oder mehrerer Stimmen, die
-Stimme kann solistisch oder akkordisch sein. Das Datenmodell ist mithin als
-Baum\footcite[vgl.][\nopage wp.]{WpedBaum2019a} ausgelegt. Und syntaktisch haben
-die Ebenen je eigene Markanten. Das macht das Lesen und Verstehen von
-\textit{LilyPond}-Code auf Dauer einfacher, es entsteht ein klarerer
+'Augenfällig' ist zudem, dass \textit{LilyPond} seine Elemente konsequent in
+einer 1:n-Beziehung anordnet: Das Notenheft besteht aus einem oder mehreren
+Stücken, das Stück besteht aus einem oder mehreren Notensystemen, ein
+Notensystem besteht aus einer oder mehrerer Stimmen, die Stimme kann solistisch
+oder akkordisch sein. Das Datenmodell ist mithin als Baum\footcite[vgl.][\nopage
+wp.]{WpedBaum2019a} ausgelegt. Und syntaktisch haben die Ebenen je eigene
+Markanten. Das macht das Lesen und Verstehen von \textit{LilyPond}-Code auf
+Dauer einfacher, es entsteht ein klarerer
 Sourcetext.\footcite[vgl.][40ff]{LilyPond2018b}
 
 Systemisch gesehen hat LilyPond (heute) nichts (mehr) \LaTeX\ , MusiX\TeX\ oder
@@ -110,14 +110,14 @@ $\RHD$ Zunächst muss man -- ganz unabhängig von \LaTeX\ -- \textit{LilyPond}
 installieren\footnote{Unter Ubuntu: \texttt{sudo apt-get lilypond
 lilypond-data}}. Dieses Paket stellt dann auch \texttt{lilypond-book} bereit.
   
-$\RHD$ Im Gegensatz zu \textit{ABC} oder \textit{MusiX\TeX} braucht \acc{LilyPond}
-nicht in der \LaTeX-Präambel aktiviert zu werden. Denn \texttt{lilypond-book} muss
-ja immer zuerst und unabhängig von \LaTeX\ aufgerufen werden: Es generiert erst den
-eigentlichen \LaTeX-Code, der dann keine \textit{LilyPond}-Sektionen mehr
-enthält. Also kann man -- direkt nach der Installation -- den
-\textit{LilyPond}-Quelltext eines jeden Notenbeispiels in je einer eigenen
-(virtuellen) Umgebung \verb|\begin{lilypond}...\end{lilypond}| editieren.
-Virtuell sind diese Umgebungen insofern, als \LaTeX\ ja nichts von
+$\RHD$ Im Gegensatz zu \textit{ABC} oder \textit{MusiX\TeX} braucht
+\acc{LilyPond} nicht in der \LaTeX-Präambel aktiviert zu werden. Denn
+\texttt{lilypond-book} muss ja immer zuerst und unabhängig von \LaTeX\
+aufgerufen werden: Es generiert erst den eigentlichen \LaTeX-Code, der dann
+keine \textit{LilyPond}-Sektionen mehr enthält. Also kann man -- direkt nach der
+Installation -- den \textit{LilyPond}-Quelltext eines jeden Notenbeispiels in je
+einer eigenen (virtuellen) Umgebung \verb|\begin{lilypond}...\end{lilypond}|
+editieren. Virtuell sind diese Umgebungen insofern, als \LaTeX\ ja nichts von
 \textit{LilyPond} weiß.
 
 $\RHD$ Schließlich muss man noch organisieren, dass den eigentlichen
@@ -323,266 +323,316 @@ etwas tun müssen.
 
 \subsection{Kadenz II}
 
-\textit{LilyPond} ist nicht nur 'waschechte' \textit{Open-Source-Software}, sondern
-kommt zudem mit einer Erweiterungssprache daher.\footcite[vgl. dazu][\nopage
-wp.]{WpedGuile2019a} Diese zu nutzen, um die Möglichkeiten vom \LaTeX-Paket
-\textit{harmony} nachzubilden, artet jedoch in echte Programmierarbeit aus und
-dürfte einem Musikwissenschaftler kaum mehr zuzumuten sein - wohl aber denen,
-der in beiden Welten zuhause ist, also uns.
+\textit{LilyPond} ist nicht nur 'waschechte' \textit{Open-Source-Software},
+sondern kommt zudem mit einer Erweiterungssprache daher.\footcite[vgl.
+dazu][\nopage wp.]{WpedGuile2019a} Diese zu nutzen, um die Möglichkeiten vom
+\LaTeX-Paket \textit{harmony} nachzubilden, artet jedoch in echte
+Programmierarbeit aus und dürfte einem Musikwissenschaftler kaum mehr zuzumuten
+sein - wohl aber denen, die in beiden Welten zuhause ist, also uns.
 
-\label{LilyPondFuncTheory}Wir haben deshalb begonnen, eine kleine
-\textit{LilyPond}-Library zu entwickeln, die man einfach in seine
+\label{LilyPondFuncTheory}Um \acc{LilyPonds} bisherigen Mangel in Sachen
+musikwissenschaftlicher Kennzeichnung auszugleichen, haben wir also begonnen,
+eine \textit{LilyPond}-Library zu entwickeln, die man einfach in seine
 \textit{LilyPond}-Datei mit dem Befehl \texttt{\textbackslash{include}}
-hinzulädt. Sie soll im wesentlichen dieselbe Funktionalität für \acc{LilyPond}
+hinzulädt. Sie sollte im wesentlichen dieselbe Funktionalität für \acc{LilyPond}
 bereitstellen, die man via \acc{Harmony} in \LaTeX\ und Musix\TeX\ verwenden
-kann.\footnote{\ra\ S.\pageref{Harmony}} Aus Respekt vor der Vorlage soll diese
-kleine Zusatzbibliothek \acc{Harmonyli} heißen, was als \acc{LilyPond}-Datei --
-nicht ganz unabsichtlich -- zu dem Namen \texttt{harmonyli.ly} führt.
-Hat man diese Bibliothek eingebunden, kann man die entsprechende Symbole der
-Harmonieanalyse in seinen Notentext hinzufügen. Unsere aktuelle stabile Version
-liefert folgendes -- sicher noch nicht ganz optimales -- Ergebnis:\footnote{Die
-Einschränkungen werden aber nicht so bleiben! Z.Zt. benötigen wir noch \ldots
-\begin{itemize}
-  \item die Möglichkeit, innerhalb des \textit{LilyPond}-Markups Zeichen
-  übereinander zu schreiben, um Symbole für die Doppeldominante, die
-  Doppelsubdominante und für das Fehlen von etwas ('Schräge Durchstreichung')
-  generieren zu können. Ohne eine solche Kennzeichnung bleibt die
-  Funktionsbezeichnung für den 4. Akkord ungenau, denn der Grundton ist ja nicht
-  im Akkord enthalten.
-  \item die Option, Noten und Markupblock horizontal auszurichten, sodass auch
-  komplexe Analysesymbole über resp. unter genau den Akkordnoten stehen, auf die
-  sie sich beziehen. Ohne eine solche Ausrichtung rutscht die Spezifikation des
-  2. Akkordes aus der Reihe und die des 4. Akkordes ragt in den nächsten Takt
-  hinein.
-  \item die Möglichkeit, die hochgestellten Akkordzahlen näher an das
-  Grundsymbol heranzurücken, um Zusammenhänge optisch zu verdeutlichen.
-  \item die \textit{Guile-} resp. \textit{LilyPond}-Techniken zum Refactoring,
-  sodass derselbe Code nicht mehrfach in der Bibliothek auftauchen muss, sondern
-  einmal programmiert und ansonsten wiederverwendet wird.
-\end{itemize}}
+kann.\footnote{\ra\ S.\pageref{Harmony}} Und aus Respekt vor der Vorlage sollte
+diese Bibliothek \acc{Harmonyli} heißen, was als \acc{LilyPond}-Datei -- nicht
+ganz unabsichtlich -- zu dem Namen \texttt{harmonyli.ly} führt.\footnote{\ra\
+\lnka{https://github.com/kreincke/harmonyli.ly}} Mittlerweile dürfen wir sagen,
+dass sich diese Bibliothek -- auch und gerade dank der Unterstützung durch die
+Community -- zu einem musikwissenschaftlichen Tool entwickelt hat, dass über die
+Fähigkeiten von \acc{Harmony} hinausgeht und mindestens ebenso gut dokumentiert
+ist.\footcite[vgl.][1ff]{Reincke2019b}
 
+Hat man diese Bibliothek eingebunden, kann man die entsprechende Symbole der
+Harmonieanalyse in seinen Notentext hinzufügen und folgendes Notenbild erzeugen:
 
 \begin{center}
 \begin{lilypond}
 \version "2.18.2"
+
 \header { tagline = "" }
-\include "lilypond/inc.harmonyli.ly"
+\include "lilypond/harmonyli.ly"
+  
 \score {
   \new StaffGroup {
-    \time 4/2
+    \time 4/4
     <<
       \new Staff {
         \relative d' {
-          \clef "treble"
-          \key d \major  
-          \stemUp
-         < fis  d'>2    
-          < fis  dis'>2   
-          < b  e>2        
-          < b  eis>2        
-          | 
-          < b fis'>2  
-          < e gis >2  
-          < e a >2    
-          < a fis>2      
-          \bar "||"
+       	  \clef "treble" \key d \major  \stemUp
+          < fis d'>2 < fis dis'>2 < b e>2 < b eis>2 | 
+          < b fis'>2 < e gis >2 < e a >4 < e a >4 < a fis>2  \bar "||"
+        }
+        \addlyrics {
+          \markup \setHas "T" #'(("C"."D")("fr" . " "))
+          \markup \setImHas "D" #'(("B"."1")("a" . "7")("fr" . " "))
+          \markup \setHas "Sp" #'(("B"."7")("a" . "7")("fl" . " ")("fr" . " "))
+          \markup \setHas "D" #'(("T"."x")("B"."3")("a" . "5")("b" . "7")("c" . "♭9>♯8")("fr" . " "))
+          \markup \setHas "Tp" #'(("B"."3")("fl" . " ")("fr" . " ")) 
+          \markup \setHas "D" #'(("T"."d")("B"."5")("a" . "7")("b" . "8")("fr" . " "))                  
+          \initTextSpan "   "
+          \markup \openZoomRow "D" #'(("a"."4")("fl" . " "))
+          \startTextSpan
+          \markup \expZoomRow #'(("a"."3")("fr" . " ")) 
+          \stopTextSpan  
+          \markup \setHas "T" #'(("fr" . " "))
         }   
       }
       \new Staff {
         \relative d { 
-          \clef "bass"
-          \key d \major  
-          \stemDown
-          < d a'>2        ^\markup { \hf T }                      
-          < b a'>2        ^\markup { ( \hfOne D "7" ) }           
-          < d g>2         ^\markup { \hfiOne Sp "7" "7" }         
-          < cis g'>2      ^\markup { \hfiTri D "3" "5" "7" 
-                                        \line{"9"{\super{\flat}}"=8"{\super{\sharp}}}
-                                    }                               
-          |
-          < d fis>2       ^\markup { \hfi Tp "3" }                
-          < b d>2         ^\markup { \hfiOne DD "5" "7" }         
-          <<
-            { a2          ^\markup { \hfOne D "4>3" }  }
-            { d4( cis4) }
-          >> 
-          < d, d'>2       ^\markup { \hf T }
-          \bar "||"
+          \clef "bass" \key d \major \stemDown
+          < d a'>2 < b a'>2 < d g>2 < cis g'>2 |
+          < d fis>2 < b d>2 << { a4( a4) } { d4( cis4) } >> < d, d'>2 \bar "||"
         }   
       }
     >>
   }
+  \layout {
+    \context { \Lyrics \consists "Text_spanner_engraver" }
+  }
+  \midi {}
 }
+
 \end{lilypond}
 \cad{II}{LilyPond}
 \end{center}
 
-Mit Rückgriff auf diese kleine Zusatzbibliothek sähe der entsprechende
-\textit{Lilypond}-Code so aus:
+Der entsprechende \textit{Lilypond}-Code sähe dann so aus:
+ \begin{scriptsize}
 \begin{verbatim}
 \begin{lilypond}
 \version "2.18.2"
+
 \header { tagline = "" }
-\include "lilypond/inc.harmonyli.ly"
+\include "lilypond/harmonyli.ly"
+  
 \score {
   \new StaffGroup {
-    \time 4/2
+    \time 4/4
     <<
       \new Staff {
         \relative d' {
-          \clef "treble"
-          \key d \major  
-          \stemUp
-         < fis  d'>2    
-          < fis  dis'>2   
-          < b  e>2        
-          < b  eis>2        
-          | 
-          < b fis'>2  
-          < e gis >2  
-          < e a >2    
-          < a fis>2      
-          \bar "||"
+          \clef "treble" \key d \major  \stemUp
+          < fis d'>2 < fis dis'>2 < b e>2 < b eis>2 | 
+          < b fis'>2 < e gis >2 < e a >4 < e a >4 < a fis>2  \bar "||"
+        }
+        \addlyrics {
+          \markup \setHas "T" #'(("C"."D")("fr" . " "))
+          \markup \setImHas "D" #'(("B"."1")("a" . "7")("fr" . " "))
+          \markup \setHas "Sp" #'(("B"."7")("a" . "7")("fl" . " ")("fr" . " "))
+          \markup \setHas "D" #'(("T"."x")("B"."3")("a" . "5")("b" . "7")("c" . "-9>+8")("fr" . " "))
+          \markup \setHas "Tp" #'(("B"."3")("fl" . " ")("fr" . " ")) 
+          \markup \setHas "D" #'(("T"."d")("B"."5")("a" . "7")("b" . "8")("fr" . " "))                  
+          \initTextSpan "   "
+          \markup \openZoomRow "D" #'(("a"."4")("fl" . " "))
+          \startTextSpan
+          \markup \expZoomRow #'(("a"."3")("fr" . " ")) 
+          \stopTextSpan  
+          \markup \setHas "T" #'(("fr" . " "))
         }   
       }
       \new Staff {
         \relative d { 
-          \clef "bass"
-          \key d \major  
-          \stemDown
-          < d a'>2        ^\markup { \hf T }                      
-          < b a'>2        ^\markup { ( \hfOne D "7" ) }           
-          < d g>2         ^\markup { \hfiOne Sp "7" "7" }         
-          < cis g'>2      ^\markup { \hfiTri D "3" "5" "7" 
-                           \line{"9"{\super{\flat}}"=8"{\super{\sharp}}}
-                          }                               
-          |
-          < d fis>2       ^\markup { \hfi Tp "3" }                
-          < b d>2         ^\markup { \hfiOne DD "5" "7" }         
-          <<
-            { a2          ^\markup { \hfOne D "4>3" }  }
-            { d4( cis4) }
-          >> 
-          < d, d'>2       ^\markup { \hf T }
-          \bar "||"
+          \clef "bass" \key d \major \stemDown
+          < d a'>2 < b a'>2 < d g>2 < cis g'>2 |
+          < d fis>2 < b d>2 << { a4( a4) } { d4( cis4) } >> < d, d'>2 \bar "||"
         }   
       }
     >>
   }
+  \layout {
+    \context { \Lyrics \consists "Text_spanner_engraver" }
+  }
+  \midi {}
 }
+
 \end{lilypond}
 \end{verbatim}
-
+\end{scriptsize}
 
 \subsection{Kadenz III}
 
-Und so fehlt noch die dritte Kadenz in der Version, die \textit{LilyPond} heute -- also
-noch mit leichten Einschränkungen -- erzeugen kann:
+Und so fehlt noch die dritte Kadenz in der Version, die \textit{LilyPond} unter
+Nutzung der Bibliothek \acc{karmonyli.ly} erzeugen kann:
 
 \begin{lilypond}
 \version "2.18.2"
 \header { tagline = "" }
-\include "lilypond/inc.harmonyli.ly"
+\include "lilypond/harmonyli.ly"
+\paper {
+  indent = 0
+  ragged-right = ##f
+  system-system-spacing #'basic-distance = #20
+  score-system-spacing =
+    #'((basic-distance . 12)
+       (minimum-distance . 6)
+       (padding . 1)
+       (stretchability . 12))
+}
 \score {
   \new StaffGroup {
     \time 5/8
     <<
       \new Staff {
         \relative c'' {
-          \clef "treble"
-          \key bes \major  
-          \stemUp
-          < bes d  f >4 < c  es f >4 < bes es bes'>8 |
-          < c   es a >4 < a  f' a>4 < c   es f   >8 |         
-          r8 < f, d' f >8 < a  c  es >8 < f bes d>4 |
-          r8 < es a  c >4 < es a  c  >4|
-          r8 < es a  c >8 < c' es f  >8 < bes d f >4 |
-          r8  < g bes c >8 < es a c >8 <d f bes>4
+          \clef "treble" \key bes \major  \stemUp
+          <bes d f>4 <c  es f>4 <bes es bes'>8 |
+          <c es a >4 <a f' a>4 <c es f >8 |         
+          r8 <f, d' f>8 <a  c  es>8 <f bes d>4 |
+          r8 <es a c>4 <es a  c>4|
+          r8 <es a c>8 <c' es f>8 <bes d f>4 |
+          r8  <g bes c>8 <es a c>8 <d f bes>4
         }   
       }
       \new Staff {
         \relative c { 
-          \clef "bass"
-          \key bes \major  
-          \stemDown
-            bes8[ ^\markup { \hf T } bes']
-            a[    ^\markup { \hfiTwo D \line{"3-3"\flat} "7" "8" } as] 
-            g16.[ ^\markup { \hfi S \line{"3-3"\flat}  } ges32] |
-            f8[   ^\markup { \hfiOne D \line{"8-7"} "7" } es] 
-            d8.[  ^\markup { \hfi Dp \line{"3-3"\flat}  } des16] 
-            c16.[ ^\markup { \hfiOne D \line{"5-3"} "7" } a32] | 
-            bes4  ^\markup { \hf T } 
-            f'8 ^\markup { \hfOne D "7" } 
-            bes4 ^\markup { \hf T } |
-            r8 f8 ^\markup { \hfOne D "7" } c f,4  | 
-            r8 f' ^\markup { \hfOne D "7" } 
-            a,8 ^\markup { \hfiOne D \line{"3"} "7" } 
-            bes4 ^\markup { \hf T } | 
-            r8  es8 ^\markup { \hfTwo S "5" "6" } 
-            f ^\markup { \hfOne D "7" } 
-            bes4 ^\markup { \hf T }
-          \bar "||"
+          \clef "bass" \key bes \major \stemDown
+            bes8[ bes'] a[ as] g16.[ ges32] |
+            f8[ es] d8.[ des16] c16.[ a32] | 
+            bes4  f'8 bes4 |
+ 			      r8 f8 c f,4  | 
+            r8 f' a,8 bes4 | 
+            r8  es8 f bes4 \bar "||"
         }   
       }
+      \new RhythmicStaff {
+      	c4 c8[ c8] c16.[ c32] | c8[ c8] c8.[ c16] c16.[ c32] | 
+      	c4 c8 c4 | r8 c2 | r8 c8 c8 c4 | r8 c8 c8 c4 |
+      }
+      \addlyrics{
+      	\markup \setHas "T" #'(("C"."B")("fr" . " "))
+        \initTextSpan "   "
+        \markup \openZoomRow "D" #'(("B"."3")("a"."3")("b"."7")("c"."8")("fl" . " "))
+        \startTextSpan
+        \markup \expZoomRow #'(("a"."3♭")("fr" . " ")) 
+      	\stopTextSpan
+      	\initTextSpan "   "
+        \markup \openZoomRow "S" #'(("B"."3")("a"."3")("fl" . " "))
+        \startTextSpan
+        \markup \expZoomRow #'(("a"."3♭")("fr" . " ")) 
+      	\stopTextSpan
+		    \initTextSpan "   "
+        \markup \openZoomRow "D" #'(("B"."1")("a"."1")("b"."7")("c"."8")("fl" . " "))
+        \startTextSpan
+        \markup \expZoomRow #'(("a"."7")("fr" . " ")) 
+      	\stopTextSpan
+      	\initTextSpan "   "
+        \markup \openZoomRow "Dp" #'(("B"."3")("a"."3")("fl" . " "))
+        \startTextSpan
+        \markup \expZoomRow #'(("a"."3♭")("fr" . " ")) 
+      	\stopTextSpan
+		    \initTextSpan "   "
+        \markup \openZoomRow "D" #'(("B"."5")("a"."5")("b"."7")("fl" . " "))
+        \startTextSpan
+        \markup \expZoomRow #'(("a"."3")("fr" . " ")) 
+      	\stopTextSpan    
+       	\markup \setHas "T" #'()
+       	\markup \setHas "D" #'(("a"."7"))
+        \markup \setHas "T" #'()
+        \markup \setHas "D" #'(("a"."7"))
+        \markup \setHas "D" #'(("a"."7"))
+        \markup \setHas "D" #'(("B"."3")("a"."7"))
+       	\markup \setHas "T" #'()
+        \markup \setHas "S" #'(("a"."5")("b"."6"))
+        \markup \setHas "D" #'(("a"."7"))
+       	\markup \setHas "T" #'()
+      	}
     >>
   }
+  \layout { \context { \Lyrics \consists "Text_spanner_engraver" } }
 }
 \end{lilypond}
 \cad{III}{LilyPond}
 
 Für diese ist folgender Quellcode zuständig:
+\begin{scriptsize}
+
 
 \begin{verbatim}
 \begin{lilypond}
 \version "2.18.2"
 \header { tagline = "" }
 \include "lilypond/inc.harmonyli.ly"
+\include "lilypond/harmonyli.ly"
+
 \score {
   \new StaffGroup {
     \time 5/8
     <<
       \new Staff {
         \relative c'' {
-          \clef "treble"
-          \key bes \major  
-          \stemUp
-          < bes d  f >4 < c  es f >4 < bes es bes'>8 |
-          < c   es a >4 < a  f' a>4 < c   es f   >8 |         
-          r8 < f, d' f >8 < a  c  es >8 < f bes d>4 |
-          r8 < es a  c >4 < es a  c  >4|
-          r8 < es a  c >8 < c' es f  >8 < bes d f >4 |
-          r8  < g bes c >8 < es a c >8 <d f bes>4
+          \clef "treble" \key bes \major  \stemUp
+          <bes d f>4 <c  es f>4 <bes es bes'>8 |
+          <c es a >4 <a f' a>4 <c es f >8 |         
+          r8 <f, d' f>8 <a  c  es>8 <f bes d>4 |
+          r8 <es a c>4 <es a  c>4|
+          r8 <es a c>8 <c' es f>8 <bes d f>4 |
+          r8  <g bes c>8 <es a c>8 <d f bes>4
         }   
       }
       \new Staff {
         \relative c { 
-          \clef "bass"
-          \key bes \major  
-          \stemDown
-            bes8[ ^\markup { \hf T } bes']
-            a[    ^\markup { \hfiTwo D \line{"3-3"\flat} "7" "8" } as] 
-            g16.[ ^\markup { \hfi S \line{"3-3"\flat}  } ges32] |
-            f8[   ^\markup { \hfiOne D \line{"8-7"} "7" } es] 
-            d8.[  ^\markup { \hfi Dp \line{"3-3"\flat}  } des16] 
-            c16.[ ^\markup { \hfiOne D \line{"5-3"} "7" } a32] | 
-            bes4  ^\markup { \hf T } 
-            f'8 ^\markup { \hfOne D "7" } 
-            bes4 ^\markup { \hf T } |
-            r8 f8 ^\markup { \hfOne D "7" } c f,4  | 
-            r8 f' ^\markup { \hfOne D "7" } 
-            a,8 ^\markup { \hfiOne D \line{"3"} "7" } 
-            bes4 ^\markup { \hf T } | 
-            r8  es8 ^\markup { \hfTwo S "5" "6" } 
-            f ^\markup { \hfOne D "7" } 
-            bes4 ^\markup { \hf T }
-          \bar "||"
+          \clef "bass" \key bes \major \stemDown
+            bes8[ bes'] a[ as] g16.[ ges32] |
+            f8[ es] d8.[ des16] c16.[ a32] | 
+            bes4  f'8 bes4 |
+            r8 f8 c f,4  | 
+            r8 f' a,8 bes4 | 
+            r8  es8 f bes4 \bar "||"
         }   
       }
+      \new RhythmicStaff {
+        c4 c8[ c8] c16.[ c32] | c8[ c8] c8.[ c16] c16.[ c32] | 
+        c4 c8 c4 | r8 c2 | r8 c8 c8 c4 | r8 c8 c8 c4 |
+      }
+      \addlyrics{
+        \markup \setHas "T" #'(("C"."B")("fr" . " "))
+        \initTextSpan "   "
+        \markup \openZoomRow "D" #'(("B"."3")("a"."3")("b"."7")("c"."8")("fl" . " "))
+        \startTextSpan
+        \markup \expZoomRow #'(("a"."3-")("fr" . " ")) 
+        \stopTextSpan
+        \initTextSpan "   "
+        \markup \openZoomRow "S" #'(("B"."3")("a"."3")("fl" . " "))
+        \startTextSpan
+        \markup \expZoomRow #'(("a"."3-")("fr" . " ")) 
+        \stopTextSpan
+        \initTextSpan "   "
+        \markup \openZoomRow "D" #'(("B"."1")("a"."1")("b"."7")("c"."8")("fl" . " "))
+        \startTextSpan
+        \markup \expZoomRow #'(("a"."7")("fr" . " ")) 
+        \stopTextSpan
+        \initTextSpan "   "
+        \markup \openZoomRow "Dp" #'(("B"."3")("a"."3")("fl" . " "))
+        \startTextSpan
+        \markup \expZoomRow #'(("a"."3-")("fr" . " ")) 
+        \stopTextSpan
+        \initTextSpan "   "
+        \markup \openZoomRow "D" #'(("B"."5")("a"."5")("b"."7")("fl" . " "))
+        \startTextSpan
+        \markup \expZoomRow #'(("a"."3")("fr" . " ")) 
+        \stopTextSpan    
+        \markup \setHas "T" #'()
+        \markup \setHas "D" #'(("a"."7"))
+        \markup \setHas "T" #'()
+        \markup \setHas "D" #'(("a"."7"))
+        \markup \setHas "D" #'(("a"."7"))
+        \markup \setHas "D" #'(("B"."3")("a"."7"))
+        \markup \setHas "T" #'()
+        \markup \setHas "S" #'(("a"."5")("b"."6"))
+        \markup \setHas "D" #'(("a"."7"))
+        \markup \setHas "T" #'()
+        }
     >>
   }
+  \layout { \context { \Lyrics \consists "Text_spanner_engraver" } }
 }
+
 \end{lilypond}
 \end{verbatim}
+\end{scriptsize}
 
 \subsection{Bewertung}
 
@@ -598,10 +648,9 @@ nicht exzellent zu nennen, wäre unangebracht --, so kommt doch das Druckbild vo
 
 Musikwissenschaftler werden gut mit \textit{LilyPond} 'klarkommen': diese
 Notationsweise zu lernen, ist einfach, sie anzuwenden leicht. In dieser Hinsicht
-bietet \textit{LilyPond} mehr als MusiX\TeX. Wenn es allerdings um die Integration
-von Symbolen der Harmonieanalyse in den Notentext geht, so liefert die
-Verbindung von \LaTeX, MusiX\TeX\ und das Paket \textit{harmony} \underline{noch} die
-saubereren Ergebnisse.
+bietet \textit{LilyPond} mehr als MusiX\TeX. Und im Verbund mit
+\acc{harmonyli.ly} wird \textit{LilyPond} auf höchstem Niveau zu einem vom
+Forschungsgegenstand her adäquaten Tool für Musikwissenschaftler.
 
 
 

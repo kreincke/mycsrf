@@ -23,42 +23,54 @@ Damit haben wir das Ende unser Untersuchung erreicht. Fassen wir das Unterfangen
 zusammen:
 
 Aus Anlass einer anstehenden, größeren musikwissenschaftlichen Arbeit mussten
-wir in \LaTeX-Texte Notenbeispiele einbetten können, und zwar insbesondere der
+wir in \LaTeX-Texte Notenbeispiele einbetten können, und zwar samt der
 ausgefeilten Symbolkomplexe, wie sie in der funktionalen Harmonieanalyse üblich
-sind. Eine einfache Anleitung dazu gab und gibt es dazu bisher nicht. Die Suche
-im Netz verweist stattdessen auf eine Fülle von Tools und Techniken, deren
-Nutzen und Nutzbarkeit und Kombinierbarkeit recht unklar bleibt. So haben wir
-dieses Feld ausgeleuchtet, um den von der Qualität besten und von der
-Handlichkeit einfachsten Weg zu finden:
+sind. Eine einfache Anleitung dazu gab bisher nicht. Die Suche im Netz verweist
+stattdessen auf eine Fülle von Tools und Techniken, deren Nutzen und Nutzbarkeit
+und Kombinierbarkeit recht unklar bleibt. So haben wir dieses Feld
+ausgeleuchtet, um den von der Qualität besten und von der Handlichkeit
+einfachsten Weg zu finden:
 
 Notenbeispiele können auf verschiedenen Wegen in \LaTeX-Texten eingebettet
 werden. Wir haben drei Backendsystem gefunden, nämlich
 \acc{\LaTeX\,+\,ABC}, \acc{\LaTeX\,+\,MusiX\TeX} und
 \acc{\LaTeX\,+\,LilyPond}.
 
-Nur \acc{\LaTeX\,+\,MusiX\TeX} bieten im Verbund mit dem \LaTeX-Tool
-\acc{harmony} von sich aus die Option, hinreichend ausdrucksstarke
-Harmonieanalysesymbole in die Notenbeispiele zu integrieren. Das Druckergebnis
-ist exzellent.
+\acc{\LaTeX\,+\,MusiX\TeX} -- im Verbund mit dem \LaTeX-Tool \acc{harmony} --
+und \acc{\LaTeX\,+\,LilyPond} -- in Kombination mit der \acc{LilyPond}
+Bibliothek \acc{harmonyli.ly} -- bieten von sich aus die Option, hinreichend
+ausdrucksstarke Harmonieanalysesymbole in die Notenbeispiele zu integrieren.
+Das Druckergebnis ist exzellent und ganz auf der Höhe, die ein \LaTeX-Nutzer
+erwartet.
 
-Der Nachteil dieses Ansatzes liegt in der Komplexität und Unhandlichkeit der
-Auszeichnungssprache \acc{MusiX\TeX}. Leider gibt es kein graphisches oder
-semi-graphisches Frontend für dieses Backend. Die Idee, ein existierendes
-Frontend über einen Konverter dafür nutzbar zu machen, scheitert entweder daran,
-dass es keinen entsprechenden Konverter gibt (\acc{ly2musictex}) oder dass die
-existierenden Konverter nicht adäquat arbeiten (\acc{abc2ly} resp. \acc{abc2mtex}).
+Der Vorteil des \acc{\LaTeX\,+\,MusiX\TeX}-Ansatzes liegt in der bruchlosen
+Integration in das gewohnte \LaTeX-Handling und in der Tatsache, dass
+\LaTeX-Syntagmen in MusiX\TeX-Bereichen verwendeten werden können.
 
-Bei \acc{\LaTeX\,+\,LilyPond} kann man hinreichend ausdrucksstarke
-Harmonieanalysesymbole über eine -- allerdings noch unfertige --
-Zusatzbibliothek namens \acc{Harmonyli} in den \acc{LilyPond}-Notentext integrieren.
-Dieses Verfahren hat drei Vorteile:
+Der Nachteil dieses ersten Ansatzes liegt hingegen in der Komplexität und
+Unhandlichkeit der Auszeichnungssprache \acc{MusiX\TeX}. Leider gibt es kein
+graphisches oder semi-graphisches Frontend für dieses Backend. Die Idee, ein
+existierendes Frontend über einen Konverter dafür nutzbar zu machen, scheitert
+entweder daran, dass es keinen entsprechenden Konverter gibt (\acc{ly2musictex})
+oder dass die existierenden Konverter nicht adäquat arbeiten (\acc{abc2ly} resp.
+\acc{abc2mtex}).
+
+Der Nachteil \acc{\LaTeX\,+\,LilyPond}-Methode besteht dagegen darin, dass die
+Notenbeispiele nicht nativ in den \LaTeX-Text eingebettet werden, sondern 'nur'
+als vorab erzeugte Graphik. Damit muss man die Skalierungsfragen ebenso
+gesondert bedenken, wie man seine Make-Prozedur auf die Vorabnutzung von
+\acc{lilypond-book} umstellen muss. Und dann bleibt immer noch, dass man
+\LaTeX-Konstrukte nicht in \acc{Lilypond}-Umgebungen verwenden kann,
+
+Diesen leichten Einschränkungen stehen aber ein Fülle von Vorteilen gegenüber,
+die Methode \acc{\LaTeX\,+\,LilyPond\,+\,harmonyli.ly} zum Mittel der Wahl machen:
 
 \begin{itemize}
   \item Zum ersten steht mit \acc{LilyPond} eine im Vergleich zu \acc{Musix\TeX}
   deutlich einfachere Auszeichnungssprache zur Verfügung.
-  \item Zum zweiten können diese Harmonieanalysesymbole
-  damit auch über den \acc{LilyPond}-spezifischen semi-graphischen Editor
-  \acc{Frescobaldi} eingegeben werden.
+  \item Zum zweiten steht mit \acc{Frescobaldi} ein ausgezeichneter
+  semi-graphischen Editor zur Verfügung, der auch die eingebundene Bibliothek
+  \acc{harmonyli.ly} und die daraus genutzten Funktionen korrekt auswertet.
   \item Und schließlich kann man für \acc{LilyPond} auch den graphischen Editor
   \acc{Muse\-Score} als Frontend verwenden, sofern man in Kauf nimmt, vor der
   eigentlichen Arbeit auf \acc{\LaTeX-LilyPond}-Ebene den Konverter
@@ -67,28 +79,22 @@ Dieses Verfahren hat drei Vorteile:
   zweiten Schritt einzugeben.
 \end{itemize}
 
-Allerdings hat auch dieses Verfahren Nachteile:
+Damit dürfte auch klar sein, welche Methode wir selbst anwenden werden, nämlich
+\acc{\LaTeX\,+\,LilyPond\,+\,harmonyli.ly}. Das wäre nicht möglich gewesen, wenn
+es sich hier nicht um Freie Open Source Software gehandelt hätte. Erst das gab
+uns die Möglichkeit, das selbst zu entwickeln zu ergänzen, was wir für ein
+graphisch und inhaltlich adäquates Ergebnis noch benötigten.
 
-\begin{itemize}
-  \item Zum einen werden die Notenbeispiele so nicht nativ in den \LaTeX-Text
-  eingebettet, sondern 'nur' als Graphik. Damit muss man die Skalierungsfragen
-  besonders bedenken.
-  \item Zum anderen muss die Bibliothek \acc{Harmonyli} noch optimiert werden,
-  insbesondere im Hinblick auf das graphische Ergebnis.
-\end{itemize}
+Insgesamt sind wir froh, den Djungel der Möglichkeiten, der sich nach der reinen
+Internetrecherche abgezeichnet hatte, gelichtet und die wirklich gangbaren Wege
+gefunden zu haben. Jetzt wissen wir, woran wir sind. Wir wünschten allerdings,
+wir hätten unseren Artikel schon eingangs bekommen, anstatt ihn selbst schreiben
+zu müssen. Das hätte uns sehr viel Zeit gespart. Möge also unser Text anderen
+den Aufwand für eine solche Tool-Evaluation sparen. Und möge er anderen als
+Ausgang für Updates, Verfeinerungen und Zusatzarbeiten dienen. Deshalb sei er
+auch als CC-BY-SA lizensierter Text veröffentlicht.
 
-Fragt sich also zuletzt, welche Methode wir selbst anwenden werden? 
-
-Nun, wir werden versuchen, die Bibliothek \acc{Harmonyli} zusammen mit der
-\acc{LilyPond} Community zu verbessern, bis das graphische Ergebnis der
-unfraglichen Qualität von \acc{Music\TeX\ \& Harmony} gleichkommt. Kurzfristig
-werden wir auf \acc{Musix\TeX \& Harmony} zugreifen,allerdings nur dann, wenn
-es wirklich notwendig ist.
-
-Insgesamt sind wir aber sehr froh, dass wir den Djungel der Möglichkeiten, der
-sich nach der Internetrecherche abzeichnet, gelichtet und die beiden wirklich
-gangbaren Wege gefunden haben.
-
+Frankfurt 2019-11-22 Karsten Reincke
 
 
 % this is only inserted to eject fault messages in texlipse

@@ -1,12 +1,20 @@
+% cadenca.ly ::- a lilypond encoded cadence for demonstrating some
+% capabilities of harmonyli.ly, a LilyPond library for integrating
+% functional harmony analysis symbols into a score
+%
+% (c) 2019  Karsten Reincke (Frankfurt/Germany)
+%
+% This file is licensed under CC-BY-SA 4.0 international
+% for details see https://creativecommons.org/licenses/by-sa/4.0/
+
 \version "2.18.2"
 
 \header { tagline = "" }
-
-\include "inc.harmonyli.ly"
+\include "harmonyli.ly"
   
 \score {
   \new StaffGroup {
-    \time 4/2
+    \time 4/4
     <<
       \new Staff {
         \relative d' {
@@ -19,10 +27,27 @@
           < b  eis>2        
           | 
           < b fis'>2  
-          < e gis >2  
-          < e a >2    
-          < a fis>2      
+          < e gis >2 
+          < e a >4
+          < e a >4 
+          < a fis>2       
           \bar "||"
+        }
+        \addlyrics {
+          \markup \setHas "T" #'(("C"."D")("fr" . " "))
+          \markup \setImHas "D" #'(("B"."1")("a" . "7")("fr" . " "))
+          \markup \setHas "Sp" #'(("B"."7")("a" . "7")("fl" . " ")("fr" . " "))
+          \markup \setHas "D" #'(("T"."x")("B"."3")("a" . "5")("b" . "7")("c" . "♭9>♯8")("fr" . " "))
+          \markup \setHas "Tp" #'(("B"."3")("fl" . " ")("fr" . " ")) 
+          \markup \setHas "D" #'(("T"."d")("B"."5")("a" . "7")("b" . "8")("fr" . " ")) 
+                 
+          \initTextSpan "   "
+          \markup \openZoomRow "D" #'(("a"."4")("fl" . " "))
+          \startTextSpan
+          \markup \expZoomRow #'(("a"."3")("fr" . " ")) 
+          \stopTextSpan
+  
+          \markup \setHas "T" #'(("fr" . " "))
         }   
       }
       \new Staff {
@@ -30,26 +55,29 @@
           \clef "bass"
           \key d \major  
           \stemDown
-          < d a'>2        ^\markup { \hf T }                      
-          < b a'>2        ^\markup { ( \hfOne D "7" ) }           
-          < d g>2         ^\markup { \hfiOne Sp "7" "7" }         
-          < cis g'>2      ^\markup { \hfiTri D "3" "5" "7" 
-                                        \line{"9"{\super{\flat}}"=8"{\super{\sharp}}}
-                                    }                               
+          < d a'>2                              
+          < b a'>2                   
+          < d g>2                
+          < cis g'>2                                    
           |
-          < d fis>2       ^\markup { \hfi Tp "3" }                
-          < b d>2         ^\markup { \hfiOne DD "5" "7" }         
+          < d fis>2                      
+          < b d>2                  
           <<
-            { a2          ^\markup { \hfOne D "4>3" }  }
+            { a4( a4)   }
             { d4( cis4) }
           >> 
-          < d, d'>2       ^\markup { \hf T }
+          < d, d'>2       
           \bar "||"
         }   
       }
     >>
   }
-  \layout { }
+  \layout {
+    \context {
+      \Lyrics
+      \consists "Text_spanner_engraver"
+    }
+  }
   \midi {}
 }
 
