@@ -34,6 +34,7 @@ prod:	clear
 
 
 inst:	prod
+	if [ -e ../../pdfs/${ISNM}.pdf ]; then rm ../../pdfs/${ISNM}.pdf; fi
 	cp ${ISNM}*.pdf ../../pdfs/${ISNM}.pdf
 
 clear:
