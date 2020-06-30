@@ -107,7 +107,7 @@ Daraus folgt sofort, dass man auch hier einiges vorzubereiten hat, wenn man
 \textit{LilyPond} erfolgreich verwenden will:
 
 $\RHD$ Zunächst muss man -- ganz unabhängig von \LaTeX\ -- \textit{LilyPond}
-installieren\footnote{Unter Ubuntu: \texttt{sudo apt-get lilypond
+installieren\footnote{Unter Ubuntu: \texttt{sudo apt-get install lilypond
 lilypond-data}}. Dieses Paket stellt dann auch \texttt{lilypond-book} bereit.
   
 $\RHD$ Im Gegensatz zu \textit{ABC} oder \textit{MusiX\TeX} braucht
@@ -461,16 +461,7 @@ Nutzung der Bibliothek \acc{karmonyli.ly} erzeugen kann:
 \version "2.18.2"
 \header { tagline = "" }
 \include "lilypond/harmonyli.ly"
-\paper {
-  indent = 0
-  ragged-right = ##f
-  system-system-spacing #'basic-distance = #20
-  score-system-spacing =
-    #'((basic-distance . 12)
-       (minimum-distance . 6)
-       (padding . 1)
-       (stretchability . 12))
-}
+
 \score {
   \new StaffGroup {
     \time 5/8
@@ -492,59 +483,59 @@ Nutzung der Bibliothek \acc{karmonyli.ly} erzeugen kann:
             bes8[ bes'] a[ as] g16.[ ges32] |
             f8[ es] d8.[ des16] c16.[ a32] | 
             bes4  f'8 bes4 |
- 			      r8 f8 c f,4  | 
+            r8 f8 c f,4  | 
             r8 f' a,8 bes4 | 
             r8  es8 f bes4 \bar "||"
         }   
       }
       \new RhythmicStaff {
-      	c4 c8[ c8] c16.[ c32] | c8[ c8] c8.[ c16] c16.[ c32] | 
-      	c4 c8 c4 | r8 c2 | r8 c8 c8 c4 | r8 c8 c8 c4 |
+        c4 c8[ c8] c16.[ c32] | c8[ c8] c8.[ c16] c16.[ c32] | 
+        c4 c8 c4 | r8 c2 | r8 c8 c8 c4 | r8 c8 c8 c4 |
       }
       \addlyrics{
-      	\markup \setHas "T" #'(("C"."B")("fr" . " "))
+        \markup \setHas "T" #'(("C"."B")("fr" . " "))
         \initTextSpan "   "
         \markup \openZoomRow "D" #'(("B"."3")("a"."3")("b"."7")("c"."8")("fl" . " "))
         \startTextSpan
-        \markup \expZoomRow #'(("a"."3♭")("fr" . " ")) 
-      	\stopTextSpan
-      	\initTextSpan "   "
+        \markup \expZoomRow #'(("a"."3-")("fr" . " ")) 
+        \stopTextSpan
+        \initTextSpan "   "
         \markup \openZoomRow "S" #'(("B"."3")("a"."3")("fl" . " "))
         \startTextSpan
-        \markup \expZoomRow #'(("a"."3♭")("fr" . " ")) 
-      	\stopTextSpan
-		    \initTextSpan "   "
+        \markup \expZoomRow #'(("a"."3-")("fr" . " ")) 
+        \stopTextSpan
+        \initTextSpan "   "
         \markup \openZoomRow "D" #'(("B"."1")("a"."1")("b"."7")("c"."8")("fl" . " "))
         \startTextSpan
         \markup \expZoomRow #'(("a"."7")("fr" . " ")) 
-      	\stopTextSpan
-      	\initTextSpan "   "
+        \stopTextSpan
+        \initTextSpan "   "
         \markup \openZoomRow "Dp" #'(("B"."3")("a"."3")("fl" . " "))
         \startTextSpan
-        \markup \expZoomRow #'(("a"."3♭")("fr" . " ")) 
-      	\stopTextSpan
-		    \initTextSpan "   "
+        \markup \expZoomRow #'(("a"."3-")("fr" . " ")) 
+        \stopTextSpan
+        \initTextSpan "   "
         \markup \openZoomRow "D" #'(("B"."5")("a"."5")("b"."7")("fl" . " "))
         \startTextSpan
         \markup \expZoomRow #'(("a"."3")("fr" . " ")) 
-      	\stopTextSpan    
-       	\markup \setHas "T" #'()
-       	\markup \setHas "D" #'(("a"."7"))
+        \stopTextSpan    
+        \markup \setHas "T" #'()
+        \markup \setHas "D" #'(("a"."7"))
         \markup \setHas "T" #'()
         \markup \setHas "D" #'(("a"."7"))
         \markup \setHas "D" #'(("a"."7"))
         \markup \setHas "D" #'(("B"."3")("a"."7"))
-       	\markup \setHas "T" #'()
+        \markup \setHas "T" #'()
         \markup \setHas "S" #'(("a"."5")("b"."6"))
         \markup \setHas "D" #'(("a"."7"))
-       	\markup \setHas "T" #'()
-      	}
+        \markup \setHas "T" #'()
+        }
     >>
   }
   \layout { \context { \Lyrics \consists "Text_spanner_engraver" } }
 }
+
 \end{lilypond}
-\cad{III}{LilyPond}
 
 Für diese ist folgender Quellcode zuständig:
 \begin{scriptsize}
@@ -554,7 +545,6 @@ Für diese ist folgender Quellcode zuständig:
 \begin{lilypond}
 \version "2.18.2"
 \header { tagline = "" }
-\include "lilypond/inc.harmonyli.ly"
 \include "lilypond/harmonyli.ly"
 
 \score {
