@@ -77,11 +77,10 @@ oberen Leiste angeklickt hat, werden die entsprechenden \acc{Midi-} und die
 \includegraphics[width=0.9\textwidth]{frontends/frescobaldi/frescobaldi-cadenca2-300dpi.png}
 \end{center}
 
-Auf der linken unteren Seite editiert man den \acc{LilyPond}-Text, unterstützt
-durch ein gelungenes Syntaxhighlighting und durch Menue-Befehle, die komplexere
-Eingaben zusammenfassen. Über diesem Eingabefenster erscheint das Frontend zum
-Midi-Player, wenn man diesen über die Rubrik 'Tools' aktiviert hat. Und rechts
-daneben wird das generiert PDF angezeigt.
+Auf der linken unteren Seite editiert man den \acc{LilyPond}-Text, unterstützt durch ein gelungenes Syntaxhighlighting und durch Menue-Befehle, die komplexere Eingaben zusammenfassen. Über diesem Eingabefenster erscheint das Frontend zum Midi-Player, wenn man diesen über die Rubrik 'Tools' aktiviert hat. Und rechts daneben wird das generiert PDF angezeigt.
+
+Eine kleine 'Komplikation' könnte das Abspielen der Noten aus \acc{Frescobaldi} heraus sein. Um sie aus dem Weg zu räumen, aktiviert man zuerst - wie schon beschrieben\footnote{$\rightarrow$ S.\pageref{MIDI}} - die Midi-Funktionalität seines Computers. Dann startet man den Midiserver mit \texttt{sudo timidity -iA -B2,8 -Os1l -s 44100}, öffnet die \acc{Frescobaldi}-Einstellung, wechselt in den Bereich \acc{Midi Settings}, drückt den \acc{Refresh Button} und wählt als \acc{Player Output} einen \acc{TiMidity Port}.
+
 
 Wenn wir \acc{Elysium} mit vier Sternen ausgezeichnet haben, dann ist es nur
 fair, an \acc{Frescobaldi} fünf Sterne zu vergeben: Beide Systeme gehören zur den

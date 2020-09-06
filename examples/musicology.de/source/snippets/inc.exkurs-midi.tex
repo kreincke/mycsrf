@@ -15,24 +15,11 @@
 %
 
 
-\section{Exkurs: MIDI unter GNU/Linux resp. Ubuntu 18.04}
+\section{Exkurs: MIDI unter GNU/Linux resp. Ubuntu} \label{MIDI}
 
-Dieser Übersicht zufolge können einige der Frontends für Notensatzsysteme mit
-\acc{MIDI}-Dateien umgehen. Das impliziert oft die Möglichkeit, sich auch die
-Musik hinter den Noten 'über das Frontend' anzuhören. Manche Systeme bringen dazu
-bereits alles Nötige mit, andere erwarten eine darauf ausgelegte Umgebung. Und
-bei letzteren haben manche Distributoren die angeforderten Tools sauber mit
-paketiert, andere lassen Lücken.
+Dieser Übersicht zufolge können einige der Frontends für Notensatzsysteme mit \acc{MIDI}-Dateien umgehen. Das impliziert oft die Möglichkeit, sich auch die Musik hinter den Noten 'über das Frontend' anzuhören. Manche Systeme bringen dazu bereits alles Nötige mit, andere erwarten eine darauf ausgelegte Umgebung. Und bei letzteren haben manche Distributoren die angeforderten Tools sauber mit paketiert, andere lassen Lücken.
 
-Wie man Noten hörbar macht, ist eigentlich nicht unser Thema. Allerdings
-spielt es -- sofern man nach dem besten Frontend für einen Musikwissenschaftler
-sucht -- durchaus eine Rolle, ob die Frontends der Notensatzsysteme wenigstens
-prinzipiell auch das Hören von Musik erlauben. Wir werden deshalb -- sehr kurz
-und kursorisch -- am Beispiel von Ubuntu 18.04 erläutern, was notwendig ist, um
-\acc{MIDI}-Datei mit freier Software über das System erklingen zu lassen. Dabei
-zielen wir weder auf Vollständigkeit noch Adäquanz im Detail. Das Prinzip
-allerdings sollte so weit klar werden, dass jeder mit der Hilfe von 'Dr. Google'
-sein eigenes System anpassen kann.
+Wie man Noten hörbar macht, ist eigentlich nicht unser Thema. Allerdings spielt es -- sofern man nach dem besten Frontend für einen Musikwissenschaftler sucht -- durchaus eine Rolle, ob die Frontends der Notensatzsysteme wenigstens prinzipiell auch das Hören von Musik erlauben. Wir werden deshalb -- sehr kurz und kursorisch -- am Beispiel von Ubuntu erläutern\footnote{getestet für Ubuntu 18.04 und 20.04}, was notwendig ist, um \acc{MIDI}-Datei mit freier Software über das System erklingen zu lassen. Dabei zielen wir weder auf Vollständigkeit noch Adäquanz im Detail. Das Prinzip allerdings sollte so weit klar werden, dass jeder mit der Hilfe von 'Dr. Google' sein eigenes System anpassen kann.
 
 \acc{MIDI} steht für \enquote{Musical Instrument Digital Interface}.
 \acc{MIDI}-Dateien sind mithin keine Audiodateien im 'normalen' Sinne. Sie
@@ -83,22 +70,9 @@ sudo apt-get install vlc vlc-plugin-fluidsynth
 sudo apt install fluid-soundfont-gm fluid-soundfont-gs
 \end{verbatim}
 
-Das reicht aber noch nicht aus, um in Zukunft alle \acc{MIDI}-Dateien
-automatisch vom \acc{vlc} abgespielt zu bekommen. Oft ist schon ein Player für
-alle Medien-Dateien zuständig erklärt worden. \acc{MIDI}-Dateien werden den
-Medien-Dateien zugerechnet, obwohl das Soundsystem -- wie wir gelernt haben --
-von sich aus ja gar keine \acc{MIDI}-Dateien versteht. Also ist es reiner
-Zufall, ob die voreingestellte Defaultapplikation \acc{MIDI} 'kann' oder nicht:
-es hängt nur davon ab, ob sie selbst ein \acc{MIDI}-Plugin hat und ob es auch
-installiert ist.
+Das reicht aber noch nicht, um auch in Zukunft alle \acc{MIDI}-Dateien automatisch vom \acc{vlc} abgespielt zu bekommen. Oft ist schon ein Player für alle Medien-Dateien zuständig und \acc{MIDI}-Dateien werden den Medien-Dateien zugerechnet, obwohl das Soundsystem -- wie wir gelernt haben -- von sich aus ja gar keine \acc{MIDI}-Dateien versteht. Also ist es reiner Zufall, ob die voreingestellte Defaultapplikation \acc{MIDI} 'kann' oder nicht: es hängt nur davon ab, ob sie selbst ein \acc{MIDI}-Plugin hat und ob es auch installiert ist.
 
-Der Ausweg aus dem Dilemma ist einfach: Man macht den \acc{vlc} zum Standardtool
-für \acc{MIDI}-Dateien. Dazu klickt man mit der 'Nicht'-Maustaste\footnote{bei
-Rechtshändern die linke und umgekehrt} auf eine \acc{MIDI}-Datei, geht im
-auftauchenden Dialog auf den Reiter \acc{Öffnen mit} und wählt aus der Liste der
-Applikationen den  \acc{vlc} aus. Danach werden auch alle anderen
-\acc{MIDI}-Dateien mit dem  \acc{vlc} 'geöffnet' -- und das heißt in diesem
-Fall: abgespielt.
+Der Ausweg aus dem Dilemma ist einfach: Man macht den \acc{vlc} zum Standardtool für \acc{MIDI}-Dateien. Dazu klickt man mit der rechten Maustaste\footnote{bei Linkshändern die linke} auf eine \acc{MIDI}-Datei und wählt 'Eigenschaften' aus. In dem dann erscheinenden Dialog geht man zum Reiter \acc{Öffnen mit}, wählt aus der Liste möglicher Applikationen den \acc{vlc} aus und bestätigt die Wahl über den Button 'Set as Default'. Danach werden auch alle anderen \acc{MIDI}-Dateien automatisch mit dem  \acc{vlc} 'geöffnet' -- und das heißt in unserem Fall: abgespielt.
 
 Will man \acc{MIDI}-Dateien dagegen über die Shell abspielen, benötigt man einen
 \acc{MIDI}-Server mit Playerfunktionalität, will sagen: einen \enquote{software
@@ -118,12 +92,11 @@ aussehen:
 #!/bin/bash
 sudo apt-get install timidity
 sudo apt install fluid-soundfont-gm fluid-soundfont-gs
-sudo mv /etc/timidity/timidity.cfg /etc/timidity/timidity.cfg.save
-sudo cat /etc/timidity/timidity.cfg.save |\
- sed "s/freepats.cfg/fluidr3_gm.cfg/g" > /etc/timidity/timidity.cfg
 # optional für ein Timidity eigenes Desktoptool
 sudo apt-get install timidity-interfaces-extra
 \end{verbatim}
+
+Dann öffnet die Konfigurationsdatei mit \texttt{sudo vi /etc/timidity/timidity.cfg}, kommentiert die Zeile \texttt{source /etc/timidity/freepats.cfg} aus und löscht das Kommen\-tar\-zeichen vor \texttt{source /etc/timidity/fluidr3\_gm.cfg} respektive fügt diese Zeile ein.
 
 Danach sollte man in einer Shell über das Kommando \texttt{timidity
 MIDIDATEI.midi} seine \acc{MIDI}-Datei erfolreich abspielen können. Der Befehl
