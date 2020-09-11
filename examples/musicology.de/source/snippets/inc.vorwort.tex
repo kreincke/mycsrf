@@ -1,5 +1,5 @@
-% mycsrf 'for beeing included' snippet template
-%
+
+
 % (c) Karsten Reincke, Frankfurt a.M. 2012, ff.
 %
 % This text is licensed under the Creative Commons Attribution 3.0 Germany
@@ -14,54 +14,13 @@
 % please use the scientific standard to cite
 %
 
+Ich selbst hatte mir zu Beginn eines größeren musikwissenschaftlichen Projektes gewünscht, ein solches Tutorial zu haben: \acc{\LaTeX}, \acc{Bib\TeX}\ und \acc{JabRef} waren mir schon vertraut. Meinen optimalen Zitierstil für das Schreiben geisteswissenschaftlicher Arbeiten hatte ich bereits konfiguriert\footcite[vgl.][\nopage wp.]{Reincke2018a} und dokumentiert\footcite[vgl][2ff]{Reincke2018b}. Unklar war mir 'nur', wie man Notentexte und musikalische Analysen in \LaTeX-Texte einbindet.
 
-%% use all entries of the bibliography
+Das sollte eigentlich nicht kompliziert sein. Man bräuchte dazu doch nur ein No\-ta\-tions\-system, das Notentext erfasst und das -- als Teil des \LaTeX-Quelltextes -- das Notenbild in das eigentlich Werk hinein generiert. Leider schwiegen sich meine sehr guten, einschlägigen \LaTeX-Bücher dazu aus\footcite[vgl.][vi ff, insbesondere 905 u. 909: das umfangreiche Register erwähnt weder Musik im allgemeinen noch LilyPond oder MusiX\TeX\ im Besonderen]{Voss2012a}, selbst wenn sie auch Randbereiche behandelten\footcite[vgl.][vii ff, insbesondere 1080 u. 1087: auch dieses umfangreiche Register erwähnt weder Musik im allgemeinen noch LilyPond oder MusiX\TeX\ im Besonderen.]{MitGoo2005a}. Die entsprechende Internetrecherche überrollte mich dagegen: so viele Notationssysteme und Tools, aber kein systematischer Überblick.\footnote{Rühmlich die Ausnahme von \cite[][\nopage wp.]{Thoma2018a}. Allerdings ging sie nicht in die Tiefe, die ich benötigte.}
 
-\begin{quote}\textit{Was man braucht und nicht findet, muss man selbst herstellen.}
-\end{quote}
+Wollte ich meine Arbeit also nicht gefährden und Sackgassen vermeiden, musste ich die gegebenen Möglichkeiten zuerst sichten. Andernfalls wäre ich Gefahr gelaufen, zuletzt doch 'aufs falsche Pferd gesetzt' zu haben. Was ich brauchte war eine technisch fundierte 'Landkarte' der Methoden und Tools, die mir den besten Weg weisen konnte. Und so traf mich -- wieder einmal -- die Erkenntnis:
 
-Der Impuls, dieses Tutorial zu schreiben, kam mit dem Beginn eines größeren
-musikwissenschaftlichen Projektes. Wie gewohnt, bestand meine erste Aufgabe
-darin, meine Arbeit zu organisieren. Unnötige Tipparbeit ist mir zuwider. Lieber
-verbringe ich doppelt so viel Zeit damit, die Anlegenheit zu automatisieren.
-Glücklicherweise waren mir \acc{\LaTeX}, \acc{Bib\TeX}\ und \acc{JabRef} längst
-schon vertraut. Meinen optimalen Zitierstil für das Schreiben
-geisteswissenschaftlicher Arbeiten hatte ich bereits
-konfiguriert\footcite[vgl.][\nopage wp.]{Reincke2018a} und
-dokumentiert\footcite[vgl][2ff]{Reincke2018b}. Damit hätte es im Kern losgehen
-können.
+\begin{quote}\textit{Was man im Internet nicht findet, muss man selbst hineinstellen - am Besten unter einer Lizenz, die jedem die freie Wieder- und Weiterverwendbarkeit garantiert.} \end{quote}
 
-Allerdings war für mich noch völlig unklar, wie man den Notentexte und -- vor
-allem -- musikalische Analysen in \LaTeX-Texte einbindet. Nur das Gefühl sagte:
-so schwierig würde das nicht werden. Am besten wäre natürlich ein
-No\-ta\-tions\-system, das mich den Notentext hätte erfassen und -- sozusagen auf
-Knopfdruck -- in meinen Text integrieren lassen. Danach galt es zu suchen.
-
-Leider schwiegen sich meine sehr guten, einschlägigen \LaTeX-Bücher dazu
-aus\footcite[vgl.][vi ff, insbesondere 905 u. 909: das umfangreiche Register
-erwähnt weder Musik im allgemeinen noch LilyPond oder MusiX\TeX\ im
-Besonderen]{Voss2012a}, selbst wenn sie auch Randbereiche
-behandelten\footcite[vgl.][vii ff, insbesondere 1080 u.
-1087: auch dieses umfangreiche Register erwähnt weder Musik im allgemeinen noch
-LilyPond oder MusiX\TeX\ im Besonderen.]{MitGoo2005a}. Die entsprechende
-Internetrecherche überrollte mich dagegen: so viele Notationssysteme und Tools,
-aber kein systematischer Überblick.\footnote{Rühmlich die Ausnahme von
-\cite[][\nopage wp.]{Thoma2018a}. Allerdings ging sie nicht in die Tiefe, die ich
-benötigte.}
-
-Wollte ich meine große Arbeit nicht gefährden und Sackgassen vermeiden, musste
-ich die Möglichkeiten zuerst grundsätzlich sichten. Andernfalls hätte ich nur
-eine Variante willkürlich herausgegriffen und wäre Gefahr gelaufen, schließlich
--- trotz aller investierten Zeit und Arbeit -- doch 'aufs falsche Pferd gesetzt'
-zu haben. Was ich brauchte war -- sozusagen -- eine technisch fundierte
-'Landkarte' der Methoden und Tools, die mir den besten Weg weisen konnte. Und so
-traf mich -- wieder einmal -- die Erkenntnis:
-
-\begin{quote}\textit{Was man im freien Teil des Internets nicht findet, muss man
-selbst hineinstellen, insbesondere, wenn man sich als Teil der Open-Source-Community
-versteht und ihr etwas zurückgeben will.}
-\end{quote}
-
-
-% this is only inserted to eject fault messages in texlipse
+ % this is only inserted to eject fault messages in texlipse
 %\bibliography{../bib/literature}
