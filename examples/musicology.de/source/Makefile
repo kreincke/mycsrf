@@ -10,10 +10,8 @@ RES_EXTS=ps pdf
 SUB_DIRS=cfg bib
 T=CH
 
-ABCTMP=abc
-
 REL=inc.rel.tex
-WORK=latex-musicology
+WORK=mltx
 
 all:
 	make ${WORK}.pdf
@@ -24,25 +22,17 @@ all:
 .tex.pdf:
 	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
 	@ echo "### converting $< to $@"
-# (A) creating a temporary directory for storing the abc help files
-	mkdir -p ${ABCTMP}
 # (B) the first latex pass which extracts some default infos and the abc-files
 	@ $(LATEX) $<
 # (C) creating the help files for the literature	
 	@ bibtex `basename $< .tex`
 	@ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist -o `basename $< .tex`.nls
-# (D) creating the help files for musixtex snippets
-	@ musixflx $<
 # (E) integrating the musixtex files
 	@ $(LATEX) $< 
 # (F) generating the abc picture by calling the external program abcm2ps
 	@ $(LATEX) --shell-escape $<
-# (G) mv the results into the temporary directory to enable the next pass to integrate (find) them
-	mv *.ps abc/
 # (H) create the final document	
 	@ $(LATEX) --shell-escape $< 
-# (I) mv the recreated results also into the temporary directory for a better cleansing
-#	mv *.ps abc/
 ifneq ($(LATEX),pdflatex)
 	@ echo "### converting DVI to PostScript"
 	@ dvips $<
@@ -51,8 +41,6 @@ ifneq ($(LATEX),pdflatex)
 endif
 # (K) cleasing the environment
 	@ mv $@ `basename $@ .pdf`-`cat ${REL}`.pdf
-	@ rm -rf ${ABCTMP}/*
-	@ echo "preserve dir eclipse auto build" > ${ABCTMP}/save.txt
 	@ make clearAuxFiles
 
 .tex.dvi:
