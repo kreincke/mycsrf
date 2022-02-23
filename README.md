@@ -1,9 +1,8 @@
 
 **DEPRECATED**: *The technique of mycsrf is still usable. But
 due to BibLaTeX and Biber, there is a better way to achieve 
-better goals:* **lrt4cs** that stands for LaTeX based Research
-Templates For Classical Scholars (see 
-[http://github.com/kreincke/lrt4cs](http://github.com/kreincke/lrt4cs))
+better goals:* **proscientia.ltx** hosted in
+[http://github.com/kreincke/proscientia.ltx](http://github.com/kreincke/proscientia.ltx))
 
 (c) 2012 Karsten Reincke
 
