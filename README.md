@@ -10,4 +10,4 @@ better goals:* **proscientia.ltx** hosted in
 
 This repository contains the sources of myCsrf which might be read as
 mind your Classical scholar research framework. For details have a look at
-pdfs/README.pdf or http://fodina.de/mycsrf or http://kreincke.github.com/mycsrf/
+pdfs/README.pdf
